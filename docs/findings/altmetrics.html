@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Altmetrics Outcomes &#8212; EarthCube Program Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data-Oriented Outcomes" href="data.html" />
+    <link rel="prev" title="Project-Oriented Outcomes" href="projects.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ec-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube Program Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    EarthCube Metrics Analysis Report
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Findings
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../findings.html">
+   Overview
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="publications.html">
+     Publications-Oriented Outcomes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="projects.html">
+     Project-Oriented Outcomes
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Altmetrics Outcomes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="data.html">
+     Data-Oriented Outcomes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methodology
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../methodology.html">
+   EC Program Metrics Methodology
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Full Publication List
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bib/zotero.html">
+   Zotero
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/findings/altmetrics.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Altmetrics Outcomes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#highlights">
+     Highlights
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tables">
+     Tables
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#top-10-altmetric-scores">
+       Top 10 Altmetric scores
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#charts-and-graphs">
+     Charts and Graphs
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpretation">
+     Interpretation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Altmetrics Outcomes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Altmetrics Outcomes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#highlights">
+     Highlights
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tables">
+     Tables
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#top-10-altmetric-scores">
+       Top 10 Altmetric scores
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#charts-and-graphs">
+     Charts and Graphs
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interpretation">
+     Interpretation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="altmetrics-outcomes">
+<h1>Altmetrics Outcomes<a class="headerlink" href="#altmetrics-outcomes" title="Permalink to this headline">#</a></h1>
+<p>Altmetric provides significant insight into the attention scholarly works get on social media and other platforms.  While many works get no attention, some get significant attention on platforms like Twitter or on popular blogs or on news outlets.  Here is a sampling of some of the most impactful Altmetric scores – note that scores above 500 are among the top 5% of all Altmetric scores, and while scores vary in their power as predictors of citation counts <span id="id1">[<a class="reference internal" href="#id5" title="Jeremy Chang, Nidhi Desai, and Ankush Gosain. Correlation Between Altmetric Score and Citations in Pediatric Surgery Core Journals. Journal of Surgical Research, 243:52–58, November 2019. URL: https://linkinghub.elsevier.com/retrieve/pii/S0022480419303014 (visited on 2022-09-22), doi:10.1016/j.jss.2019.05.010.">CDG19</a>, <a class="reference internal" href="#id6" title="Wenya Huang, Peiling Wang, and Qiang Wu. A correlation comparison between Altmetric Attention Scores and citations for six PLOS journals. PLOS ONE, 13(4):e0194962, April 2018. URL: https://dx.plos.org/10.1371/journal.pone.0194962 (visited on 2022-09-22), doi:10.1371/journal.pone.0194962.">HWW18a</a>, <a class="reference internal" href="#id13" title="Jafar Kolahi, Saber Khazaei, Pedram Iranmanesh, Jeehyoung Kim, Heejung Bang, and Abbasali Khademi. Meta-Analysis of Correlations between Altmetric Attention Score and Citations in Health Sciences. BioMed Research International, 2021:1–11, April 2021. URL: https://www.hindawi.com/journals/bmri/2021/6680764/ (visited on 2022-09-22), doi:10.1155/2021/6680764.">KKI+21</a>, <a class="reference internal" href="#id4" title="C. Syamili and R.V. Rekha. Do altmetric correlate with citation? : A study based on PLOS ONE journal. COLLNET Journal of Scientometrics and Information Management, 11(1):103–117, January 2017. URL: https://www.tandfonline.com/doi/full/10.1080/09737766.2016.1260815 (visited on 2022-09-22), doi:10.1080/09737766.2016.1260815.">SR17</a>, <a class="reference internal" href="#id7" title="Zhiqi Wang, Wolfgang Glänzel, and Yue Chen. The impact of preprints in Library and Information Science: an analysis of citations, usage and social attention indicators. Scientometrics, 125(2):1403–1423, November 2020. URL: https://link.springer.com/10.1007/s11192-020-03612-4 (visited on 2022-09-22), doi:10.1007/s11192-020-03612-4.">WGC20</a>, <a class="reference internal" href="#id8" title="Siluo Yang, Xin Xing, Fan Qi, and Maria Cláudia Cabrini Grácio. Comparison of academic book impact from a disciplinary perspective: an analysis of citations and altmetric indicators. Scientometrics, 126(2):1101–1123, February 2021. URL: http://link.springer.com/10.1007/s11192-020-03808-8 (visited on 2022-09-22), doi:10.1007/s11192-020-03808-8.">YXQG21</a>]</span>  they are still valuable.</p>
+<section id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">#</a></h2>
+<div class="admonition-altmetric-highlights admonition">
+<p class="admonition-title">Altmetric Highlights</p>
+<ul class="simple">
+<li><p>most of top 10 highest scoring altmetric <strong>papers were published between 2017-2020</strong>.</p></li>
+<li><p>the <a class="reference external" href="https://doi.org/10.1038/sdata.2017.88">top paper</a> was a database tool</p>
+<ul>
+<li><p>A global multiproxy database for temperature reconstructions of the Common Era (doi: <a class="reference external" href="https://doi.org/10.1038/sdata.2017.88">10.1038/sdata.2017.88</a>)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">#</a></h2>
+<section id="top-10-altmetric-scores">
+<h3>Top 10 Altmetric scores<a class="headerlink" href="#top-10-altmetric-scores" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>download <span class="xref myst">csv</span>, <span class="xref myst">markdown</span></p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Altmetric Score</p></th>
+<th class="head"><p>Publication Title</p></th>
+<th class="head"><p>Project Title (NSF name)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p><a class="reference external" href="https://www.altmetric.com/details/21772704">906.774</a></p></td>
+<td><p>A global multiproxy database for temperature reconstructions of the Common Era (doi: <a class="reference external" href="https://doi.org/10.1038/sdata.2017.88">10.1038/sdata.2017.88</a>)</p></td>
+<td><p>EarthCube IA: Collaborative Proposal: LinkedEarth: Crowdsourcing Data Curation &amp; Standards Development in Paleoclimatology (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1541029&amp;HistoricalAwards=false">NSF #1541029</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>713.854</p></td>
+<td><p>BedMachine v3: Complete Bed Topography and Ocean Bathymetry Mapping of Greenland From Multibeam Echo Sounding Combined With Mass Conservation (doi: <a class="reference external" href="https://doi.org/10.1002/2017gl074954">10.1002/2017gl074954</a>)</p></td>
+<td><p>EarthCube RCN: Collaborative Research: Engaging the Greenland Ice Sheet Ocean (GRISO) Science Network (NSF #1541390)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>581.248</p></td>
+<td><p>Future Global Convective Environments in CMIP6 Models (doi: 10.1029/2021ef002277)</p></td>
+<td><p>Collaborative Proposal: EarthCube Integration: Pangeo: An Open Source Big Data Climate Science Platform (NSF #1740648)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>260.68</p></td>
+<td><p>Measurement of magnetic field and relativistic electrons along a solar flare current sheet (doi: 10.1038/s41550-020-1147-7)</p></td>
+<td><p>“EarthCube RCN: Towards Integration of Heliophysics Data, Modeling, and Analysis Tools (NSF #1743321)”</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>170.64</p></td>
+<td><p>Minimum Information about an Uncultivated Virus Genome (MIUViG) (doi: 10.1038/nbt.4306)</p></td>
+<td><p>“Collaborative Proposal: EarthCube Building Blocks: Planet Microbe: Enabling the discovery and integration of oceanographic ‘omics, environmental and physiochemical data layers (NSF #1639588)”</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>167.146</p></td>
+<td><p>A Machine Reading System for Assembling Synthetic Paleontological Databases (doi: 10.1371/journal.pone.0113523)</p></td>
+<td><p>EarthCube Building Blocks: A Cognitive Computer Infrastructure for Geoscience (NSF #1343760)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>154.722</p></td>
+<td><p>Atmospheric oxygenation driven by unsteady growth of the continental sedimentary reservoir (doi: 10.1016/j.epsl.2016.12.012)</p></td>
+<td><p>EarthCube Building Blocks: Collaborative Proposal: Digital Crust - A 4D Exploratory Environment for Earth Science Research and Learning (NSF #1440312)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>145.126</p></td>
+<td><p>Similarity of fast and slow earthquakes illuminated by machine learning (doi: 10.1038/s41561-018-0272-8)</p></td>
+<td><p>EarthCube Data Infrastructure: Collaborative Proposal: A unified experimental-natural digital data system for analysis of rock microstructure (NSF #1639710)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>142.008</p></td>
+<td><p>Liberating field science samples and data (doi: 10.1126/science.aad7048)</p></td>
+<td><p>Earthcube RCN: iSAmplEs: The Internet of Samples in the Earth Sciences (NSF #1440351)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>103.622</p></td>
+<td><p>The rise and fall of stromatolites in shallow marine environments (doi: 10.1130/g38931.1)</p></td>
+<td><p>EarthCube Building Blocks: A Cognitive Computer Infrastructure for Geoscience (NSF #1343760)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="charts-and-graphs">
+<h2>Charts and Graphs<a class="headerlink" href="#charts-and-graphs" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>download <span class="xref myst">png (small)</span>, <span class="xref myst">png (large)</span></p></li>
+</ul>
+</section>
+<section id="interpretation">
+<h2>Interpretation<a class="headerlink" href="#interpretation" title="Permalink to this headline">#</a></h2>
+<p>Altmetric scores indicate attention that articles get across social media, blogs, news outlets, and other web sites. Previous research has shown that papers with higher altmetric attention are likely to receive more citations subsequently <span id="id2">[<a class="reference internal" href="#id12" title="Akhil Pandey Akella, Hamed Alhoori, Pavan Ravikanth Kondamudi, Cole Freeman, and Haiming Zhou. Early indicators of scientific impact: Predicting citations with altmetrics. Journal of Informetrics, 15(2):101128, May 2021. URL: https://linkinghub.elsevier.com/retrieve/pii/S1751157720306453 (visited on 2022-09-22), doi:10.1016/j.joi.2020.101128.">AAK+21</a>, <a class="reference internal" href="#id10" title="Wenya Huang, Peiling Wang, and Qiang Wu. A correlation comparison between Altmetric Attention Scores and citations for six PLOS journals. PLOS ONE, 13(4):e0194962, April 2018. URL: https://dx.plos.org/10.1371/journal.pone.0194962 (visited on 2022-09-22), doi:10.1371/journal.pone.0194962.">HWW18b</a>, <a class="reference internal" href="#id11" title="Samara Klar, Yanna Krupnikov, John Barry Ryan, Kathleen Searles, and Yotam Shmargad. Using social media to promote academic research: Identifying the benefits of twitter for sharing academic work. PLOS ONE, 15(4):e0229446, April 2020. URL: https://dx.plos.org/10.1371/journal.pone.0229446 (visited on 2022-09-22), doi:10.1371/journal.pone.0229446.">KKR+20</a>, <a class="reference internal" href="#id9" title="Xin Shuai, Alberto Pepe, and Johan Bollen. How the Scientific Community Reacts to Newly Submitted Preprints: Article Downloads, Twitter Mentions, and Citations. PLoS ONE, 7(11):e47523, November 2012. URL: https://dx.plos.org/10.1371/journal.pone.0047523 (visited on 2022-09-22), doi:10.1371/journal.pone.0047523.">SPB12</a>]</span>.</p>
+<p>Many of the same papers that are included in the <a class="reference external" href="/findings/publications.html#top-10-most-cited-papers">“highly cited papers” table</a> are also in the top Altmetric list, but the ranking order does vary.</p>
+<p>Surprisingly, the paper receiving the most citations, <a class="reference external" href="https://doi.org/10.1080/17538947.2016.1239771">“Big Data and cloud computing: innovation opportunities and challenges”</a>, does not show up on this list of Altmetric score.</p>
+<p>The #2-4 papers on the “highly cited papers” list, however, are toward the top of this list of Altmetric score, being ranked #2, 5, and 1 respectively.</p>
+<p>The article ranked highest by Altmetric score that did not appear at the top of the “highly cited papers” table is the #11 item, “Rising Oceans Guaranteed: Arctic Land Ice Loss and Sea Level Rise,” published in 2018.</p>
+<p>Three other papers appear on this list of top Altmetric papers, but did not appear on the “highly cited papers” list. All three of these papers were also published 2018 or later. This suggests that Altmetric score might provide an indicator of impact and reception in the years immediately following a paper’s publication, before citation counts have had time to accrue. The papers:</p>
+<ul class="simple">
+<li><p>2019 - PaCTS 1.0: A Crowdsourced Reporting Standard for Paleoclimate Data</p></li>
+<li><p>2020 - Planet Microbe: a platform for marine microbiology to discover and analyze interconnected ‘omics and environmental data</p></li>
+<li><p>2018 - Libra: scalablek-mer–based tool for massive all-vs-all metagenome comparisons</p></li>
+</ul>
+<p>show an example of this effect.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="references">
+<h1>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h1>
+<div class="docutils container" id="id3">
+<dl class="citation">
+<dt class="label" id="id12"><span class="brackets"><a class="fn-backref" href="#id2">AAK+21</a></span></dt>
+<dd><p>Akhil Pandey Akella, Hamed Alhoori, Pavan Ravikanth Kondamudi, Cole Freeman, and Haiming Zhou. Early indicators of scientific impact: Predicting citations with altmetrics. <em>Journal of Informetrics</em>, 15(2):101128, May 2021. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S1751157720306453">https://linkinghub.elsevier.com/retrieve/pii/S1751157720306453</a> (visited on 2022-09-22), <a class="reference external" href="https://doi.org/10.1016/j.joi.2020.101128">doi:10.1016/j.joi.2020.101128</a>.</p>
+</dd>
+<dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">CDG19</a></span></dt>
+<dd><p>Jeremy Chang, Nidhi Desai, and Ankush Gosain. Correlation Between Altmetric Score and Citations in Pediatric Surgery Core Journals. <em>Journal of Surgical Research</em>, 243:52–58, November 2019. URL: <a class="reference external" href="https://linkinghub.elsevier.com/retrieve/pii/S0022480419303014">https://linkinghub.elsevier.com/retrieve/pii/S0022480419303014</a> (visited on 2022-09-22), <a class="reference external" href="https://doi.org/10.1016/j.jss.2019.05.010">doi:10.1016/j.jss.2019.05.010</a>.</p>
+</dd>
+<dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id1">HWW18a</a></span></dt>
+<dd><p>Wenya Huang, Peiling Wang, and Qiang Wu. A correlation comparison between Altmetric Attention Scores and citations for six PLOS journals. <em>PLOS ONE</em>, 13(4):e0194962, April 2018. URL: <a class="reference external" href="https://dx.plos.org/10.1371/journal.pone.0194962">https://dx.plos.org/10.1371/journal.pone.0194962</a> (visited on 2022-09-22), <a class="reference external" href="https://doi.org/10.1371/journal.pone.0194962">doi:10.1371/journal.pone.0194962</a>.</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id2">HWW18b</a></span></dt>
+<dd><p>Wenya Huang, Peiling Wang, and Qiang Wu. A correlation comparison between Altmetric Attention Scores and citations for six PLOS journals. <em>PLOS ONE</em>, 13(4):e0194962, April 2018. URL: <a class="reference external" href="https://dx.plos.org/10.1371/journal.pone.0194962">https://dx.plos.org/10.1371/journal.pone.0194962</a> (visited on 2022-09-22), <a class="reference external" href="https://doi.org/10.1371/journal.pone.0194962">doi:10.1371/journal.pone.0194962</a>.</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id2">KKR+20</a></span></dt>
+<dd><p>Samara Klar, Yanna Krupnikov, John Barry Ryan, Kathleen Searles, and Yotam Shmargad. Using social media to promote academic research: Identifying the benefits of twitter for sharing academic work. <em>PLOS ONE</em>, 15(4):e0229446, April 2020. URL: <a class="reference external" href="https://dx.plos.org/10.1371/journal.pone.0229446">https://dx.plos.org/10.1371/journal.pone.0229446</a> (visited on 2022-09-22), <a class="reference external" href="https://doi.org/10.1371/journal.pone.0229446">doi:10.1371/journal.pone.0229446</a>.</p>
+</dd>
+<dt class="label" id="id13"><span class="brackets"><a class="fn-backref" href="#id1">KKI+21</a></span></dt>
+<dd><p>Jafar Kolahi, Saber Khazaei, Pedram Iranmanesh, Jeehyoung Kim, Heejung Bang, and Abbasali Khademi. Meta-Analysis of Correlations between Altmetric Attention Score and Citations in Health Sciences. <em>BioMed Research International</em>, 2021:1–11, April 2021. URL: <a class="reference external" href="https://www.hindawi.com/journals/bmri/2021/6680764/">https://www.hindawi.com/journals/bmri/2021/6680764/</a> (visited on 2022-09-22), <a class="reference external" href="https://doi.org/10.1155/2021/6680764">doi:10.1155/2021/6680764</a>.</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">SPB12</a></span></dt>
+<dd><p>Xin Shuai, Alberto Pepe, and Johan Bollen. How the Scientific Community Reacts to Newly Submitted Preprints: Article Downloads, Twitter Mentions, and Citations. <em>PLoS ONE</em>, 7(11):e47523, November 2012. URL: <a class="reference external" href="https://dx.plos.org/10.1371/journal.pone.0047523">https://dx.plos.org/10.1371/journal.pone.0047523</a> (visited on 2022-09-22), <a class="reference external" href="https://doi.org/10.1371/journal.pone.0047523">doi:10.1371/journal.pone.0047523</a>.</p>
+</dd>
+<dt class="label" id="id4"><span class="brackets"><a class="fn-backref" href="#id1">SR17</a></span></dt>
+<dd><p>C. Syamili and R.V. Rekha. Do altmetric correlate with citation? : A study based on PLOS ONE journal. <em>COLLNET Journal of Scientometrics and Information Management</em>, 11(1):103–117, January 2017. URL: <a class="reference external" href="https://www.tandfonline.com/doi/full/10.1080/09737766.2016.1260815">https://www.tandfonline.com/doi/full/10.1080/09737766.2016.1260815</a> (visited on 2022-09-22), <a class="reference external" href="https://doi.org/10.1080/09737766.2016.1260815">doi:10.1080/09737766.2016.1260815</a>.</p>
+</dd>
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id1">WGC20</a></span></dt>
+<dd><p>Zhiqi Wang, Wolfgang Glänzel, and Yue Chen. The impact of preprints in Library and Information Science: an analysis of citations, usage and social attention indicators. <em>Scientometrics</em>, 125(2):1403–1423, November 2020. URL: <a class="reference external" href="https://link.springer.com/10.1007/s11192-020-03612-4">https://link.springer.com/10.1007/s11192-020-03612-4</a> (visited on 2022-09-22), <a class="reference external" href="https://doi.org/10.1007/s11192-020-03612-4">doi:10.1007/s11192-020-03612-4</a>.</p>
+</dd>
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">YXQG21</a></span></dt>
+<dd><p>Siluo Yang, Xin Xing, Fan Qi, and Maria Cláudia Cabrini Grácio. Comparison of academic book impact from a disciplinary perspective: an analysis of citations and altmetric indicators. <em>Scientometrics</em>, 126(2):1101–1123, February 2021. URL: <a class="reference external" href="http://link.springer.com/10.1007/s11192-020-03808-8">http://link.springer.com/10.1007/s11192-020-03808-8</a> (visited on 2022-09-22), <a class="reference external" href="https://doi.org/10.1007/s11192-020-03808-8">doi:10.1007/s11192-020-03808-8</a>.</p>
+</dd>
+</dl>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./findings"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="projects.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Project-Oriented Outcomes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="data.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data-Oriented Outcomes</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The NCAR Library; Keith Maull & Matt Mayernik<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>EC Program Metrics Methodology &#8212; EarthCube Program Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Zotero" href="bib/zotero.html" />
+    <link rel="prev" title="Data-Oriented Outcomes" href="findings/data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/ec-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube Program Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    EarthCube Metrics Analysis Report
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Findings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="findings.html">
+   Overview
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="findings/publications.html">
+     Publications-Oriented Outcomes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="findings/projects.html">
+     Project-Oriented Outcomes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="findings/altmetrics.html">
+     Altmetrics Outcomes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="findings/data.html">
+     Data-Oriented Outcomes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methodology
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   EC Program Metrics Methodology
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Full Publication List
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="bib/zotero.html">
+   Zotero
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/methodology.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   EC Program Metrics Methodology
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phase-1-input-data-extraction-and-processing">
+     Phase 1: Input Data Extraction and Processing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phase-2-analysis-and-reporting">
+     Phase 2: Analysis and Reporting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primary-data-sources">
+   Primary Data Sources
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nsf-awards-database">
+     NSF Awards Database
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#limitations-of-nsf-database">
+       Limitations of NSF database
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#earthcube-publication-survey">
+     EarthCube publication survey
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#limitations-of-survey">
+       Limitations of survey
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-processing">
+     Data Processing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#doi-lookup">
+       DOI Lookup
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#building-and-filtering-the-publication-corpus">
+       Building and filtering the publication corpus
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metadata-collection">
+       Metadata collection
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#additional-citation-information-and-metadata">
+       Additional Citation Information and Metadata
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>EC Program Metrics Methodology</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   EC Program Metrics Methodology
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phase-1-input-data-extraction-and-processing">
+     Phase 1: Input Data Extraction and Processing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phase-2-analysis-and-reporting">
+     Phase 2: Analysis and Reporting
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#primary-data-sources">
+   Primary Data Sources
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nsf-awards-database">
+     NSF Awards Database
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#limitations-of-nsf-database">
+       Limitations of NSF database
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#earthcube-publication-survey">
+     EarthCube publication survey
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#limitations-of-survey">
+       Limitations of survey
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-processing">
+     Data Processing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#doi-lookup">
+       DOI Lookup
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#building-and-filtering-the-publication-corpus">
+       Building and filtering the publication corpus
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metadata-collection">
+       Metadata collection
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#additional-citation-information-and-metadata">
+       Additional Citation Information and Metadata
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="ec-program-metrics-methodology">
+<h1>EC Program Metrics Methodology<a class="headerlink" href="#ec-program-metrics-methodology" title="Permalink to this headline">#</a></h1>
+<p>The methodology for this analysis involves multiple data sources and several iterations of manual and automated efforts. This summary includes  EarthCube project publications from its inception to projects whose funding initiated in or through 2021.</p>
+<section id="phase-1-input-data-extraction-and-processing">
+<h2>Phase 1: Input Data Extraction and Processing<a class="headerlink" href="#phase-1-input-data-extraction-and-processing" title="Permalink to this headline">#</a></h2>
+<p><img alt="Phase 1 Process Diagram" src="_images/ec_process_phase1.png" />
+(download <span class="xref myst">png small</span>, <span class="xref myst">png large</span>)</p>
+<p>All Earthcube funded projects NSF identifiers were collected and project metadata gathered from the NSF API for funded projects and from ECO provided project data.  This metadata contains the reported publication citations, some of which include DOIs.</p>
+<p>underlying  metadata was retrieved using the Crossref API, and those without, fulltext citations were automatically queried and matched with the correct DOI if it existed.</p>
+</section>
+<section id="phase-2-analysis-and-reporting">
+<h2>Phase 2: Analysis and Reporting<a class="headerlink" href="#phase-2-analysis-and-reporting" title="Permalink to this headline">#</a></h2>
+<p><img alt="Phase 2 Process Diagram" src="_images/ec_process_phase2.png" />
+(download <span class="xref myst">png small</span>, <span class="xref myst">png large</span>)</p>
+<p>After all metadata was obtained in subprocess (A), using the DOI, project ID and citation counts as primary keys to underlying data, Jupyter notebooks were developed in subprocess (B) to provide detailed underlying analysis of the EC publications.  Reporting and metrics were the primary outputs reflected in subprocess (C) and in this and other documents.</p>
+<p>All Earthcube funded projects NSF identifiers were collected and project metadata gathered from the NSF API for funded projects (<a class="reference external" href="https://www.research.gov/common/webapi/awardapisearch-v1.htm">https://www.research.gov/common/webapi/awardapisearch-v1.htm</a>) and from ECO provided project data.  This metadata contains the reported publication citations, some of which include DOIs.  For those with DOIs, full metadata was retrieved using the Crossref API (<a class="reference external" href="https://www.crossref.org/documentation/retrieve-metadata/rest-api/">https://www.crossref.org/documentation/retrieve-metadata/rest-api/</a>), and those without, fulltext citations were automatically queried and matched with the correct DOI if it existed.</p>
+<p><img alt="Phase 2 Altmetric Process Diagram" src="_images/ec_process_phase2_altmetric.png" />
+(download <span class="xref myst">png small</span>, <span class="xref myst">png large</span>)</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="primary-data-sources">
+<h1>Primary Data Sources<a class="headerlink" href="#primary-data-sources" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.research.gov/common/webapi/awardapisearch-v1.htm">NSF Awards API</a></p></li>
+<li><p><a class="reference external" href="https://www.crossref.org/documentation/retrieve-metadata/rest-api/">Crossref metadata API</a></p></li>
+</ul>
+<section id="nsf-awards-database">
+<h2>NSF Awards Database<a class="headerlink" href="#nsf-awards-database" title="Permalink to this headline">#</a></h2>
+<p>The publications examined in this analysis are drawn from the <a class="reference external" href="https://nsf.gov/awardssearch">NSF’s Awards database</a>, which contains information about publications that are reported by grant PIs as being associated with specific NSF grant awards.</p>
+<p>The NSF database provides a query interface that returns lists of publications that have been reported by PIs of specific grants. Starting from the list of grant IDs provided by the ECO, we were able to compile all of the peer-reviewed publications reports for those grants.</p>
+<section id="limitations-of-nsf-database">
+<h3>Limitations of NSF database<a class="headerlink" href="#limitations-of-nsf-database" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>Self-reported</strong> - papers are reported to the NSF database by the grant award PIs through two mechanisms: 1) by reporting papers in the annual reports that are required by the NSF for all funded awards, and 2) by adding paper citations into the the NSF open access publication repository, <a class="reference external" href="https://par.nsf.gov/">https://par.nsf.gov/</a>, and associating the papers with specific grant awards.</p></li>
+<li><p><strong>Temporal issues</strong> - There is typically a lag between when funding is awarded and when papers are written based on the funded work. Few papers may be written in the first year or two of a funded award, as the project efforts are focused on setting up collaborations, creating infrastructure, and/or collecting data. Once papers are being written, it can then take a year or more for a paper to be finalized, submitted, reviewed, and published. Due to these lags, papers related to the funded work may be published after grants close. Such papers may not be reported at all, once the PIs are no longer required to submit annual reports.</p></li>
+<li><p><strong>Collaborative grants</strong> - Many NSF grants are awarded as collaborative awards. In these cases, proposals are submitted collaboratively, but funds are awarded to each collaboration organization as a separate award in the NSF system. For example, the 78 EarthCube grant IDs analyzed in this project map to 46 unique projects due to many of the grants being collaborative awards. Each collaborative award is subject to the annual reporting requirement, which results in the same papers being reported under multiple grant IDs. Analyses based on the NSF database must take this into account to avoid double counting publications.</p></li>
+</ul>
+</section>
+</section>
+<section id="earthcube-publication-survey">
+<h2>EarthCube publication survey<a class="headerlink" href="#earthcube-publication-survey" title="Permalink to this headline">#</a></h2>
+<p>In April 2022, we worked with the EarthCube Office to create a survey of EarthCube project PIs, to gather publications that were not reported to the NSF database, either because the publications were produced after the timeline of funded projects, or because the projects are still ongoing, and have not reported their final publication lists yet. The survey added about 20-30 publications that were not reported via the NSF publications database, for about a 10% increase in the overall publication total.</p>
+<section id="limitations-of-survey">
+<h3>Limitations of survey<a class="headerlink" href="#limitations-of-survey" title="Permalink to this headline">#</a></h3>
+<p>While the survey yielded a few more publications than normal, there were a few key issues to consider:</p>
+<ul class="simple">
+<li><p><strong>older project PI non-response</strong>: the projects further in the past were less likely to have their PIs respond to the survey, perhaps reducing the accuracy of peer-reviewed  publications that were otherwise not reported to the NSF.</p></li>
+<li><p><strong>non-publication</strong>: some projects did not produce peer-reviewed publications, and thus no DOI.</p></li>
+<li><p><strong>time constraints</strong>: the survey was open for a limited time and PIs who were unable to respond, my not have responded because there wasn’t enough time to do so because of lack of resources (time), other higher priority commitments or other reasons.</p></li>
+</ul>
+</section>
+</section>
+<section id="data-processing">
+<h2>Data Processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">#</a></h2>
+<section id="doi-lookup">
+<h3>DOI Lookup<a class="headerlink" href="#doi-lookup" title="Permalink to this headline">#</a></h3>
+<p>DOIs are important for a couple of reasons. First, they are very useful to disambiguate among entries that may be duplicates in the results from the NSF database, whether because of accidental duplicate uploads by the grant PIs or because of the same papers being reported by multiple participants within collaborative grants. Other metadata about papers can of course be used to disambiguate paper citations, including titles, authors, and the journal information (such as volumes, issues, and dates), but DOIs simplify this process significantly. Second, DOIs are useful because they allow for querying other services for additional information about the papers, specifically for the purposes of this study, citation information.</p>
+</section>
+<section id="building-and-filtering-the-publication-corpus">
+<h3>Building and filtering the publication corpus<a class="headerlink" href="#building-and-filtering-the-publication-corpus" title="Permalink to this headline">#</a></h3>
+<p>Papers with no DOIs were not analyzed because it is not possible to consistently gather citation information from the available services, while papers with DOIs were compiled as follows:</p>
+<p>(a) most paper DOIs were reported in the NSF publications data <em>or</em> by the PI via the <span class="xref myst">survey</span>,
+(b) for papers where DOIs were not reported in the NSF data or via the survey, we attempted to find the DOI either by an automated matching service provided by <span class="xref myst">CrossRef</span>, or by manual look-up. We also performed manual look-up of papers and DOIs when the DOIs in our corpus were not working. Through this effort a handful of DOIs were recovered that were mis-typed or somehow reported incorrectly,
+(c) for DOIs that failed to return metadata, they were queried against <a class="reference external" href="https://datacite.org">Datacite</a> to ascertain whether they were software, data, technical report or other digital asset that was not a publication, but equally important as a program output.  There were fewer than 15 such DOIs, but <a class="reference internal" href="findings/data.html"><span class="doc std std-doc">their analysis can be seen here</span></a>.</p>
+</section>
+<section id="metadata-collection">
+<h3>Metadata collection<a class="headerlink" href="#metadata-collection" title="Permalink to this headline">#</a></h3>
+<p>For each DOI, we gathered an extensive set of metadata from <a class="reference external" href="https://crossref.org">Crossref</a>, including:</p>
+<ul class="simple">
+<li><p>Authors</p></li>
+<li><p>Publication date</p></li>
+<li><p>Journal</p></li>
+<li><p>Cited works</p></li>
+<li><p>Cited counts</p></li>
+<li><p>and other publications details - e.g. title, pages, etc.</p></li>
+</ul>
+<p>We coupled this metadata with information about the associated EarthCube grant, such as the awarded PIs and institution, grant type, and grant timeline.</p>
+</section>
+<section id="additional-citation-information-and-metadata">
+<h3>Additional Citation Information and Metadata<a class="headerlink" href="#additional-citation-information-and-metadata" title="Permalink to this headline">#</a></h3>
+<p>For all DOIs, we queried additional citation indexes to return any available citation information. The citation indexes we used are listed below, and each service has strengths and weaknesses, but all data obtained was that which was <em>freely</em> available through API access. Some are wider in scope, meaning that they index a larger set of journals. Some provide only citation counts, and some provide full information about all articles that cite a given DOI.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://webofknowledge.com">Web of Science &amp; InCites</a></p></li>
+<li><p><a class="reference external" href="https://semanticscholar.org">Semantic Scholar</a></p></li>
+<li><p><a class="reference external" href="https://scopus">Scopus</a></p></li>
+<li><p><a class="reference external" href="https://datacite.org">DataCite</a> - provides metadata and citation counts for non-articles, e.g. data and software.</p></li>
+<li><p><a class="reference external" href="https://altmetrics.com">Altmetrics</a> - provides an indicator of interest in an article on social media</p></li>
+</ul>
+<p>Citation counts from all of these services were compiled to show similarities and differences across the services. We note in the analysis below which specific citation services were used for each specific analysis.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="findings/data.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Data-Oriented Outcomes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="bib/zotero.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Zotero</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The NCAR Library; Keith Maull & Matt Mayernik<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
