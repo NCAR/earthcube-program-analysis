@@ -5,19 +5,19 @@ Top 10 projects sorted by number of publications give insight into how project-l
 ## Highlights
 
 ```{admonition} Publication Highlights
-* **total papers analysed** : 228
-* **total citations** : 3844 
-* **mean cites per paper** : 17.01
-* **median cites per paper** : 5.00
-* the **top 10 papers produced 45% of all citations**
-* the top paper **produced over 350 citations** : 
+* **total papers analysed** : 245
+* **total citations** : 4301 
+* **mean cites per paper** : 17.55
+* **median cites per paper** : 6aa.00
+* the **top 10 papers produced 42% of all citations**
+* the top paper **produced over 375 citations** : 
    *  Yang, C., Q. Huang, Z. Li, K. Liu, and F. Hu, 2017: Big Data and cloud computing: innovation opportunities and challenges. International Journal of Digital Earth, 10, 13–53, https://doi.org/10.1080/17538947.2016.1239771.
 ```
 
 ### TOP CITED PAPER
 
 * 2017 Yang paper from the ECITE project (Collaborative project IDs: 1541039,1540998, 1541049): 
-    * **344 total citations**
+    * **375 total citations**
     * Yang, C., Q. Huang, Z. Li, K. Liu, and F. Hu, 2017: Big Data and cloud computing: innovation opportunities and challenges. International Journal of Digital Earth, 10, 13–53, https://doi.org/10.1080/17538947.2016.1239771.
     * **ABSTRACT:** 
     > Big Data has emerged in the past few years as a new paradigm providing abundant data and opportunities to improve and/or enable research and decision-support applications with unprecedented value for digital earth applications including business, sciences and engineering. At the same time, Big Data presents challenges for digital earth to store, transport, process, mine and serve the data. Cloud computing provides fundamental support to address the challenges with shared computing resources including computing, storage, networking and analytical software; the application of these resources has fostered impressive Big Data advancements. This paper surveys the two frontiers – Big Data and cloud computing – and reviews the advantages and consequences of utilizing cloud computing to tackling Big Data in the digital earth and relevant science domains. From the aspects of a general introduction, sources, challenges, technology status and research opportunities, the following observations are offered: (i) cloud computing and Big Data enable science discoveries and application developments; (ii) cloud computing provides major solutions for Big Data; (iii) Big Data, spatiotemporal thinking and various application domains drive the advancement of cloud computing and relevant technologies with new requirements; (iv) intrinsic spatiotemporal principles of Big Data and geospatial sciences provide the source for finding technical and theoretical solutions to optimize cloud computing and processing Big Data; (v) open availability of Big Data and processing capability pose social challenges of geospatial significance and (vi) a weave of innovations is transforming Big Data into geospatial research, engineering and business values. This review introduces future innovations and a research agenda for cloud computing supporting the transformation of the volume, velocity, variety and veracity into values of Big Data for local to global digital earth science and applications.
@@ -26,8 +26,8 @@ Top 10 projects sorted by number of publications give insight into how project-l
 
 ### TOP 10 MOST CITED PAPERS
 
-* top 10 raw files:   {download}`[csv (download)] </analysis/notebooks/outputs/top10_pubs_simple.csv>`
-* all citations files:  {download}`[csv (download)] </analysis/notebooks/outputs/all_pubs_simple.csv>`
+* top 10 publications data files:   {download}`[csv (download)] </analysis/notebooks/outputs/top10_pubs_simple.csv>` |  {download}`[markdown (.md) (download)] </analysis/notebooks/outputs/top10_pubs_simple.md>`
+* all publications data files:  {download}`[csv (download)] </analysis/notebooks/outputs/all_pubs_simple.csv>` |  {download}`[markdown (.md) (download)] </analysis/notebooks/outputs/all_pubs_simple.md>`
 
 | DOI                                 |   Cites | Citation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |:------------------------------------|--------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -47,15 +47,20 @@ Top 10 projects sorted by number of publications give insight into how project-l
 
 ## Charts and Graphs
 
+* download {download}`[png]<../analysis/outputs/fig_publications_by_year.png>`
+
+![Publications by year](../analysis/outputs/fig_publications_by_year.png)
+
+* download {download}`[png]<../analysis/outputs/fig_publications_citation_density.png>`
+
+![Publication citation density](../analysis/outputs/fig_publications_citation_density.png)
+---
+
 A number of projects produced a small number of publications, and a few produced a lot.  This chart shows the frequency (number of projects) on the x-axis and the publication count on the y-axis.  It is clear, a small number of projects generate more than 10 publications, while the vast majority produced fewer than 10.  
 
 ![](/analysis/outputs/fig_ec_project_duration.png)
 
 *  {download}`[png (download)] </analysis/outputs/fig_ec_project_duration.png>`
-
-![Project count frequencies]()
-
-
 Many different projects were funded over the course of the EC program.  This chart shows that the Building Block projects produced the largest number of papers, and this is expected since they were the largest category of funded project type.
 
 * download [png (small)](/analysis/notebooks/outputs/stub), [png (large)](/analysis/notebooks/outputs/stub)
@@ -84,3 +89,8 @@ The Neotoma Paleoecology Database, a multiproxy, international, community-curate
 * Minimum Information about an Uncultivated Virus Genome (MIUViG) - **206 citations**
 * Toward the Geoscience Paper of the Future: Best practices for documenting and sharing research from data to software to provenance - **91 citations**
 * Situating Ecology as a Big-Data Science: Current Advances, Challenges, and Solutions - **71 citations**
+
+
+## Analysis Notebooks
+
+* [01a_basic_publication_analysis.ipynb](../analysis/notebooks/01a_basic_publication_analysis.ipynb)

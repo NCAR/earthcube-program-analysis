@@ -49,6 +49,11 @@ The #2-4 papers on the top 10 most cited papers list, however, are toward the to
 
 Several articles ranked in the top 10 Altmetric scores did not appear in the top 10 of the top 10 most cited papers list. Many of these papers were published after 2018, suggesting that Altmetric scores might provide an indicator of impact and reception in the years immediately following a paper’s publication, before citation counts have had time to accrue. 
 
+## Analysis Notebooks
+
+* [01_basic_altmetric_analysis.ipynb](../analysis/notebooks/01_basic_altmetric_analysis.ipynb)
+
+
 # References
 ```{bibliography}
 ```

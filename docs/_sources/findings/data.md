@@ -51,3 +51,7 @@ Beyond peer-reviewed publications, these eleven resources produced by EarthCube 
 The total number of items in the list is ~1% of all the analyzed outcomes (publications), and it is unclear what the _expected_ rate of these assets should be.  The EarthCube project has large computational infrastructure projects, and so it would be expected that more datasets and software appear in this list -- indeed, many more than three software products have been produced by EarthCube projects.
 
 For future projects, additional resources and guidance (such as that of the software citation recommendation](https://earthcube.org/sw-citation)) are needed to enable data and software citation and identification, as well as a clear path for technical works that are not publications.
+
+## Analysis Notebooks
+
+* [01_basic_datacite_analysis.ipynb](../analysis/notebooks/01_basic_datacite_analysis.ipynb)

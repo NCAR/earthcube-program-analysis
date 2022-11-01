@@ -1,27 +1,49 @@
 # Project-Oriented Outcomes 
 
 Top 10 projects sorted by number of publications give insight into how project-level outcomes compare.  This gives us a view into the relative publication outputs of funded projects and says nothing of non-publication outputs (software, data, posters, workshops, etc.).  
+
+In general, collaborative projects of two or more collaborators produced more citations (regardless of total papers produced).  However, and as is the nearly always the case, predictors of high citation counts are independent of the number of papers -- projects that produce highly cited papers do not produce more papers and visa versa.  Interestingly, the second highest citation producing project had only no additional collaborators (GRISO NSF [#1541390](https://nsf.gov/awardsearch/showAward?AWD_ID=1541390&HistoricalAwards=false)).
+
+
+
+
+
 ## Highlights
 ```{admonition} Project Highlights
-* **three projects produced more than 10** peer-reviewed publications
-* The [ITEST](https://nsf.gov/awardsearch/showAward?AWD_ID=1541039&HistoricalAwards=false) project **produced over 503 citations in 6 publications**
-* the **average publications per year of project fundining** was :  
+* **four projects produced at least 10** peer-reviewed publications
+* The ITEST [(NSF #1541039)](https://nsf.gov/awardsearch/showAward?AWD_ID=1541039&HistoricalAwards=false) project **produced over 541 citations in 6 publications**
+* the **average publications per year of project funding (for projects expiring by 2020)** was :  1.07
 ```
 
 ## Tables
 
 ### Project-Publication Counts
 
+
+**TOP 5 AWARDED PROECTS BY PUBLICATION COUNTS**
+
 * project/publication counts: {download}`[csv (download)]</analysis/outputs/ec_funded_projects_and_pubs_by_year.csv>`
 
-| Project Title | Awarded Date | End Date | Publication Count |
-|----------------:|---------------|---------------|---------------|
-| EarthCube Building Blocks: CyberConnector: Bridging the Earth Observations and Earth Science Modeling for Supporting Model Validation, Verification, and Inter-comparison | 8/12/2014 | 8/31/2017 | 16 |
-| EarthCube Building Blocks: Collaborative Proposal: GeoSoft: Collaborative Open Source Software Sharing for Geosciences | 8/14/2014 | 8/31/2018 | 16 |
-| EarthCube IA: Collaborative Proposal: Optimal Data Layout for Scalable Geophysical Analysis in a Data-intensive Environment | 9/8/2015 | 8/31/2019 | 11 |
-| EarthCube Integration: CyberWay-Integrated Capabilities of EarthCube Building Blocks for Facilitating Cyber-based Innovative Way of Interdisciplinary Geoscience Studies | 9/6/2017 | 9/30/2020 | 8 |
-| EarthCube IA: Collaborative Proposal: Building Interoperable Cyberinfrastructure (CI) at the Interface between Paleogeoinformatics and Bioinformatics | 7/30/2015 | 8/31/2018 | 8 |
+| Award Title | Start Date | End Date | Publication Count |
+|---:|:--:|:--:|:--:|
+| Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences ([NSF #1440323](https://nsf.gov/awardsearch/showAward?AWD_ID=1440323&HistoricalAwards=false), [NSF #1440291](https://nsf.gov/awardsearch/showAward?AWD_ID=1440291&HistoricalAwards=false), [NSF #1440332](https://nsf.gov/awardsearch/showAward?AWD_ID=1440332&HistoricalAwards=false)) | 2014-09-01 | 2018-08-31 | 19 |
+| Earthcube Building Blocks: Cyberconnector: Bridging The Earth Observations And Earth Science Modeling For Supporting Model Validation, Verification, And Inter-Comparison ([NSF #1440294](https://nsf.gov/awardsearch/showAward?AWD_ID=1440294&HistoricalAwards=false)) | 2014-09-01 | 2017-08-31 | 13 |
+| Earthcube Ia: Collaborative Proposal: Optimal Data Layout For Scalable Geophysical Analysis In A Data-Intensive Environment ([NSF #1541043](https://nsf.gov/awardsearch/showAward?AWD_ID=1541043&HistoricalAwards=false), [NSF #1540542](https://nsf.gov/awardsearch/showAward?AWD_ID=1540542&HistoricalAwards=false)) | 2015-09-01 | 2019-08-31 | 11 |
+| Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions ([NSF #1927578](https://nsf.gov/awardsearch/showAward?AWD_ID=1927578&HistoricalAwards=false)) | 2019-09-01 | 2023-08-31 | 10 |
+| Earthcube Data Infrastructure: Collaborative Proposal: A Unified Experimental-Natural Digital Data System For Analysis Of Rock Microstructures ([NSF #1639749](https://nsf.gov/awardsearch/showAward?AWD_ID=1639749&HistoricalAwards=false), [NSF #1639710](https://nsf.gov/awardsearch/showAward?AWD_ID=1639710&HistoricalAwards=false), [NSF #1639716](https://nsf.gov/awardsearch/showAward?AWD_ID=1639716&HistoricalAwards=false), [NSF #1639738](https://nsf.gov/awardsearch/showAward?AWD_ID=1639738&HistoricalAwards=false), [NSF #1639748](https://nsf.gov/awardsearch/showAward?AWD_ID=1639748&HistoricalAwards=false)) | 2017-09-01 | 2021-08-31 | 9 |
 
+
+**TOP 5 AWARDED PROECTS BY TOTAL CITATIONS**
+
+| Award Title | Start Date | End Date | Total Citations |
+|---:|:--:|:--:|:--:|
+| Earthcube Ia: Collaborative Proposal: Earthcube Integration & Test Environment ([NSF #1541039](https://nsf.gov/awardsearch/showAward?AWD_ID=1541039&HistoricalAwards=false), [NSF #1540998](https://nsf.gov/awardsearch/showAward?AWD_ID=1540998&HistoricalAwards=false), [NSF #1541049](https://nsf.gov/awardsearch/showAward?AWD_ID=1541049&HistoricalAwards=false)) | 2015-09-01 | 2018-08-31 | 541 |
+| Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network ([NSF #1541390](https://nsf.gov/awardsearch/showAward?AWD_ID=1541390&HistoricalAwards=false)) | 2016-08-01 | 2018-07-31 | 391 |
+| Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers ([NSF #1639588](https://nsf.gov/awardsearch/showAward?AWD_ID=1639588&HistoricalAwards=false), [NSF #1639614](https://nsf.gov/awardsearch/showAward?AWD_ID=1639614&HistoricalAwards=false)) | 2017-09-01 | 2020-08-31 | 304 |
+| Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences ([NSF #1440323](https://nsf.gov/awardsearch/showAward?AWD_ID=1440323&HistoricalAwards=false), [NSF #1440291](https://nsf.gov/awardsearch/showAward?AWD_ID=1440291&HistoricalAwards=false), [NSF #1440332](https://nsf.gov/awardsearch/showAward?AWD_ID=1440332&HistoricalAwards=false)) | 2014-09-01 | 2018-08-31 | 267 |
+| Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics ([NSF #1540979](https://nsf.gov/awardsearch/showAward?AWD_ID=1540979&HistoricalAwards=false), [NSF #1541002](https://nsf.gov/awardsearch/showAward?AWD_ID=1541002&HistoricalAwards=false)) | 2015-09-01 | 2019-08-31 | 244 |
+
+<!--
 ### Top 10 Projects By Total Citations
 
 * download [csv](/analysis/notebooks/outputs/stub), [markdown](/analysis/notebooks/outputs/stub)
@@ -29,20 +51,12 @@ Top 10 projects sorted by number of publications give insight into how project-l
 |Project Title | Awardee | Start Date | End Date | Citations | Publications  |
 |----------------:|---------------|---------------|---------------|---------|---------|
 | EarthCube IA: Collaborative Proposal: EarthCube Integration & Test Environment ([NSF #1541039](https://nsf.gov/awardsearch/showAward?AWD_ID=1541039&HistoricalAwards=false)) | UNIVERSITY OF ALABAMA IN HUNTSVILLE | 9/9/2015 | 8/31/2018 | 503 | 6 |
-| Collaborative Proposal: EarthCube Building Blocks: Planet Microbe: Enabling the discovery and integration of oceanographic 'omics, environmental and physiochemical data layers ([NSF #1639588](https://nsf.gov/awardsearch/showAward?AWD_ID=1639588&HistoricalAwards=false)) | UNIVERSITY OF ARIZONA | 8/21/2017 | 8/31/2020 | 269 | 5 |
-| EarthCube Building Blocks: Collaborative Proposal: GeoSoft: Collaborative Open Source Software Sharing for Geosciences ([NSF #1440323](https://nsf.gov/awardsearch/showAward?AWD_ID=1440323&HistoricalAwards=false)) | UNIVERSITY OF SOUTHERN CALIFORNIA | 8/14/2014 | 8/31/2018 | 235 | 16 |
-| EarthCube IA: Collaborative Proposal: Building Interoperable Cyberinfrastructure (CI) at the Interface between Paleogeoinformatics and Bioinformatics ([NSF #1541002](https://nsf.gov/awardsearch/showAward?AWD_ID=1541002&HistoricalAwards=false)) | UNIVERSITY OF WISCONSIN SYSTEM | 7/30/2015 | 8/31/2018 | 208 | 8 |
-| EarthCube IA: Collaborative Proposal: LinkedEarth: Crowdsourcing Data Curation & Standards Development in Paleoclimatology ([NSF #1540996](https://nsf.gov/awardsearch/showAward?AWD_ID=1540996&HistoricalAwards=false)) | NORTHERN ARIZONA UNIVERSITY | 7/28/2015 | 8/31/2018 | 173 | 5 |
-| EarthCube Integration: CyberWay-Integrated Capabilities of EarthCube Building Blocks for Facilitating Cyber-based Innovative Way of Interdisciplinary Geoscience Studies ([NSF #1740693](https://nsf.gov/awardsearch/showAward?AWD_ID=1740693&HistoricalAwards=false)) | GEORGE MASON UNIVERSITY | 9/6/2017 | 9/30/2020 | 164 | 8 |
-| EarthCube IA: Collaborative Proposal: EarthCube Integration & Test Environment ([NSF #1541049](https://nsf.gov/awardsearch/showAward?AWD_ID=1541049&HistoricalAwards=false)) | CALIFORNIA INSTITUTE OF TECHNOLOGY | 9/9/2015 | 8/31/2018 | 159 | 5 |
-| EarthCube Data Infrastructure: Collaborative Proposal: A unified experimental-natural digital data system for analysis of rock microstructure ([NSF #1639710](https://nsf.gov/awardsearch/showAward?AWD_ID=1639710&HistoricalAwards=false)) | "PENNSYLVANIA STATE UNIVERSITY, THE" | 8/18/2017 | 8/31/2020 | 108 | 5 |
-| "EarthCube Building Blocks: CyberConnector: Bridging the Earth Observations and Earth Science Modeling for Supporting Model Validation, Verification, and Inter-comparison ([NSF #1440294](https://nsf.gov/awardsearch/showAward?AWD_ID=1440294&HistoricalAwards=false))" | GEORGE MASON UNIVERSITY | 8/12/2014 | 8/31/2017 | 105 | 16 |
+
+-->
 
 ## Charts and Graphs 
 
-* download [png (small)](/analysis/notebooks/outputs/stub), [png (large)](/analysis/notebooks/outputs/stub)
-
-![Project Outcomes publication to awards](/analysis/outputs/project-outcomes-graph01.png)
+* charts or graphs have yet to be produced for this data
 
 ## Interpretation
 
