@@ -58,6 +58,15 @@ In general, collaborative projects of two or more collaborators produced more ci
 
 * charts or graphs have yet to be produced for this data
 
+![Duration of EC funded projects](/analysis/outputs/fig_ec_project_duration.png)
+
+* charts or graphs have yet to be produced for this data
+
+![EC funded projects](/analysis/outputs/fig_funded_projects_by_year.png)
+
+
+
+
 ## Interpretation
 
 The largest group of EC projects were funded between 2014-2017. Funding was largely paused in 2018, and resumed from 2019-2021 though at a lower rate in terms of numbers of projects.
