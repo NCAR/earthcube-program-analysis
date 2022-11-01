@@ -23,7 +23,7 @@ The analysis process involved three major phases:
 
 3. **Reporting**
 
-    > The reporting covers individual, project and progra level analysis from a citation analysis lens.
+    > The reporting covers individual, project and program level analysis from a citation analysis lens.
 
 Detailed methodology can be found in the [Methodology chapter](/methodology/) of this report.
 
