@@ -48,7 +48,7 @@ It is likely there are more that were not capture with our analysis, but these  
 
 Beyond peer-reviewed publications, these eleven resources produced by EarthCube funding have been assigned DOIs in DataCite, and the three articles / reports might be investigated further to determine if they could have been appropriately published as peer-reviewed publications.
 
-The total number of items in the list is ~1% of all the analyzed outcomes (publications), and it is unclear what the _expected_ rate of these assets should be.  The EarthCube project has large computational infrastructure projects, and so it would be expected that more datasets and software appear in this list -- indeed, many more than three software products have been produced by EarthCube projects.
+The total number of items in the list is <1% of all the analyzed outcomes (publications), and it is unclear what the _expected_ rate of these assets should be.  The EarthCube project has large computational infrastructure projects, and so it would be expected that more datasets and software appear in this list -- indeed, many more than three software products have been produced by EarthCube projects.
 
 For future projects, additional resources and guidance (such as that of the software citation recommendation](https://earthcube.org/sw-citation)) are needed to enable data and software citation and identification, as well as a clear path for technical works that are not publications.
 
