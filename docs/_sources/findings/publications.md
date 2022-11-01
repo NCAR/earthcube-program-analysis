@@ -58,12 +58,12 @@ Top 10 projects sorted by number of publications give insight into how project-l
 
 A number of projects produced a small number of publications, and a few produced a lot.  This chart shows the frequency (number of projects) on the x-axis and the publication count on the y-axis.  It is clear, a small number of projects generate more than 10 publications, while the vast majority produced fewer than 10.  
 
-![](/analysis/outputs/fig_ec_project_duration.png)
+<!-- ![](/analysis/outputs/fig_ec_project_duration.png)
 
 *  {download}`[png (download)] </analysis/outputs/fig_ec_project_duration.png>`
 Many different projects were funded over the course of the EC program.  This chart shows that the Building Block projects produced the largest number of papers, and this is expected since they were the largest category of funded project type.
 
-* download [png (small)](/analysis/notebooks/outputs/stub), [png (large)](/analysis/notebooks/outputs/stub)
+* download [png (small)](/analysis/notebooks/outputs/stub), [png (large)](/analysis/notebooks/outputs/stub) -->
 
 ![Publication counts by Project type]()
 
