@@ -26,8 +26,8 @@ Top 10 projects sorted by number of publications give insight into how project-l
 
 ### TOP 10 MOST CITED PAPERS
 
-* top 10 raw file downloads [[csv](/analysis/notebooks/outputs/top10_pubs_simple.csv)], [[markdown](/analysis/notebooks/outputs/top10_pubs_simple.md)]
-* all citations file downloads [[csv](/analysis/notebooks/outputs/all_pubs_simple.csv)], [[markdown](/analysis/notebooks/outputs/all_pubs_simple.md)]
+* top 10 raw files:   {download}`[csv (download)] </analysis/notebooks/outputs/top10_pubs_simple.csv>`
+* all citations files:  {download}`[csv (download)] </analysis/notebooks/outputs/all_pubs_simple.csv>`
 
 | DOI                                 |   Cites | Citation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |:------------------------------------|--------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -49,7 +49,9 @@ Top 10 projects sorted by number of publications give insight into how project-l
 
 A number of projects produced a small number of publications, and a few produced a lot.  This chart shows the frequency (number of projects) on the x-axis and the publication count on the y-axis.  It is clear, a small number of projects generate more than 10 publications, while the vast majority produced fewer than 10.  
 
-* download [png (small)](/analysis/notebooks/outputs/stub), [png (large)](/analysis/notebooks/outputs/stub)
+![](/analysis/outputs/fig_ec_project_duration.png)
+
+*  {download}`[png (download)] </analysis/outputs/fig_ec_project_duration.png>`
 
 ![Project count frequencies]()
 

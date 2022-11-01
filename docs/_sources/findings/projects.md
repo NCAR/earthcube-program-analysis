@@ -12,7 +12,7 @@ Top 10 projects sorted by number of publications give insight into how project-l
 
 ### Project-Publication Counts
 
-* download [csv](/analysis/notebooks/outputs/stub), [markdown](/analysis/notebooks/outputs/stub)
+* project/publication counts: {download}`[csv (download)]</analysis/outputs/ec_funded_projects_and_pubs_by_year.csv>`
 
 | Project Title | Awarded Date | End Date | Publication Count |
 |----------------:|---------------|---------------|---------------|
@@ -30,13 +30,13 @@ Top 10 projects sorted by number of publications give insight into how project-l
 |----------------:|---------------|---------------|---------------|---------|---------|
 | EarthCube IA: Collaborative Proposal: EarthCube Integration & Test Environment ([NSF #1541039](https://nsf.gov/awardsearch/showAward?AWD_ID=1541039&HistoricalAwards=false)) | UNIVERSITY OF ALABAMA IN HUNTSVILLE | 9/9/2015 | 8/31/2018 | 503 | 6 |
 | Collaborative Proposal: EarthCube Building Blocks: Planet Microbe: Enabling the discovery and integration of oceanographic 'omics, environmental and physiochemical data layers ([NSF #1639588](https://nsf.gov/awardsearch/showAward?AWD_ID=1639588&HistoricalAwards=false)) | UNIVERSITY OF ARIZONA | 8/21/2017 | 8/31/2020 | 269 | 5 |
-| EarthCube Building Blocks: Collaborative Proposal: GeoSoft: Collaborative Open Source Software Sharing for Geosciences (NSF #1440323) | UNIVERSITY OF SOUTHERN CALIFORNIA | 8/14/2014 | 8/31/2018 | 235 | 16 |
-| EarthCube IA: Collaborative Proposal: Building Interoperable Cyberinfrastructure (CI) at the Interface between Paleogeoinformatics and Bioinformatics (NSF #1541002) | UNIVERSITY OF WISCONSIN SYSTEM | 7/30/2015 | 8/31/2018 | 208 | 8 |
-| EarthCube IA: Collaborative Proposal: LinkedEarth: Crowdsourcing Data Curation & Standards Development in Paleoclimatology (NSF #1540996) | NORTHERN ARIZONA UNIVERSITY | 7/28/2015 | 8/31/2018 | 173 | 5 |
-| EarthCube Integration: CyberWay-Integrated Capabilities of EarthCube Building Blocks for Facilitating Cyber-based Innovative Way of Interdisciplinary Geoscience Studies (NSF #1740693) | GEORGE MASON UNIVERSITY | 9/6/2017 | 9/30/2020 | 164 | 8 |
-| EarthCube IA: Collaborative Proposal: EarthCube Integration & Test Environment (NSF #1541049) | CALIFORNIA INSTITUTE OF TECHNOLOGY | 9/9/2015 | 8/31/2018 | 159 | 5 |
-| EarthCube Data Infrastructure: Collaborative Proposal: A unified experimental-natural digital data system for analysis of rock microstructure (NSF #1639710) | "PENNSYLVANIA STATE UNIVERSITY, THE" | 8/18/2017 | 8/31/2020 | 108 | 5 |
-| "EarthCube Building Blocks: CyberConnector: Bridging the Earth Observations and Earth Science Modeling for Supporting Model Validation, Verification, and Inter-comparison (NSF #1440294)" | GEORGE MASON UNIVERSITY | 8/12/2014 | 8/31/2017 | 105 | 16 |
+| EarthCube Building Blocks: Collaborative Proposal: GeoSoft: Collaborative Open Source Software Sharing for Geosciences ([NSF #1440323](https://nsf.gov/awardsearch/showAward?AWD_ID=1440323&HistoricalAwards=false)) | UNIVERSITY OF SOUTHERN CALIFORNIA | 8/14/2014 | 8/31/2018 | 235 | 16 |
+| EarthCube IA: Collaborative Proposal: Building Interoperable Cyberinfrastructure (CI) at the Interface between Paleogeoinformatics and Bioinformatics ([NSF #1541002](https://nsf.gov/awardsearch/showAward?AWD_ID=1541002&HistoricalAwards=false)) | UNIVERSITY OF WISCONSIN SYSTEM | 7/30/2015 | 8/31/2018 | 208 | 8 |
+| EarthCube IA: Collaborative Proposal: LinkedEarth: Crowdsourcing Data Curation & Standards Development in Paleoclimatology ([NSF #1540996](https://nsf.gov/awardsearch/showAward?AWD_ID=1540996&HistoricalAwards=false)) | NORTHERN ARIZONA UNIVERSITY | 7/28/2015 | 8/31/2018 | 173 | 5 |
+| EarthCube Integration: CyberWay-Integrated Capabilities of EarthCube Building Blocks for Facilitating Cyber-based Innovative Way of Interdisciplinary Geoscience Studies ([NSF #1740693](https://nsf.gov/awardsearch/showAward?AWD_ID=1740693&HistoricalAwards=false)) | GEORGE MASON UNIVERSITY | 9/6/2017 | 9/30/2020 | 164 | 8 |
+| EarthCube IA: Collaborative Proposal: EarthCube Integration & Test Environment ([NSF #1541049](https://nsf.gov/awardsearch/showAward?AWD_ID=1541049&HistoricalAwards=false)) | CALIFORNIA INSTITUTE OF TECHNOLOGY | 9/9/2015 | 8/31/2018 | 159 | 5 |
+| EarthCube Data Infrastructure: Collaborative Proposal: A unified experimental-natural digital data system for analysis of rock microstructure ([NSF #1639710](https://nsf.gov/awardsearch/showAward?AWD_ID=1639710&HistoricalAwards=false)) | "PENNSYLVANIA STATE UNIVERSITY, THE" | 8/18/2017 | 8/31/2020 | 108 | 5 |
+| "EarthCube Building Blocks: CyberConnector: Bridging the Earth Observations and Earth Science Modeling for Supporting Model Validation, Verification, and Inter-comparison ([NSF #1440294](https://nsf.gov/awardsearch/showAward?AWD_ID=1440294&HistoricalAwards=false))" | GEORGE MASON UNIVERSITY | 8/12/2014 | 8/31/2017 | 105 | 16 |
 
 ## Charts and Graphs 
 
