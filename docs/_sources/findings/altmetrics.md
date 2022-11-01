@@ -1,6 +1,6 @@
 # Altmetrics Outcomes 
 
-[Altmetric](https://www.altmetric.com/) provides significant insight into the attention scholarly works get on social media and other public platforms.  While many works get no attention, some get significant attention on platforms like Twitter or on popular blogs or on news outlets.  Here is a sampling of some of the most impactful Altmetric scores sourced from Earthcube-funded projects -- note that **scores above 500 are among the top 5% of all Altmetric scores**, and while scores vary in their power as predictors of citation counts {cite}`syamili_altmetric_2017, chang_correlation_2019, huang_correlation_2018, wang_impact_2020, yang_comparison_2021,kolahi_meta-analysis_2021`,  they are still valuable.
+[Altmetric](https://www.altmetric.com/) provides significant insight into the attention scholarly works get on social media and other public platforms.  While many works get no attention, some get significant attention on platforms like Twitter or on popular blogs or on news outlets.  Here is a sampling of some of the most impactful Altmetric scores sourced from EarthCube-funded projects -- note that **scores above 500 are among the top 5% of all Altmetric scores**, and while scores vary in their power as predictors of citation counts {cite}`syamili_altmetric_2017, chang_correlation_2019, huang_correlation_2018, wang_impact_2020, yang_comparison_2021,kolahi_meta-analysis_2021`,  they are still valuable.
 
 ## Highlights
 ```{admonition} Altmetric Highlights

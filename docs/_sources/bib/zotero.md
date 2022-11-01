@@ -2,7 +2,7 @@
 
 A Zotero library has been set up as a public group and can be accessed here:
 
-* [2022 Earthcube Publications (Zotero)](https://www.zotero.org/groups/4785651/earthcube_program_publications_2012-2022)
+* [2022 EarthCube Publications (Zotero)](https://www.zotero.org/groups/4785651/earthcube_program_publications_2012-2022)
 
 The full export of the library is here:
 
