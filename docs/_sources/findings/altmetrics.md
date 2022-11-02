@@ -34,7 +34,8 @@
 
 ## Charts and Graphs
 
-* charts or graphs have yet to be produced for this data
+* there are no charts or graphs for this data
+
 <!--
 * download [png (small)](/analysis/notebooks/outputs/stub), [png (large)](/analysis/notebooks/outputs/stub)
 -->

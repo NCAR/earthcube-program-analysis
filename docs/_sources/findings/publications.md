@@ -16,7 +16,7 @@ Top 10 projects sorted by number of publications give insight into how project-l
 
 ### TOP CITED PAPER
 
-* 2017 Yang paper from the ECITE project (Collaborative project IDs: 1541039,1540998, 1541049): 
+* 2017 Yang paper from the ECITE project (Collaborative project IDs: [NSF #1541039](https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&HistoricalAwards=false)1541039, [NSF #1540998](https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&HistoricalAwards=false), [NSF #1541049](https://nsf.gov/awardsearch/showAward?AWD_ID=1541049&HistoricalAwards=false)): 
     * **375 total citations**
     * Yang, C., Q. Huang, Z. Li, K. Liu, and F. Hu, 2017: Big Data and cloud computing: innovation opportunities and challenges. International Journal of Digital Earth, 10, 13–53, https://doi.org/10.1080/17538947.2016.1239771.
     * **ABSTRACT:** 

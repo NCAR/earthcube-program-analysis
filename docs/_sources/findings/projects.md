@@ -60,20 +60,19 @@ In general, collaborative projects of two or more collaborators produced more ci
 
 ![Duration of EC funded projects](/analysis/outputs/fig_ec_project_duration.png)
 
-*  {download}`[png (download)] </analysis/outputs/fig_funded_projects_by_year.png>`
-
-![EC funded projects](/analysis/outputs/fig_funded_projects_by_year.png)
-
-
-
-*  {download}`[png (download)] </analysis/outputs/fig_funded_projects_by_year.png>`
-
-![EC funded projects](/analysis/outputs/fig_funded_projects_by_year.png)
-
 
 *  {download}`[png (download)] </analysis/outputs/figh_v4_projects_publications_by_year.png>`
+This graph combines the [publication counts by year](publications#charts-and-graphs) with the funded project counts by year.
 
 ![EC funded projects](/analysis/outputs/figh_v4_projects_publications_by_year.png)
+
+
+*  {download}`[png (download)] </analysis/outputs/fig_funded_projects_by_year.png>`
+
+![EC funded projects](/analysis/outputs/fig_funded_projects_by_year.png)
+
+
+
 
 
 ## Interpretation
