@@ -8,7 +8,7 @@ Top 10 projects sorted by number of publications give insight into how project-l
 * **total papers analysed** : 245
 * **total citations** : 4301 
 * **mean cites per paper** : 17.55
-* **median cites per paper** : 6aa.00
+* **median cites per paper** : 6.00
 * the **top 10 papers produced 42% of all citations**
 * the top paper **produced over 375 citations** : 
    *  Yang, C., Q. Huang, Z. Li, K. Liu, and F. Hu, 2017: Big Data and cloud computing: innovation opportunities and challenges. International Journal of Digital Earth, 10, 13–53, https://doi.org/10.1080/17538947.2016.1239771.
