@@ -11,7 +11,7 @@ In general, collaborative projects of two or more collaborators produced more ci
 ## Highlights
 ```{admonition} Project Highlights
 * **four projects produced at least 10** peer-reviewed publications
-* The ITEST [(NSF #1541039)](https://nsf.gov/awardsearch/showAward?AWD_ID=1541039&HistoricalAwards=false) project **produced over 541 citations in 6 publications**
+* The ITEST [(NSF #1541039)](https://nsf.gov/awardsearch/showAward?AWD_ID=1541039&HistoricalAwards=false) project **produced over 556 citations in 6 publications**
 * the **average publications per year of project funding (for projects expiring by 2020)** was :  1.07
 ```
 
@@ -35,13 +35,15 @@ In general, collaborative projects of two or more collaborators produced more ci
 
 **TOP 5 AWARDED PROECTS BY TOTAL CITATIONS**
 
+
 | Award Title | Start Date | End Date | Total Citations |
 |---:|:--:|:--:|:--:|
-| Earthcube Ia: Collaborative Proposal: Earthcube Integration & Test Environment ([NSF #1541039](https://nsf.gov/awardsearch/showAward?AWD_ID=1541039&HistoricalAwards=false), [NSF #1540998](https://nsf.gov/awardsearch/showAward?AWD_ID=1540998&HistoricalAwards=false), [NSF #1541049](https://nsf.gov/awardsearch/showAward?AWD_ID=1541049&HistoricalAwards=false)) | 2015-09-01 | 2018-08-31 | 541 |
-| Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network ([NSF #1541390](https://nsf.gov/awardsearch/showAward?AWD_ID=1541390&HistoricalAwards=false)) | 2016-08-01 | 2018-07-31 | 391 |
-| Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers ([NSF #1639588](https://nsf.gov/awardsearch/showAward?AWD_ID=1639588&HistoricalAwards=false), [NSF #1639614](https://nsf.gov/awardsearch/showAward?AWD_ID=1639614&HistoricalAwards=false)) | 2017-09-01 | 2020-08-31 | 304 |
-| Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences ([NSF #1440323](https://nsf.gov/awardsearch/showAward?AWD_ID=1440323&HistoricalAwards=false), [NSF #1440291](https://nsf.gov/awardsearch/showAward?AWD_ID=1440291&HistoricalAwards=false), [NSF #1440332](https://nsf.gov/awardsearch/showAward?AWD_ID=1440332&HistoricalAwards=false)) | 2014-09-01 | 2018-08-31 | 267 |
-| Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics ([NSF #1540979](https://nsf.gov/awardsearch/showAward?AWD_ID=1540979&HistoricalAwards=false), [NSF #1541002](https://nsf.gov/awardsearch/showAward?AWD_ID=1541002&HistoricalAwards=false)) | 2015-09-01 | 2019-08-31 | 244 |
+| Earthcube Ia: Collaborative Proposal: Earthcube Integration & Test Environment ([NSF #1541039](https://nsf.gov/awardsearch/showAward?AWD_ID=1541039&HistoricalAwards=false), [NSF #1540998](https://nsf.gov/awardsearch/showAward?AWD_ID=1540998&HistoricalAwards=false), [NSF #1541049](https://nsf.gov/awardsearch/showAward?AWD_ID=1541049&HistoricalAwards=false)) | 2015-09-01 | 2018-08-31 | 556 |
+| Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network ([NSF #1541390](https://nsf.gov/awardsearch/showAward?AWD_ID=1541390&HistoricalAwards=false)) | 2016-08-01 | 2018-07-31 | 400 |
+| Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers ([NSF #1639588](https://nsf.gov/awardsearch/showAward?AWD_ID=1639588&HistoricalAwards=false), [NSF #1639614](https://nsf.gov/awardsearch/showAward?AWD_ID=1639614&HistoricalAwards=false)) | 2017-09-01 | 2020-08-31 | 319 |
+| Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences ([NSF #1440323](https://nsf.gov/awardsearch/showAward?AWD_ID=1440323&HistoricalAwards=false), [NSF #1440291](https://nsf.gov/awardsearch/showAward?AWD_ID=1440291&HistoricalAwards=false), [NSF #1440332](https://nsf.gov/awardsearch/showAward?AWD_ID=1440332&HistoricalAwards=false)) | 2014-09-01 | 2018-08-31 | 276 |
+| Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics ([NSF #1540979](https://nsf.gov/awardsearch/showAward?AWD_ID=1540979&HistoricalAwards=false), [NSF #1541002](https://nsf.gov/awardsearch/showAward?AWD_ID=1541002&HistoricalAwards=false)) | 2015-09-01 | 2019-08-31 | 259 |
+
 
 <!--
 ### Top 10 Projects By Total Citations
@@ -71,7 +73,9 @@ This graph combines the [publication counts by year](publications#charts-and-gra
 
 ![EC funded projects](/analysis/outputs/fig_funded_projects_by_year.png)
 
+*  {download}`[png (download)] </analysis/outputs/fig_cumm_projects_publications_by_year.png>`
 
+![EC funded projects](/analysis/outputs/fig_cumm_projects_publications_by_year.png)
 
 
 

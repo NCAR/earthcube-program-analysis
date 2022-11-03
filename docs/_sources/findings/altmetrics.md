@@ -1,7 +1,7 @@
-<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 # Altmetrics Outcomes 
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
-[Altmetric](https://www.altmetric.com/) provides significant insight into the attention scholarly works get on social media and other public platforms.  While many works get no attention, some get significant attention on platforms like Twitter or on popular blogs or on news outlets.  Here is a sampling of some of the most impactful Altmetric scores sourced from EarthCube-funded projects -- note that **scores above 500 are among the top 5% of all Altmetric scores**, and while scores vary in their power as predictors of citation counts {cite}`syamili_altmetric_2017, chang_correlation_2019, huang_correlation_2018, wang_impact_2020, yang_comparison_2021,kolahi_meta-analysis_2021`,  they are still valuable.
+[Altmetric.com](https://www.altmetric.com/) provides significant insight into the attention scholarly works get on social media and other public platforms.  While many works get no attention, some get significant attention on platforms like Twitter or on popular blogs or on news outlets.  Here is a sampling of some of the most impactful Altmetric scores sourced from EarthCube-funded projects -- note that **scores above 500 are among the top 5% of all Altmetric scores**, and while scores vary in their power as predictors of citation counts {cite}`syamili_altmetric_2017, chang_correlation_2019, huang_correlation_2018, wang_impact_2020, yang_comparison_2021,kolahi_meta-analysis_2021`,  they are still valuable.
 
 ## Highlights
 ```{admonition} Altmetric Highlights
@@ -17,7 +17,7 @@
 * full (114) Altmetric scores {download}`[csv (download)]</analysis/outputs/altmetric/altmetric_doi_project_detail.csv>` | {download}`[markdown (.md) (download)]</analysis/outputs/altmetric/altmetric_doi_project_detail_table.md>`
 * top 10 Altmetric scores {download}`[markdown (.md) (download)]</analysis/outputs/altmetric/altmetric_doi_project_top10_table.md>`
 
-|Altmetric Score|Publication Title|Project Title| Realtime Score*|
+|Altmetric Score|Publication Title|Project Title| Realtime Score**|
 |--------------:|-----------------|------------------------|:-:|
 | 980.77 | A global multiproxy database for temperature reconstructions of the Common Era (doi: [10.1038/sdata.2017.88](https://doi.org/10.1038/sdata.2017.88)) | Earthcube Ia: Collaborative Proposal: Linkedearth: Crowdsourcing Data Curation & Standards Development In Paleoclimatology ([NSF #1541029](https://nsf.gov/awardsearch/showAward?AWD_ID=1541029&HistoricalAwards=false))| <div class="altmetric-embed altmetric-badge-type-donut altmetric-badge-popover-left altmetric-doi-10.1038/sdata.2017.88"></div> |
 | 918.63 | BedMachine v3: Complete Bed Topography and Ocean Bathymetry Mapping of Greenland From Multibeam Echo Sounding Combined With Mass Conservation (doi: [10.1002/2017gl074954](https://doi.org/10.1002/2017gl074954)) | Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network ([NSF #1541390](https://nsf.gov/awardsearch/showAward?AWD_ID=1541390&HistoricalAwards=false))| <div class="altmetric-embed altmetric-badge-type-donut altmetric-badge-popover-left altmetric-doi-10.1002/2017gl074954"></div> |
@@ -30,7 +30,7 @@
 | 142.36 | Liberating field science samples and data (doi: [10.1126/science.aad7048](https://doi.org/10.1126/science.aad7048)) | Earthcube Rcn: Isamples: The Internet Of Samples In The Earth Sciences ([NSF #1440351](https://nsf.gov/awardsearch/showAward?AWD_ID=1440351&HistoricalAwards=false))| <div class="altmetric-embed altmetric-badge-type-donut altmetric-badge-popover-left altmetric-doi-10.1126/science.aad7048"></div> |
 | 107.30 | Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds (doi: [10.5194/tc-16-1431-2022](https://doi.org/10.5194/tc-16-1431-2022)) | Collaborative Research: Earthcube Data Capabilities--Jupyter Meets The Earth: Enabling Discovery In Geoscience Through Interactive Computing At Scale ([NSF #1928406](https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&HistoricalAwards=false))| <div class="altmetric-embed altmetric-badge-type-donut altmetric-badge-popover-left altmetric-doi-10.5194/tc-16-1431-2022"></div> |
 
-* Realtime score may vary from score in the first column.
+** Realtime score may vary from score in the first column.
 
 ## Charts and Graphs
 
