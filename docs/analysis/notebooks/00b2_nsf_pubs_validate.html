@@ -1,0 +1,853 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; EarthCube Program Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/ec-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube Program Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    EarthCube Metrics Analysis Report
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Findings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/publications.html">
+   Publications-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/projects.html">
+   Project-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/altmetrics.html">
+   Altmetrics Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/data.html">
+   DataCite Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/journal.html">
+   Journal Outcomes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methodology
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../methodology.html">
+   EC Program Metrics Methodology
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Full Publication List
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bib/ec_program.html">
+   EarthCube Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bib/zotero.html">
+   Zotero
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/NCAR/earthcube-program-analysis/main?urlpath=tree/analysis/notebooks/00b2_nsf_pubs_validate.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis/issues/new?title=Issue%20on%20page%20%2Fanalysis/notebooks/00b2_nsf_pubs_validate.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/analysis/notebooks/00b2_nsf_pubs_validate.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><no title></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">crossref</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pubs</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/nsf_mapping.json&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">pubs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>96
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">pubs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pubs</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;doi&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;DOI&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[DOI mismatch at </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">]: crossref meta=</span><span class="si">{</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">][</span><span class="s1">&#39;DOI&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> ==&gt; nsf_mapping.json=&#39;</span><span class="si">{</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It does not appear that any of extracted DOI metadata is missing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">pubs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">pubs</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;doi&#39;</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1324760 10.1016/j.geomorph.2015.03.039
+1324760 10.1016/j.geomorph.2015.03.039
+1324760 10.2110/sedred.2013.4.9
+1324760 10.2110/sedred.2013.4
+1340233 10.1126/science.342.6162.1041-b
+1340233 10.1002/2014eo200001
+1340265 10.1130/gsatg248gw.1
+1340301 10.22498/pages.26.2.50
+1340301 10.22498/pages.26.2.49
+1340301 10.2110/jsr.2018.15
+1343760 10.1029/2017EO082377
+1343760 10.1145/3129246
+1343760 10.1371/journal.pone.0113523
+1343760 10.1130/G38931.1
+1343760 10.2110/sedred.2016.1.4
+1343785 10.1111/1752-1688.12387
+1343785 10.1016/j.ecoinf.2015.05.002
+1343785 10.1016/j.ecoinf.2015.05.002
+1343785 10.2166/hydro.2015.331
+1343785 10.1111/1752-1688.12436
+1343785 10.1111/1752-1688.12474
+1343800 10.1109/escience.2014.32
+1343800 10.1109/escience.2014.33
+1343802 10.1002/hyp10899
+1343802 10.2134/jeq2014.05.0220
+1343811 10.1175/BAMS-D-15-00239.1
+1343811 10.1175/BAMS-D-15-00239.1
+1343811 10.1016/j.cageo.2016.03.005
+1343811 10.1175/BAMS-D-14-00164.1
+1343811 10.1175/BAMS-D-14-00164.1
+1343811 10.1016/j.cageo.2016.03.005
+1343811 10.1111/gfl.12114
+1343811 10.1111/gfl.12114
+1343811 10.1002/2014EO490006
+1343811 10.1002/2014EO490006
+1343811 10.1002/2016EA000237
+1343811 10.1175/BAMS-D-14-00164.1
+1343811 10.1016/j.cageo.2016.03.005
+1343811 10.1002/2014EO490006
+1354693 10.1109/BigData.2014.7004347
+1354693 10.1007/978-3-319-25010-6_19
+1440133 10.1002/gdj3.36
+1440084 10.1002/gdj3.36
+1440109 10.1002/gdj3.36
+1440116 10.1002/gdj3.36
+1440139 10.1111/tgis.12233
+1440139 10.1007/978-3-319-45738-3_18
+1440139 10.3233/sw-160216
+1440139 10.1111/tgis.12232
+1440202 10.1007/978-3-319-70407-4_21
+1440202 10.3233/sw-160216
+1440312 10.1016/j.epsl.2016.12.012
+1440312 10.1111/gfl.12114
+1440312 10.1130/G38861.1
+1440312 10.2110/sedred.2016.1.4
+1440293 10.1002/pra2.2018.14505501037
+1440293 10.5334/dsj-2016-011
+1440181 10.5334/dsj-2016-011
+1440294 10.1109/agro-geoinformatics.2016.7577653
+1440294 10.1007/s10707-016-0252-3
+1440294 10.3390/rs9040382
+1440294 10.1109/agro-geoinformatics.2016.7577654
+1440294 10.3390/su71014245
+1440294 10.1007/s12145-017-0308-4
+1440294 10.1109/agro-geoinformatics.2017.8047054
+1440294 10.3390/ijgi6110337
+1440294 10.1109/agro-geoinformatics.2016.7577652
+1440294 10.1109/TGRS.2014.2382566
+1440294 10.1007/s10707-016-0252-3
+1440294 10.1109/agro-geoinformatics.2017.8047065
+1440294 10.1109/igarss.2016.7729933
+1440294 10.1016/j.compenvurbsys.2016.11.007
+1440294 10.1109/tgrs.2014.2382566
+1440315 10.1016/j.envsoft.2017.03.032
+1440315 10.1016/j.envsoft.2017.01.021
+1440315 10.1002/2015WR017342
+1440333 10.1002/2016EA000237
+1440333 10.1016/j.envsoft.2017.01.021
+1440333 10.1016/j.cageo.2016.03.005
+1440333 10.1016/j.envsoft.2017.01.021
+1440333 10.1016/j.cageo.2016.03.005
+1440333 10.1002/2016EA000237
+1440323 10.1186/s13073-015-0202-y
+1440323 10.1145/2815833.2816955
+1440323 10.1609/aimag.v39i3.2816
+1440323 10.1109/eScience.2016.7870916
+1440323 10.1109/JSYST.2015.2484219
+1440323 10.1162/dint_a_00033
+1440323 10.1029/2015EO036703
+1440323 10.1109/eScience.2016.7870918
+1440323 10.1109/ICSC.2016.89
+1440323 10.1016/j.envsoft.2017.01.024
+1440323 10.1016/j.future.2017.01.001
+1440323 10.1016/j.future.2017.01.008
+1440323 10.1145/3025171.3025193
+1440323 10.1002/2015EA000136
+1440323 10.1109/icsc.2016.89
+1440323 10.1109/eScience.2018.00132
+1440323 10.1109/jsyst.2015.2484219
+1440323 10.1109/eScience.2019.00046
+1440323 10.1002/2015EA000136
+1440323 10.1145/2815833.2816955
+1440323 10.1109/escience.2016.7870916
+1440291 10.1109/tpds.2015.2499741
+1440291 10.1109/jsyst.2015.2484219
+1440332 10.1002/2016EA000237
+1440332 10.1002/2016EA000237
+1440332 10.1002/2016EA000237
+1440332 10.1002/2016EA000201
+1440332 10.1002/2016EA000201
+1440332 10.1002/2016EA000201
+1440351 10.3897/biss.3.37334
+1440351 10.1594/IEDA/100709
+1440351 10.1594/IEDA/100691
+1440351 10.1126/science.aad7048
+1440351 10.1029/2018EO090337
+1540966 10.5670/oceanog.2018.111
+1540979 10.22498/pages
+1540979 10.1093/biosci/biy068
+1540979 10.1017/qua.2017.105
+1541002 10.22498/pages.26.2.50
+1541002 10.22498/pages.26.2.70
+1541002 10.22498/pages.26.2.78
+1541002 10.22498/pages.26.2.49
+1541002 10.21425/F5FBG50711
+1541002 10.22498/pages.26.2.64
+1541008 10.1186/s40965-018-0048-5
+1540849 10.1111/tgis.12232
+1540849 10.1111/tgis.12233
+1540849 10.3233/sw-160216
+1540849 10.1111/tgis.12233
+1540849 10.1007/978-3-319-45738-3_18
+1540849 10.1111/tgis.12232
+1540849 10.3233/sw-160216
+1540849 10.1007/978-3-319-45738-3_18
+1540849 10.3233/sw-180305
+1541036 10.3791/54660
+1541029 10.1038/sdata.2017.88
+1541029 10.1038/sdata.2017.88
+1541029 10.1029/2019PA003632
+1541029 10.1007/978-3-319-68204-4_24
+1541029 10.22498/pages.26.2.62
+1540996 10.1038/sdata.2017.88
+1540996 10.1038/sdata.2017.88
+1541039 10.3390/ijgi5100173
+1541039 10.1017/s1743921317000060
+1541039 10.1017/s1743921317000060
+1541039 10.1080/17538947.2016.1239771
+1541039 10.1080/17538947.2016.1239771
+1541039 10.3390/ijgi7020062
+1541039 10.1016/j.compenvurbsys.2016.10.010
+1541039 10.1371/journal.pone.0152250
+1541039 10.3390/ijgi5100173
+1541039 10.1016/j.compenvurbsys.2016.10.010
+1540998 10.1017/s1743921317000060
+1540998 10.1016/j.compenvurbsys.2016.10.010
+1540998 10.1371/journal.pone.0152250
+1540998 10.1080/17538947.2016.1239771
+1540998 10.3390/ijgi5100173
+1541049 10.3390/ijgi5100173
+1541049 10.1017/s1743921317000060
+1541049 10.1016/j.compenvurbsys.2016.10.010
+1541049 10.1016/j.compenvurbsys.2016.10.010
+1541049 10.1080/17538947.2016.1239771
+1541049 10.1080/17538947.2016.1239771
+1541049 10.3390/ijgi7020062
+1541049 10.3390/ijgi5100173
+1541049 10.1371/journal.pone.0152250
+1541049 10.1371/journal.pone.0152250
+1541049 10.1017/s1743921317000060
+1541043 10.1109/BigData.2015.7364046
+1541043 10.1109/IGARSS.2019.8900423
+1541043 10.1109/BigData.2016.7840945
+1541043 10.1109/BigData.2016.7840865
+1541043 10.1109/LDAV.2016.7874341
+1541043 10.1109/BigData.2016.7840621
+1541043 10.1109/BigData.2016.7840700
+1541043 10.1109/igarss.2016.7729384
+1541043 10.1109/igarss.2016.7730983
+1541043 10.1109/BigData.2017.8257966
+1541043 10.1109/IGARSS.2018.8518304
+1540542 10.1109/BigData.2016.7840945
+1540542 10.1109/BigData.2016.7840700
+1540542 10.1109/BigData.2016.7840621
+1540542 10.1109/igarss.2018.8518304
+1540542 10.1109/igarss.2016.7729384
+1540542 10.1109/LDAV.2016.7874341
+1540542 10.1109/bigdata.2017.8257966
+1540542 10.1109/igarss.2016.7730983
+1541047 10.1088/1748-9326/abb0b3
+1541047 10.1101/647651
+1540938 10.1093/femsec/fix120
+1541044 10.1128/mBio.01318-19
+1541057 10.1002/2017JA024835
+1541007 10.1029/2018JA026003
+1541010 10.1007/978-3-030-26732-2_10
+1541390 10.1007/s40641-018-0107-0
+1541390 10.1002/2017GL074954
+1542058 10.1109/IPDPSW.2017.177
+1632211 10.1016/j.ohx.2019.e00079
+1632211 10.1145/3192335
+1632211 10.1007/s11625-019-00735-3
+1632211 10.1007/s12145-019-00398-9
+1639588 10.1038/nbt.4306
+1639588 10.3389/fmicb.2019.00806
+1639588 10.1093/nar/gkaa637
+1639588 10.1093/gigascience/giy165
+1639588 10.1093/gigascience/giz083
+1639614 10.1093/gigascience/giz083
+1639614 10.1093/nar/gkaa637
+1639683 10.6084/m9.figshare.14848713.v1
+1639683 10.3847/1538-4357/aabae9
+1639683 10.3847/1538-4357/ab06c3
+1639683 10.3847/1538-4357/aaa4bf
+1639683 10.3847/1538-4357/aa9119
+1639683 10.3847/1538-4357/aaf6b0
+1639698 10.1093/gji/ggy184
+1639698 10.1016/j.cageo.2018.02.004
+1639698 10.1109/IPDPS.2018.00063
+1639707 10.1016/j.renene.2017.02.052
+1639714 10.5194/bg-17-2537-2020
+1639714 10.1021/acs.jproteome.0c00382
+1639714 10.1021/acs.jproteome.0c00385
+1639714 10.1021/acs.jproteome.8b00761
+1639714 10.25080/Majora-4af1f417-010
+1639734 10.1130/GES02039.1
+1639734 10.1130/GES02364.1
+1639749 10.1016/j.jsg.2018.09.019
+1639749 10.1130/GES02039.1
+1639710 10.1029/2019JB018975
+1639710 10.1029/2020GL086986
+1639710 10.1029/2019JB018612
+1639710 10.1038/s41561-018-0272-8
+1639710 10.1785/0220180367
+1639716 10.1016/j.future.2017.01.001
+1639738 10.1130/GSATG454A.1
+1639738 10.1130/GES02039.1
+1639748 10.1016/j.jsg.2018.09.019
+1639759 10.3233/APC200106
+1639759 10.1109/eScience.2019.00040
+1639759 10.1016/j.envsoft.2018.03.025
+1639759 10.3390/informatics5010014
+1639759 10.1145/3214239.3214241
+1639759 10.5555/3319379.3319381
+1639759 10.1109/eScience.2017.51
+1639759 10.14778/3514061.3514075
+1639547 10.1002/2016EA000237
+1639696 10.1016/j.envsoft.2018.03.025
+1639764 10.1002/cpe.6099
+1639764 10.1016/j.chemgeo.2019.01.017
+1639764 10.1002/cpe.6086
+1639557 10.1594/PANGAEA.892680
+1639557 10.1016/j.chemgeo.2019.01.017
+1639775 10.1002/cpe.6099
+1639775 10.1002/cpe.6086
+1740595 10.1016/j.rse.2019.111617
+1740595 10.3390/rs13183562
+1740595 10.1016/j.future.2021.04.023
+1740581 10.1016/j.rse.2019.111617
+1740648 10.1029/2021EF002277
+1740693 10.1016/j.envsoft.2019.104559
+1740693 10.3390/ijgi9020119
+1740693 10.1016/j.envsoft.2019.06.005
+1740693 10.1175/JCLI-D-18-0181.1
+1740693 10.1080/01431161.2018.1516313
+1740693 10.3390/ijgi8110494
+1740693 10.1175/BAMS-D-16-0215.1
+1740693 10.3390/ijgi10010001
+1740694 10.22498/pages.26.2.70
+1740694 10.22498/pages.26.2.49
+1740694 10.1130/B35560.1
+1740704 10.1029/2020JB020728
+1740704 10.1029/2019TC005549
+1740627 10.1029/2020JB020728
+1743321 10.3847/1538-4357/aba8a6
+1743321 10.1038/s41550-020-1147-7
+1743321 10.3389/fspas.2020.00022
+1743321 10.3847/1538-4357/abf495
+1743321 10.3847/1538-4357/abdab1
+1927578 10.3847/1538-4357/abf2c8
+1927578 10.3847/1538-4357/abb94d
+1927578 10.3847/1538-4365/aba4aa
+1927578 10.1088/1674-4527/21/7/160
+1927578 10.1093/mnras/stab1816
+1927578 10.3847/1538-4365/ac5f56
+1927578 10.3847/1538-4357/ab8818
+1927578 10.3847/1538-4357/ab6850
+1927578 10.3847/1538-4357/ac6425
+1927578 10.3847/1538-4357/ac2aa2
+1928288 10.1145/3456287.3465479
+1928288 10.1016/j.envsoft.2020.104753
+1928288 10.14778/3514061.3514075
+1928369 10.1016/j.envsoft.2020.104888
+1928369 10.1061/(ASCE)WR.1943-5452.0001215
+1928369 10.1016/j.envsoft.2020.104753
+1928315 10.1016/j.envsoft.2020.104888
+1928315 10.1016/j.envsoft.2020.104753
+1928305 10.1175/jtech-d-19-0041.1
+1928305 10.1029/2022GL098744
+1928305 10.1175/jpo-d-21-0272.1
+1928389 10.1130/GES02364.1
+1928389 10.1130/gsatprsadrs20.1
+1928403 10.1029/2021JA029739
+1928403 10.5194/amt-14-6917-2021
+1928403 10.1007/978-3-030-26732-2_10
+1928403 10.1029/2020JA028539
+1928403 10.1029/2019JA027266
+1928403 10.1029/2019JA027265
+1928403 10.1029/2019SW002367
+1928406 10.1002/hyp.14429
+1928406 10.5281/zenodo.5496306
+1928406 10.1029/2021WR030186
+1928406 10.1109/UrgentHPC51945.2020.00011
+1928406 10.3389/fclim.2021.782909
+1928406 10.1109/MCSE.2021.3059263
+1928406 10.1109/MCSE.2021.3059437
+1928406 10.5194/tc-16-1431-2022
+1928406 10.1093/gji/ggab238
+2026932 10.1109/MCSE.2021.3059437
+2026932 10.1029/2021EF002277
+2026933 10.1021/acs.jproteome.0c00382
+2026933 10.1021/acs.jproteome.0c00385
+2026933 10.1073/pnas.2200014119
+2026951 10.5194/gmd-15-1413-2022
+2126315 10.1016/j.apgeochem.2022.105273
+2126315 10.1016/j.cageo.2022.105082
+2126315 10.1016/j.cageo.2022.105034
+2125974 10.1002/cpe.6130
+2126474 10.1145/3487893
+2126474 10.1109/ICDM51629.2021.00037
+2126474 10.1145/3474842
+2126474 10.1109/ICDM51629.2021.00088
+2126474 10.1145/3474717.3483970
+2126449 10.1145/3474717.3483970
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./analysis\notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The NCAR Library; Keith Maull & Matt Mayernik<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -35,3 +35,7 @@ Finding publications produced from funded projects is not a science.  Despite th
 [Keith Maull](https://library.ucar.edu/directory/keith-maull) and [Matt Mayernik](https://library.ucar.edu/directory/matt-mayernik) are staff members of the [National Center for Atmospheric Research](https://ucar.edu).  Keith is a software engineer and data scientist at the [NCAR Library](https://library.ucar.edu), while Matt Mayernik is a project scientist and assistant director at the NCAR library. 
 
 This report was funded as a subaward to the University Corporation for Atmospheric Research (UCAR) by the Geoscience EarthCube Community Office (GECCO) awarded to University of California San Diego under [NSF Award #1928208](https://nsf.gov/awardsearch/showAward?AWD_ID=1928208&HistoricalAwards=false). 
+
+## Citing this report
+
+> Maull, K., and M. Mayernik, 2022: EarthCube Program Metrics Analysis 2013-2022. https://doi.org/10.5065/VMFJ-QY55.

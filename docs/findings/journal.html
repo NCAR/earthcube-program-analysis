@@ -1,0 +1,721 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Journal Outcomes &#8212; EarthCube Program Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="EC Program Metrics Methodology" href="../methodology.html" />
+    <link rel="prev" title="DataCite Outcomes" href="data.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ec-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube Program Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    EarthCube Metrics Analysis Report
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Findings
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../findings.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="publications.html">
+   Publications-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="projects.html">
+   Project-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="altmetrics.html">
+   Altmetrics Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="data.html">
+   DataCite Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Journal Outcomes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methodology
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../methodology.html">
+   EC Program Metrics Methodology
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Full Publication List
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bib/ec_program.html">
+   EarthCube Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bib/zotero.html">
+   Zotero
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis/issues/new?title=Issue%20on%20page%20%2Ffindings/journal.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/findings/journal.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#highlights">
+   Highlights
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tables">
+   Tables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#charts-and-graphs">
+   Charts and Graphs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpretation">
+   Interpretation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methodology">
+   Methodology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-notebooks">
+   Analysis Notebooks
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Journal Outcomes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#highlights">
+   Highlights
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tables">
+   Tables
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#charts-and-graphs">
+   Charts and Graphs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#interpretation">
+   Interpretation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methodology">
+   Methodology
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis-notebooks">
+   Analysis Notebooks
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="journal-outcomes">
+<h1>Journal Outcomes<a class="headerlink" href="#journal-outcomes" title="Permalink to this headline">#</a></h1>
+<p>Comparison of actual accumulated citations with expected citations is often an import metric to understand impact.</p>
+<p>The analysis of journals requires metadata from two sources, one of which is a paid source (Web of Science), thus the analysis here is limited in scope, and <em>fixed</em> against snapshots from WOS and crossref.</p>
+<p>Because the scope of WOS index, while large, is limited, there is a significant diminution of dataset size and scope.  However, the value of this analysis is still important when assessing the <em>quality</em> of the publications as measured by peer publications and frequent journals.</p>
+<section id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">#</a></h2>
+<div class="admonition-journal-highlights admonition">
+<p class="admonition-title">Journal Highlights</p>
+<ul class="simple">
+<li><p>the most frequently published journal was <a class="reference external" href="https://iopscience.iop.org/journal/0004-637X">The Astrophysical Journal</a> with 12 publications</p></li>
+<li><p>the highest mean citations were accomplished in <a class="reference external" href="https://www.science.org/journal/science">Science</a>, with an average of 106.5 cites</p></li>
+<li><p>88 papers in the analysis set (of 150) had 2 or more publications in a single journal (out of 27 distinct journals)</p></li>
+<li><p>47 of those papers equalled or beat the expected journal citation mean</p></li>
+<li><p>of single-publication journals, EarthCube papers bested the average mean cites of 16.37 by nearly double at 32.39 cites</p></li>
+<li><p>of all journals analyzed, EC papers bested the mean cites of 14.96 by 61% bringing in a mean of 24.17</p></li>
+</ul>
+</div>
+</section>
+<section id="tables">
+<h2>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>project/publication counts: <a class="reference download internal" download="" href="../_downloads/0549262ccb8b252caf5834fb1fa5e2d9/ec_journals_top_pct_delta.csv"><code class="xref download docutils literal notranslate"><span class="pre">[csv</span> <span class="pre">(download)]</span></code></a></p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Journal Mean Cites</p></th>
+<th class="text-align:right head"><p>Publication Year</p></th>
+<th class="text-align:left head"><p>Journal Title</p></th>
+<th class="text-align:right head"><p>EC Cites</p></th>
+<th class="text-align:left head"><p>EC Publiaation DOI</p></th>
+<th class="text-align:right head"><p>% diff mean cites</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>17</p></td>
+<td class="text-align:right"><p>2017</p></td>
+<td class="text-align:left"><p>International Journal of Digital Earth</p></td>
+<td class="text-align:right"><p>344</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1080/17538947.2016.1239771">10.1080/17538947.2016.1239771</a></p></td>
+<td class="text-align:right"><p>1923.53</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>25</p></td>
+<td class="text-align:right"><p>2017</p></td>
+<td class="text-align:left"><p>Geophysical Research Letters</p></td>
+<td class="text-align:right"><p>336</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1002/2017gl074954">10.1002/2017gl074954</a></p></td>
+<td class="text-align:right"><p>1244</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>10</p></td>
+<td class="text-align:right"><p>2018</p></td>
+<td class="text-align:left"><p>Quaternary Research</p></td>
+<td class="text-align:right"><p>120</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1017/qua.2017.105">10.1017/qua.2017.105</a></p></td>
+<td class="text-align:right"><p>1100</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1</p></td>
+<td class="text-align:right"><p>2021</p></td>
+<td class="text-align:left"><p>Computing in Science &amp; Engineering</p></td>
+<td class="text-align:right"><p>10</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1109/mcse.2021.3059437">10.1109/mcse.2021.3059437</a></p></td>
+<td class="text-align:right"><p>900</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>4</p></td>
+<td class="text-align:right"><p>2019</p></td>
+<td class="text-align:left"><p>Communications of the ACM</p></td>
+<td class="text-align:right"><p>39</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1145/3192335">10.1145/3192335</a></p></td>
+<td class="text-align:right"><p>875</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1</p></td>
+<td class="text-align:right"><p>2021</p></td>
+<td class="text-align:left"><p>Computing in Science &amp; Engineering</p></td>
+<td class="text-align:right"><p>8</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1109/mcse.2021.3059263">10.1109/mcse.2021.3059263</a></p></td>
+<td class="text-align:right"><p>700</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>4</p></td>
+<td class="text-align:right"><p>2021</p></td>
+<td class="text-align:left"><p>GSA Bulletin</p></td>
+<td class="text-align:right"><p>30</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1130/b35560.1">10.1130/b35560.1</a></p></td>
+<td class="text-align:right"><p>650</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>8</p></td>
+<td class="text-align:right"><p>2019</p></td>
+<td class="text-align:left"><p>International Journal of Remote Sensing</p></td>
+<td class="text-align:right"><p>49</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1080/01431161.2018.1516313">10.1080/01431161.2018.1516313</a></p></td>
+<td class="text-align:right"><p>512.5</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>15</p></td>
+<td class="text-align:right"><p>2016</p></td>
+<td class="text-align:left"><p>Earth and Space Science</p></td>
+<td class="text-align:right"><p>91</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1002/2015ea000136">10.1002/2015ea000136</a></p></td>
+<td class="text-align:right"><p>506.667</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>13</p></td>
+<td class="text-align:right"><p>2017</p></td>
+<td class="text-align:left"><p>JAWRA Journal of the American Water Resources Association</p></td>
+<td class="text-align:right"><p>72</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1111/1752-1688.12474">10.1111/1752-1688.12474</a></p></td>
+<td class="text-align:right"><p>453.846</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>5</p></td>
+<td class="text-align:right"><p>2017</p></td>
+<td class="text-align:left"><p>Journal of Visualized Experiments</p></td>
+<td class="text-align:right"><p>25</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.3791/54660">10.3791/54660</a></p></td>
+<td class="text-align:right"><p>400</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>8</p></td>
+<td class="text-align:right"><p>2020</p></td>
+<td class="text-align:left"><p>Data Intelligence</p></td>
+<td class="text-align:right"><p>40</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1162/dint_a_00033">10.1162/dint_a_00033</a></p></td>
+<td class="text-align:right"><p>400</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>3</p></td>
+<td class="text-align:right"><p>2018</p></td>
+<td class="text-align:left"><p>AI Magazine</p></td>
+<td class="text-align:right"><p>13</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1609/aimag.v39i3.2816">10.1609/aimag.v39i3.2816</a></p></td>
+<td class="text-align:right"><p>333.333</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>39</p></td>
+<td class="text-align:right"><p>2017</p></td>
+<td class="text-align:left"><p>Scientific Data</p></td>
+<td class="text-align:right"><p>167</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1038/sdata.2017.88">10.1038/sdata.2017.88</a></p></td>
+<td class="text-align:right"><p>328.205</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>19</p></td>
+<td class="text-align:right"><p>2018</p></td>
+<td class="text-align:left"><p>BioScience</p></td>
+<td class="text-align:right"><p>77</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1093/biosci/biy068">10.1093/biosci/biy068</a></p></td>
+<td class="text-align:right"><p>305.263</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1</p></td>
+<td class="text-align:right"><p>2021</p></td>
+<td class="text-align:left"><p>Geophysical Journal International</p></td>
+<td class="text-align:right"><p>4</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1093/gji/ggab238">10.1093/gji/ggab238</a></p></td>
+<td class="text-align:right"><p>300</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>27</p></td>
+<td class="text-align:right"><p>2017</p></td>
+<td class="text-align:left"><p>Computers, Environment and Urban Systems</p></td>
+<td class="text-align:right"><p>108</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1016/j.compenvurbsys.2016.10.010">10.1016/j.compenvurbsys.2016.10.010</a></p></td>
+<td class="text-align:right"><p>300</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1</p></td>
+<td class="text-align:right"><p>2021</p></td>
+<td class="text-align:left"><p>Concurrency and Computation: Practice and Experience</p></td>
+<td class="text-align:right"><p>4</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1002/cpe.6099">10.1002/cpe.6099</a></p></td>
+<td class="text-align:right"><p>300</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>32</p></td>
+<td class="text-align:right"><p>2017</p></td>
+<td class="text-align:left"><p>Renewable Energy</p></td>
+<td class="text-align:right"><p>127</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1016/j.renene.2017.02.052">10.1016/j.renene.2017.02.052</a></p></td>
+<td class="text-align:right"><p>296.875</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>12</p></td>
+<td class="text-align:right"><p>2019</p></td>
+<td class="text-align:left"><p>Journal of Proteome Research</p></td>
+<td class="text-align:right"><p>44</p></td>
+<td class="text-align:left"><p><a class="reference external" href="https://doi.org/10.1021/acs.jproteome.8b00761">10.1021/acs.jproteome.8b00761</a></p></td>
+<td class="text-align:right"><p>266.667</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="charts-and-graphs">
+<h2>Charts and Graphs<a class="headerlink" href="#charts-and-graphs" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>no charts or graphs have been produced for this section</p></li>
+</ul>
+</section>
+<section id="interpretation">
+<h2>Interpretation<a class="headerlink" href="#interpretation" title="Permalink to this headline">#</a></h2>
+<p>It is anticipated that high impact journals such as Nature get cited more, so it is not unexpected that publications in those journals do well.  In smaller journals this may not always be the case, but when cites in smaller journals beat the average by large margins, this may indicate that the publication struck a chord within the targeted community, and this often suggests greater impact as these communities tend to be smaller, thus highly cited papers there are desirable.</p>
+</section>
+<section id="methodology">
+<h2>Methodology<a class="headerlink" href="#methodology" title="Permalink to this headline">#</a></h2>
+<p>The methodology use for this analysis required different tools and approaches to reach a final outcome.  The basic steps and process are explained below:</p>
+<ul class="simple">
+<li><p>For each journal in which EC authors published at least one article, we used the Web of Science to find an average citation rate for the year(s) in which EC articles were published.</p></li>
+<li><p>To get the average citation count in the Web of Science, we did a search for the journal via the “publications title” search, and date-limited the search by using the “Add Date Range” option in the Web of Science search. Selecting the “Custom” date option allows you to add a specific data range, such as 2019-01-01 and 2019-12-31. This allowed us to limit the search to be from Jan 1 and Dec 31 for the specific journal and year of interest.</p></li>
+<li><p>Journals that were not indexed in the Web of Science return an error message for this search. For journals that were indexed, the search results return all papers published in the given journal and year.</p></li>
+<li><p>Once results were returned, we clicked on the “Citation Report” button toward the top right of the search results page. This returns a variety of metrics for the search results, but also shows an “Average per item” citation metric.</p></li>
+<li><p>We compiled these metrics for all journals and years in which EC articles were published. We then compared the actual citation counts for the EC articles with these average citation counts for their associated journal and year.</p></li>
+</ul>
+<p>Journal average citation counts were compiled in Aug. 2022</p>
+</section>
+<section id="analysis-notebooks">
+<h2>Analysis Notebooks<a class="headerlink" href="#analysis-notebooks" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../analysis/notebooks/01_basic_journal_analysis.html"><span class="doc std std-doc">01_basic_journal_analysis.ipynb</span></a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./findings"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="data.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">DataCite Outcomes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../methodology.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">EC Program Metrics Methodology</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The NCAR Library; Keith Maull & Matt Mayernik<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

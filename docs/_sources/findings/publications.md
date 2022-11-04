@@ -90,4 +90,4 @@ The Neotoma Paleoecology Database, a multiproxy, international, community-curate
 
 ## Analysis Notebooks
 
-* [01a_basic_publication_analysis.ipynb](../analysis/notebooks/01a_basic_publication_analysis.ipynb)
+* [01a_basic_publication_analysis.ipynb](../analysis/notebooks/01_basic_publication_analysis.ipynb)

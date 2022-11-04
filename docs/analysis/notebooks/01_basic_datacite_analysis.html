@@ -1,0 +1,1009 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>BASIC DATACITE ANALYSIS &#8212; EarthCube Program Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/ec-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube Program Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    EarthCube Metrics Analysis Report
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Findings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/publications.html">
+   Publications-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/projects.html">
+   Project-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/altmetrics.html">
+   Altmetrics Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/data.html">
+   DataCite Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/journal.html">
+   Journal Outcomes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methodology
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../methodology.html">
+   EC Program Metrics Methodology
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Full Publication List
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bib/ec_program.html">
+   EarthCube Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bib/zotero.html">
+   Zotero
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/NCAR/earthcube-program-analysis/main?urlpath=tree/analysis/notebooks/01_basic_datacite_analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis/issues/new?title=Issue%20on%20page%20%2Fanalysis/notebooks/01_basic_datacite_analysis.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/analysis/notebooks/01_basic_datacite_analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>BASIC DATACITE ANALYSIS</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-datacite-analysis">
+<h1>BASIC DATACITE ANALYSIS<a class="headerlink" href="#basic-datacite-analysis" title="Permalink to this headline">#</a></h1>
+<p>This notebook uses the <span class="xref myst">datacite source file</span> to explore the top Earthcube-funded papers from the Altmetric lens.</p>
+<p>It produces three files in <code class="docutils literal notranslate"><span class="pre">../outputs/altmetric/</span></code>:</p>
+<ul class="simple">
+<li><p><span class="xref myst">datacite_data_map.csv</span></p></li>
+<li><p><a class="reference internal" href="../outputs/datacite/datacite_table_01.html"><span class="doc std std-doc">datacite_table_01.md</span></a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;../outputs/datacite/datacite_data_map.json&quot;</span><span class="p">,</span>  <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">to_markdown</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|         |   count |
+|--------:|--------:|
+| 1440351 |       3 |
+| 1928393 |       2 |
+| 1541390 |       1 |
+| 1639683 |       1 |
+| 1639764 |       1 |
+| 1928406 |       1 |
+| 1440066 |       1 |
+| 1639694 |       1 |
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1440351</th>
+      <th>1541390</th>
+      <th>1639683</th>
+      <th>1639764</th>
+      <th>1928406</th>
+      <th>1440066</th>
+      <th>1928393</th>
+      <th>1639694</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10.1594/ieda/100709</th>
+      <td>{'cr_meta': {'type': 'dataset', 'id': 'https:/...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10.1594/ieda/100691</th>
+      <td>{'cr_meta': {'type': 'dataset', 'id': 'https:/...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10.6084/m9.figshare.4272164.v1</th>
+      <td>{'cr_meta': {'type': 'article-journal', 'id': ...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10.18739/a24m9198b</th>
+      <td>NaN</td>
+      <td>{'cr_meta': {'type': 'dataset', 'id': 'https:/...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10.6084/m9.figshare.14848713.v1</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>{'cr_meta': {'type': 'graphic', 'id': 'https:/...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10.1594/pangaea.892680</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>{'cr_meta': {'type': 'dataset', 'id': 'https:/...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10.5281/zenodo.5496306</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>{'cr_meta': {'type': 'book', 'id': 'https://do...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10.13140/rg.2.1.4908.4561</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>{'cr_meta': {'type': 'article', 'id': 'https:/...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10.5281/zenodo.4558266</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>{'cr_meta': {'type': 'book', 'id': 'https://do...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10.5281/zenodo.6369184</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>{'cr_meta': {'type': 'book', 'id': 'https://do...</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>10.5065/p2jj-9878</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>{'cr_meta': {'type': 'report', 'id': 'https://...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsf_project_titles</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/nsfid_project_title_normed.csv&quot;</span><span class="p">)</span>
+<span class="n">nsf_project_titles</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nsfid&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">]</span>
+<span class="n">nsf_project_titles</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;nsfid&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>title</th>
+    </tr>
+    <tr>
+      <th>nsfid</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1639588</th>
+      <td>Collaborative Proposal: Earthcube Building Blo...</td>
+    </tr>
+    <tr>
+      <th>1639614</th>
+      <td>Collaborative Proposal: Earthcube Building Blo...</td>
+    </tr>
+    <tr>
+      <th>1740719</th>
+      <td>Collaborative Proposal: Earthcube Integration:...</td>
+    </tr>
+    <tr>
+      <th>1740683</th>
+      <td>Collaborative Proposal: Earthcube Integration:...</td>
+    </tr>
+    <tr>
+      <th>1740641</th>
+      <td>Collaborative Proposal: Earthcube Integration:...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1540994</th>
+      <td>Earthcubeia: Collaborative Proposal: Building ...</td>
+    </tr>
+    <tr>
+      <th>1340265</th>
+      <td>Ec3 - Earth-Centered Communication For Cyberin...</td>
+    </tr>
+    <tr>
+      <th>1928208</th>
+      <td>Geosciences Earthcube Community Office</td>
+    </tr>
+    <tr>
+      <th>1324760</th>
+      <td>Rcn: Building A Sediment Experimentalist Netwo...</td>
+    </tr>
+    <tr>
+      <th>1343785</th>
+      <td>Title: Earthcube Building Blocks: Integrating ...</td>
+    </tr>
+  </tbody>
+</table>
+<p>215 rows × 1 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+    <span class="c1">#print(df.loc[i].dropna().values[0][&#39;dc_meta&#39;][&#39;attributes&#39;][&#39;types&#39;][&#39;schemaOrg&#39;])</span>
+    
+    <span class="n">dc_meta</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;dc_meta&#39;</span><span class="p">]</span>
+    
+    <span class="n">nsfid</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">doi</span> <span class="o">=</span> <span class="n">dc_meta</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">dc_meta</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;titles&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">dc_meta</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;types&#39;</span><span class="p">][</span><span class="s1">&#39;schemaOrg&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Dataset&#39;</span><span class="p">,</span> <span class="s1">&#39;ScholarlyArticle&#39;</span><span class="p">,</span> <span class="s1">&#39;SoftwareSourceCode&#39;</span><span class="p">,</span> <span class="s1">&#39;Report&#39;</span><span class="p">]:</span>
+        <span class="n">type_string</span> <span class="o">=</span> <span class="n">dc_meta</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;types&#39;</span><span class="p">][</span><span class="s1">&#39;schemaOrg&#39;</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">dc_meta</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;types&#39;</span><span class="p">][</span><span class="s1">&#39;schemaOrg&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;CreativeWork&#39;</span><span class="p">:</span>
+        <span class="n">type_string</span> <span class="o">=</span> \
+            <span class="n">dc_meta</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;types&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;citeproc&#39;</span><span class="p">,</span> <span class="n">dc_meta</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;types&#39;</span><span class="p">][</span><span class="s1">&#39;schemaOrg&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">type_string</span> <span class="o">=</span> \
+            <span class="n">dc_meta</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;types&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;resourceType&#39;</span><span class="p">,</span> <span class="n">dc_meta</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;types&#39;</span><span class="p">][</span><span class="s1">&#39;schemaOrg&#39;</span><span class="p">])</span>
+
+    <span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_tmp</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">nsfid</span><span class="p">,</span> <span class="n">doi</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">type_string</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nsfid&#39;</span><span class="p">,</span> <span class="s1">&#39;doi&#39;</span><span class="p">,</span> <span class="s1">&#39;resource_title&#39;</span><span class="p">,</span> <span class="s1">&#39;type&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_datacite_data</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">nsf_project_titles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_datacite_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nsfid</th>
+      <th>doi</th>
+      <th>resource_title</th>
+      <th>type</th>
+      <th>title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1440351</td>
+      <td>10.1594/ieda/100709</td>
+      <td>iSamples Sample Management Training Module for...</td>
+      <td>Dataset</td>
+      <td>Earthcube Rcn: Isamples: The Internet Of Sampl...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1440351</td>
+      <td>10.1594/ieda/100691</td>
+      <td>iSamples Sample Management Training Module for...</td>
+      <td>Dataset</td>
+      <td>Earthcube Rcn: Isamples: The Internet Of Sampl...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1440351</td>
+      <td>10.6084/m9.figshare.4272164.v1</td>
+      <td>iSamples user stories: common themes and areas...</td>
+      <td>ScholarlyArticle</td>
+      <td>Earthcube Rcn: Isamples: The Internet Of Sampl...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1541390</td>
+      <td>10.18739/a24m9198b</td>
+      <td>Estimating the Freshwater Flux from the Greenl...</td>
+      <td>Dataset</td>
+      <td>Earthcube Rcn: Collaborative Research: Engagin...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1639683</td>
+      <td>10.6084/m9.figshare.14848713.v1</td>
+      <td>Intelligent Databases and Machine-Learning Ana...</td>
+      <td>Poster</td>
+      <td>Earthcube Data Infrastructure: Intelligent Dat...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1639764</td>
+      <td>10.1594/pangaea.892680</td>
+      <td>Land2Sea database, Version 2.0</td>
+      <td>Dataset</td>
+      <td>Earthcube Building Blocks: Collaborative Propo...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1928406</td>
+      <td>10.5281/zenodo.5496306</td>
+      <td>Mapping ice flow velocity using an easy and in...</td>
+      <td>SoftwareSourceCode</td>
+      <td>Collaborative Research: Earthcube Data Capabil...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1440066</td>
+      <td>10.13140/rg.2.1.4908.4561</td>
+      <td>EarthCube Oceanography and Geobiology Environm...</td>
+      <td>Article</td>
+      <td>Earthcube Rcn: An Earthcube Oceanography And G...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1928393</td>
+      <td>10.5281/zenodo.4558266</td>
+      <td>nsidc/qgreenland: v1.0.1</td>
+      <td>SoftwareSourceCode</td>
+      <td>Earthcube Data Capabilities: Qgreenland: Enabl...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1928393</td>
+      <td>10.5281/zenodo.6369184</td>
+      <td>QGreenland</td>
+      <td>SoftwareSourceCode</td>
+      <td>Earthcube Data Capabilities: Qgreenland: Enabl...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>1639694</td>
+      <td>10.5065/p2jj-9878</td>
+      <td>Proceedings of the 2020 Improving Scientific S...</td>
+      <td>Report</td>
+      <td>Earthcube Building Blocks: Collaborative Propo...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_datacite_data</span><span class="o">.</span><span class="n">nsfid</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1440351    3
+1928393    2
+1541390    1
+1639683    1
+1639764    1
+1928406    1
+1440066    1
+1639694    1
+Name: nsfid, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_datacite_data</span><span class="o">.</span><span class="n">type</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset               4
+SoftwareSourceCode    3
+ScholarlyArticle      1
+Poster                1
+Article               1
+Report                1
+Name: type, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../outputs/datacite/datacite_table_01.md&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;| Resource Type |  EC Project | Resource Title |</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;|:---:|:----|:----|</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df_datacite_data</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+        <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;| </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">+</span>
+            <span class="sa">f</span><span class="s2">&quot;|</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2"> (NSF [#</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">nsfid</span><span class="si">}</span><span class="s2">](https://nsf.gov/awardsearch/showAward?AWD_ID=</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">nsfid</span><span class="si">}</span><span class="s2">&amp;HistoricalAwards=false))&quot;</span> <span class="o">+</span>
+            <span class="sa">f</span><span class="s2">&quot;| </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">resource_title</span><span class="si">}</span><span class="s2"> (doi: [</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">doi</span><span class="si">}</span><span class="s2">](https://doi.org/</span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">doi</span><span class="si">}</span><span class="s2">)) |</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Resource Type</p></th>
+<th class="text-align:left head"><p>EC Project</p></th>
+<th class="text-align:left head"><p>Resource Title</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>Dataset</p></td>
+<td class="text-align:left"><p>Earthcube Rcn: Isamples: The Internet Of Samples In The Earth Sciences (NSF <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1440351&amp;HistoricalAwards=false">#1440351</a>)</p></td>
+<td class="text-align:left"><p>iSamples Sample Management Training Module for Soil Cores (doi: <a class="reference external" href="https://doi.org/10.1594/ieda/100709">10.1594/ieda/100709</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Dataset</p></td>
+<td class="text-align:left"><p>Earthcube Rcn: Isamples: The Internet Of Samples In The Earth Sciences (NSF <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1440351&amp;HistoricalAwards=false">#1440351</a>)</p></td>
+<td class="text-align:left"><p>iSamples Sample Management Training Module for Rock Outcrop Samples (doi: <a class="reference external" href="https://doi.org/10.1594/ieda/100691">10.1594/ieda/100691</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>ScholarlyArticle</p></td>
+<td class="text-align:left"><p>Earthcube Rcn: Isamples: The Internet Of Samples In The Earth Sciences (NSF <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1440351&amp;HistoricalAwards=false">#1440351</a>)</p></td>
+<td class="text-align:left"><p>iSamples user stories: common themes and areas for future work (doi: <a class="reference external" href="https://doi.org/10.6084/m9.figshare.4272164.v1">10.6084/m9.figshare.4272164.v1</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Dataset</p></td>
+<td class="text-align:left"><p>Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network (NSF <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1541390&amp;HistoricalAwards=false">#1541390</a>)</p></td>
+<td class="text-align:left"><p>Estimating the Freshwater Flux from the Greenland Ice Sheet Workshop Report, American Geophysical Union, 2018 (doi: <a class="reference external" href="https://doi.org/10.18739/a24m9198b">10.18739/a24m9198b</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Poster</p></td>
+<td class="text-align:left"><p>Earthcube Data Infrastructure: Intelligent Databases And Analysis Tools For Geospace Data (NSF <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1639683&amp;HistoricalAwards=false">#1639683</a>)</p></td>
+<td class="text-align:left"><p>Intelligent Databases and Machine-Learning Analysis Tools for Heliophysics (doi: <a class="reference external" href="https://doi.org/10.6084/m9.figshare.14848713.v1">10.6084/m9.figshare.14848713.v1</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Dataset</p></td>
+<td class="text-align:left"><p>Earthcube Building Blocks: Collaborative Proposal: Earthcube Data Discovery Hub (NSF <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1639764&amp;HistoricalAwards=false">#1639764</a>)</p></td>
+<td class="text-align:left"><p>Land2Sea database, Version 2.0 (doi: <a class="reference external" href="https://doi.org/10.1594/pangaea.892680">10.1594/pangaea.892680</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>SoftwareSourceCode</p></td>
+<td class="text-align:left"><p>Collaborative Research: Earthcube Data Capabilities–Jupyter Meets The Earth: Enabling Discovery In Geoscience Through Interactive Computing At Scale (NSF <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">#1928406</a>)</p></td>
+<td class="text-align:left"><p>Mapping ice flow velocity using an easy and interactive feature tracking workflow (doi: <a class="reference external" href="https://doi.org/10.5281/zenodo.5496306">10.5281/zenodo.5496306</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>Report</p></td>
+<td class="text-align:left"><p>Earthcube Building Blocks: Collaborative Proposal: The Power Of Many: Ensemble Toolkit For Earth Sciences (NSF <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1639694&amp;HistoricalAwards=false">#1639694</a>)</p></td>
+<td class="text-align:left"><p>Proceedings of the 2020 Improving Scientific Software Conference (doi: <a class="reference external" href="https://doi.org/10.5065/p2jj-9878">10.5065/p2jj-9878</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>SoftwareSourceCode</p></td>
+<td class="text-align:left"><p>Earthcube Data Capabilities: Qgreenland: Enabling Science Through Gis (NSF <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928393&amp;HistoricalAwards=false">#1928393</a>)</p></td>
+<td class="text-align:left"><p>QGreenland (doi: <a class="reference external" href="https://doi.org/10.5281/zenodo.6369184">10.5281/zenodo.6369184</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>SoftwareSourceCode</p></td>
+<td class="text-align:left"><p>Earthcube Data Capabilities: Qgreenland: Enabling Science Through Gis (NSF <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928393&amp;HistoricalAwards=false">#1928393</a>)</p></td>
+<td class="text-align:left"><p>nsidc/qgreenland: v1.0.1 (doi: <a class="reference external" href="https://doi.org/10.5281/zenodo.4558266">10.5281/zenodo.4558266</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>Article</p></td>
+<td class="text-align:left"><p>Earthcube Rcn: An Earthcube Oceanography And Geobiology Environmental Omics Research Coordination Network (Ecogeo Rcn) (NSF <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1440066&amp;HistoricalAwards=false">#1440066</a>)</p></td>
+<td class="text-align:left"><p>EarthCube Oceanography and Geobiology Environmental ‘Omics Research Coordination Network Workshop 1 Report (doi: <a class="reference external" href="https://doi.org/10.13140/rg.2.1.4908.4561">10.13140/rg.2.1.4908.4561</a>)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_datacite_data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/datacite/datacite_data_map.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./analysis\notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The NCAR Library; Keith Maull & Matt Mayernik<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

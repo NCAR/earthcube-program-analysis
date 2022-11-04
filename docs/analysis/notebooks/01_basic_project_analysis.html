@@ -1,0 +1,3066 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>BASIC PROJECT ANALYSIS &#8212; EarthCube Program Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/ec-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube Program Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    EarthCube Metrics Analysis Report
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Findings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/publications.html">
+   Publications-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/projects.html">
+   Project-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/altmetrics.html">
+   Altmetrics Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/data.html">
+   DataCite Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/journal.html">
+   Journal Outcomes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methodology
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../methodology.html">
+   EC Program Metrics Methodology
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Full Publication List
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bib/ec_program.html">
+   EarthCube Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bib/zotero.html">
+   Zotero
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/NCAR/earthcube-program-analysis/main?urlpath=tree/analysis/notebooks/01_basic_project_analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis/issues/new?title=Issue%20on%20page%20%2Fanalysis/notebooks/01_basic_project_analysis.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/analysis/notebooks/01_basic_project_analysis.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publication-counts-by-project">
+   PUBLICATION COUNTS BY PROJECT
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publication-counts-by-project-type">
+   PUBLICATION COUNTS BY PROJECT TYPE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#change-input-files-json">
+   change input files JSON
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation-analysis">
+   CORRELATION ANALYSIS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-analysis">
+     PROJECT ANALYSIS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funded-projects">
+     FUNDED PROJECTS
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>BASIC PROJECT ANALYSIS</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publication-counts-by-project">
+   PUBLICATION COUNTS BY PROJECT
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#publication-counts-by-project-type">
+   PUBLICATION COUNTS BY PROJECT TYPE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#change-input-files-json">
+   change input files JSON
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correlation-analysis">
+   CORRELATION ANALYSIS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#project-analysis">
+     PROJECT ANALYSIS
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#funded-projects">
+     FUNDED PROJECTS
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-project-analysis">
+<h1>BASIC PROJECT ANALYSIS<a class="headerlink" href="#basic-project-analysis" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1">## to avoid warnings of deprecated functions merging multiple levels</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/citations.tsv&quot;</span><span class="p">,</span> \
+                 <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nsfid&#39;</span><span class="p">,</span> <span class="s1">&#39;doi&#39;</span><span class="p">,</span> <span class="s1">&#39;cites&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">doi</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">doi</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df_clean</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cites&gt;-1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="publication-counts-by-project">
+<h2>PUBLICATION COUNTS BY PROJECT<a class="headerlink" href="#publication-counts-by-project" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_clean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nsfid</th>
+      <th>doi</th>
+      <th>cites</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1324760</td>
+      <td>10.1016/j.geomorph.2015.03.039</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1324760</td>
+      <td>10.2110/sedred.2013.4.9</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1324760</td>
+      <td>10.2110/sedred.2013.4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1324760</td>
+      <td>10.1029/2021ef002088</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1324760</td>
+      <td>10.1029/2017jf004576</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>356</th>
+      <td>1639694</td>
+      <td>10.1016/j.dib.2022.107824</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>357</th>
+      <td>1639694</td>
+      <td>10.1016/j.cageo.2019.07.003</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>358</th>
+      <td>1440221</td>
+      <td>10.1007/978-3-319-33245-1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>359</th>
+      <td>1541028</td>
+      <td>10.3897/biss.2.26644</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>360</th>
+      <td>1541028</td>
+      <td>10.1130/abs/2017am-298208</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>309 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_nsf_normed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/nsfid_project_title_normed.csv&quot;</span><span class="p">)</span>
+<span class="n">df_nsf_normed</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nsfid&#39;</span><span class="p">,</span> <span class="s1">&#39;title_normed&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_project_counts</span> <span class="o">=</span> \
+    <span class="n">df_clean</span> \
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;nsfid&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">doi_count</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;doi&#39;</span><span class="p">,</span><span class="s1">&#39;count&#39;</span><span class="p">),</span>  \
+         <span class="n">total_cites</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;cites&#39;</span><span class="p">,</span><span class="s1">&#39;sum&#39;</span><span class="p">))</span> \
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span> \
+    <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_nsf_normed</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;nsfid&#39;</span><span class="p">)</span>
+
+<span class="n">df_project_counts</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;doi_count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nsfid</th>
+      <th>doi_count</th>
+      <th>total_cites</th>
+      <th>title_normed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>24</th>
+      <td>1440323</td>
+      <td>16</td>
+      <td>262</td>
+      <td>Earthcube Building Blocks: Collaborative Propo...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>1440294</td>
+      <td>13</td>
+      <td>108</td>
+      <td>Earthcube Building Blocks: Cyberconnector: Bri...</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>1541043</td>
+      <td>11</td>
+      <td>29</td>
+      <td>Earthcube Ia: Collaborative Proposal: Optimal ...</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>1927578</td>
+      <td>10</td>
+      <td>42</td>
+      <td>Earthcube Data Capabilities: Machine Learning ...</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>1740693</td>
+      <td>8</td>
+      <td>188</td>
+      <td>Earthcube Integration: Cyberway--Integrated Ca...</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>1928406</td>
+      <td>8</td>
+      <td>34</td>
+      <td>Collaborative Research: Earthcube Data Capabil...</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>1540542</td>
+      <td>8</td>
+      <td>20</td>
+      <td>Earthcube Ia: Collaborative Proposal: Optimal ...</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>1639759</td>
+      <td>7</td>
+      <td>45</td>
+      <td>Earthcube Building Blocks: Collaborative Propo...</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>1928403</td>
+      <td>7</td>
+      <td>30</td>
+      <td>Earthcube Data Capabilities: Collaborative Pro...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1343811</td>
+      <td>6</td>
+      <td>57</td>
+      <td>Earthcube Building Blocks: Earth System Bridge...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_project_counts</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;total_cites&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nsfid</th>
+      <th>doi_count</th>
+      <th>total_cites</th>
+      <th>title_normed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>46</th>
+      <td>1541049</td>
+      <td>6</td>
+      <td>556</td>
+      <td>Earthcube Ia: Collaborative Proposal: Earthcub...</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>1541039</td>
+      <td>6</td>
+      <td>556</td>
+      <td>Earthcube Ia: Collaborative Proposal: Earthcub...</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>1540998</td>
+      <td>5</td>
+      <td>546</td>
+      <td>Earthcube Ia: Collaborative Proposal: Earthcub...</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>1541390</td>
+      <td>3</td>
+      <td>400</td>
+      <td>Earthcube Rcn: Collaborative Research: Engagin...</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>1639588</td>
+      <td>6</td>
+      <td>319</td>
+      <td>Collaborative Proposal: Earthcube Building Blo...</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>1440323</td>
+      <td>16</td>
+      <td>262</td>
+      <td>Earthcube Building Blocks: Collaborative Propo...</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>1540979</td>
+      <td>3</td>
+      <td>246</td>
+      <td>Earthcube Ia: Collaborative Proposal: Building...</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>1541029</td>
+      <td>4</td>
+      <td>217</td>
+      <td>Earthcube Ia: Collaborative Proposal: Linkedea...</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>1540996</td>
+      <td>1</td>
+      <td>192</td>
+      <td>Earthcube Ia: Collaborative Proposal: Linkedea...</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>1740693</td>
+      <td>8</td>
+      <td>188</td>
+      <td>Earthcube Integration: Cyberway--Integrated Ca...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_project_counts</span><span class="p">[</span><span class="s1">&#39;title_normed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Earthcube Data Infrastructure: Collaborative Proposal: A Unified Experimental-Natural Digital Data System For Analysis Of Rock Microstructures    5
+Earthcube Building Blocks: Collaborative Proposal: Cloud-Hosted Real-Time Data Services For The Geosciences (Chords)                              4
+Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment                                                                    3
+Name: title_normed, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_nsf_normed</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;nsfid&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;title_normed&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>doi</th>
+      <th>cites</th>
+      <th>title_normed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>171</th>
+      <td>10.1093/nar/gkaa637</td>
+      <td>8</td>
+      <td>Collaborative Proposal: Earthcube Building Blo...</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>10.1038/nbt.4306</td>
+      <td>247</td>
+      <td>Collaborative Proposal: Earthcube Building Blo...</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>10.1093/gigascience/giy165</td>
+      <td>23</td>
+      <td>Collaborative Proposal: Earthcube Building Blo...</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>10.1093/gigascience/giz083</td>
+      <td>17</td>
+      <td>Collaborative Proposal: Earthcube Building Blo...</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>10.3389/fmicb.2021.765268</td>
+      <td>1</td>
+      <td>Collaborative Proposal: Earthcube Building Blo...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>10.2166/hydro.2015.331</td>
+      <td>7</td>
+      <td>Title: Earthcube Building Blocks: Integrating ...</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>10.1111/1752-1688.12436</td>
+      <td>20</td>
+      <td>Title: Earthcube Building Blocks: Integrating ...</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>10.1111/1752-1688.12474</td>
+      <td>77</td>
+      <td>Title: Earthcube Building Blocks: Integrating ...</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>10.1111/1752-1688.12387</td>
+      <td>5</td>
+      <td>Title: Earthcube Building Blocks: Integrating ...</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>10.1111/1752-1688.12437</td>
+      <td>1</td>
+      <td>Title: Earthcube Building Blocks: Integrating ...</td>
+    </tr>
+  </tbody>
+</table>
+<p>268 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_projects_tmp_a</span> <span class="o">=</span> \
+    <span class="n">df_clean</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_nsf_normed</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;nsfid&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;title_normed&#39;</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;title_normed&#39;</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">project_dois</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;doi&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">),</span>
+             <span class="n">project_cites</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;cites&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">))</span>
+
+<span class="n">df_projects_tmp_b</span> <span class="o">=</span> \
+    <span class="n">df_clean</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_nsf_normed</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;title_normed&#39;</span><span class="p">)</span> \
+        <span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">project_ids</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;nsfid&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()),</span>
+             <span class="n">project_counts</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;nsfid&#39;</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_projects_summary</span> <span class="o">=</span> <span class="n">df_projects_tmp_b</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_projects_tmp_a</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_projects_summary</span><span class="p">[</span><span class="s1">&#39;dois_per_collab&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_projects_summary</span><span class="p">[</span><span class="s1">&#39;project_dois&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_projects_summary</span><span class="p">[</span><span class="s1">&#39;project_counts&#39;</span><span class="p">]</span>
+<span class="n">df_projects_summary</span><span class="p">[</span><span class="s1">&#39;cites_per_collab&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_projects_summary</span><span class="p">[</span><span class="s1">&#39;project_cites&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_projects_summary</span><span class="p">[</span><span class="s1">&#39;project_counts&#39;</span><span class="p">]</span>
+<span class="n">df_projects_summary</span><span class="p">[</span><span class="s1">&#39;cites_per_doi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_projects_summary</span><span class="p">[</span><span class="s1">&#39;project_cites&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df_projects_summary</span><span class="p">[</span><span class="s1">&#39;project_dois&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_projects_summary</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;project_cites&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_ids</th>
+      <th>project_counts</th>
+      <th>project_dois</th>
+      <th>project_cites</th>
+      <th>dois_per_collab</th>
+      <th>cites_per_collab</th>
+      <th>cites_per_doi</th>
+    </tr>
+    <tr>
+      <th>title_normed</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment</th>
+      <td>[1541039, 1540998, 1541049]</td>
+      <td>3</td>
+      <td>6</td>
+      <td>556</td>
+      <td>2.000000</td>
+      <td>185.333333</td>
+      <td>92.666667</td>
+    </tr>
+    <tr>
+      <th>Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network</th>
+      <td>[1541390]</td>
+      <td>1</td>
+      <td>3</td>
+      <td>400</td>
+      <td>3.000000</td>
+      <td>400.000000</td>
+      <td>133.333333</td>
+    </tr>
+    <tr>
+      <th>Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers</th>
+      <td>[1639588, 1639614]</td>
+      <td>2</td>
+      <td>6</td>
+      <td>319</td>
+      <td>3.000000</td>
+      <td>159.500000</td>
+      <td>53.166667</td>
+    </tr>
+    <tr>
+      <th>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences</th>
+      <td>[1440323, 1440291, 1440332]</td>
+      <td>3</td>
+      <td>19</td>
+      <td>276</td>
+      <td>6.333333</td>
+      <td>92.000000</td>
+      <td>14.526316</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics</th>
+      <td>[1540979, 1541002]</td>
+      <td>2</td>
+      <td>9</td>
+      <td>259</td>
+      <td>4.500000</td>
+      <td>129.500000</td>
+      <td>28.777778</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Oceans Of Data: Bringing Earthcube To The Science User</th>
+      <td>[1540966]</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Collaborative Research: Earthcube Data Capabilities: Volcanology Hub For Interdisciplinary Collaboration, Tools And Resources (Victor)</th>
+      <td>[2125974]</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Earthcube Building Blocks: Collaborative Proposal: Polar Data Insights And Search Analytics For The Deep And Scientific Web</th>
+      <td>[1639675]</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Enhancing Paleontological And Neontological Data Discovery Api</th>
+      <td>[1541028]</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Earthcube Rcn: An Earthcube Oceanography And Geobiology Environmental Omics Research Coordination Network (Ecogeo Rcn)</th>
+      <td>[1440066]</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>61 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_projects_summary</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;project_cites&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_ids</th>
+      <th>project_counts</th>
+      <th>project_dois</th>
+      <th>project_cites</th>
+      <th>dois_per_collab</th>
+      <th>cites_per_collab</th>
+      <th>cites_per_doi</th>
+    </tr>
+    <tr>
+      <th>title_normed</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment</th>
+      <td>[1541039, 1540998, 1541049]</td>
+      <td>3</td>
+      <td>6</td>
+      <td>556</td>
+      <td>2.000000</td>
+      <td>185.333333</td>
+      <td>92.666667</td>
+    </tr>
+    <tr>
+      <th>Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network</th>
+      <td>[1541390]</td>
+      <td>1</td>
+      <td>3</td>
+      <td>400</td>
+      <td>3.000000</td>
+      <td>400.000000</td>
+      <td>133.333333</td>
+    </tr>
+    <tr>
+      <th>Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers</th>
+      <td>[1639588, 1639614]</td>
+      <td>2</td>
+      <td>6</td>
+      <td>319</td>
+      <td>3.000000</td>
+      <td>159.500000</td>
+      <td>53.166667</td>
+    </tr>
+    <tr>
+      <th>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences</th>
+      <td>[1440323, 1440291, 1440332]</td>
+      <td>3</td>
+      <td>19</td>
+      <td>276</td>
+      <td>6.333333</td>
+      <td>92.000000</td>
+      <td>14.526316</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics</th>
+      <td>[1540979, 1541002]</td>
+      <td>2</td>
+      <td>9</td>
+      <td>259</td>
+      <td>4.500000</td>
+      <td>129.500000</td>
+      <td>28.777778</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Oceans Of Data: Bringing Earthcube To The Science User</th>
+      <td>[1540966]</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Collaborative Research: Earthcube Data Capabilities: Volcanology Hub For Interdisciplinary Collaboration, Tools And Resources (Victor)</th>
+      <td>[2125974]</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Earthcube Building Blocks: Collaborative Proposal: Polar Data Insights And Search Analytics For The Deep And Scientific Web</th>
+      <td>[1639675]</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Enhancing Paleontological And Neontological Data Discovery Api</th>
+      <td>[1541028]</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Earthcube Rcn: An Earthcube Oceanography And Geobiology Environmental Omics Research Coordination Network (Ecogeo Rcn)</th>
+      <td>[1440066]</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>61 rows × 7 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_projects_summary</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/publication_project_summary.csv&quot;</span><span class="p">)</span>
+<span class="n">df_projects_summary</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="s2">&quot;../outputs/publication_project_summary.json&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_projects_summary</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;project_ids&#39;, &#39;project_counts&#39;, &#39;project_dois&#39;, &#39;project_cites&#39;,
+       &#39;dois_per_collab&#39;, &#39;cites_per_collab&#39;, &#39;cites_per_doi&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_projects_summary</span><span class="p">[[</span><span class="s1">&#39;project_dois&#39;</span><span class="p">]]</span> \
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;project_dois&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_dois</th>
+    </tr>
+    <tr>
+      <th>title_normed</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences</th>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>Earthcube Building Blocks: Cyberconnector: Bridging The Earth Observations And Earth Science Modeling For Supporting Model Validation, Verification, And Inter-Comparison</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Optimal Data Layout For Scalable Geophysical Analysis In A Data-Intensive Environment</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics</th>
+      <td>9</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_projects_summary</span><span class="p">[[</span><span class="s1">&#39;project_cites&#39;</span><span class="p">,</span> <span class="s1">&#39;project_counts&#39;</span><span class="p">]]</span> \
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;project_cites&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_cites</th>
+      <th>project_counts</th>
+    </tr>
+    <tr>
+      <th>title_normed</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment</th>
+      <td>556</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network</th>
+      <td>400</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers</th>
+      <td>319</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences</th>
+      <td>276</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics</th>
+      <td>259</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_projects_summary</span><span class="p">[[</span><span class="s1">&#39;project_dois&#39;</span><span class="p">,</span><span class="s1">&#39;cites_per_doi&#39;</span><span class="p">]]</span> \
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;cites_per_doi&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_dois</th>
+      <th>cites_per_doi</th>
+    </tr>
+    <tr>
+      <th>title_normed</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network</th>
+      <td>3</td>
+      <td>133.333333</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment</th>
+      <td>6</td>
+      <td>92.666667</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Linkedearth: Crowdsourcing Data Curation &amp; Standards Development In Paleoclimatology</th>
+      <td>4</td>
+      <td>54.250000</td>
+    </tr>
+    <tr>
+      <th>Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers</th>
+      <td>6</td>
+      <td>53.166667</td>
+    </tr>
+    <tr>
+      <th>Earthcube Building Blocks: Collaborative Proposal: The Power Of Many: Ensemble Toolkit For Earth Sciences</th>
+      <td>6</td>
+      <td>37.500000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_projects_summary</span><span class="p">[[</span><span class="s1">&#39;project_counts&#39;</span><span class="p">,</span><span class="s1">&#39;project_cites&#39;</span><span class="p">,</span><span class="s1">&#39;cites_per_collab&#39;</span><span class="p">]]</span> \
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;cites_per_collab&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_counts</th>
+      <th>project_cites</th>
+      <th>cites_per_collab</th>
+    </tr>
+    <tr>
+      <th>title_normed</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network</th>
+      <td>1</td>
+      <td>400</td>
+      <td>400.000000</td>
+    </tr>
+    <tr>
+      <th>Earthcube Integration: Cyberway--Integrated Capabilities Of Earthcube Building Blocks For Facilitating Cyber-Based Innovative Way Of Interdisciplinary Geoscience Studies</th>
+      <td>1</td>
+      <td>188</td>
+      <td>188.000000</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment</th>
+      <td>3</td>
+      <td>556</td>
+      <td>185.333333</td>
+    </tr>
+    <tr>
+      <th>Earthcube Building Blocks: A Cognitive Computer Infrastructure For Geoscience</th>
+      <td>1</td>
+      <td>165</td>
+      <td>165.000000</td>
+    </tr>
+    <tr>
+      <th>Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers</th>
+      <td>2</td>
+      <td>319</td>
+      <td>159.500000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_projects_summary</span><span class="p">[[</span><span class="s1">&#39;project_counts&#39;</span><span class="p">,</span><span class="s1">&#39;project_cites&#39;</span><span class="p">,</span><span class="s1">&#39;cites_per_collab&#39;</span><span class="p">]]</span> \
+    <span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;project_counts&gt;1&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;cites_per_collab&#39;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>project_counts</th>
+      <th>project_cites</th>
+      <th>cites_per_collab</th>
+    </tr>
+    <tr>
+      <th>title_normed</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment</th>
+      <td>3</td>
+      <td>556</td>
+      <td>185.333333</td>
+    </tr>
+    <tr>
+      <th>Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers</th>
+      <td>2</td>
+      <td>319</td>
+      <td>159.500000</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics</th>
+      <td>2</td>
+      <td>259</td>
+      <td>129.500000</td>
+    </tr>
+    <tr>
+      <th>Earthcube Ia: Collaborative Proposal: Linkedearth: Crowdsourcing Data Curation &amp; Standards Development In Paleoclimatology</th>
+      <td>2</td>
+      <td>217</td>
+      <td>108.500000</td>
+    </tr>
+    <tr>
+      <th>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences</th>
+      <td>3</td>
+      <td>276</td>
+      <td>92.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="publication-counts-by-project-type">
+<h2>PUBLICATION COUNTS BY PROJECT TYPE<a class="headerlink" href="#publication-counts-by-project-type" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="change-input-files-json">
+<h2>change input files JSON<a class="headerlink" href="#change-input-files-json" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_nsf_title_normed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/nsfid_project_title_normed.csv&quot;</span><span class="p">,)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">)</span>
+<span class="n">df_nsf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/data_full_dump.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_nsf_normed</span> <span class="o">=</span> <span class="n">df_nsf_title_normed</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_nsf</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">del</span><span class="p">(</span><span class="n">df_nsf_title_normed</span><span class="p">)</span>
+<span class="k">del</span><span class="p">(</span><span class="n">df_nsf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">timedelta</span>
+<span class="n">df_nsf_normed</span><span class="o">.</span><span class="n">startDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_nsf_normed</span><span class="o">.</span><span class="n">startDate</span><span class="p">)</span>
+<span class="n">df_nsf_normed</span><span class="o">.</span><span class="n">expDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_nsf_normed</span><span class="o">.</span><span class="n">expDate</span><span class="p">)</span>
+<span class="n">df_nsf_normed</span><span class="o">.</span><span class="n">fundsObligatedAmt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df_nsf_normed</span><span class="o">.</span><span class="n">fundsObligatedAmt</span><span class="p">)</span>
+<span class="n">df_nsf_normed</span><span class="p">[</span><span class="s1">&#39;proj_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">df_nsf_normed</span><span class="o">.</span><span class="n">expDate</span> <span class="o">-</span> <span class="n">df_nsf_normed</span><span class="o">.</span><span class="n">startDate</span><span class="p">)</span> <span class="o">/</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">365</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_nsf_normed</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;title_normed&#39;, &#39;abstractText&#39;, &#39;estimatedTotalAmt&#39;,
+       &#39;fundsObligatedAmt&#39;, &#39;fundProgramName&#39;, &#39;id&#39;, &#39;projectOutComesReport&#39;,
+       &#39;publicationResearch&#39;, &#39;startDate&#39;, &#39;expDate&#39;, &#39;title&#39;, &#39;awardee&#39;,
+       &#39;proj_duration&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_project_summary_full</span> <span class="o">=</span> \
+    <span class="n">df_project_counts</span> \
+    <span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;nsfid&#39;</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_nsf_normed</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_project_summary_full</span> <span class="o">=</span> <span class="n">df_project_summary_full</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;title_normed_x&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_project_summary_full</span> <span class="o">=</span> <span class="n">df_project_summary_full</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title_normed_y&#39;</span><span class="p">:</span> <span class="s1">&#39;title_normed&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_project_summary_full</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;expDate&lt;=2020&#39;</span><span class="p">)[[</span><span class="s1">&#39;proj_duration&#39;</span><span class="p">,</span><span class="s1">&#39;doi_count&#39;</span><span class="p">,</span><span class="s1">&#39;total_cites&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df_tmp</span><span class="o">.</span><span class="n">doi_count</span> <span class="o">/</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">proj_duration</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>count    52.000000
+mean      1.079167
+std       0.925621
+min       0.250000
+25%       0.500000
+50%       0.708333
+75%       1.375000
+max       4.333333
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="correlation-analysis">
+<h2>CORRELATION ANALYSIS<a class="headerlink" href="#correlation-analysis" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_project_summary_full</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;expDate&lt;=2020&#39;</span><span class="p">)[[</span><span class="s1">&#39;proj_duration&#39;</span><span class="p">,</span><span class="s1">&#39;doi_count&#39;</span><span class="p">,</span><span class="s1">&#39;total_cites&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>proj_duration</th>
+      <th>doi_count</th>
+      <th>total_cites</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>proj_duration</th>
+      <td>1.000000</td>
+      <td>0.255790</td>
+      <td>-0.030888</td>
+    </tr>
+    <tr>
+      <th>doi_count</th>
+      <td>0.255790</td>
+      <td>1.000000</td>
+      <td>0.370514</td>
+    </tr>
+    <tr>
+      <th>total_cites</th>
+      <td>-0.030888</td>
+      <td>0.370514</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>NO meaningful correlation between number of papers and project duration</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_project_summary_full</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;expDate&lt;=2020&#39;</span><span class="p">)[[</span><span class="s1">&#39;fundsObligatedAmt&#39;</span><span class="p">,</span> <span class="s1">&#39;total_cites&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fundsObligatedAmt</th>
+      <th>total_cites</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>fundsObligatedAmt</th>
+      <td>1.000000</td>
+      <td>-0.028323</td>
+    </tr>
+    <tr>
+      <th>total_cites</th>
+      <td>-0.028323</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>NO correlation between award amount and cites</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_project_summary_full</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;expDate&lt;=2020&#39;</span><span class="p">)[[</span><span class="s1">&#39;fundsObligatedAmt&#39;</span><span class="p">,</span> <span class="s1">&#39;doi_count&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>fundsObligatedAmt</th>
+      <th>doi_count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>fundsObligatedAmt</th>
+      <td>1.000000</td>
+      <td>0.249793</td>
+    </tr>
+    <tr>
+      <th>doi_count</th>
+      <td>0.249793</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>NO correlation between number of papers and amount of funding</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_project_summary_full</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;doi_count&#39;, &#39;total_cites&#39;, &#39;title_normed&#39;, &#39;abstractText&#39;,
+       &#39;estimatedTotalAmt&#39;, &#39;fundsObligatedAmt&#39;, &#39;fundProgramName&#39;, &#39;id&#39;,
+       &#39;projectOutComesReport&#39;, &#39;publicationResearch&#39;, &#39;startDate&#39;, &#39;expDate&#39;,
+       &#39;title&#39;, &#39;awardee&#39;, &#39;proj_duration&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#     [[(&#39;proj_duration&#39;,&#39;max&#39;), &#39;project_counts&#39;, &#39;project_cites&#39;, &#39;project_dois&#39;]]\</span>
+
+<span class="n">df_project_summary_full</span><span class="p">[[</span><span class="s1">&#39;doi_count&#39;</span><span class="p">,</span> <span class="s1">&#39;total_cites&#39;</span><span class="p">,</span> <span class="s1">&#39;title_normed&#39;</span><span class="p">,</span> <span class="s1">&#39;proj_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;startDate&#39;</span><span class="p">,</span> <span class="s1">&#39;expDate&#39;</span><span class="p">]]</span>\
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;title_normed&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;doi_count&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">],</span> <span class="s1">&#39;total_cites&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">],</span> <span class="s1">&#39;proj_duration&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">],</span> <span class="s1">&#39;startDate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">],</span> <span class="s1">&#39;expDate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;doi_count&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">))</span>\
+    <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_projects_summary</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;title_normed&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;project_dois&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">((</span><span class="s1">&#39;proj_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">),</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+                <span class="p">(</span><span class="s1">&#39;proj_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">):</span> <span class="s1">&#39;award_duration&#39;</span><span class="p">,</span> 
+                <span class="s1">&#39;project_counts&#39;</span><span class="p">:</span> <span class="s1">&#39;collaborators&#39;</span><span class="p">,</span>
+                <span class="p">(</span><span class="s1">&#39;doi_count&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">):</span> <span class="s1">&#39;award_publications&#39;</span><span class="p">,</span>
+                <span class="p">(</span><span class="s1">&#39;total_cites&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">):</span> <span class="s1">&#39;award_cites&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;project_counts&#39;</span><span class="p">:</span> <span class="s1">&#39;collaborators&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;project_id&#39;</span><span class="p">:</span> <span class="s1">&#39;collaborator_nsfid&#39;</span><span class="p">,</span>
+                <span class="p">(</span><span class="s1">&#39;startDate&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">):</span> <span class="s1">&#39;project_start&#39;</span><span class="p">,</span>
+                <span class="p">(</span><span class="s1">&#39;expDate&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">):</span> <span class="s1">&#39;project_end&#39;</span><span class="p">,</span>
+        <span class="p">})</span>\
+    <span class="p">[[</span><span class="s1">&#39;award_publications&#39;</span><span class="p">,</span><span class="s1">&#39;award_cites&#39;</span><span class="p">,</span><span class="s1">&#39;award_duration&#39;</span><span class="p">,</span><span class="s1">&#39;project_start&#39;</span><span class="p">,</span><span class="s1">&#39;project_end&#39;</span><span class="p">,</span><span class="s1">&#39;project_ids&#39;</span><span class="p">,</span><span class="s1">&#39;collaborators&#39;</span><span class="p">]]</span>\
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title_normed&#39;</span><span class="p">:</span> <span class="s1">&#39;project_title&#39;</span><span class="p">})</span>\
+    <span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/projects_detailed_outcomes.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> \
+    <span class="n">df_project_summary_full</span><span class="p">[[</span><span class="s1">&#39;doi_count&#39;</span><span class="p">,</span> <span class="s1">&#39;total_cites&#39;</span><span class="p">,</span> <span class="s1">&#39;title_normed&#39;</span><span class="p">,</span> <span class="s1">&#39;proj_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;startDate&#39;</span><span class="p">,</span> <span class="s1">&#39;expDate&#39;</span><span class="p">]]</span>\
+        <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;title_normed&#39;</span><span class="p">)</span>\
+        <span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;doi_count&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">],</span> <span class="s1">&#39;total_cites&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">],</span> <span class="s1">&#39;proj_duration&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">],</span> <span class="s1">&#39;startDate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">],</span> <span class="s1">&#39;expDate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]})</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;doi_count&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">))</span>\
+        <span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_projects_summary</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;title_normed&#39;</span><span class="p">)</span>\
+        <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;project_dois&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">((</span><span class="s1">&#39;proj_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">),</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>\
+        <span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+                    <span class="p">(</span><span class="s1">&#39;proj_duration&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">):</span> <span class="s1">&#39;award_duration&#39;</span><span class="p">,</span> 
+                    <span class="s1">&#39;project_counts&#39;</span><span class="p">:</span> <span class="s1">&#39;collaborators&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;project_counts&#39;</span><span class="p">:</span> <span class="s1">&#39;collaborators&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;project_id&#39;</span><span class="p">:</span> <span class="s1">&#39;collaborator_nsfid&#39;</span><span class="p">,</span>
+                    <span class="p">(</span><span class="s1">&#39;startDate&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">):</span> <span class="s1">&#39;project_start&#39;</span><span class="p">,</span>
+                    <span class="p">(</span><span class="s1">&#39;expDate&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">):</span> <span class="s1">&#39;project_end&#39;</span><span class="p">,</span>
+            <span class="p">})</span>\
+<span class="c1">#        .reset_index().rename(columns={&#39;title_normed&#39;: &#39;project_title&#39;})</span>
+
+<span class="n">df_tmp</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="o">~</span><span class="n">df_tmp</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">isin</span><span class="p">([(</span><span class="s1">&#39;doi_count&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;total_cites&#39;</span><span class="p">,</span> <span class="s1">&#39;sum&#39;</span><span class="p">)])]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tmp</span>  <span class="o">=</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Award Duration&#39;</span><span class="p">,</span> <span class="s1">&#39;Award Start&#39;</span><span class="p">,</span> <span class="s1">&#39;Award End&#39;</span><span class="p">,</span> <span class="s1">&#39;Award IDs&#39;</span><span class="p">,</span> <span class="s1">&#39;Collaborators&#39;</span><span class="p">,</span> <span class="s1">&#39;Publication Count&#39;</span><span class="p">,</span> <span class="s1">&#39;Citation Total&#39;</span><span class="p">]</span>
+<span class="n">df_tmp</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Award Duration</th>
+      <th>Award Start</th>
+      <th>Award End</th>
+      <th>Award IDs</th>
+      <th>Collaborators</th>
+      <th>Publication Count</th>
+      <th>Citation Total</th>
+    </tr>
+    <tr>
+      <th>title_normed</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Earthcube Rcn Is-Geo: Intelligent Systems Research To Support Geosciences</th>
+      <td>6</td>
+      <td>2016-08-15</td>
+      <td>2023-01-31</td>
+      <td>[1632211]</td>
+      <td>1</td>
+      <td>4</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <th>Collaborative Proposal: Earthcube Integration: Iceberg: Imagery Cyberinfrastructure And Extensible Building-Blocks To Enhance Research In The Geosciences</th>
+      <td>5</td>
+      <td>2017-10-01</td>
+      <td>2022-09-30</td>
+      <td>[1740595, 1740581]</td>
+      <td>2</td>
+      <td>4</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>Earthcube Building Blocks: Collaborative Proposal: The Power Of Many: Ensemble Toolkit For Earth Sciences</th>
+      <td>5</td>
+      <td>2016-09-01</td>
+      <td>2021-08-31</td>
+      <td>[1639698, 1639707, 1639694]</td>
+      <td>3</td>
+      <td>6</td>
+      <td>225</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">| Award Title | Start Date | End Date | Publication Count |</span>
+<span class="s2">|---:|:--:|:--:|:--:|&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Publication Count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;|&quot;</span><span class="p">,</span>
+        <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+        <span class="s2">&quot;(&quot;</span> <span class="o">+</span>
+        <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;[NSF #</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">](https://nsf.gov/awardsearch/showAward?AWD_ID=</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&amp;HistoricalAwards=false)&quot;</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">r</span><span class="p">[</span><span class="mi">4</span><span class="p">]])</span>        
+        <span class="o">+</span> <span class="s2">&quot;) |&quot;</span><span class="p">,</span>
+        <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="s2">&quot;|&quot;</span> <span class="p">,</span>
+        <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="s2">&quot;|&quot;</span> <span class="p">,</span>
+        <span class="n">r</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="s2">&quot;|&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Award Title | Start Date | End Date | Publication Count |
+|---:|:--:|:--:|:--:|
+| Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences ([NSF #1440323](https://nsf.gov/awardsearch/showAward?AWD_ID=1440323&amp;HistoricalAwards=false), [NSF #1440291](https://nsf.gov/awardsearch/showAward?AWD_ID=1440291&amp;HistoricalAwards=false), [NSF #1440332](https://nsf.gov/awardsearch/showAward?AWD_ID=1440332&amp;HistoricalAwards=false)) | 2014-09-01 | 2018-08-31 | 19 |
+| Earthcube Building Blocks: Cyberconnector: Bridging The Earth Observations And Earth Science Modeling For Supporting Model Validation, Verification, And Inter-Comparison ([NSF #1440294](https://nsf.gov/awardsearch/showAward?AWD_ID=1440294&amp;HistoricalAwards=false)) | 2014-09-01 | 2017-08-31 | 13 |
+| Earthcube Ia: Collaborative Proposal: Optimal Data Layout For Scalable Geophysical Analysis In A Data-Intensive Environment ([NSF #1541043](https://nsf.gov/awardsearch/showAward?AWD_ID=1541043&amp;HistoricalAwards=false), [NSF #1540542](https://nsf.gov/awardsearch/showAward?AWD_ID=1540542&amp;HistoricalAwards=false)) | 2015-09-01 | 2019-08-31 | 11 |
+| Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions ([NSF #1927578](https://nsf.gov/awardsearch/showAward?AWD_ID=1927578&amp;HistoricalAwards=false)) | 2019-09-01 | 2023-08-31 | 10 |
+| Earthcube Data Infrastructure: Collaborative Proposal: A Unified Experimental-Natural Digital Data System For Analysis Of Rock Microstructures ([NSF #1639749](https://nsf.gov/awardsearch/showAward?AWD_ID=1639749&amp;HistoricalAwards=false), [NSF #1639710](https://nsf.gov/awardsearch/showAward?AWD_ID=1639710&amp;HistoricalAwards=false), [NSF #1639716](https://nsf.gov/awardsearch/showAward?AWD_ID=1639716&amp;HistoricalAwards=false), [NSF #1639738](https://nsf.gov/awardsearch/showAward?AWD_ID=1639738&amp;HistoricalAwards=false), [NSF #1639748](https://nsf.gov/awardsearch/showAward?AWD_ID=1639748&amp;HistoricalAwards=false)) | 2017-09-01 | 2021-08-31 | 9 |
+</pre></div>
+</div>
+</div>
+</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Award Title</p></th>
+<th class="text-align:center head"><p>Start Date</p></th>
+<th class="text-align:center head"><p>End Date</p></th>
+<th class="text-align:center head"><p>Publication Count</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1440323&amp;HistoricalAwards=false">NSF #1440323</a>, <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1440291&amp;HistoricalAwards=false">NSF #1440291</a>, <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1440332&amp;HistoricalAwards=false">NSF #1440332</a>)</p></td>
+<td class="text-align:center"><p>2014-09-01</p></td>
+<td class="text-align:center"><p>2018-08-31</p></td>
+<td class="text-align:center"><p>19</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>Earthcube Building Blocks: Cyberconnector: Bridging The Earth Observations And Earth Science Modeling For Supporting Model Validation, Verification, And Inter-Comparison (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1440294&amp;HistoricalAwards=false">NSF #1440294</a>)</p></td>
+<td class="text-align:center"><p>2014-09-01</p></td>
+<td class="text-align:center"><p>2017-08-31</p></td>
+<td class="text-align:center"><p>13</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>Earthcube Ia: Collaborative Proposal: Optimal Data Layout For Scalable Geophysical Analysis In A Data-Intensive Environment (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1541043&amp;HistoricalAwards=false">NSF #1541043</a>, <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1540542&amp;HistoricalAwards=false">NSF #1540542</a>)</p></td>
+<td class="text-align:center"><p>2015-09-01</p></td>
+<td class="text-align:center"><p>2019-08-31</p></td>
+<td class="text-align:center"><p>11</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1927578&amp;HistoricalAwards=false">NSF #1927578</a>)</p></td>
+<td class="text-align:center"><p>2019-09-01</p></td>
+<td class="text-align:center"><p>2023-08-31</p></td>
+<td class="text-align:center"><p>10</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>Earthcube Data Infrastructure: Collaborative Proposal: A Unified Experimental-Natural Digital Data System For Analysis Of Rock Microstructures (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1639749&amp;HistoricalAwards=false">NSF #1639749</a>, <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1639710&amp;HistoricalAwards=false">NSF #1639710</a>, <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1639716&amp;HistoricalAwards=false">NSF #1639716</a>, <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1639738&amp;HistoricalAwards=false">NSF #1639738</a>, <a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1639748&amp;HistoricalAwards=false">NSF #1639748</a>)</p></td>
+<td class="text-align:center"><p>2017-09-01</p></td>
+<td class="text-align:center"><p>2021-08-31</p></td>
+<td class="text-align:center"><p>9</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="p">[</span><span class="s1">&#39;Publication Count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>\
+    <span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Number of Projects&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Publication Count&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Publication Density to Project Counts&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span>  <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../outputs/fig_pub_project_density.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basic_project_analysis_44_0.png" src="../../_images/01_basic_project_analysis_44_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">| Award Title | Start Date | End Date | Total Citations |</span>
+<span class="s2">|---:|:--:|:--:|:--:|&quot;&quot;&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Citation Total&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span>
+        <span class="s2">&quot;|&quot;</span><span class="p">,</span>
+        <span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> 
+        <span class="s2">&quot;(&quot;</span> <span class="o">+</span>
+        <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="sa">f</span><span class="s2">&quot;[NSF #</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">](https://nsf.gov/awardsearch/showAward?AWD_ID=</span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&amp;HistoricalAwards=false)&quot;</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">r</span><span class="p">[</span><span class="mi">4</span><span class="p">]])</span>        
+        <span class="o">+</span> <span class="s2">&quot;) |&quot;</span><span class="p">,</span>
+        <span class="n">r</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="s2">&quot;|&quot;</span> <span class="p">,</span>
+        <span class="n">r</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">(),</span> <span class="s2">&quot;|&quot;</span> <span class="p">,</span>
+        <span class="n">r</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="s2">&quot;|&quot;</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| Award Title | Start Date | End Date | Total Citations |
+|---:|:--:|:--:|:--:|
+| Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment ([NSF #1541039](https://nsf.gov/awardsearch/showAward?AWD_ID=1541039&amp;HistoricalAwards=false), [NSF #1540998](https://nsf.gov/awardsearch/showAward?AWD_ID=1540998&amp;HistoricalAwards=false), [NSF #1541049](https://nsf.gov/awardsearch/showAward?AWD_ID=1541049&amp;HistoricalAwards=false)) | 2015-09-01 | 2018-08-31 | 556 |
+| Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network ([NSF #1541390](https://nsf.gov/awardsearch/showAward?AWD_ID=1541390&amp;HistoricalAwards=false)) | 2016-08-01 | 2018-07-31 | 400 |
+| Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers ([NSF #1639588](https://nsf.gov/awardsearch/showAward?AWD_ID=1639588&amp;HistoricalAwards=false), [NSF #1639614](https://nsf.gov/awardsearch/showAward?AWD_ID=1639614&amp;HistoricalAwards=false)) | 2017-09-01 | 2020-08-31 | 319 |
+| Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences ([NSF #1440323](https://nsf.gov/awardsearch/showAward?AWD_ID=1440323&amp;HistoricalAwards=false), [NSF #1440291](https://nsf.gov/awardsearch/showAward?AWD_ID=1440291&amp;HistoricalAwards=false), [NSF #1440332](https://nsf.gov/awardsearch/showAward?AWD_ID=1440332&amp;HistoricalAwards=false)) | 2014-09-01 | 2018-08-31 | 276 |
+| Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics ([NSF #1540979](https://nsf.gov/awardsearch/showAward?AWD_ID=1540979&amp;HistoricalAwards=false), [NSF #1541002](https://nsf.gov/awardsearch/showAward?AWD_ID=1541002&amp;HistoricalAwards=false)) | 2015-09-01 | 2019-08-31 | 259 |
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_eco</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/eco_funded_project_list.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_project_counts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nsfid</th>
+      <th>doi_count</th>
+      <th>total_cites</th>
+      <th>title_normed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1324760</td>
+      <td>5</td>
+      <td>31</td>
+      <td>Rcn: Building A Sediment Experimentalist Netwo...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1340233</td>
+      <td>2</td>
+      <td>17</td>
+      <td>Earthcube Test Enterprise Governance: An Agile...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1340265</td>
+      <td>2</td>
+      <td>6</td>
+      <td>Ec3 - Earth-Centered Communication For Cyberin...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1340301</td>
+      <td>3</td>
+      <td>9</td>
+      <td>Earthcube Rcn: C4P: Collaboration And Cyberinf...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1343760</td>
+      <td>5</td>
+      <td>165</td>
+      <td>Earthcube Building Blocks: A Cognitive Compute...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>2026951</td>
+      <td>1</td>
+      <td>4</td>
+      <td>Earthcube Capabilities: Cloud-Based Accessible...</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>2125974</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Collaborative Research: Earthcube Data Capabil...</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>2126315</td>
+      <td>3</td>
+      <td>17</td>
+      <td>Earthcube Capabilities: Openmindat - Open Acce...</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>2126449</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Collaborative Research: Earthcube Capabilities...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>2126474</td>
+      <td>5</td>
+      <td>4</td>
+      <td>Collaborative Research: Earthcube Capabilities...</td>
+    </tr>
+  </tbody>
+</table>
+<p>96 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_eco</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_project_counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nsfid</th>
+      <th>shortname</th>
+      <th>program</th>
+      <th>doi_count</th>
+      <th>total_cites</th>
+      <th>title_normed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1324760</td>
+      <td>RCN</td>
+      <td>Building a Sediment Experimentalist Network (SEN)</td>
+      <td>5</td>
+      <td>31</td>
+      <td>Rcn: Building A Sediment Experimentalist Netwo...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1340233</td>
+      <td>Office</td>
+      <td>EarthCube Test Enterprise Governance: An Agile...</td>
+      <td>2</td>
+      <td>17</td>
+      <td>Earthcube Test Enterprise Governance: An Agile...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1340265</td>
+      <td>BB</td>
+      <td>EC3: Earth-Centered Communication for Cyberinf...</td>
+      <td>2</td>
+      <td>6</td>
+      <td>Ec3 - Earth-Centered Communication For Cyberin...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1340301</td>
+      <td>RCN</td>
+      <td>C4P: Collaboration and Cyberinfrastructure for...</td>
+      <td>3</td>
+      <td>9</td>
+      <td>Earthcube Rcn: C4P: Collaboration And Cyberinf...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1343760</td>
+      <td>BB</td>
+      <td>A Cognitive Computer Infrastructure for Geosci...</td>
+      <td>5</td>
+      <td>165</td>
+      <td>Earthcube Building Blocks: A Cognitive Compute...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>2026951</td>
+      <td>DC</td>
+      <td>Cloud-Based Accessible and Reproducible Modeli...</td>
+      <td>1</td>
+      <td>4</td>
+      <td>Earthcube Capabilities: Cloud-Based Accessible...</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>2126315</td>
+      <td>DC</td>
+      <td>OpenMindat - Open Access and Interoperable Min...</td>
+      <td>3</td>
+      <td>17</td>
+      <td>Earthcube Capabilities: Openmindat - Open Acce...</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>2125974</td>
+      <td>DC</td>
+      <td>Volcanology hub for Interdisciplinary Collabor...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Collaborative Research: Earthcube Data Capabil...</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>2126474</td>
+      <td>DC</td>
+      <td>ICESpark: An Open-Source Big Data Platform for...</td>
+      <td>5</td>
+      <td>4</td>
+      <td>Collaborative Research: Earthcube Capabilities...</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>2126449</td>
+      <td>DC</td>
+      <td>ICESpark: An Open-Source Big Data Platform for...</td>
+      <td>1</td>
+      <td>0</td>
+      <td>Collaborative Research: Earthcube Capabilities...</td>
+    </tr>
+  </tbody>
+</table>
+<p>96 rows × 6 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_eco</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_project_counts</span><span class="p">)</span><span class="o">.</span>\
+    <span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;shortname&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;total_cites&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+
+<span class="c1">## TODO/NOTE: these are wrong as they include dupes</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_cites</th>
+    </tr>
+    <tr>
+      <th>shortname</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>BB</th>
+      <td>2126</td>
+    </tr>
+    <tr>
+      <th>DC</th>
+      <td>226</td>
+    </tr>
+    <tr>
+      <th>DI</th>
+      <td>161</td>
+    </tr>
+    <tr>
+      <th>IA</th>
+      <td>2941</td>
+    </tr>
+    <tr>
+      <th>Office</th>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>RCN</th>
+      <td>670</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="project-analysis">
+<h3>PROJECT ANALYSIS<a class="headerlink" href="#project-analysis" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/data_full_dump.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">[[</span><span class="s1">&#39;startDate&#39;</span><span class="p">,</span><span class="s1">&#39;expDate&#39;</span><span class="p">]]</span> 
+
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">startDate</span><span class="p">,</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">expDate</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_tmp</span><span class="o">.</span><span class="n">startDate</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_tmp</span><span class="o">.</span><span class="n">expDate</span><span class="p">)</span>
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">=</span> \
+    <span class="n">df_tmp</span><span class="o">.</span><span class="n">expDate</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span> <span class="o">-</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">startDate</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+
+<span class="n">ax</span> <span class="o">=</span> \
+    <span class="n">df_tmp</span><span class="o">.</span><span class="n">duration</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>\
+        <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;EC Funded Project Durations&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;count (frequency)&#39;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;duration (years)&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span>  <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../outputs/fig_ec_project_duration.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basic_project_analysis_51_0.png" src="../../_images/01_basic_project_analysis_51_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/data_full_dump.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">startDate</span><span class="p">)</span> \
+    <span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span> \
+    <span class="o">.</span><span class="n">sort_index</span><span class="p">()</span> \
+    <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;NSF Funded EC Projects by Year&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;count of funded projects&#39;</span><span class="p">)</span>\
+<span class="c1">#    .get_figure().savefig(&quot;../outputs/fig_funded_projects_by_year.png&quot;, dpi=300)</span>
+
+
+<span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span>  <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../outputs/fig_funded_projects_by_year.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basic_project_analysis_52_0.png" src="../../_images/01_basic_project_analysis_52_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_pubs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/full_nsf_doi_project_summary.tsv&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cites&gt;-1&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;doi&#39;</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">df_pubs</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;year != &quot;None&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>\
+    <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">rot</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;EC Reported Publication Counts by Year&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span>  <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../outputs/fig_publications_by_year.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basic_project_analysis_53_0.png" src="../../_images/01_basic_project_analysis_53_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_pubs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nsfid</th>
+      <th>doi</th>
+      <th>title</th>
+      <th>ams_bib</th>
+      <th>cites</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1324760</td>
+      <td>10.1016/j.geomorph.2015.03.039</td>
+      <td>Data management, sharing, and reuse in experim...</td>
+      <td>Hsu, L., R. L. Martin, B. McElroy, K. Litwin-M...</td>
+      <td>19</td>
+      <td>2015</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1324760</td>
+      <td>10.2110/sedred.2013.4.9</td>
+      <td>Building a Sediment Experimentalist Network (S...</td>
+      <td>Hsu, L., B. McElroy, R. L. Martin, and W. Kim,...</td>
+      <td>2</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1324760</td>
+      <td>10.1029/2021ef002088</td>
+      <td>Earthcasting: Geomorphic Forecasts for Society</td>
+      <td>Ferdowsi, B., J. D. Gartner, K. N. Johnson, A....</td>
+      <td>0</td>
+      <td>2021</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1324760</td>
+      <td>10.1029/2017jf004576</td>
+      <td>Laboratory Investigation on Effects of Flood I...</td>
+      <td>Miller, K. L., W. Kim, and B. McElroy, 2019: L...</td>
+      <td>10</td>
+      <td>2019</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1340233</td>
+      <td>10.1126/science.342.6162.1041-b</td>
+      <td>Open Data: Crediting a Culture of Cooperation</td>
+      <td>Bolukbasi, B., and Coauthors, 2013: Open Data:...</td>
+      <td>10</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>354</th>
+      <td>1639694</td>
+      <td>10.1016/j.dib.2022.107824</td>
+      <td>A new hourly dataset for photovoltaic energy p...</td>
+      <td>Hu, W., G. Cervone, A. Merzky, M. Turilli, and...</td>
+      <td>2</td>
+      <td>2022</td>
+    </tr>
+    <tr>
+      <th>355</th>
+      <td>1639694</td>
+      <td>10.1016/j.cageo.2019.07.003</td>
+      <td>Dynamically Optimized Unstructured Grid (DOUG)...</td>
+      <td>Hu, W., and G. Cervone, 2019: Dynamically Opti...</td>
+      <td>2</td>
+      <td>2019</td>
+    </tr>
+    <tr>
+      <th>356</th>
+      <td>1440221</td>
+      <td>10.1007/978-3-319-33245-1</td>
+      <td>Ontology Engineering</td>
+      <td>Tamma, V., M. Dragoni, R. Gonçalves, and A. Ła...</td>
+      <td>2</td>
+      <td>2016</td>
+    </tr>
+    <tr>
+      <th>357</th>
+      <td>1541028</td>
+      <td>10.3897/biss.2.26644</td>
+      <td>The ePANDDA project: linking the Paleobiology ...</td>
+      <td>Sessa, J., S. Butts, T. Karim, G. Nelson, C. N...</td>
+      <td>0</td>
+      <td>2018</td>
+    </tr>
+    <tr>
+      <th>358</th>
+      <td>1541028</td>
+      <td>10.1130/abs/2017am-298208</td>
+      <td>THE EPANDDA PROJECT: LINKING THE PALEOBIOLOGY ...</td>
+      <td>Sessa, J. A., and Coauthors, 2017: THE EPANDDA...</td>
+      <td>0</td>
+      <td>2017</td>
+    </tr>
+  </tbody>
+</table>
+<p>244 rows × 6 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="funded-projects">
+<h3>FUNDED PROJECTS<a class="headerlink" href="#funded-projects" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/citations.tsv&quot;</span><span class="p">,</span> \
+                 <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nsfid&#39;</span><span class="p">,</span> <span class="s1">&#39;doi&#39;</span><span class="p">,</span> <span class="s1">&#39;cites&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">doi</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">doi</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;doi&#39;</span><span class="p">)</span>
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df_clean</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cites&gt;-1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_clean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nsfid</th>
+      <th>doi</th>
+      <th>cites</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1324760</td>
+      <td>10.1016/j.geomorph.2015.03.039</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1324760</td>
+      <td>10.2110/sedred.2013.4.9</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1324760</td>
+      <td>10.2110/sedred.2013.4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1324760</td>
+      <td>10.1029/2021ef002088</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1324760</td>
+      <td>10.1029/2017jf004576</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>356</th>
+      <td>1639694</td>
+      <td>10.1016/j.dib.2022.107824</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>357</th>
+      <td>1639694</td>
+      <td>10.1016/j.cageo.2019.07.003</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>358</th>
+      <td>1440221</td>
+      <td>10.1007/978-3-319-33245-1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>359</th>
+      <td>1541028</td>
+      <td>10.3897/biss.2.26644</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>360</th>
+      <td>1541028</td>
+      <td>10.1130/abs/2017am-298208</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>245 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/full_nsf_doi_project_summary.tsv&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cites&gt;-1&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;doi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">(</span><span class="n">df_clean</span><span class="o">.</span><span class="n">doi</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">doi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;10.2110/sedred.2013.4&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># graph</span>
+<span class="n">df_pubs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/full_nsf_doi_project_summary.tsv&quot;</span><span class="p">,</span><span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;cites&gt;-1&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;doi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_funded</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+   <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/data_full_dump.json&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">startDate</span>
+<span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+
+<span class="n">df_funded</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2013    18
+2014    29
+2015    41
+2016    35
+2017    34
+2018     1
+2019    26
+2020    15
+2021    16
+Name: startDate, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_pub_counts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_pubs</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;year != &quot;None&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+<span class="n">df_pub_counts</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df_pub_counts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_funded</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(),</span> <span class="n">df_pub_counts</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">df_tmp</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Funded Projects&#39;</span><span class="p">,</span> <span class="s1">&#39;CumPublication Count&#39;</span><span class="p">]</span>
+<span class="c1"># df_tmp.loc[:,&#39;Cummulative Publication Count&#39;] = df_tmp.iloc[:,1].sort_index().cumsum()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_tmp</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Funded Projects</th>
+      <th>CumPublication Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2013</th>
+      <td>18.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2014</th>
+      <td>47.0</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>88.0</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>2016</th>
+      <td>123.0</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>2017</th>
+      <td>157.0</td>
+      <td>97</td>
+    </tr>
+    <tr>
+      <th>2018</th>
+      <td>158.0</td>
+      <td>133</td>
+    </tr>
+    <tr>
+      <th>2019</th>
+      <td>184.0</td>
+      <td>161</td>
+    </tr>
+    <tr>
+      <th>2020</th>
+      <td>199.0</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <th>2021</th>
+      <td>215.0</td>
+      <td>224</td>
+    </tr>
+    <tr>
+      <th>2022</th>
+      <td>NaN</td>
+      <td>241</td>
+    </tr>
+    <tr>
+      <th>2023</th>
+      <td>NaN</td>
+      <td>243</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ax = df_tmp.sort_index().plot(kind=&#39;bar&#39;)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>\
+ <span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;EC Funded Projects and Reported Publications by year&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span>  <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+    
+<span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span>  <span class="n">padding</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">get_xaxis</span><span class="p">()</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../outputs/figh_v4_projects_publications_by_year.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="c1">### NOTE: THERE IS A DISCREPANCY OF 2 in cummulative sum</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basic_project_analysis_65_0.png" src="../../_images/01_basic_project_analysis_65_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">df_tmp</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df_tmp</span><span class="p">[</span><span class="s1">&#39;Funded Projects&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>\
+    <span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;EC Funded Projects and Reported Publications</span><span class="se">\n</span><span class="s1">(cummulative by year)&#39;</span><span class="p">,</span> <span class="n">rot</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">container</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">containers</span><span class="p">:</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">container</span><span class="p">,</span>  <span class="n">padding</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    
+<span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;../outputs/fig_cumm_projects_publications_by_year.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="c1">### NOTE: THERE IS A DISCREPANCY OF 2 in cummulative sum</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basic_project_analysis_66_0.png" src="../../_images/01_basic_project_analysis_66_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./analysis\notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The NCAR Library; Keith Maull & Matt Mayernik<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

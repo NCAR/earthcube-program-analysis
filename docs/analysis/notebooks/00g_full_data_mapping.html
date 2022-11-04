@@ -1,0 +1,1039 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Full Data Mapping &#8212; EarthCube Program Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/ec-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube Program Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    EarthCube Metrics Analysis Report
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Findings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/publications.html">
+   Publications-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/projects.html">
+   Project-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/altmetrics.html">
+   Altmetrics Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/data.html">
+   DataCite Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/journal.html">
+   Journal Outcomes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methodology
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../methodology.html">
+   EC Program Metrics Methodology
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Full Publication List
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bib/ec_program.html">
+   EarthCube Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bib/zotero.html">
+   Zotero
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/NCAR/earthcube-program-analysis/main?urlpath=tree/analysis/notebooks/00g_full_data_mapping.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis/issues/new?title=Issue%20on%20page%20%2Fanalysis/notebooks/00g_full_data_mapping.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/analysis/notebooks/00g_full_data_mapping.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-survey-dois-not-in-nsf-list">
+   Finding Survey DOIs not in NSF list
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-is-what-i-was-missing">
+     THIS IS WHAT I WAS MISSING!!!
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#move-finding-datacite-dois">
+     (MOVE)FINDING DATACITE DOIS
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restore-missing-dois-to-back-to-the-original-nsf-map-data">
+   Restore missing DOIs to back to the original NSF map data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-for-malformed-or-unresolving-dois">
+     Check for malformed or unresolving DOIs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-datacite-metadata-to-the-project-mapping">
+     Add Datacite metadata to the project mapping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#store-citations-csv-for-future-use">
+     STORE
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       citations.csv
+      </span>
+     </code>
+     FOR FUTURE USE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#store-full-nsf-doi-project-summary-tsv-for-future-use">
+     STORE
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       full_nsf_doi_project_summary.tsv
+      </span>
+     </code>
+     FOR FUTURE USE
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Full Data Mapping</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finding-survey-dois-not-in-nsf-list">
+   Finding Survey DOIs not in NSF list
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#this-is-what-i-was-missing">
+     THIS IS WHAT I WAS MISSING!!!
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#move-finding-datacite-dois">
+     (MOVE)FINDING DATACITE DOIS
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#restore-missing-dois-to-back-to-the-original-nsf-map-data">
+   Restore missing DOIs to back to the original NSF map data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#check-for-malformed-or-unresolving-dois">
+     Check for malformed or unresolving DOIs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#add-datacite-metadata-to-the-project-mapping">
+     Add Datacite metadata to the project mapping
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#store-citations-csv-for-future-use">
+     STORE
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       citations.csv
+      </span>
+     </code>
+     FOR FUTURE USE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#store-full-nsf-doi-project-summary-tsv-for-future-use">
+     STORE
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       full_nsf_doi_project_summary.tsv
+      </span>
+     </code>
+     FOR FUTURE USE
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="full-data-mapping">
+<h1>Full Data Mapping<a class="headerlink" href="#full-data-mapping" title="Permalink to this headline">#</a></h1>
+<p>Because there are two input sources: the data directly from the NSF, and the data from the EC community publication survey, it is important to reconcile the difference.</p>
+<p>This notebook takes as input:</p>
+<ul class="simple">
+<li><p>the original DOIs found and their project ID mapping: <span class="xref myst">nsf_doi_project_summary.tsv</span></p></li>
+<li><p>the original survey spreadsheet DOIs: <span class="xref myst">ec_survey_project_doi_mapping.tsv</span></p></li>
+<li><p>the validated DOI list from all found DOIs: <span class="xref myst">doi_project_program_detail.csv</span></p></li>
+<li><p>the original NSF mapping (the authoritative source of all metadata): <span class="xref myst">nsf_mapping.json</span></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">datacite</span>
+<span class="kn">import</span> <span class="nn">crossref</span>
+<span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="finding-survey-dois-not-in-nsf-list">
+<h2>Finding Survey DOIs not in NSF list<a class="headerlink" href="#finding-survey-dois-not-in-nsf-list" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_nsf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/nsf_doi_project_summary.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">df_survey</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/ec_survey_project_doi_mapping.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_all_found_dois</span> <span class="o">=</span> \
+    <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/nsf_doi_project_summary.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>\
+    <span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;doi&#39;</span><span class="p">,</span> <span class="s1">&#39;cites&#39;</span><span class="p">]]</span>\
+    <span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="n">df_all_found_dois</span><span class="o">.</span><span class="n">cites</span> <span class="o">=</span> <span class="n">df_all_found_dois</span><span class="o">.</span><span class="n">cites</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dois only in the original nsf extracion which had -1 flag</span>
+<span class="n">orphan_doi_list</span>  <span class="o">=</span>  <span class="n">df_all_found_dois</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;cites &lt;0&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">doi</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dois only in the survey that weren&#39;t in the original nsf extraction</span>
+<span class="n">survey_only_doi_list</span> <span class="o">=</span>  <span class="nb">set</span><span class="p">(</span><span class="n">df_survey</span><span class="o">.</span><span class="n">doi</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">df_all_found_dois</span><span class="o">.</span><span class="n">doi</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="this-is-what-i-was-missing">
+<h3>THIS IS WHAT I WAS MISSING!!!<a class="headerlink" href="#this-is-what-i-was-missing" title="Permalink to this headline">#</a></h3>
+<p>set(dc_original_list).difference(set(orphan_doi_list).union(survey_only_doi_list))</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the difference is the set we&#39;re looking for</span>
+<span class="n">missing_dois</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">orphan_doi_list</span><span class="p">)</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">survey_only_doi_list</span><span class="p">)</span>
+
+<span class="c1"># #for testing only</span>
+<span class="c1"># dc_original_list = list(json.load(open(&quot;../inputs/datacite_metadata_20220525174139.json&quot;)).keys())</span>
+<span class="c1"># set(dc_original_list).difference(missing_dois)</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">missing_dois</span><span class="p">)</span> <span class="c1"># 36 missing DOIs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="move-finding-datacite-dois">
+<h3>(MOVE)FINDING DATACITE DOIS<a class="headerlink" href="#move-finding-datacite-dois" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>find those things in the survey NOT in NSF data</p></li>
+</ul>
+<p>for doi in survey_only_doi_list:
+dc_meta = datacite.get_metadata(doi)
+if dc_meta:
+print(f”{doi}: has datacite meta (NSF: {df_survey[df_survey[1]==doi][0].values})”)
+else:
+cr_meta = crossref.get_metadata(doi)
+if cr_meta:
+print(f”{doi}: has crossref meta (NSF: {df_survey[df_survey[1]==doi][0].values})”)
+else:
+print(f”{doi}: NO meta”)</p>
+</section>
+</section>
+<section id="restore-missing-dois-to-back-to-the-original-nsf-map-data">
+<h2>Restore missing DOIs to back to the original NSF map data<a class="headerlink" href="#restore-missing-dois-to-back-to-the-original-nsf-map-data" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_project_mapping</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/nsf_mapping.json&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="k">for</span> <span class="n">doi</span> <span class="ow">in</span> <span class="n">missing_dois</span><span class="p">:</span>
+    <span class="n">nsfid</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">df_survey</span><span class="p">[</span><span class="n">df_survey</span><span class="o">.</span><span class="n">doi</span><span class="o">==</span><span class="n">doi</span><span class="p">]</span><span class="o">.</span><span class="n">nsfid</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">nsfid</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">doi</span><span class="p">,</span> <span class="s2">&quot;does not have an nsfid&quot;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">current_dois</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">df_project_mapping</span><span class="p">[</span><span class="n">nsfid</span><span class="p">]]</span> 
+        <span class="k">if</span> <span class="n">doi</span> <span class="ow">in</span> <span class="n">current_dois</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[skipping] </span><span class="si">{</span><span class="n">doi</span><span class="si">}</span><span class="s2"> is a duplicate&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cr_meta</span> <span class="o">=</span> <span class="n">crossref</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">doi</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">cr_meta</span><span class="p">:</span> 
+                <span class="n">item</span> <span class="o">=</span> <span class="p">{}</span>
+
+                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;citation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span>
+                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">doi</span>
+                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cr_meta</span>
+                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;cites&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cr_meta</span><span class="p">[</span><span class="s1">&#39;is-referenced-by-count&#39;</span><span class="p">]</span>
+                <span class="n">item</span><span class="p">[</span><span class="s1">&#39;ams_bib&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">crossref</span><span class="o">.</span><span class="n">get_bib_citation</span><span class="p">(</span><span class="n">doi</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+
+                <span class="n">df_project_mapping</span><span class="p">[</span><span class="n">nsfid</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;+</span><span class="si">{</span><span class="n">nsfid</span><span class="si">}</span><span class="s2"> ==&gt; </span><span class="si">{</span><span class="n">doi</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[] not a cr DOI&quot;</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">cr_meta</span> <span class="o">=</span> <span class="n">crossref</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">doi</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">cr_meta</span><span class="p">:</span> 
+            <span class="n">item</span> <span class="o">=</span> <span class="p">{}</span>
+
+            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;citation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span>
+            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">doi</span>
+            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cr_meta</span>
+            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;cites&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cr_meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;is-referenced-by-count&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">item</span><span class="p">[</span><span class="s1">&#39;ams_bib&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">crossref</span><span class="o">.</span><span class="n">get_bib_citation</span><span class="p">(</span><span class="n">doi</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">df_project_mapping</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">nsfid</span><span class="p">):</span> 
+                <span class="n">df_project_mapping</span><span class="p">[</span><span class="n">nsfid</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">df_project_mapping</span><span class="p">[</span><span class="n">nsfid</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">df_project_mapping</span><span class="p">[</span><span class="n">nsfid</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+                
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;*</span><span class="si">{</span><span class="n">nsfid</span><span class="si">}</span><span class="s2"> ==&gt; </span><span class="si">{</span><span class="n">doi</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>      
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[] not a cr DOI&quot;</span><span class="p">)</span>            
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*1928393 ==&gt; 10.5281/zenodo.4558266
+[skipping] 10.5281/zenodo.5496306 is a duplicate
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*1639675 ==&gt; 10.1109/igarss.2017.8126974
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+1541390 ==&gt; 10.3389/fmars.2019.00138
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+1343785 ==&gt; 10.1111/1752-1688.12437
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*1928393 ==&gt; 10.5281/zenodo.6369184
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+1343802 ==&gt; 10.1109/bigdata.2015.7363976
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*1541390 ==&gt; 10.18739/a24m9198b
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*1639694 ==&gt; 10.1016/j.cageo.2019.07.003
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*1929773 ==&gt; 10.17351/ests2021.769
+[skipping] 10.2110/sedred.2013.4 is a duplicate
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+1324760 ==&gt; 10.1029/2021ef002088
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+1743321 ==&gt; 10.3389/fspas.2022.816523
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+1340265 ==&gt; 10.1130/2022.2558(01)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+1929773 ==&gt; 10.3389/fclim.2021.763420
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*1639764 ==&gt; 10.1594/pangaea.892680
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>+1324760 ==&gt; 10.1029/2017jf004576
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>*1639694 ==&gt; 10.5065/p2jj-9878
+[skipping] 10.6084/m9.figshare.14848713.v1 is a duplicate
+</pre></div>
+</div>
+</div>
+</div>
+<section id="check-for-malformed-or-unresolving-dois">
+<h3>Check for malformed or unresolving DOIs<a class="headerlink" href="#check-for-malformed-or-unresolving-dois" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resolved_doi_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">df_project_mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">df_project_mapping</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">):</span>
+            <span class="c1"># t.append(p[&#39;cr_meta&#39;][&#39;type&#39;])</span>
+            <span class="n">resolved_doi_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s2">&quot;==&gt;&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">])</span>
+                
+<span class="n">resolved_doi_list</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">resolved_doi_list</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">resolved_doi_list</span><span class="p">),</span> <span class="s2">&quot;total DOIs checked&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1343802 ==&gt; 10.1002/hyp10899
+1639759 ==&gt; 10.5555/3319379.3319381
+255 total DOIs checked
+</pre></div>
+</div>
+</div>
+</div>
+<p>Two DOIs are unresolved, malformed or missing:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">10.1002/hyp10899</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">10.5555/3319379.3319381</span></code></p></li>
+</ul>
+<p>The first is a typo:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">10.1002/hyp.10899</span></code></p></li>
+</ul>
+<p>The second is not a registered DOI with crossref, but here is the link to it at ACM/DL:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://dl.acm.org/doi/10.5555/3319379.3319381">https://dl.acm.org/doi/10.5555/3319379.3319381</a></p></li>
+</ul>
+<p>Which seems to <strong>look</strong> like a DOI, but <strong>does NOT resolve at</strong>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://doi.org/10.5555/3319379.3319381">https://doi.org/10.5555/3319379.3319381</a></p></li>
+</ul>
+<p>We will fix the first and skip the second.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">old_doi</span> <span class="o">=</span> <span class="s1">&#39;10.1002/hyp10899&#39;</span>
+<span class="n">new_doi</span> <span class="o">=</span> <span class="s1">&#39;10.1002/hyp.10899&#39;</span>
+
+<span class="n">cr_meta</span> <span class="o">=</span> <span class="n">crossref</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">new_doi</span><span class="p">)</span>
+
+<span class="n">item</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">item</span><span class="p">[</span><span class="s1">&#39;citation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;--&quot;</span>
+<span class="n">item</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_doi</span>
+<span class="n">item</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cr_meta</span> 
+<span class="n">item</span><span class="p">[</span><span class="s1">&#39;cites&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cr_meta</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;is-referenced-by-count&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">cr_bib</span> <span class="o">=</span> <span class="n">crossref</span><span class="o">.</span><span class="n">get_bib_citation</span><span class="p">(</span><span class="n">new_doi</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">cr_bib</span><span class="p">:</span>
+    <span class="n">item</span><span class="p">[</span><span class="s1">&#39;ams_bib&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cr_bib</span> <span class="c1"># = crossref.get_bib_citation(doi)</span>
+
+<span class="n">df_project_mapping</span><span class="p">[</span><span class="s1">&#39;1343802&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+<span class="n">df_project_mapping</span><span class="p">[</span><span class="s1">&#39;1343802&#39;</span><span class="p">]</span> <span class="o">=</span> \
+    <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">df_project_mapping</span><span class="p">[</span><span class="s1">&#39;1343802&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="o">!=</span><span class="n">old_doi</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="add-datacite-metadata-to-the-project-mapping">
+<h3>Add Datacite metadata to the project mapping<a class="headerlink" href="#add-datacite-metadata-to-the-project-mapping" title="Permalink to this headline">#</a></h3>
+<p>This will check all DOIs for DataCite metadata and insert</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">df_project_mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df_project_mapping</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]:</span>
+            <span class="n">dc_meta</span> <span class="o">=</span> <span class="n">datacite</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+            <span class="k">if</span> <span class="n">dc_meta</span><span class="p">:</span>
+                <span class="n">i</span><span class="p">[</span><span class="s1">&#39;dc_meta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dc_meta</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s2">&quot;==&gt;&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">],</span> <span class="s2">&quot;datacite meta added&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1440351 ==&gt; 10.1594/IEDA/100709 datacite meta added
+1440351 ==&gt; 10.1594/IEDA/100691 datacite meta added
+1440351 ==&gt; 10.6084/m9.figshare.4272164.v1 datacite meta added
+1541390 ==&gt; 10.18739/a24m9198b datacite meta added
+1639683 ==&gt; 10.6084/m9.figshare.14848713.v1 datacite meta added
+1639764 ==&gt; 10.1594/pangaea.892680 datacite meta added
+1639557 ==&gt; 10.1594/PANGAEA.892680 datacite meta added
+1928406 ==&gt; 10.5281/zenodo.5496306 datacite meta added
+1440066 ==&gt; 10.13140/rg.2.1.4908.4561 datacite meta added
+1928393 ==&gt; 10.5281/zenodo.4558266 datacite meta added
+1928393 ==&gt; 10.5281/zenodo.6369184 datacite meta added
+1639694 ==&gt; 10.5065/p2jj-9878 datacite meta added
+CPU times: total: 9.03 s
+Wall time: 3min 31s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doi_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">df_project_mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df_project_mapping</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span>  <span class="ow">and</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">):</span>
+            <span class="n">doi_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">doi_list</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>256
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../outputs/full_data_map.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">df_project_mapping</span><span class="p">,</span> <span class="n">fo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dc_doi</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">nsfid_type_map</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">df_project_mapping</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df_project_mapping</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+        <span class="n">dc_meta</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;dc_meta&#39;</span><span class="p">)</span> 
+        <span class="k">if</span> <span class="n">dc_meta</span><span class="p">:</span>
+            <span class="n">t_general</span> <span class="o">=</span> <span class="n">dc_meta</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;types&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;resourceTypeGeneral&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">t_schemaorg</span> <span class="o">=</span> <span class="n">dc_meta</span><span class="p">[</span><span class="s1">&#39;attributes&#39;</span><span class="p">][</span><span class="s1">&#39;types&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;schemaOrg&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            
+            <span class="n">doi</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">doi</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dc_doi</span><span class="p">:</span>
+                <span class="n">dc_doi</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">doi</span><span class="p">)</span>
+                
+                <span class="k">if</span> <span class="n">nsfid_type_map</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">nsfid_type_map</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">doi</span><span class="p">):</span>
+                        <span class="n">nsfid_type_map</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">doi</span><span class="p">]</span> <span class="o">=</span>  <span class="p">{}</span>                    
+                        <span class="n">nsfid_type_map</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">doi</span><span class="p">][</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">]</span>
+                        <span class="n">nsfid_type_map</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">doi</span><span class="p">][</span><span class="s1">&#39;dc_meta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dc_meta</span>
+                        
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">nsfid_type_map</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">doi</span><span class="p">:</span> <span class="p">{}}</span>                    
+                    <span class="n">nsfid_type_map</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">doi</span><span class="p">][</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">]</span>
+                    <span class="n">nsfid_type_map</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">doi</span><span class="p">][</span><span class="s1">&#39;dc_meta&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dc_meta</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../outputs/datacite/datacite_data_map.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">nsfid_type_map</span><span class="p">,</span> <span class="n">fo</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="store-citations-csv-for-future-use">
+<h3>STORE <code class="docutils literal notranslate"><span class="pre">citations.csv</span></code> FOR FUTURE USE<a class="headerlink" href="#store-citations-csv-for-future-use" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">THIS LOADS THE DATA STORED FROM THE FILE IN THE PREVIOUSLY </span>
+<span class="sd">EXECUTED CELL</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../outputs/full_data_map.json&quot;</span><span class="p">))</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;../outputs/citations.tsv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">f</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ams_bib&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">c</span><span class="p">[</span><span class="s1">&#39;ams_bib&#39;</span><span class="p">][:</span><span class="mi">5</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;&lt;!DOC&#39;</span><span class="p">:</span>
+                    <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;cites&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> 
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="se">\t</span><span class="si">{</span><span class="n">c</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="si">}</span><span class="se">\t</span><span class="s2">-1</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.........................................................................................................................................................................................................................................................................................................................................................................
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="store-full-nsf-doi-project-summary-tsv-for-future-use">
+<h3>STORE <code class="docutils literal notranslate"><span class="pre">full_nsf_doi_project_summary.tsv</span></code> FOR FUTURE USE<a class="headerlink" href="#store-full-nsf-doi-project-summary-tsv-for-future-use" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../outputs/full_data_map.json&quot;</span><span class="p">))</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../outputs/full_nsf_doi_project_summary.tsv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span>
+             <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;nsfid&quot;</span><span class="p">,</span> <span class="s2">&quot;doi&quot;</span><span class="p">,</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;ams_bib&quot;</span><span class="p">,</span> <span class="s2">&quot;cites&quot;</span><span class="p">,</span> <span class="s2">&quot;year&quot;</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">f</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">f</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cites&#39;</span><span class="p">):</span>
+                    <span class="n">cites</span> <span class="o">=</span>  <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;is-referenced-by-count&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">cites</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cites&#39;</span><span class="p">]</span>
+                    
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">title</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="n">title</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">title</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> 
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                  <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> 
+                  <span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> 
+                  <span class="n">i</span><span class="p">[</span><span class="s1">&#39;ams_bib&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">cites</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">][</span><span class="s1">&#39;issued&#39;</span><span class="p">][</span><span class="s1">&#39;date-parts&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                 <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="c1"># the title is empty or there is no legit DOI or cr_meta</span>
+                <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>........................................................................................................
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./analysis\notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The NCAR Library; Keith Maull & Matt Mayernik<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

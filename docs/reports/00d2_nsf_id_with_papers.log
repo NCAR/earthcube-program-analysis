@@ -1,0 +1,62 @@
+Traceback (most recent call last):
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+with open("../outputs/nsf/nsf_doi_project_summary.tsv", "w", encoding='utf-8') as fo:
+    fo.write("nsfid\tdoi\tproject_title\teco_shortname\tcitation\tcites\tyear\n")
+    for k in json_nsf.keys():
+        for i in json_nsf[k]:
+            eco_shortname = eco_crosswalk.loc[int(k)]['shortname']
+            if i.get('cr_meta'):
+                if type(i['cr_meta']['title']) is list:
+                    try:
+                        title = i['cr_meta']['title'][0]
+                    except:
+                        title = i['cr_meta']['title']
+                else:
+                    title = i['cr_meta']['title']            
+            else:
+                title = '--'
+                
+            try:
+                i['cites']
+                fo.write("{}\t{}\t{}\t{}\t{}\t{}\t{}\n".format(
+                  k, i['doi'].lower(), 
+                  title.replace("\n", ""), eco_shortname,
+                  i['ams_bib'].replace("\n", ""), i['cites'], i['cr_meta']['issued']['date-parts'][0][0])
+                 )
+            except:                        
+                if type(title) is list:
+                    title = ""
+                fo.write("{}\t{}\t{}\t{}\t--\t--\t--\n".format(
+                  k, i['doi'].lower().strip(), 
+                    title.replace("\n", ""), eco_shortname
+                  )
+                 )
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mPermissionError[0m                           Traceback (most recent call last)
+Cell [1;32mIn [4], line 1[0m
+[1;32m----> 1[0m [38;5;28;01mwith[39;00m [38;5;28;43mopen[39;49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43m../outputs/nsf/nsf_doi_project_summary.tsv[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mw[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mencoding[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mutf-8[39;49m[38;5;124;43m'[39;49m[43m)[49m [38;5;28;01mas[39;00m fo:
+[0;32m      2[0m     fo[38;5;241m.[39mwrite([38;5;124m"[39m[38;5;124mnsfid[39m[38;5;130;01m\t[39;00m[38;5;124mdoi[39m[38;5;130;01m\t[39;00m[38;5;124mproject_title[39m[38;5;130;01m\t[39;00m[38;5;124meco_shortname[39m[38;5;130;01m\t[39;00m[38;5;124mcitation[39m[38;5;130;01m\t[39;00m[38;5;124mcites[39m[38;5;130;01m\t[39;00m[38;5;124myear[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m)
+[0;32m      3[0m     [38;5;28;01mfor[39;00m k [38;5;129;01min[39;00m json_nsf[38;5;241m.[39mkeys():
+
+[1;31mPermissionError[0m: [Errno 13] Permission denied: '../outputs/nsf/nsf_doi_project_summary.tsv'
+PermissionError: [Errno 13] Permission denied: '../outputs/nsf/nsf_doi_project_summary.tsv'
+

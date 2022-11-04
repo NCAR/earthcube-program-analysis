@@ -1,0 +1,904 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; EarthCube Program Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/ec-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube Program Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    EarthCube Metrics Analysis Report
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Findings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../findings.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../findings/publications.html">
+   Publications-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../findings/projects.html">
+   Project-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../findings/altmetrics.html">
+   Altmetrics Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../findings/data.html">
+   DataCite Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../findings/journal.html">
+   Journal Outcomes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methodology
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../methodology.html">
+   EC Program Metrics Methodology
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Full Publication List
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../bib/ec_program.html">
+   EarthCube Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../bib/zotero.html">
+   Zotero
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis/issues/new?title=Issue%20on%20page%20%2Fanalysis/outputs/altmetric/altmetric_doi_project_detail_table.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/analysis/outputs/altmetric/altmetric_doi_project_detail_table.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><no title></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Altmetric Score</p></th>
+<th class="head"><p>Publication Title</p></th>
+<th class="head"><p>Project Title</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>980.77</p></td>
+<td><p>A global multiproxy database for temperature reconstructions of the Common Era (doi: <a class="reference external" href="https://doi.org/10.1038/sdata.2017.88">10.1038/sdata.2017.88</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Linkedearth: Crowdsourcing Data Curation &amp; Standards Development In Paleoclimatology (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1541029&amp;HistoricalAwards=false">NSF #1541029</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>918.63</p></td>
+<td><p>BedMachine v3: Complete Bed Topography and Ocean Bathymetry Mapping of Greenland From Multibeam Echo Sounding Combined With Mass Conservation (doi: <a class="reference external" href="https://doi.org/10.1002/2017gl074954">10.1002/2017gl074954</a>)</p></td>
+<td><p>Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1541390&amp;HistoricalAwards=false">NSF #1541390</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>580.65</p></td>
+<td><p>Future Global Convective Environments in CMIP6 Models (doi: <a class="reference external" href="https://doi.org/10.1029/2021ef002277">10.1029/2021ef002277</a>)</p></td>
+<td><p>Collaborative Proposal: Earthcube Integration: Pangeo: An Open Source Big Data Climate Science Platform (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1740648&amp;HistoricalAwards=false">NSF #1740648</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>274.68</p></td>
+<td><p>Measurement of magnetic field and relativistic electrons along a solar flare current sheet (doi: <a class="reference external" href="https://doi.org/10.1038/s41550-020-1147-7">10.1038/s41550-020-1147-7</a>)</p></td>
+<td><p>Earthcube Rcn: Towards Integration Of Heliophysics Data, Modeling, And Analysis Tools (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1743321&amp;HistoricalAwards=false">NSF #1743321</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>170.44</p></td>
+<td><p>Minimum Information about an Uncultivated Virus Genome (MIUViG) (doi: <a class="reference external" href="https://doi.org/10.1038/nbt.4306">10.1038/nbt.4306</a>)</p></td>
+<td><p>Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1639588&amp;HistoricalAwards=false">NSF #1639588</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>166.65</p></td>
+<td><p>A Machine Reading System for Assembling Synthetic Paleontological Databases (doi: <a class="reference external" href="https://doi.org/10.1371/journal.pone.0113523">10.1371/journal.pone.0113523</a>)</p></td>
+<td><p>Earthcube Building Blocks: A Cognitive Computer Infrastructure For Geoscience (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1343760&amp;HistoricalAwards=false">NSF #1343760</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>154.72</p></td>
+<td><p>Atmospheric oxygenation driven by unsteady growth of the continental sedimentary reservoir (doi: <a class="reference external" href="https://doi.org/10.1016/j.epsl.2016.12.012">10.1016/j.epsl.2016.12.012</a>)</p></td>
+<td><p>Earthcube Building Blocks Collaborative Proposal: Digital Crust ? An Exploratory Environment For Earth Science Research And Learning (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1440312&amp;HistoricalAwards=false">NSF #1440312</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>145.23</p></td>
+<td><p>Similarity of fast and slow earthquakes illuminated by machine learning (doi: <a class="reference external" href="https://doi.org/10.1038/s41561-018-0272-8">10.1038/s41561-018-0272-8</a>)</p></td>
+<td><p>Earthcube Data Infrastructure: Collaborative Proposal: A Unified Experimental-Natural Digital Data System For Analysis Of Rock Microstructures (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1639710&amp;HistoricalAwards=false">NSF #1639710</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>142.36</p></td>
+<td><p>Liberating field science samples and data (doi: <a class="reference external" href="https://doi.org/10.1126/science.aad7048">10.1126/science.aad7048</a>)</p></td>
+<td><p>Earthcube Rcn: Isamples: The Internet Of Samples In The Earth Sciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1440351&amp;HistoricalAwards=false">NSF #1440351</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>107.30</p></td>
+<td><p>Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.5194/tc-16-1431-2022</a>)</p></td>
+<td><p>Collaborative Research: Earthcube Data Capabilities–Jupyter Meets The Earth: Enabling Discovery In Geoscience Through Interactive Computing At Scale (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928406</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>104.02</p></td>
+<td><p>The rise and fall of stromatolites in shallow marine environments (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1130/g38931.1</a>)</p></td>
+<td><p>Earthcube Building Blocks: A Cognitive Computer Infrastructure For Geoscience (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1343760</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>98.45</p></td>
+<td><p>Rising Oceans Guaranteed: Arctic Land Ice Loss and Sea Level Rise (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1007/s40641-018-0107-0</a>)</p></td>
+<td><p>Earthcube Rcn: Collaborative Research: Engaging The Greenland Ice Sheet Ocean (Griso) Science Network (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541390</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>65.70</p></td>
+<td><p>A review of Earth Artificial Intelligence (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1016/j.cageo.2022.105034</a>)</p></td>
+<td><p>Earthcube Capabilities: Openmindat - Open Access And Interoperable Mineralogy Data To Broaden Community Access And Advance Geoscience Research (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #2126315</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>53.63</p></td>
+<td><p>PaCTS 1.0: A Crowdsourced Reporting Standard for Paleoclimate Data (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1029/2019pa003632</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Linkedearth: Crowdsourcing Data Curation &amp; Standards Development In Paleoclimatology (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541029</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>40.03</p></td>
+<td><p>Planet Microbe: a platform for marine microbiology to discover and analyze interconnected ‘omics and environmental data (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1093/nar/gkaa637</a>)</p></td>
+<td><p>Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639588</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>38.10</p></td>
+<td><p>Libra: scalable<i>k-</i>mer–based tool for massive all-vs-all metagenome comparisons (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1093/gigascience/giy165</a>)</p></td>
+<td><p>Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639588</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>37.28</p></td>
+<td><p>Pangeo Forge: Crowdsourcing Analysis-Ready, Cloud Optimized Data Production (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3389/fclim.2021.782909</a>)</p></td>
+<td><p>Collaborative Research: Earthcube Data Capabilities–Jupyter Meets The Earth: Enabling Discovery In Geoscience Through Interactive Computing At Scale (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928406</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>37.27</p></td>
+<td><p>Toward the Geoscience Paper of the Future: Best practices for documenting and sharing research from data to software to provenance (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1002/2015ea000136</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440323</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>32.30</p></td>
+<td><p>Ecological and Genomic Attributes of Novel Bacterial Taxa That Thrive in Subsurface Soil Horizons (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1128/mbio.01318-19</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Advancing Biogeoscience Community Standards And Cyberinfrastructure Via Critical Zone Domain Engagement In Synthesis Science (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541044</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>28.80</p></td>
+<td><p>Microbial functional diversity across biogeochemical provinces in the central Pacific Ocean (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1073/pnas.2200014119</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Expanding The Ocean Protein Portal Capabilities For Use In Biochemical Research And Education (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #2026933</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>27.80</p></td>
+<td><p>The Neotoma Paleoecology Database, a multiproxy, international, community-curated data resource (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1017/qua.2017.105</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1540979</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>24.05</p></td>
+<td><p>The Observational Uncertainty of Coronal Hole Boundaries in Automated Detection Schemes (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/abf2c8</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1927578</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>23.55</p></td>
+<td><p>Ecological and genomic attributes of novel bacterial taxa that thrive in subsurface soil horizons (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1101/647651</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Advancing Biogeoscience Community Standards And Cyberinfrastructure Via Critical Zone Domain Engagement In Synthesis Science (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541047</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>22.78</p></td>
+<td><p>Progress and Challenges in Ocean Metaproteomics and Proposed Best Practices for Data Sharing (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1021/acs.jproteome.8b00761</a>)</p></td>
+<td><p>Earthcube Data Infrastructure: Laying The Groundwork For An Ocean Protein Portal (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639714</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>22.00</p></td>
+<td><p>The Arctic System Reanalysis, Version 2 (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1175/bams-d-16-0215.1</a>)</p></td>
+<td><p>Earthcube Integration: Cyberway–Integrated Capabilities Of Earthcube Building Blocks For Facilitating Cyber-Based Innovative Way Of Interdisciplinary Geoscience Studies (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740693</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>21.10</p></td>
+<td><p>The EarthLife Consortium API: an extensible, open-source service for accessing fossil data and taxonomies from multiple community paleodata resources (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.21425/f5fbg50711</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541002</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>20.55</p></td>
+<td><p>Jupyter: Thinking and Storytelling With Code and Data (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1109/mcse.2021.3059263</a>)</p></td>
+<td><p>Collaborative Research: Earthcube Data Capabilities–Jupyter Meets The Earth: Enabling Discovery In Geoscience Through Interactive Computing At Scale (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928406</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>20.10</p></td>
+<td><p>Interpreting and reporting 40Ar/39Ar geochronologic data (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1130/b35560.1</a>)</p></td>
+<td><p>Collaborative Proposal: Earthcube Integration: Geochronology Frontier At The Laboratory-Cyberinformatics Interface (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740694</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>17.88</p></td>
+<td><p>Data management, sharing, and reuse in experimental geomorphology: Challenges, strategies, and scientific opportunities (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1016/j.geomorph.2015.03.039</a>)</p></td>
+<td><p>Rcn: Building A Sediment Experimentalist Network (Sen) (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1324760</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>17.58</p></td>
+<td><p>Bridging sustainability science, earth science, and data science through interdisciplinary education (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1007/s11625-019-00735-3</a>)</p></td>
+<td><p>Earthcube Rcn Is-Geo: Intelligent Systems Research To Support Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1632211</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>16.33</p></td>
+<td><p>Ushering in a New Frontier in Geospace Through Data Science (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1002/2017ja024835</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Integrated Geoscience Observatory (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541057</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>16.28</p></td>
+<td><p>FAIR Computational Workflows (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1162/dint_a_00033</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440323</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>14.91</p></td>
+<td><p>Magnetic Reconnection during the Post-impulsive Phase of a Long-duration Solar Flare: Bidirectional Outflows as a Cause of Microwave and X-Ray Bursts (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/aba8a6</a>)</p></td>
+<td><p>Earthcube Rcn: Towards Integration Of Heliophysics Data, Modeling, And Analysis Tools (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1743321</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>13.20</p></td>
+<td><p>The Promises and Pitfalls of Machine Learning for Detecting Viruses in Aquatic Metagenomes (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3389/fmicb.2019.00806</a>)</p></td>
+<td><p>Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639588</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>12.90</p></td>
+<td><p>CSDMS: a community platform for numerical modeling of Earth surface processes (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.5194/gmd-15-1413-2022</a>)</p></td>
+<td><p>Earthcube Capabilities: Cloud-Based Accessible And Reproducible Modeling For Water And Sediment Research (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #2026951</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>12.85</p></td>
+<td><p>Open Water Data in Space and Time (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1111/1752-1688.12436</a>)</p></td>
+<td><p>Title: Earthcube Building Blocks: Integrating Discrete And Continuous Data (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1343785</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>12.75</p></td>
+<td><p>Automatic Scaling Hadoop in the Cloud for Efficient Process of Big Geospatial Data (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3390/ijgi5100173</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541039</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>12.20</p></td>
+<td><p>Sediment cycling on continental and oceanic crust (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1130/g38861.1</a>)</p></td>
+<td><p>Earthcube Building Blocks Collaborative Proposal: Digital Crust ? An Exploratory Environment For Earth Science Research And Learning (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440312</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>12.00</p></td>
+<td><p>Predictable and Unpredictable Aspects of U.S. West Coast Rainfall and El Niño: Understanding the 2015/16 Event (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1175/jcli-d-18-0181.1</a>)</p></td>
+<td><p>Earthcube Integration: Cyberway–Integrated Capabilities Of Earthcube Building Blocks For Facilitating Cyber-Based Innovative Way Of Interdisciplinary Geoscience Studies (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740693</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>11.86</p></td>
+<td><p>LEAF: Logger for ecological and atmospheric factors (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1016/j.ohx.2019.e00079</a>)</p></td>
+<td><p>Earthcube Rcn Is-Geo: Intelligent Systems Research To Support Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1632211</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>11.30</p></td>
+<td><p>Microbial diversity in an intensively managed landscape is structured by landscape connectivity (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1093/femsec/fix120</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Advancing Biogeoscience Community Standards And Cyberinfrastructure Via Critical Zone Domain Engagement In Synthesis Science (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1540938</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>10.85</p></td>
+<td><p>Situating Ecology as a Big-Data Science: Current Advances, Challenges, and Solutions (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1093/biosci/biy068</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Building Interoperable Cyberinfrastructure (Ci) At The Interface Between Paleogeoinformatics And Bioinformatics (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1540979</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>10.40</p></td>
+<td><p>Co-occurrence of Fe and P stress in natural populations of the marine diazotroph &amp;lt;i&amp;gt;Trichodesmium&amp;lt;/i&amp;gt; (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.5194/bg-17-2537-2020</a>)</p></td>
+<td><p>Earthcube Data Infrastructure: Laying The Groundwork For An Ocean Protein Portal (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639714</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>10.08</p></td>
+<td><p>Development of an Ocean Protein Portal for Interactive Discovery and Education (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1021/acs.jproteome.0c00382</a>)</p></td>
+<td><p>Earthcube Data Infrastructure: Laying The Groundwork For An Ocean Protein Portal (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639714</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>9.90</p></td>
+<td><p>Building Geoscience Semantic Web Applications Using Established Ontologies (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.5334/dsj-2016-011</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Enabling Scientific Collaboration And Discovery Through Semantic Connections (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440293</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>9.80</p></td>
+<td><p>iMicrobe: Tools and data-driven discovery platform for the microbiome sciences (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1093/gigascience/giz083</a>)</p></td>
+<td><p>Collaborative Proposal: Earthcube Building Blocks: Planet Microbe: Enabling The Discovery And Integration Of Oceanographic Omics, Environmental And Physiochemical Data Layers (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639588</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>8.83</p></td>
+<td><p>Identifying and Tracking Solar Magnetic Flux Elements with Deep Learning (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4365/aba4aa</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1927578</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>8.68</p></td>
+<td><p>Energy Budget of Plasma Motions, Heating, and Electron Acceleration in a Three-loop Solar Flare (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/abf495</a>)</p></td>
+<td><p>Earthcube Rcn: Towards Integration Of Heliophysics Data, Modeling, And Analysis Tools (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1743321</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>8.43</p></td>
+<td><p>Dressing the Coronal Magnetic Extrapolations of Active Regions with a Parameterized Thermal Structure (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/aaa4bf</a>)</p></td>
+<td><p>Earthcube Data Infrastructure: Intelligent Databases And Analysis Tools For Geospace Data (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639683</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>8.35</p></td>
+<td><p>METATRYP v 2.0: Metaproteomic Least Common Ancestor Analysis for Taxonomic Inference Using Specialized Sequence Assemblies—Standalone Software and Web Servers for Marine Microorganisms and Coronaviruses (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1021/acs.jproteome.0c00385</a>)</p></td>
+<td><p>Earthcube Data Infrastructure: Laying The Groundwork For An Ocean Protein Portal (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639714</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>8.01</p></td>
+<td><p>On Reproducible AI: Towards Reproducible Research, Open Science, and Digital Scholarship in AI Publications (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1609/aimag.v39i3.2816</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440323</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>7.58</p></td>
+<td><p>Statistical Properties of Soft X-Ray Emission of Solar Flares (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/ab06c3</a>)</p></td>
+<td><p>Earthcube Data Infrastructure: Intelligent Databases And Analysis Tools For Geospace Data (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639683</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>7.33</p></td>
+<td><p>Predicting Coronal Mass Ejections Using <i>SDO</i>/HMI Vector Magnetic Data Products and Recurrent Neural Networks (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/ab6850</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1927578</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>7.33</p></td>
+<td><p>Inferring Vector Magnetic Fields from Stokes Profiles of GST/NIRIS Using a Convolutional Neural Network (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/ab8818</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1927578</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>7.33</p></td>
+<td><p>Coronal Heating Law Constrained by Microwave Gyroresonant Emission (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/abdab1</a>)</p></td>
+<td><p>Earthcube Rcn: Towards Integration Of Heliophysics Data, Modeling, And Analysis Tools (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1743321</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>7.33</p></td>
+<td><p>Predicting Solar Energetic Particles Using SDO/HMI Vector Magnetic Data Products and a Bidirectional LSTM Network (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4365/ac5f56</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1927578</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>7.20</p></td>
+<td><p>Community-Developed Geoscience Cyberinfrastructure (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1002/2014eo200001</a>)</p></td>
+<td><p>Earthcube Test Enterprise Governance: An Agile Approach (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1340233</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>7.00</p></td>
+<td><p>Big Data and cloud computing: innovation opportunities and challenges (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1080/17538947.2016.1239771</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541039</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>6.25</p></td>
+<td><p>A Smart Web-Based Geospatial Data Discovery System with Oceanographic Data as an Example (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3390/ijgi7020062</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541039</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>6.15</p></td>
+<td><p>The Next Frontier: Making Research More Reproducible (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1061/(asce)wr.1943-5452.0001215</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Collaborative Research: Integration Of Reproducibility Into Community Cyberinfrastructure (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928369</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>5.90</p></td>
+<td><p>Geoweaver: Advanced Cyberinfrastructure for Managing Hybrid Geoscientific AI Workflows (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3390/ijgi9020119</a>)</p></td>
+<td><p>Earthcube Integration: Cyberway–Integrated Capabilities Of Earthcube Building Blocks For Facilitating Cyber-Based Innovative Way Of Interdisciplinary Geoscience Studies (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740693</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>5.58</p></td>
+<td><p>A New Tool for Deep-Down Data Mining (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1029/2017eo082377</a>)</p></td>
+<td><p>Earthcube Building Blocks: A Cognitive Computer Infrastructure For Geoscience (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1343760</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>5.08</p></td>
+<td><p>From Sky to Earth: Data Science Methodology Transfer (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1017/s1743921317000060</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541039</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>5.08</p></td>
+<td><p>An introduction to the special issue on Geoscience Papers of the Future (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1002/2016ea000201</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440332</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>4.85</p></td>
+<td><p>A review of machine learning in geochemistry and cosmochemistry: Method improvements and applications (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1016/j.apgeochem.2022.105273</a>)</p></td>
+<td><p>Earthcube Capabilities: Openmindat - Open Access And Interoperable Mineralogy Data To Broaden Community Access And Advance Geoscience Research (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #2126315</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>4.85</p></td>
+<td><p>Knowledge graph construction and application in geosciences: A review (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1016/j.cageo.2022.105082</a>)</p></td>
+<td><p>Earthcube Capabilities: Openmindat - Open Access And Interoperable Mineralogy Data To Broaden Community Access And Advance Geoscience Research (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #2126315</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>4.55</p></td>
+<td><p>Cloud-Native Repositories for Big Scientific Data (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1109/mcse.2021.3059437</a>)</p></td>
+<td><p>Collaborative Research: Earthcube Data Capabilities–Jupyter Meets The Earth: Enabling Discovery In Geoscience Through Interactive Computing At Scale (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928406</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>3.85</p></td>
+<td><p>Hydrocomplexity: Addressing water security and emergent environmental risks (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1002/2015wr017342</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: A Geo-Semantic Framework For Integrating Long-Tail Data And Models (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440315</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>3.85</p></td>
+<td><p>Continental-scale patterns of extracellular enzyme activity in the subsoil: an overlooked reservoir of microbial activity (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1088/1748-9326/abb0b3</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Advancing Biogeoscience Community Standards And Cyberinfrastructure Via Critical Zone Domain Engagement In Synthesis Science (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541047</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>3.75</p></td>
+<td><p>Use of semantic workflows to enhance transparency and reproducibility in clinical omics (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1186/s13073-015-0202-y</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440323</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>3.55</p></td>
+<td><p>GeoFairy2: A Cross-Institution Mobile Gateway to Location-Linked Data for In-Situ Decision Making (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3390/ijgi10010001</a>)</p></td>
+<td><p>Earthcube Integration: Cyberway–Integrated Capabilities Of Earthcube Building Blocks For Facilitating Cyber-Based Innovative Way Of Interdisciplinary Geoscience Studies (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740693</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>3.50</p></td>
+<td><p>Bringing sedimentology and stratigraphy into the StraboSpot data management system (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1130/ges02364.1</a>)</p></td>
+<td><p>Earthcube Data Infrastructure: Collaborative Proposal: Development Of An Integrated Data System For The Geological Field Sciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639734</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>3.50</p></td>
+<td><p>SealNet: A fully-automated pack-ice seal detection pipeline for sub-meter satellite imagery (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1016/j.rse.2019.111617</a>)</p></td>
+<td><p>Collaborative Proposal: Earthcube Integration: Iceberg: Imagery Cyberinfrastructure And Extensible Building-Blocks To Enhance Research In The Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740595</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>3.20</p></td>
+<td><p>SUIS: Simplify the use of geospatial web services in environmental modelling (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1016/j.envsoft.2019.06.005</a>)</p></td>
+<td><p>Earthcube Integration: Cyberway–Integrated Capabilities Of Earthcube Building Blocks For Facilitating Cyber-Based Innovative Way Of Interdisciplinary Geoscience Studies (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740693</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>3.00</p></td>
+<td><p>Towards uncertainty quantification and parameter estimation for Earth system models in a component-based modeling framework (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1016/j.cageo.2016.03.005</a>)</p></td>
+<td><p>Earthcube Building Blocks: Earth System Bridge: Spanning Scientific Communities With Interoperable Modeling Frameworks (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1343811</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>3.00</p></td>
+<td><p>Applicability of Models to Predict Phosphorus Losses in Drained Fields: A Review (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.2134/jeq2014.05.0220</a>)</p></td>
+<td><p>Earthcube Building Blocks: A Broker Framework For Next Generation Geoscience (Bcube) (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1343802</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>2.70</p></td>
+<td><p>Lithospheric Control of Melt Generation Beneath the Rungwe Volcanic Province, East Africa: Implications for a Plume Source (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1029/2020jb020728</a>)</p></td>
+<td><p>Collaborative Research: Earthcube Integration–Brokered Alignment Of Long-Tail Observations (Balto) (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740704</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>2.60</p></td>
+<td><p>Towards an open-source landscape for 3-D CSEM modelling (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1093/gji/ggab238</a>)</p></td>
+<td><p>Collaborative Research: Earthcube Data Capabilities–Jupyter Meets The Earth: Enabling Discovery In Geoscience Through Interactive Computing At Scale (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928406</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>2.50</p></td>
+<td><p>DigitalCrust - a 4D data system of material properties for transforming research on crustal fluid flow (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1111/gfl.12114</a>)</p></td>
+<td><p>Earthcube Building Blocks: Earth System Bridge: Spanning Scientific Communities With Interoperable Modeling Frameworks (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1343811</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>2.50</p></td>
+<td><p>The Earth System Prediction Suite: Toward a Coordinated U.S. Modeling Capability (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1175/bams-d-14-00164.1</a>)</p></td>
+<td><p>Earthcube Building Blocks: Earth System Bridge: Spanning Scientific Communities With Interoperable Modeling Frameworks (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1343811</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>2.35</p></td>
+<td><p><scp>CHOSEN</scp>            : A synthesis of hydrometeorological data from intensively monitored catchments and comparative analysis of hydrologic extremes (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1002/hyp.14429</a>)</p></td>
+<td><p>Collaborative Research: Earthcube Data Capabilities–Jupyter Meets The Earth: Enabling Discovery In Geoscience Through Interactive Computing At Scale (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928406</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>2.25</p></td>
+<td><p>Open Data: Crediting a Culture of Cooperation (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1126/science.342.6162.1041-b</a>)</p></td>
+<td><p>Earthcube Test Enterprise Governance: An Agile Approach (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1340233</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>2.25</p></td>
+<td><p>Near-Real-Time OGC Catalogue Service for Geoscience Big Data (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3390/ijgi6110337</a>)</p></td>
+<td><p>Earthcube Building Blocks: Cyberconnector: Bridging The Earth Observations And Earth Science Modeling For Supporting Model Validation, Verification, And Inter-Comparison (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440294</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>2.25</p></td>
+<td><p>Utilizing Provenance in Reusable Research Objects (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3390/informatics5010014</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Geotrust: Improving Sharing And Reproducibility Of Geoscience Applications (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639759</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>2.00</p></td>
+<td><p>Quantifying the sensitivity of post-glacial sea level change to laterally varying viscosity (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1093/gji/ggy184</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: The Power Of Many: Ensemble Toolkit For Earth Sciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639698</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1.50</p></td>
+<td><p>Measuring success for a future vision: Defining impact in science gateways/virtual research environments (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1002/cpe.6099</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Earthcube Data Discovery Hub (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639764</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>1.50</p></td>
+<td><p>Multi-instrument Comparative Study of Temperature, Number Density, and Emission Measure during the Precursor Phase of a Solar Flare (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/ac6425</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1927578</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1.35</p></td>
+<td><p>Scientific workflows in data analysis: Bridging expertise across multiple domains (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1016/j.future.2017.01.001</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440323</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>1.35</p></td>
+<td><p>Towards Automating Data Narratives (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1145/3025171.3025193</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Geosoft: Collaborative Open Source Software Sharing For Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440323</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1.25</p></td>
+<td><p>Argovis: A Web Application for Fast Delivery, Visualization, and Analysis of Argo Data (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1175/jtech-d-19-0041.1</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Argovis 2.0: A Next Generation Platform For Co-Located Oceanic And Atmospheric Data To Accelerate Climate Science Workflows (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928305</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>1.25</p></td>
+<td><p>Machine-learning Approach to Identification of Coronal Holes in Solar Disk Images and Synoptic Maps (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/abb94d</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1927578</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1.25</p></td>
+<td><p>Parallel Agent-as-a-Service (P-AaaS) Based Geospatial Service in the Cloud (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3390/rs9040382</a>)</p></td>
+<td><p>Earthcube Building Blocks: Cyberconnector: Bridging The Earth Observations And Earth Science Modeling For Supporting Model Validation, Verification, And Inter-Comparison (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440294</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>1.00</p></td>
+<td><p>StraboSpot data system for structural geology (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1130/ges02039.1</a>)</p></td>
+<td><p>Earthcube Data Infrastructure: Collaborative Proposal: Development Of An Integrated Data System For The Geological Field Sciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639734</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1.00</p></td>
+<td><p>Intelligent systems for geosciences (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1145/3192335</a>)</p></td>
+<td><p>Earthcube Rcn Is-Geo: Intelligent Systems Research To Support Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1632211</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>1.00</p></td>
+<td><p>Advanced cyberinfrastructure for intercomparison and validation of climate models (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1016/j.envsoft.2019.104559</a>)</p></td>
+<td><p>Earthcube Integration: Cyberway–Integrated Capabilities Of Earthcube Building Blocks For Facilitating Cyber-Based Innovative Way Of Interdisciplinary Geoscience Studies (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740693</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1.00</p></td>
+<td><p>Developing Subdomain Allocation Algorithms Based on Spatial and Communicational Constraints to Accelerate Dust Storm Simulation (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1371/journal.pone.0152250</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Earthcube Integration &amp; Test Environment (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1541039</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>1.00</p></td>
+<td><p>Improving Reproducibility of Distributed Computational Experiments (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1145/3214239.3214241</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Geotrust: Improving Sharing And Reproducibility Of Geoscience Applications (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639759</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>1.00</p></td>
+<td><p>Ocean Surface Salinity Response to Atmospheric River Precipitation in the California Current System (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1175/jpo-d-21-0272.1</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Argovis 2.0: A Next Generation Platform For Co-Located Oceanic And Atmospheric Data To Accelerate Climate Science Workflows (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928305</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>1.00</p></td>
+<td><p>Connecting Scientific Data and Real-World Samples (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1029/2018eo090337</a>)</p></td>
+<td><p>Earthcube Rcn: Isamples: The Internet Of Samples In The Earth Sciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1440351</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>0.50</p></td>
+<td><p>DeepSun: machine-learning-as-a-service for solar flare prediction (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1088/1674-4527/21/7/160</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1927578</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>0.50</p></td>
+<td><p>Advanced Cyberinfrastructure to Enable Search of Big Climate Datasets in THREDDS (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3390/ijgi8110494</a>)</p></td>
+<td><p>Earthcube Integration: Cyberway–Integrated Capabilities Of Earthcube Building Blocks For Facilitating Cyber-Based Innovative Way Of Interdisciplinary Geoscience Studies (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740693</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>0.50</p></td>
+<td><p>Using long short-term memory recurrent neural network in land cover classification on Landsat and Cropland data layer time series (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1080/01431161.2018.1516313</a>)</p></td>
+<td><p>Earthcube Integration: Cyberway–Integrated Capabilities Of Earthcube Building Blocks For Facilitating Cyber-Based Innovative Way Of Interdisciplinary Geoscience Studies (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740693</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>0.50</p></td>
+<td><p>Evolution of Flare-Accelerated Electrons Quantified by Spatially Resolved Analysis (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3389/fspas.2020.00022</a>)</p></td>
+<td><p>Earthcube Rcn: Towards Integration Of Heliophysics Data, Modeling, And Analysis Tools (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1743321</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>0.50</p></td>
+<td><p>Revealing the Evolution of Non-thermal Electrons in Solar Flares Using 3D Modeling (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/aabae9</a>)</p></td>
+<td><p>Earthcube Data Infrastructure: Intelligent Databases And Analysis Tools For Geospace Data (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639683</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>0.25</p></td>
+<td><p>Effects of Nearly Frontal and Highly Inclined Interplanetary Shocks on High‐Latitude Field‐Aligned Currents (FACs) (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1029/2019sw002367</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Collaborative Proposal: Assimilative Mapping Of Geospace Observations (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928403</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>0.25</p></td>
+<td><p>Deriving column-integrated thermospheric temperature  with the N&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt; Lyman–Birge–Hopfield (2,0) band (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.5194/amt-14-6917-2021</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Collaborative Proposal: Assimilative Mapping Of Geospace Observations (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928403</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>0.25</p></td>
+<td><p>Best practices for publishing, retrieving, and using spatial data on the web (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3233/sw-180305</a>)</p></td>
+<td><p>Earthcube Ia: Collaborative Proposal: Cross-Domain Observational Metadata Environmental Sensing Network (X-Domes) (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1540849</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>0.25</p></td>
+<td><p>Reproducible, component‐based modeling with TopoFlow, a spatial hydrologic modeling toolkit (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1002/2016ea000237</a>)</p></td>
+<td><p>Earthcube Building Blocks: Earth System Bridge: Spanning Scientific Communities With Interoperable Modeling Frameworks (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1343811</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>0.25</p></td>
+<td><p>Improving the Spatial Resolution of Solar Images Using Generative Adversarial Network and Self-attention Mechanism* (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/ac2aa2</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Machine Learning Enhanced Cyberinfrastructure For Understanding And Predicting The Onset Of Solar Eruptions (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1927578</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>0.25</p></td>
+<td><p>EarthCube Data Discovery Studio: A gateway into geoscience data discovery and exploration with Jupyter notebooks (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1002/cpe.6086</a>)</p></td>
+<td><p>Earthcube Building Blocks: Collaborative Proposal: Earthcube Data Discovery Hub (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639764</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>0.25</p></td>
+<td><p>Argo Reveals the Scales and Provenance of Equatorial Island Upwelling Systems (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1029/2022gl098744</a>)</p></td>
+<td><p>Earthcube Data Capabilities: Argovis 2.0: A Next Generation Platform For Co-Located Oceanic And Atmospheric Data To Accelerate Climate Science Workflows (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1928305</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>0.25</p></td>
+<td><p>EmptyHeaded (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.1145/3129246</a>)</p></td>
+<td><p>Earthcube Building Blocks: A Cognitive Computer Infrastructure For Geoscience (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1343760</a>)</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>0.25</p></td>
+<td><p>Fine-Scale Sea Ice Segmentation for High-Resolution Satellite Imagery with Weakly-Supervised CNNs (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3390/rs13183562</a>)</p></td>
+<td><p>Collaborative Proposal: Earthcube Integration: Iceberg: Imagery Cyberinfrastructure And Extensible Building-Blocks To Enhance Research In The Geosciences (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1740595</a>)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>0.25</p></td>
+<td><p>Statistical Study of Chromospheric Evaporation in Impulsive Phase of Solar Flares (doi: <a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">10.3847/1538-4357/aaf6b0</a>)</p></td>
+<td><p>Earthcube Data Infrastructure: Intelligent Databases And Analysis Tools For Geospace Data (<a class="reference external" href="https://nsf.gov/awardsearch/showAward?AWD_ID=1928406&amp;HistoricalAwards=false">NSF #1639683</a>)</p></td>
+</tr>
+</tbody>
+</table>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./analysis\outputs\altmetric"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The NCAR Library; Keith Maull & Matt Mayernik<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

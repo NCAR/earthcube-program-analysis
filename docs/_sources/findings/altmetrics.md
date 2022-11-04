@@ -54,7 +54,7 @@ Several articles ranked in the top 10 Altmetric scores did not appear in the top
 
 ## Analysis Notebooks
 
-* [01_basic_altmetric_analysis.ipynb](../analysis/notebooks/01_basic_altmetric_analysis.ipynb)
+* [01_basic_altmetric_analysis.ipynb]() 
 
 
 # References

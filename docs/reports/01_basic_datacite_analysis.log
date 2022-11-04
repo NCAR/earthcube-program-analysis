@@ -1,0 +1,81 @@
+Traceback (most recent call last):
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+print(df.describe().loc['count'].sort_values(ascending=False).to_markdown())
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+File [1;32m~\Anaconda3\envs\soarsbook\lib\site-packages\pandas\compat\_optional.py:142[0m, in [0;36mimport_optional_dependency[1;34m(name, extra, errors, min_version)[0m
+[0;32m    141[0m [38;5;28;01mtry[39;00m:
+[1;32m--> 142[0m     module [38;5;241m=[39m [43mimportlib[49m[38;5;241;43m.[39;49m[43mimport_module[49m[43m([49m[43mname[49m[43m)[49m
+[0;32m    143[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
+
+File [1;32m~\Anaconda3\envs\soarsbook\lib\importlib\__init__.py:127[0m, in [0;36mimport_module[1;34m(name, package)[0m
+[0;32m    126[0m         level [38;5;241m+[39m[38;5;241m=[39m [38;5;241m1[39m
+[1;32m--> 127[0m [38;5;28;01mreturn[39;00m [43m_bootstrap[49m[38;5;241;43m.[39;49m[43m_gcd_import[49m[43m([49m[43mname[49m[43m[[49m[43mlevel[49m[43m:[49m[43m][49m[43m,[49m[43m [49m[43mpackage[49m[43m,[49m[43m [49m[43mlevel[49m[43m)[49m
+
+File [1;32m<frozen importlib._bootstrap>:1030[0m, in [0;36m_gcd_import[1;34m(name, package, level)[0m
+
+File [1;32m<frozen importlib._bootstrap>:1007[0m, in [0;36m_find_and_load[1;34m(name, import_)[0m
+
+File [1;32m<frozen importlib._bootstrap>:984[0m, in [0;36m_find_and_load_unlocked[1;34m(name, import_)[0m
+
+[1;31mModuleNotFoundError[0m: No module named 'tabulate'
+
+During handling of the above exception, another exception occurred:
+
+[1;31mImportError[0m                               Traceback (most recent call last)
+Cell [1;32mIn [3], line 1[0m
+[1;32m----> 1[0m [38;5;28mprint[39m([43mdf[49m[38;5;241;43m.[39;49m[43mdescribe[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mloc[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mcount[39;49m[38;5;124;43m'[39;49m[43m][49m[38;5;241;43m.[39;49m[43msort_values[49m[43m([49m[43mascending[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m[38;5;241;43m.[39;49m[43mto_markdown[49m[43m([49m[43m)[49m)
+
+File [1;32m~\Anaconda3\envs\soarsbook\lib\site-packages\pandas\core\series.py:1787[0m, in [0;36mSeries.to_markdown[1;34m(self, buf, mode, index, storage_options, **kwargs)[0m
+[0;32m   1714[0m [38;5;129m@doc[39m(
+[0;32m   1715[0m     klass[38;5;241m=[39m_shared_doc_kwargs[[38;5;124m"[39m[38;5;124mklass[39m[38;5;124m"[39m],
+[0;32m   1716[0m     storage_options[38;5;241m=[39m_shared_docs[[38;5;124m"[39m[38;5;124mstorage_options[39m[38;5;124m"[39m],
+[1;32m   (...)[0m
+[0;32m   1751[0m     [38;5;241m*[39m[38;5;241m*[39mkwargs,
+[0;32m   1752[0m ) [38;5;241m-[39m[38;5;241m>[39m [38;5;28mstr[39m [38;5;241m|[39m [38;5;28;01mNone[39;00m:
+[0;32m   1753[0m     [38;5;124;03m"""[39;00m
+[0;32m   1754[0m [38;5;124;03m    Print {klass} in Markdown-friendly format.[39;00m
+[0;32m   1755[0m 
+[1;32m   (...)[0m
+[0;32m   1785[0m [38;5;124;03m    {examples}[39;00m
+[0;32m   1786[0m [38;5;124;03m    """[39;00m
+[1;32m-> 1787[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39mto_frame()[38;5;241m.[39mto_markdown(
+[0;32m   1788[0m         buf, mode, index, storage_options[38;5;241m=[39mstorage_options, [38;5;241m*[39m[38;5;241m*[39mkwargs
+[0;32m   1789[0m     )
+
+File [1;32m~\Anaconda3\envs\soarsbook\lib\site-packages\pandas\core\frame.py:2841[0m, in [0;36mDataFrame.to_markdown[1;34m(self, buf, mode, index, storage_options, **kwargs)[0m
+[0;32m   2839[0m kwargs[38;5;241m.[39msetdefault([38;5;124m"[39m[38;5;124mtablefmt[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mpipe[39m[38;5;124m"[39m)
+[0;32m   2840[0m kwargs[38;5;241m.[39msetdefault([38;5;124m"[39m[38;5;124mshowindex[39m[38;5;124m"[39m, index)
+[1;32m-> 2841[0m tabulate [38;5;241m=[39m [43mimport_optional_dependency[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mtabulate[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[0;32m   2842[0m result [38;5;241m=[39m tabulate[38;5;241m.[39mtabulate([38;5;28mself[39m, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+[0;32m   2843[0m [38;5;28;01mif[39;00m buf [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+
+File [1;32m~\Anaconda3\envs\soarsbook\lib\site-packages\pandas\compat\_optional.py:145[0m, in [0;36mimport_optional_dependency[1;34m(name, extra, errors, min_version)[0m
+[0;32m    143[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
+[0;32m    144[0m     [38;5;28;01mif[39;00m errors [38;5;241m==[39m [38;5;124m"[39m[38;5;124mraise[39m[38;5;124m"[39m:
+[1;32m--> 145[0m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(msg)
+[0;32m    146[0m     [38;5;28;01melse[39;00m:
+[0;32m    147[0m         [38;5;28;01mreturn[39;00m [38;5;28;01mNone[39;00m
+
+[1;31mImportError[0m: Missing optional dependency 'tabulate'.  Use pip or conda to install tabulate.
+ImportError: Missing optional dependency 'tabulate'.  Use pip or conda to install tabulate.
+

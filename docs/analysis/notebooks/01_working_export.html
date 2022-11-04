@@ -1,0 +1,1091 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; EarthCube Program Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/ec-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube Program Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    EarthCube Metrics Analysis Report
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Findings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/publications.html">
+   Publications-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/projects.html">
+   Project-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/altmetrics.html">
+   Altmetrics Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/data.html">
+   DataCite Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../findings/journal.html">
+   Journal Outcomes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methodology
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../methodology.html">
+   EC Program Metrics Methodology
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Full Publication List
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bib/ec_program.html">
+   EarthCube Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../bib/zotero.html">
+   Zotero
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/NCAR/earthcube-program-analysis/main?urlpath=tree/analysis/notebooks/01_working_export.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis/issues/new?title=Issue%20on%20page%20%2Fanalysis/notebooks/01_working_export.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/analysis/notebooks/01_working_export.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><no title></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">json_nsf</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/nsf_mapping.json&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/nsf_doi_project_summary.tsv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">json_nsf</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">json_nsf</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">title</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="k">except</span><span class="p">:</span>
+                        <span class="n">title</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">title</span> <span class="o">=</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">][</span><span class="s1">&#39;title&#39;</span><span class="p">]</span>            
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;--&#39;</span>
+                
+            <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cites&#39;</span><span class="p">):</span>
+                <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                  <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> 
+                  <span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> 
+                  <span class="n">i</span><span class="p">[</span><span class="s1">&#39;ams_bib&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cites&#39;</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;cr_meta&#39;</span><span class="p">][</span><span class="s1">&#39;issued&#39;</span><span class="p">][</span><span class="s1">&#39;date-parts&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                 <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">title</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">list</span><span class="p">:</span>
+                    <span class="n">title</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="si">{}</span><span class="se">\t</span><span class="s2">--</span><span class="se">\t</span><span class="s2">--</span><span class="se">\t</span><span class="s2">--</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                  <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">[</span><span class="s1">&#39;doi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">title</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span> 
+                  <span class="p">)</span>
+                 <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">PermissionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/nsf_doi_project_summary.tsv&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fo</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">json_nsf</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">json_nsf</span><span class="p">[</span><span class="n">k</span><span class="p">]:</span>
+
+<span class="ne">PermissionError</span>: [Errno 13] Permission denied: &#39;../outputs/nsf/nsf_doi_project_summary.tsv&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../outputs/nsf/nsf_doi_project_summary.tsv&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;nsfid&#39;</span><span class="p">,</span> <span class="s1">&#39;doi&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;ams_bib&#39;</span><span class="p">,</span> <span class="s1">&#39;cites&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">]</span>
+
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;doi != &quot;&quot;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nsfid</th>
+      <th>doi</th>
+      <th>title</th>
+      <th>ams_bib</th>
+      <th>cites</th>
+      <th>year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1324760</td>
+      <td>10.1016/j.geomorph.2015.03.039</td>
+      <td>Data management, sharing, and reuse in experim...</td>
+      <td>Hsu, L., R. L. Martin, B. McElroy, K. Litwin-M...</td>
+      <td>19</td>
+      <td>2015</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1324760</td>
+      <td>10.2110/sedred.2013.4.9</td>
+      <td>Building a Sediment Experimentalist Network (S...</td>
+      <td>Hsu, L., B. McElroy, R. L. Martin, and W. Kim,...</td>
+      <td>2</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1324760</td>
+      <td>10.2110/sedred.2013.4</td>
+      <td>NaN</td>
+      <td>--</td>
+      <td>--</td>
+      <td>--</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1340233</td>
+      <td>10.1126/science.342.6162.1041-b</td>
+      <td>Open Data: Crediting a Culture of Cooperation</td>
+      <td>Bolukbasi, B., and Coauthors, 2013: Open Data:...</td>
+      <td>10</td>
+      <td>2013</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1340233</td>
+      <td>10.1002/2014eo200001</td>
+      <td>Community-Developed Geoscience Cyberinfrastruc...</td>
+      <td>Richard, S. M., G. Pearthree, A. K. Aufdenkamp...</td>
+      <td>7</td>
+      <td>2014</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;title==&quot;--&quot;&#39;</span><span class="p">)[[</span><span class="s1">&#39;doi&#39;</span><span class="p">,</span> <span class="s1">&#39;nsfid&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>doi</th>
+      <th>nsfid</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>NaN</td>
+      <td>1340265</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>NaN</td>
+      <td>1343760</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>NaN</td>
+      <td>1343800</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>NaN</td>
+      <td>1343802</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>10.1002/hyp10899</td>
+      <td>1343802</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>NaN</td>
+      <td>1343811</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>NaN</td>
+      <td>1343813</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>NaN</td>
+      <td>1440081</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>NaN</td>
+      <td>1440109</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>NaN</td>
+      <td>1440139</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>NaN</td>
+      <td>1440195</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>NaN</td>
+      <td>1440202</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>NaN</td>
+      <td>1440213</td>
+    </tr>
+    <tr>
+      <th>101</th>
+      <td>NaN</td>
+      <td>1440294</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>NaN</td>
+      <td>1440333</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>NaN</td>
+      <td>1440323</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>NaN</td>
+      <td>1440291</td>
+    </tr>
+    <tr>
+      <th>160</th>
+      <td>NaN</td>
+      <td>1440327</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>NaN</td>
+      <td>1541002</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>NaN</td>
+      <td>1541015</td>
+    </tr>
+    <tr>
+      <th>196</th>
+      <td>NaN</td>
+      <td>1540996</td>
+    </tr>
+    <tr>
+      <th>202</th>
+      <td>NaN</td>
+      <td>1541039</td>
+    </tr>
+    <tr>
+      <th>214</th>
+      <td>NaN</td>
+      <td>1540998</td>
+    </tr>
+    <tr>
+      <th>222</th>
+      <td>NaN</td>
+      <td>1541049</td>
+    </tr>
+    <tr>
+      <th>243</th>
+      <td>NaN</td>
+      <td>1541043</td>
+    </tr>
+    <tr>
+      <th>261</th>
+      <td>NaN</td>
+      <td>1661918</td>
+    </tr>
+    <tr>
+      <th>268</th>
+      <td>NaN</td>
+      <td>1632211</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>NaN</td>
+      <td>1639734</td>
+    </tr>
+    <tr>
+      <th>315</th>
+      <td>10.5555/3319379.3319381</td>
+      <td>1639759</td>
+    </tr>
+    <tr>
+      <th>318</th>
+      <td>NaN</td>
+      <td>1639759</td>
+    </tr>
+    <tr>
+      <th>365</th>
+      <td>NaN</td>
+      <td>1928288</td>
+    </tr>
+    <tr>
+      <th>391</th>
+      <td>NaN</td>
+      <td>1928406</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">doi</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.1002/gdj3.36                        4
+10.1002/2016ea000237                   4
+10.1017/s1743921317000060              3
+10.1016/j.compenvurbsys.2016.10.010    3
+10.3233/sw-160216                      3
+                                      ..
+10.1017/qua.2017.105                   1
+10.22498/pages.26.2.78                 1
+10.21425/f5fbg50711                    1
+10.22498/pages.26.2.64                 1
+10.1128/mbio.01318-19                  1
+Name: doi, Length: 231, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">groups</span> <span class="o">=</span> <span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;doi&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span>
+<span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">groups</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">nsf_projects</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;nsfid&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">df_clean</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">groups</span><span class="p">[</span><span class="n">g</span><span class="p">]]</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()]))</span>
+    <span class="n">title</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">cites</span> <span class="o">=</span> <span class="n">df_clean</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;doi == &quot;</span><span class="si">{</span><span class="n">g</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)[[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;cites&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">year</span><span class="p">,</span> <span class="n">cites</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">nsf_projects</span><span class="p">])</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+        <span class="c1"># print(df_clean.query(f&quot;doi == &#39;{g}&#39;&quot;)[&#39;nsfid&#39;])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Community-Developed Geoscience Cyberinfrastructure 10.1002/2014eo200001 2014 7 (1340233)
+Science and Cyberinfrastructure: The Chicken and Egg Problem 10.1002/2014eo490006 2014 3 (1343811)
+Toward the Geoscience Paper of the Future: Best practices for documenting and sharing research from data to software to provenance 10.1002/2015ea000136 2016 94 (1440323)
+Hydrocomplexity: Addressing water security and emergent environmental risks 10.1002/2015wr017342 2015 35 (1440315)
+An introduction to the special issue on Geoscience Papers of the Future 10.1002/2016ea000201 2016 10 (1440332)
+Reproducible, component‐based modeling with TopoFlow, a spatial hydrologic modeling toolkit 10.1002/2016ea000237 2017 2 (1639547,1343811,1440332,1440333)
+BedMachine v3: Complete Bed Topography and Ocean Bathymetry Mapping of Greenland From Multibeam Echo Sounding Combined With Mass Conservation 10.1002/2017gl074954 2017 356 (1541390)
+Ushering in a New Frontier in Geospace Through Data Science 10.1002/2017ja024835 2017 21 (1541057)
+EarthCube Data Discovery Studio: A gateway into geoscience data discovery and exploration with Jupyter notebooks 10.1002/cpe.6086 2020 3 (1639764,1639775)
+Measuring success for a future vision: Defining impact in science gateways/virtual research environments 10.1002/cpe.6099 2020 6 (1639764,1639775)
+&lt;i&gt;GHub&lt;/i&gt;            : Building a glaciology gateway to unify a community 10.1002/cpe.6130 -- -- (2125974)
+Cloud Hosted Real‐time Data Services for the Geosciences (CHORDS) 10.1002/gdj3.36 2016 9 (1440109,1440084,1440133,1440116)
+&lt;scp&gt;CHOSEN&lt;/scp&gt;            : A synthesis of hydrometeorological data from intensively monitored catchments and comparative analysis of hydrologic extremes 10.1002/hyp.14429 -- -- (1928406)
+-- 10.1002/hyp10899 -- -- (1343802)
+Scholarly resource linking: Building out a “relationship life cycle” 10.1002/pra2.2018.14505501037 2018 2 (1440293)
+Recent Progress on Inverse and Data Assimilation Procedure for High-Latitude Ionospheric Electrodynamics 10.1007/978-3-030-26732-2_10 2019 6 (1541010,1928403)
+The GeoLink Modular Oceanography Ontology 10.1007/978-3-319-25010-6_19 2015 12 (1354693)
+Moon Landing or Safari? A Study of Systematic Errors and Their Causes in Geographic Linked Data 10.1007/978-3-319-45738-3_18 2016 6 (1540849,1440139)
+A Controlled Crowdsourcing Approach for Practical Ontology Extensions and Metadata Annotations 10.1007/978-3-319-68204-4_24 2017 5 (1541029)
+Rendering OWL in Description Logic Syntax 10.1007/978-3-319-70407-4_21 2017 1 (1440202)
+Developing a web-based system for supervised classification of remote sensing images 10.1007/s10707-016-0252-3 2016 3 (1440294)
+Bridging sustainability science, earth science, and data science through interdisciplinary education 10.1007/s11625-019-00735-3 2019 9 (1632211)
+CyberConnector: a service-oriented system for automatically tailoring multisource Earth observation data to feed Earth science models 10.1007/s12145-017-0308-4 2017 12 (1440294)
+Towards an information centric flood ontology for information management and communication 10.1007/s12145-019-00398-9 2019 20 (1632211)
+Rising Oceans Guaranteed: Arctic Land Ice Loss and Sea Level Rise 10.1007/s40641-018-0107-0 2018 24 (1541390)
+A review of machine learning in geochemistry and cosmochemistry: Method improvements and applications 10.1016/j.apgeochem.2022.105273 2022 2 (2126315)
+Towards uncertainty quantification and parameter estimation for Earth system models in a component-based modeling framework 10.1016/j.cageo.2016.03.005 2016 2 (1343811,1440333)
+SeisFlows—Flexible waveform inversion software 10.1016/j.cageo.2018.02.004 2018 39 (1639698)
+A review of Earth Artificial Intelligence 10.1016/j.cageo.2022.105034 2022 7 (2126315)
+Knowledge graph construction and application in geosciences: A review 10.1016/j.cageo.2022.105082 2022 4 (2126315)
+A continental perspective of the seawater 87Sr/86Sr record: A review 10.1016/j.chemgeo.2019.01.017 2019 42 (1639764,1639557)
+Utilizing Cloud Computing to address big geospatial data challenges 10.1016/j.compenvurbsys.2016.10.010 2017 113 (1541049,1540998,1541039)
+GeoFairy: Towards a one-stop and location based Service for Geospatial Information Retrieval 10.1016/j.compenvurbsys.2016.11.007 2017 14 (1440294)
+WaterML R package for managing ecological experiment data on a CUAHSI HydroServer 10.1016/j.ecoinf.2015.05.002 2015 15 (1343785)
+A service-oriented architecture for coupling web service models using the Basic Model Interface (BMI) 10.1016/j.envsoft.2017.01.021 2017 29 (1440315,1440333)
+Evaluation of the OntoSoft Ontology for describing metadata for legacy hydrologic modeling software 10.1016/j.envsoft.2017.01.024 2017 5 (1440323)
+Identification and characterization of information-networks in long-tail data collections 10.1016/j.envsoft.2017.03.032 2017 4 (1440315)
+Integrating scientific cyberinfrastructures to improve reproducibility in computational hydrology: Example for HydroShare and GeoTrust 10.1016/j.envsoft.2018.03.025 2018 19 (1639696,1639759)
+SUIS: Simplify the use of geospatial web services in environmental modelling 10.1016/j.envsoft.2019.06.005 2019 14 (1740693)
+Advanced cyberinfrastructure for intercomparison and validation of climate models 10.1016/j.envsoft.2019.104559 2020 10 (1740693)
+A taxonomy for reproducible and replicable research in environmental modelling 10.1016/j.envsoft.2020.104753 2020 7 (1928288,1928369,1928315)
+Toward open and reproducible environmental modeling by integrating online data repositories, computational environments, and model Application Programming Interfaces 10.1016/j.envsoft.2020.104888 2021 8 (1928369,1928315)
+Atmospheric oxygenation driven by unsteady growth of the continental sedimentary reservoir 10.1016/j.epsl.2016.12.012 2017 45 (1440312)
+Scientific workflows in data analysis: Bridging expertise across multiple domains 10.1016/j.future.2017.01.001 2017 4 (1440323,1639716)
+Abstract, link, publish, exploit: An end to end framework for workflow sharing 10.1016/j.future.2017.01.008 2017 18 (1440323)
+Comparing workflow application designs for high resolution satellite image analysis 10.1016/j.future.2021.04.023 2021 1 (1740595)
+Data management, sharing, and reuse in experimental geomorphology: Challenges, strategies, and scientific opportunities 10.1016/j.geomorph.2015.03.039 2015 19 (1324760)
+Big data in microstructure analysis: Building a universal orientation system for thin sections 10.1016/j.jsg.2018.09.019 2019 3 (1639748,1639749)
+LEAF: Logger for ecological and atmospheric factors 10.1016/j.ohx.2019.e00079 2019 3 (1632211)
+Short-term photovoltaic power forecasting using Artificial Neural Networks and an Analog Ensemble 10.1016/j.renene.2017.02.052 2017 140 (1639707)
+SealNet: A fully-automated pack-ice seal detection pipeline for sub-meter satellite imagery 10.1016/j.rse.2019.111617 2020 12 (1740595,1740581)
+The Neotoma Paleoecology Database, a multiproxy, international, community-curated data resource 10.1017/qua.2017.105 2018 138 (1540979)
+From Sky to Earth: Data Science Methodology Transfer 10.1017/s1743921317000060 2016 1 (1541049,1540998,1541039)
+Development of an Ocean Protein Portal for Interactive Discovery and Education 10.1021/acs.jproteome.0c00382 2020 6 (1639714,2026933)
+METATRYP v 2.0: Metaproteomic Least Common Ancestor Analysis for Taxonomic Inference Using Specialized Sequence Assemblies—Standalone Software and Web Servers for Marine Microorganisms and Coronaviruses 10.1021/acs.jproteome.0c00385 2020 8 (1639714,2026933)
+Progress and Challenges in Ocean Metaproteomics and Proposed Best Practices for Data Sharing 10.1021/acs.jproteome.8b00761 2019 48 (1639714)
+Field Data Management: Integrating Cyberscience and Geoscience 10.1029/2015eo036703 2015 5 (1440323)
+A New Tool for Deep-Down Data Mining 10.1029/2017eo082377 2017 1 (1343760)
+Connecting Scientific Data and Real-World Samples 10.1029/2018eo090337 -- -- (1440351)
+Long‐Lasting Poloidal ULF Waves Observed by Multiple Satellites and High‐Latitude SuperDARN Radars 10.1029/2018ja026003 2018 21 (1541007)
+Modes of (FACs) Variability and Their Hemispheric Asymmetry Revealed by Inverse and Assimilative Analysis of Iridium Magnetometer Data 10.1029/2019ja027265 2020 11 (1928403)
+Event Studies of High‐Latitude FACs With Inverse and Assimilative Analysis of AMPERE Magnetometer Data 10.1029/2019ja027266 2020 3 (1928403)
+Evolution of Elastic and Mechanical Properties During Fault Shear: The Roles of Clay Content, Fabric Development, and Porosity 10.1029/2019jb018612 2020 6 (1639710)
+Acoustic Energy Release During the Laboratory Seismic Cycle: Insights on Laboratory Earthquake Precursors and Prediction 10.1029/2019jb018975 2020 15 (1639710)
+PaCTS 1.0: A Crowdsourced Reporting Standard for Paleoclimate Data 10.1029/2019pa003632 2019 19 (1541029)
+Effects of Nearly Frontal and Highly Inclined Interplanetary Shocks on High‐Latitude Field‐Aligned Currents (FACs) 10.1029/2019sw002367 2019 6 (1928403)
+Lithospheric Structure of the Malawi Rift: Implications for Magma‐Poor Rifting Processes 10.1029/2019tc005549 2019 23 (1740704)
+Preseismic Fault Creep and Elastic Wave Amplitude Precursors Scale With Lab Earthquake Magnitude for the Continuum of Tectonic Failure Modes 10.1029/2020gl086986 2020 18 (1639710)
+Data‐Driven Ensemble Modeling of Equatorial Ionospheric Electrodynamics: A Case Study During a Minor Storm Period Under Solar Minimum Conditions 10.1029/2020ja028539 2021 3 (1928403)
+Lithospheric Control of Melt Generation Beneath the Rungwe Volcanic Province, East Africa: Implications for a Plume Source 10.1029/2020jb020728 2021 2 (1740704,1740627)
+Future Global Convective Environments in CMIP6 Models 10.1029/2021ef002277 2021 5 (1740648,2026932)
+Assimilative Mapping of Auroral Electron Energy Flux Using SSUSI Lyman‐Birge‐Hopfield (LBH) Emissions 10.1029/2021ja029739 -- -- (1928403)
+Strength and Memory of Precipitation&#39;s Control Over Streamflow Across the Conterminous United States 10.1029/2021wr030186 -- -- (1928406)
+Argo Reveals the Scales and Provenance of Equatorial Island Upwelling Systems 10.1029/2022gl098744 -- -- (1928305)
+Minimum Information about an Uncultivated Virus Genome (MIUViG) 10.1038/nbt.4306 2018 234 (1639588)
+Measurement of magnetic field and relativistic electrons along a solar flare current sheet 10.1038/s41550-020-1147-7 2020 56 (1743321)
+Similarity of fast and slow earthquakes illuminated by machine learning 10.1038/s41561-018-0272-8 2018 64 (1639710)
+A global multiproxy database for temperature reconstructions of the Common Era 10.1038/sdata.2017.88 2017 186 (1540996,1541029)
+The Next Frontier: Making Research More Reproducible 10.1061/(asce)wr.1943-5452.0001215 2020 13 (1928369)
+Microbial functional diversity across biogeochemical provinces in the central Pacific Ocean 10.1073/pnas.2200014119 -- -- (2026933)
+Using long short-term memory recurrent neural network in land cover classification on Landsat and Cropland data layer time series 10.1080/01431161.2018.1516313 2018 56 (1740693)
+Big Data and cloud computing: innovation opportunities and challenges 10.1080/17538947.2016.1239771 2016 375 (1541049,1540998,1541039)
+DeepSun: machine-learning-as-a-service for solar flare prediction 10.1088/1674-4527/21/7/160 2021 2 (1927578)
+Continental-scale patterns of extracellular enzyme activity in the subsoil: an overlooked reservoir of microbial activity 10.1088/1748-9326/abb0b3 2020 16 (1541047)
+Situating Ecology as a Big-Data Science: Current Advances, Challenges, and Solutions 10.1093/biosci/biy068 2018 92 (1540979)
+Microbial diversity in an intensively managed landscape is structured by landscape connectivity 10.1093/femsec/fix120 2017 20 (1540938)
+Libra: scalable&lt;i&gt;k-&lt;/i&gt;mer–based tool for massive all-vs-all metagenome comparisons 10.1093/gigascience/giy165 2018 22 (1639588)
+iMicrobe: Tools and data-driven discovery platform for the microbiome sciences 10.1093/gigascience/giz083 2019 16 (1639588,1639614)
+Towards an open-source landscape for 3-D CSEM modelling 10.1093/gji/ggab238 2021 6 (1928406)
+Quantifying the sensitivity of post-glacial sea level change to laterally varying viscosity 10.1093/gji/ggy184 2018 20 (1639698)
+An investigation of the causal relationship between sunspot groups and coronal mass ejections by determining source active regions 10.1093/mnras/stab1816 -- -- (1927578)
+Planet Microbe: a platform for marine microbiology to discover and analyze interconnected ‘omics and environmental data 10.1093/nar/gkaa637 2020 8 (1639588,1639614)
+Ecological and genomic attributes of novel bacterial taxa that thrive in subsurface soil horizons 10.1101/647651 2019 3 (1541047)
+Combining OGC WCS with SOAP to faciliate the retrieval of remote sensing imagery about agricultural fields 10.1109/agro-geoinformatics.2016.7577652 2016 4 (1440294)
+Embedding Pub/Sub mechanism into OGC web services to augment agricultural crop monitoring 10.1109/agro-geoinformatics.2016.7577653 2016 4 (1440294)
+A GeoPackage implementation of common map API on Google Maps and OpenLayers to manipulate agricultural data on mobile devices 10.1109/agro-geoinformatics.2016.7577654 2016 5 (1440294)
+Establish cyberinfrastructure to facilitate agricultural drought monitoring 10.1109/agro-geoinformatics.2017.8047054 2017 4 (1440294)
+Integrating OGC Web Processing Service with cloud computing environment for Earth Observation data 10.1109/agro-geoinformatics.2017.8047065 2017 7 (1440294)
+The OceanLink project 10.1109/bigdata.2014.7004347 2014 8 (1354693)
+Texture-based edge bundling: A web-based approach for interactively visualizing large graphs 10.1109/bigdata.2015.7364046 2015 6 (1541043)
+Evaluating the impact of data placement to spark and SciDB with an Earth Science use case 10.1109/bigdata.2016.7840621 2016 4 (1541043,1540542)
+Addressing the big-earth-data variety challenge with the hierarchical triangular mesh 10.1109/bigdata.2016.7840700 2016 8 (1541043,1540542)
+A geohydrologie data visualization framework with an extendable user interface design 10.1109/bigdata.2016.7840865 2016 1 (1541043)
+Implementing connected component labeling as a user defined operator for SciDB 10.1109/bigdata.2016.7840945 2016 2 (1541043,1540542)
+Visual analytics with unparalleled variety scaling for big earth data 10.1109/bigdata.2017.8257966 2017 3 (1541043,1540542)
+FragFlow Automated Fragment Detection in Scientific Workflows 10.1109/escience.2014.32 2014 7 (1343800)
+Workflow Reuse in Practice: A Study of Neuroimaging Pipeline Users 10.1109/escience.2014.33 2014 4 (1343800)
+OntoSoft: A distributed semantic registry for scientific software 10.1109/escience.2016.7870916 2016 4 (1440323)
+Reproducibility in computer vision: Towards open publication of image analysis experiments as semantic workflows 10.1109/escience.2016.7870918 -- -- (1440323)
+Sciunits: Reusable Research Objects 10.1109/escience.2017.51 2017 12 (1639759)
+Semantic Software Metadata for Workflow Exploration and Evolution 10.1109/escience.2018.00132 2018 4 (1440323)
+SciInc: A Container Runtime for Incremental Recomputation 10.1109/escience.2019.00040 -- -- (1639759)
+OKG-Soft: An Open Knowledge Graph with Machine Readable Scientific Software Metadata 10.1109/escience.2019.00046 2019 5 (1440323)
+Physics-Guided Machine Learning from Simulation Data: An Application in Modeling Lake and River Systems 10.1109/icdm51629.2021.00037 2021 1 (2126474)
+A Statistically-Guided Deep Network Transformation and Moderation Framework for Data with Spatial Heterogeneity 10.1109/icdm51629.2021.00088 2021 1 (2126474)
+Dynamically Generated Metadata and Replanning by Interleaving Workflow Generation and Execution 10.1109/icsc.2016.89 2016 1 (1440323)
+Feature extraction and tracking for large-scale geospatial data 10.1109/igarss.2016.7729384 -- -- (1541043,1540542)
+Coupling of Earth science models and earth observations through OGC interoperability specifications 10.1109/igarss.2016.7729933 2016 1 (1440294)
+Implications of data placement strategy to Big Data technologies based on shared-nothing architecture for geosciences 10.1109/igarss.2016.7730983 2016 2 (1541043,1540542)
+A Big Earth Data Platform Exploiting Transparent Multimodal Parallelization 10.1109/igarss.2018.8518304 2018 1 (1541043,1540542)
+Leveraging STARE for Co-aligned Data Locality with netCDF and Python MPI 10.1109/igarss.2019.8900423 2019 2 (1541043)
+Harnessing the Power of Many: Extensible Toolkit for Scalable Ensemble Applications 10.1109/ipdps.2018.00063 2018 17 (1639698)
+Hacking at the Divide Between Polar Science and HPC: Using Hackathons as Training Tools 10.1109/ipdpsw.2017.177 2017 5 (1542058)
+Cyber-Innovated Watershed Research at the Shale Hills Critical Zone Observatory 10.1109/jsyst.2015.2484219 2016 5 (1440291,1440323)
+A study of scientific visualization on heterogeneous processors using Legion 10.1109/ldav.2016.7874341 -- -- (1541043,1540542)
+Jupyter: Thinking and Storytelling With Code and Data 10.1109/mcse.2021.3059263 2021 11 (1928406)
+Cloud-Native Repositories for Big Scientific Data 10.1109/mcse.2021.3059437 2021 13 (2026932,1928406)
+Regular Shape Similarity Index: A Novel Index for Accurate Extraction of Regular Objects From Remote Sensing Images 10.1109/tgrs.2014.2382566 2015 23 (1440294)
+Tuning Heterogeneous Computing Platforms for Large-Scale Hydrology Data Management 10.1109/tpds.2015.2499741 2016 2 (1440291)
+Towards Interactive, Reproducible Analytics at Scale on HPC Systems 10.1109/urgenthpc51945.2020.00011 -- -- (1928406)
+Extracting Snow Cover Time Series Data from Open Access Web Mapping Tile Services 10.1111/1752-1688.12387 2016 5 (1343785)
+Open Water Data in Space and Time 10.1111/1752-1688.12436 2016 20 (1343785)
+Conceptual Framework for the National Flood Interoperability Experiment 10.1111/1752-1688.12474 2016 74 (1343785)
+DigitalCrust - a 4D data system of material properties for transforming research on crustal fluid flow 10.1111/gfl.12114 2014 10 (1440312,1343811)
+Spatial signatures for geographic feature types: examining gazetteer ontologies using spatial statistics 10.1111/tgis.12232 2016 32 (1540849,1440139)
+Crowdsensing smart ambient environments and services 10.1111/tgis.12233 2016 17 (1540849,1440139)
+Open Data: Crediting a Culture of Cooperation 10.1126/science.342.6162.1041-b 2013 10 (1340233)
+Liberating field science samples and data 10.1126/science.aad7048 2016 52 (1440351)
+Ecological and Genomic Attributes of Novel Bacterial Taxa That Thrive in Subsurface Soil Horizons 10.1128/mbio.01318-19 2019 65 (1541044)
+Interpreting and reporting 40Ar/39Ar geochronologic data 10.1130/b35560.1 2020 37 (1740694)
+Sediment cycling on continental and oceanic crust 10.1130/g38861.1 2017 41 (1440312)
+The rise and fall of stromatolites in shallow marine environments 10.1130/g38931.1 2017 54 (1343760)
+StraboSpot data system for structural geology 10.1130/ges02039.1 2019 15 (1639738,1639749,1639734)
+Bringing sedimentology and stratigraphy into the StraboSpot data management system 10.1130/ges02364.1 -- -- (1928389,1639734)
+We need to talk: Facilitating communication between field-based geoscience and cyberinfrastructure communities 10.1130/gsatg248gw.1 2015 6 (1340265)
+StraboTools: A Mobile App for Quantifying Fabric in Geology 10.1130/gsatg454a.1 -- -- (1639738)
+Geology in an Online World 10.1130/gsatprsadrs20.1 2021 4 (1928389)
+OntoSoft 10.1145/2815833.2816955 2015 26 (1440323)
+Towards Automating Data Narratives 10.1145/3025171.3025193 2017 7 (1440323)
+EmptyHeaded 10.1145/3129246 2017 47 (1343760)
+Intelligent systems for geosciences 10.1145/3192335 2018 46 (1632211)
+Improving Reproducibility of Distributed Computational Experiments 10.1145/3214239.3214241 -- -- (1639759)
+Artifact Description/Artifact Evaluation 10.1145/3456287.3465479 -- -- (1928288)
+Spatial-Net 10.1145/3474717.3483970 -- -- (2126449,2126474)
+Significant DBSCAN+: Statistically Robust Density-based Clustering 10.1145/3474842 -- -- (2126474)
+Statistically-Robust Clustering Techniques for Mapping Spatial Hotspots: A Survey 10.1145/3487893 2023 1 (2126474)
+FAIR Computational Workflows 10.1162/dint_a_00033 2020 49 (1440323)
+The Earth System Prediction Suite: Toward a Coordinated U.S. Modeling Capability 10.1175/bams-d-14-00164.1 2016 34 (1343811)
+Sharing Experiences and Outlook on Coupling Technologies for Earth System Models 10.1175/bams-d-15-00239.1 2016 6 (1343811)
+The Arctic System Reanalysis, Version 2 10.1175/bams-d-16-0215.1 2018 73 (1740693)
+Predictable and Unpredictable Aspects of U.S. West Coast Rainfall and El Niño: Understanding the 2015/16 Event 10.1175/jcli-d-18-0181.1 2019 13 (1740693)
+Ocean Surface Salinity Response to Atmospheric River Precipitation in the California Current System 10.1175/jpo-d-21-0272.1 -- -- (1928305)
+Argovis: A Web Application for Fast Delivery, Visualization, and Analysis of Argo Data 10.1175/jtech-d-19-0041.1 2020 4 (1928305)
+Use of semantic workflows to enhance transparency and reproducibility in clinical omics 10.1186/s13073-015-0202-y 2015 11 (1440323)
+Promoting the capture of sensor data provenance: a role-based approach to enable data quality assessment, sensor management and interoperability 10.1186/s40965-018-0048-5 2018 5 (1541008)
+A Machine Reading System for Assembling Synthetic Paleontological Databases 10.1371/journal.pone.0113523 2014 56 (1343760)
+Developing Subdomain Allocation Algorithms Based on Spatial and Communicational Constraints to Accelerate Dust Storm Simulation 10.1371/journal.pone.0152250 2016 6 (1541049,1540998,1541039)
+CHEX 10.14778/3514061.3514075 -- -- (1928288,1639759)
+iSamples Sample Management Training Module for Rock Outcrop Samples 10.1594/ieda/100691 2017 -1 (1440351)
+iSamples Sample Management Training Module for Soil Cores 10.1594/ieda/100709 2017 -1 (1440351)
+Land2Sea database, Version 2.0 10.1594/pangaea.892680 2018 -1 (1639557)
+On Reproducible AI: Towards Reproducible Research, Open Science, and Digital Scholarship in AI Publications 10.1609/aimag.v39i3.2816 2018 15 (1440323)
+Characterizing Acoustic Signals and Searching for Precursors during the Laboratory Seismic Cycle Using Unsupervised Machine Learning 10.1785/0220180367 2019 26 (1639710)
+Sediment Accumulation Rates For the Mississippi Delta Region: a Time-interval Synthesis 10.2110/jsr.2018.15 2018 5 (1340301)
+nan 10.2110/sedred.2013.4 -- -- (1324760)
+Building a Sediment Experimentalist Network (SEN): sharing best practices for experimental methods and data management 10.2110/sedred.2013.4.9 2013 2 (1324760)
+The Future of Field Geology, Open Data Sharing and CyberTechnology in Earth Science 10.2110/sedred.2016.1.4 2016 4 (1343760,1440312)
+Applicability of Models to Predict Phosphorus Losses in Drained Fields: A Review 10.2134/jeq2014.05.0220 2015 79 (1343802)
+The EarthLife Consortium API: an extensible, open-source service for accessing fossil data and taxonomies from multiple community paleodata resources 10.21425/f5fbg50711 2021 1 (1541002)
+Extending HydroShare to enable hydrologic time series data as social media 10.2166/hydro.2015.331 2015 7 (1343785)
+Past Global Changes Magazine 10.22498/pages None 1 (1540979)
+Building and harnessing open paleodata 10.22498/pages.26.2.49 2018 3 (1541002,1340301,1740694)
+Building open data: Data stewards and community-curated data resources 10.22498/pages.26.2.50 2018 1 (1541002,1340301)
+LinkedEarth: supporting paleoclimate data standards and crowd curation 10.22498/pages.26.2.62 2018 1 (1541029)
+Constituent databases and data stewards in the Neotoma Paleoecology Database: History, growth, and new directions 10.22498/pages.26.2.64 2018 6 (1541002)
+Automated extraction of spatiotemporal geoscientific data from the literature using GeoDeepDive 10.22498/pages.26.2.70 2018 1 (1541002,1740694)
+EarthLife Consortium: Supporting digital paleobiology 10.22498/pages.26.2.78 2018 1 (1541002)
+Harnessing the Power of Scientific Python to Investigate Biogeochemistry and Metaproteomes of the Central Pacific Ocean 10.25080/majora-4af1f417-010 2018 2 (1639714)
+Documenting Computing Environments for Reproducible Experiments 10.3233/apc200106 -- -- (1639759)
+Linked Dataset description papers at the Semantic Web journal: A critical assessment 10.3233/sw-160216 2016 10 (1540849,1440202,1440139)
+Best practices for publishing, retrieving, and using spatial data on the web 10.3233/sw-180305 2018 19 (1540849)
+Pangeo Forge: Crowdsourcing Analysis-Ready, Cloud Optimized Data Production 10.3389/fclim.2021.782909 -- -- (1928406)
+The Promises and Pitfalls of Machine Learning for Detecting Viruses in Aquatic Metagenomes 10.3389/fmicb.2019.00806 2019 23 (1639588)
+Evolution of Flare-Accelerated Electrons Quantified by Spatially Resolved Analysis 10.3389/fspas.2020.00022 2020 2 (1743321)
+GeoFairy2: A Cross-Institution Mobile Gateway to Location-Linked Data for In-Situ Decision Making 10.3390/ijgi10010001 2020 2 (1740693)
+Automatic Scaling Hadoop in the Cloud for Efficient Process of Big Geospatial Data 10.3390/ijgi5100173 2016 36 (1541049,1540998,1541039)
+Near-Real-Time OGC Catalogue Service for Geoscience Big Data 10.3390/ijgi6110337 2017 4 (1440294)
+A Smart Web-Based Geospatial Data Discovery System with Oceanographic Data as an Example 10.3390/ijgi7020062 2018 10 (1541049,1541039)
+Advanced Cyberinfrastructure to Enable Search of Big Climate Datasets in THREDDS 10.3390/ijgi8110494 2019 6 (1740693)
+Geoweaver: Advanced Cyberinfrastructure for Managing Hybrid Geoscientific AI Workflows 10.3390/ijgi9020119 2020 7 (1740693)
+Utilizing Provenance in Reusable Research Objects 10.3390/informatics5010014 2018 13 (1639759)
+Fine-Scale Sea Ice Segmentation for High-Resolution Satellite Imagery with Weakly-Supervised CNNs 10.3390/rs13183562 -- -- (1740595)
+Parallel Agent-as-a-Service (P-AaaS) Based Geospatial Service in the Cloud 10.3390/rs9040382 2017 8 (1440294)
+Building an Elastic Parallel OGC Web Processing Service on a Cloud-Based Cluster: A Case Study of Remote Sensing Data Processing Service 10.3390/su71014245 2015 16 (1440294)
+High Pressure Single Crystal Diffraction at PX^2 10.3791/54660 2017 27 (1541036)
+Relationships between Characteristics of the Line-of-sight Magnetic Field and Solar Flare Forecasts 10.3847/1538-4357/aa9119 2017 21 (1639683)
+Dressing the Coronal Magnetic Extrapolations of Active Regions with a Parameterized Thermal Structure 10.3847/1538-4357/aaa4bf 2018 19 (1639683)
+Revealing the Evolution of Non-thermal Electrons in Solar Flares Using 3D Modeling 10.3847/1538-4357/aabae9 2018 12 (1639683)
+Statistical Study of Chromospheric Evaporation in Impulsive Phase of Solar Flares 10.3847/1538-4357/aaf6b0 2019 7 (1639683)
+Statistical Properties of Soft X-Ray Emission of Solar Flares 10.3847/1538-4357/ab06c3 2019 6 (1639683)
+Predicting Coronal Mass Ejections Using &lt;i&gt;SDO&lt;/i&gt;/HMI Vector Magnetic Data Products and Recurrent Neural Networks 10.3847/1538-4357/ab6850 2020 7 (1927578)
+Inferring Vector Magnetic Fields from Stokes Profiles of GST/NIRIS Using a Convolutional Neural Network 10.3847/1538-4357/ab8818 2020 9 (1927578)
+Magnetic Reconnection during the Post-impulsive Phase of a Long-duration Solar Flare: Bidirectional Outflows as a Cause of Microwave and X-Ray Bursts 10.3847/1538-4357/aba8a6 2020 29 (1743321)
+Machine-learning Approach to Identification of Coronal Holes in Solar Disk Images and Synoptic Maps 10.3847/1538-4357/abb94d 2020 5 (1927578)
+Coronal Heating Law Constrained by Microwave Gyroresonant Emission 10.3847/1538-4357/abdab1 2021 2 (1743321)
+The Observational Uncertainty of Coronal Hole Boundaries in Automated Detection Schemes 10.3847/1538-4357/abf2c8 2021 7 (1927578)
+Energy Budget of Plasma Motions, Heating, and Electron Acceleration in a Three-loop Solar Flare 10.3847/1538-4357/abf495 2021 2 (1743321)
+Improving the Spatial Resolution of Solar Images Using Generative Adversarial Network and Self-attention Mechanism* 10.3847/1538-4357/ac2aa2 2021 2 (1927578)
+Multi-instrument Comparative Study of Temperature, Number Density, and Emission Measure during the Precursor Phase of a Solar Flare 10.3847/1538-4357/ac6425 -- -- (1927578)
+Identifying and Tracking Solar Magnetic Flux Elements with Deep Learning 10.3847/1538-4365/aba4aa 2020 3 (1927578)
+Predicting Solar Energetic Particles Using SDO/HMI Vector Magnetic Data Products and a Bidirectional LSTM Network 10.3847/1538-4365/ac5f56 -- -- (1927578)
+Persistent, Global, Unique: The three key requirements for a trusted identifier system for physical samples 10.3897/biss.3.37334 2019 1 (1440351)
+Deriving column-integrated thermospheric temperature  with the N&amp;amp;lt;sub&amp;amp;gt;2&amp;amp;lt;/sub&amp;amp;gt; Lyman–Birge–Hopfield (2,0) band 10.5194/amt-14-6917-2021 -- -- (1928403)
+Co-occurrence of Fe and P stress in natural populations of the marine diazotroph &amp;amp;lt;i&amp;amp;gt;Trichodesmium&amp;amp;lt;/i&amp;amp;gt; 10.5194/bg-17-2537-2020 2020 17 (1639714)
+CSDMS: a community platform for numerical modeling of Earth surface processes 10.5194/gmd-15-1413-2022 2022 2 (2026951)
+Glacier geometry and flow speed determine how Arctic marine-terminating glaciers respond to lubricated beds 10.5194/tc-16-1431-2022 -- -- (1928406)
+Mapping ice flow velocity using an easy and interactive feature tracking workflow 10.5281/zenodo.5496306 2021 -1 (1928406)
+Building Geoscience Semantic Web Applications Using Established Ontologies 10.5334/dsj-2016-011 2016 3 (1440293,1440181)
+-- 10.5555/3319379.3319381 -- -- (1639759)
+SeaView: Bringing Together an Ocean of Data 10.5670/oceanog.2018.111 -- -- (1540966)
+Intelligent Databases and Machine-Learning Analysis Tools for Heliophysics 10.6084/m9.figshare.14848713.v1 2021 -1 (1639683)
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./analysis\notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The NCAR Library; Keith Maull & Matt Mayernik<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

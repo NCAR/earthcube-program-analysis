@@ -5,9 +5,6 @@ Top 10 projects sorted by number of publications give insight into how project-l
 In general, collaborative projects of two or more collaborators produced more citations (regardless of total papers produced).  However, and as is the nearly always the case, predictors of high citation counts are independent of the number of papers -- projects that produce highly cited papers do not produce more papers and visa versa.  Interestingly, the second highest citation producing project had only no additional collaborators (GRISO NSF [#1541390](https://nsf.gov/awardsearch/showAward?AWD_ID=1541390&HistoricalAwards=false)).
 
 
-
-
-
 ## Highlights
 ```{admonition} Project Highlights
 * **four projects produced at least 10** peer-reviewed publications
@@ -71,12 +68,16 @@ This graph combines the [publication counts by year](publications#charts-and-gra
 
 *  {download}`[png (download)] </analysis/outputs/fig_funded_projects_by_year.png>`
 
-![EC funded projects](/analysis/outputs/fig_funded_projects_by_year.png)
+![EC funded projects (by year)](/analysis/outputs/fig_funded_projects_by_year.png)
 
 *  {download}`[png (download)] </analysis/outputs/fig_cumm_projects_publications_by_year.png>`
 
-![EC funded projects](/analysis/outputs/fig_cumm_projects_publications_by_year.png)
+![EC funded projects and publications (cummulative)](/analysis/outputs/fig_cumm_projects_publications_by_year.png)
 
+
+*  {download}`[png (download)] </analysis/outputs/fig_pub_project_density.png>`
+
+![EC funded projects and publications (cummulative)](/analysis/outputs/fig_pub_project_density.png)
 
 
 ## Interpretation
@@ -88,3 +89,7 @@ The trajectory of publications produced generally follows the trajectory of awar
 The dip in awards funded in 2018 was followed by a dip in publications in subsequent years, but the effect of this is likely not exhibited strongly until 2021, which would have been year 3 of any 2018 awards. The reduction in publication numbers for 2019 and 2020 is probably also strongly related to the completion of projects funded in 2014 and 2015.
 
 2022 data (10 publications) represent less than half the year (Jan-May), so may match or exceed the 2021 count (23) by the end of the year. 
+
+## Analysis Notebooks
+
+* [01_basic_project_analysis.ipynb](../analysis/notebooks/01_basic_project_analysis.ipynb)

@@ -1,0 +1,152 @@
+Traceback (most recent call last):
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\asyncio\base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\kmaull\Anaconda3\envs\soarsbook\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#     [[('proj_duration','max'), 'project_counts', 'project_cites', 'project_dois']]\
+
+df_project_summary_full[['doi_count', 'total_cites', 'title_normed', 'proj_duration', 'startDate', 'expDate']]\
+    .groupby('title_normed')\
+    .agg({'doi_count': ['sum'], 'total_cites': ['sum'], 'proj_duration': ['max'], 'startDate': ['min'], 'expDate': ['max']}).sort_values(by=('doi_count', 'sum'))\
+    .merge(df_projects_summary, right_index=True, left_on='title_normed')\
+    .sort_values('project_dois').sort_values(('proj_duration', 'max'), ascending=False)\
+    .rename(columns={
+                ('proj_duration', 'max'): 'award_duration', 
+                'project_counts': 'collaborators',
+                ('doi_count', 'sum'): 'award_publications',
+                ('total_cites', 'sum'): 'award_cites',
+                'project_counts': 'collaborators',
+                'project_id': 'collaborator_nsfid',
+                ('startDate', 'min'): 'project_start',
+                ('expDate', 'max'): 'project_end',
+        })\
+    [['award_publications','award_cites','award_duration','project_start','project_end','project_ids','collaborators']]\
+    .reset_index().rename(columns={'title_normed': 'project_title'})\
+    .to_csv("./outputs/projects_detailed_outcomes.csv", index=False)
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mOSError[0m                                   Traceback (most recent call last)
+Cell [1;32mIn [32], line 3[0m
+[0;32m      1[0m [38;5;66;03m#     [[('proj_duration','max'), 'project_counts', 'project_cites', 'project_dois']]\[39;00m
+[1;32m----> 3[0m [43mdf_project_summary_full[49m[43m[[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mdoi_count[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mtotal_cites[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mtitle_normed[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mproj_duration[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mstartDate[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mexpDate[39;49m[38;5;124;43m'[39;49m[43m][49m[43m][49m[43m\[49m
+[0;32m      4[0m [43m    [49m[38;5;241;43m.[39;49m[43mgroupby[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mtitle_normed[39;49m[38;5;124;43m'[39;49m[43m)[49m[43m\[49m
+[0;32m      5[0m [43m    [49m[38;5;241;43m.[39;49m[43magg[49m[43m([49m[43m{[49m[38;5;124;43m'[39;49m[38;5;124;43mdoi_count[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43msum[39;49m[38;5;124;43m'[39;49m[43m][49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mtotal_cites[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43msum[39;49m[38;5;124;43m'[39;49m[43m][49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mproj_duration[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mmax[39;49m[38;5;124;43m'[39;49m[43m][49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mstartDate[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mmin[39;49m[38;5;124;43m'[39;49m[43m][49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mexpDate[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mmax[39;49m[38;5;124;43m'[39;49m[43m][49m[43m}[49m[43m)[49m[38;5;241;43m.[39;49m[43msort_values[49m[43m([49m[43mby[49m[38;5;241;43m=[39;49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mdoi_count[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43msum[39;49m[38;5;124;43m'[39;49m[43m)[49m[43m)[49m[43m\[49m
+[0;32m      6[0m [43m    [49m[38;5;241;43m.[39;49m[43mmerge[49m[43m([49m[43mdf_projects_summary[49m[43m,[49m[43m [49m[43mright_index[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43mleft_on[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mtitle_normed[39;49m[38;5;124;43m'[39;49m[43m)[49m[43m\[49m
+[0;32m      7[0m [43m    [49m[38;5;241;43m.[39;49m[43msort_values[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mproject_dois[39;49m[38;5;124;43m'[39;49m[43m)[49m[38;5;241;43m.[39;49m[43msort_values[49m[43m([49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mproj_duration[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mmax[39;49m[38;5;124;43m'[39;49m[43m)[49m[43m,[49m[43m [49m[43mascending[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m[43m\[49m
+[0;32m      8[0m [43m    [49m[38;5;241;43m.[39;49m[43mrename[49m[43m([49m[43mcolumns[49m[38;5;241;43m=[39;49m[43m{[49m
+[0;32m      9[0m [43m                [49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mproj_duration[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mmax[39;49m[38;5;124;43m'[39;49m[43m)[49m[43m:[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43maward_duration[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m
+[0;32m     10[0m [43m                [49m[38;5;124;43m'[39;49m[38;5;124;43mproject_counts[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mcollaborators[39;49m[38;5;124;43m'[39;49m[43m,[49m
+[0;32m     11[0m [43m                [49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mdoi_count[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43msum[39;49m[38;5;124;43m'[39;49m[43m)[49m[43m:[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43maward_publications[39;49m[38;5;124;43m'[39;49m[43m,[49m
+[0;32m     12[0m [43m                [49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mtotal_cites[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43msum[39;49m[38;5;124;43m'[39;49m[43m)[49m[43m:[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43maward_cites[39;49m[38;5;124;43m'[39;49m[43m,[49m
+[0;32m     13[0m [43m                [49m[38;5;124;43m'[39;49m[38;5;124;43mproject_counts[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mcollaborators[39;49m[38;5;124;43m'[39;49m[43m,[49m
+[0;32m     14[0m [43m                [49m[38;5;124;43m'[39;49m[38;5;124;43mproject_id[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mcollaborator_nsfid[39;49m[38;5;124;43m'[39;49m[43m,[49m
+[0;32m     15[0m [43m                [49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mstartDate[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mmin[39;49m[38;5;124;43m'[39;49m[43m)[49m[43m:[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mproject_start[39;49m[38;5;124;43m'[39;49m[43m,[49m
+[0;32m     16[0m [43m                [49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mexpDate[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mmax[39;49m[38;5;124;43m'[39;49m[43m)[49m[43m:[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mproject_end[39;49m[38;5;124;43m'[39;49m[43m,[49m
+[0;32m     17[0m [43m        [49m[43m}[49m[43m)[49m[43m\[49m
+[0;32m     18[0m [43m    [49m[43m[[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43maward_publications[39;49m[38;5;124;43m'[39;49m[43m,[49m[38;5;124;43m'[39;49m[38;5;124;43maward_cites[39;49m[38;5;124;43m'[39;49m[43m,[49m[38;5;124;43m'[39;49m[38;5;124;43maward_duration[39;49m[38;5;124;43m'[39;49m[43m,[49m[38;5;124;43m'[39;49m[38;5;124;43mproject_start[39;49m[38;5;124;43m'[39;49m[43m,[49m[38;5;124;43m'[39;49m[38;5;124;43mproject_end[39;49m[38;5;124;43m'[39;49m[43m,[49m[38;5;124;43m'[39;49m[38;5;124;43mproject_ids[39;49m[38;5;124;43m'[39;49m[43m,[49m[38;5;124;43m'[39;49m[38;5;124;43mcollaborators[39;49m[38;5;124;43m'[39;49m[43m][49m[43m][49m[43m\[49m
+[0;32m     19[0m [43m    [49m[38;5;241;43m.[39;49m[43mreset_index[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mrename[49m[43m([49m[43mcolumns[49m[38;5;241;43m=[39;49m[43m{[49m[38;5;124;43m'[39;49m[38;5;124;43mtitle_normed[39;49m[38;5;124;43m'[39;49m[43m:[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mproject_title[39;49m[38;5;124;43m'[39;49m[43m}[49m[43m)[49m[43m\[49m
+[0;32m     20[0m [43m    [49m[38;5;241;43m.[39;49m[43mto_csv[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43m./outputs/projects_detailed_outcomes.csv[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mindex[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m
+
+File [1;32m~\Anaconda3\envs\soarsbook\lib\site-packages\pandas\util\_decorators.py:211[0m, in [0;36mdeprecate_kwarg.<locals>._deprecate_kwarg.<locals>.wrapper[1;34m(*args, **kwargs)[0m
+[0;32m    209[0m     [38;5;28;01melse[39;00m:
+[0;32m    210[0m         kwargs[new_arg_name] [38;5;241m=[39m new_arg_value
+[1;32m--> 211[0m [38;5;28;01mreturn[39;00m func([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+
+File [1;32m~\Anaconda3\envs\soarsbook\lib\site-packages\pandas\core\generic.py:3721[0m, in [0;36mNDFrame.to_csv[1;34m(self, path_or_buf, sep, na_rep, float_format, columns, header, index, index_label, mode, encoding, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, decimal, errors, storage_options)[0m
+[0;32m   3710[0m df [38;5;241m=[39m [38;5;28mself[39m [38;5;28;01mif[39;00m [38;5;28misinstance[39m([38;5;28mself[39m, ABCDataFrame) [38;5;28;01melse[39;00m [38;5;28mself[39m[38;5;241m.[39mto_frame()
+[0;32m   3712[0m formatter [38;5;241m=[39m DataFrameFormatter(
+[0;32m   3713[0m     frame[38;5;241m=[39mdf,
+[0;32m   3714[0m     header[38;5;241m=[39mheader,
+[1;32m   (...)[0m
+[0;32m   3718[0m     decimal[38;5;241m=[39mdecimal,
+[0;32m   3719[0m )
+[1;32m-> 3721[0m [38;5;28;01mreturn[39;00m [43mDataFrameRenderer[49m[43m([49m[43mformatter[49m[43m)[49m[38;5;241;43m.[39;49m[43mto_csv[49m[43m([49m
+[0;32m   3722[0m [43m    [49m[43mpath_or_buf[49m[43m,[49m
+[0;32m   3723[0m [43m    [49m[43mlineterminator[49m[38;5;241;43m=[39;49m[43mlineterminator[49m[43m,[49m
+[0;32m   3724[0m [43m    [49m[43msep[49m[38;5;241;43m=[39;49m[43msep[49m[43m,[49m
+[0;32m   3725[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m
+[0;32m   3726[0m [43m    [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m,[49m
+[0;32m   3727[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[43mcompression[49m[43m,[49m
+[0;32m   3728[0m [43m    [49m[43mquoting[49m[38;5;241;43m=[39;49m[43mquoting[49m[43m,[49m
+[0;32m   3729[0m [43m    [49m[43mcolumns[49m[38;5;241;43m=[39;49m[43mcolumns[49m[43m,[49m
+[0;32m   3730[0m [43m    [49m[43mindex_label[49m[38;5;241;43m=[39;49m[43mindex_label[49m[43m,[49m
+[0;32m   3731[0m [43m    [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m
+[0;32m   3732[0m [43m    [49m[43mchunksize[49m[38;5;241;43m=[39;49m[43mchunksize[49m[43m,[49m
+[0;32m   3733[0m [43m    [49m[43mquotechar[49m[38;5;241;43m=[39;49m[43mquotechar[49m[43m,[49m
+[0;32m   3734[0m [43m    [49m[43mdate_format[49m[38;5;241;43m=[39;49m[43mdate_format[49m[43m,[49m
+[0;32m   3735[0m [43m    [49m[43mdoublequote[49m[38;5;241;43m=[39;49m[43mdoublequote[49m[43m,[49m
+[0;32m   3736[0m [43m    [49m[43mescapechar[49m[38;5;241;43m=[39;49m[43mescapechar[49m[43m,[49m
+[0;32m   3737[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mstorage_options[49m[43m,[49m
+[0;32m   3738[0m [43m[49m[43m)[49m
+
+File [1;32m~\Anaconda3\envs\soarsbook\lib\site-packages\pandas\util\_decorators.py:211[0m, in [0;36mdeprecate_kwarg.<locals>._deprecate_kwarg.<locals>.wrapper[1;34m(*args, **kwargs)[0m
+[0;32m    209[0m     [38;5;28;01melse[39;00m:
+[0;32m    210[0m         kwargs[new_arg_name] [38;5;241m=[39m new_arg_value
+[1;32m--> 211[0m [38;5;28;01mreturn[39;00m func([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs)
+
+File [1;32m~\Anaconda3\envs\soarsbook\lib\site-packages\pandas\io\formats\format.py:1189[0m, in [0;36mDataFrameRenderer.to_csv[1;34m(self, path_or_buf, encoding, sep, columns, index_label, mode, compression, quoting, quotechar, lineterminator, chunksize, date_format, doublequote, escapechar, errors, storage_options)[0m
+[0;32m   1168[0m     created_buffer [38;5;241m=[39m [38;5;28;01mFalse[39;00m
+[0;32m   1170[0m csv_formatter [38;5;241m=[39m CSVFormatter(
+[0;32m   1171[0m     path_or_buf[38;5;241m=[39mpath_or_buf,
+[0;32m   1172[0m     lineterminator[38;5;241m=[39mlineterminator,
+[1;32m   (...)[0m
+[0;32m   1187[0m     formatter[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mfmt,
+[0;32m   1188[0m )
+[1;32m-> 1189[0m [43mcsv_formatter[49m[38;5;241;43m.[39;49m[43msave[49m[43m([49m[43m)[49m
+[0;32m   1191[0m [38;5;28;01mif[39;00m created_buffer:
+[0;32m   1192[0m     [38;5;28;01massert[39;00m [38;5;28misinstance[39m(path_or_buf, StringIO)
+
+File [1;32m~\Anaconda3\envs\soarsbook\lib\site-packages\pandas\io\formats\csvs.py:241[0m, in [0;36mCSVFormatter.save[1;34m(self)[0m
+[0;32m    237[0m [38;5;124;03m"""[39;00m
+[0;32m    238[0m [38;5;124;03mCreate the writer & save.[39;00m
+[0;32m    239[0m [38;5;124;03m"""[39;00m
+[0;32m    240[0m [38;5;66;03m# apply compression and byte/text conversion[39;00m
+[1;32m--> 241[0m [38;5;28;01mwith[39;00m [43mget_handle[49m[43m([49m
+[0;32m    242[0m [43m    [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mfilepath_or_buffer[49m[43m,[49m
+[0;32m    243[0m [43m    [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mmode[49m[43m,[49m
+[0;32m    244[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mencoding[49m[43m,[49m
+[0;32m    245[0m [43m    [49m[43merrors[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43merrors[49m[43m,[49m
+[0;32m    246[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcompression[49m[43m,[49m
+[0;32m    247[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mstorage_options[49m[43m,[49m
+[0;32m    248[0m [43m[49m[43m)[49m [38;5;28;01mas[39;00m handles:
+[0;32m    249[0m 
+[0;32m    250[0m     [38;5;66;03m# Note: self.encoding is irrelevant here[39;00m
+[0;32m    251[0m     [38;5;28mself[39m[38;5;241m.[39mwriter [38;5;241m=[39m csvlib[38;5;241m.[39mwriter(
+[0;32m    252[0m         handles[38;5;241m.[39mhandle,
+[0;32m    253[0m         lineterminator[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mlineterminator,
+[1;32m   (...)[0m
+[0;32m    258[0m         quotechar[38;5;241m=[39m[38;5;28mself[39m[38;5;241m.[39mquotechar,
+[0;32m    259[0m     )
+[0;32m    261[0m     [38;5;28mself[39m[38;5;241m.[39m_save()
+
+File [1;32m~\Anaconda3\envs\soarsbook\lib\site-packages\pandas\io\common.py:735[0m, in [0;36mget_handle[1;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
+[0;32m    733[0m [38;5;66;03m# Only for write methods[39;00m
+[0;32m    734[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mr[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m mode [38;5;129;01mand[39;00m is_path:
+[1;32m--> 735[0m     [43mcheck_parent_directory[49m[43m([49m[38;5;28;43mstr[39;49m[43m([49m[43mhandle[49m[43m)[49m[43m)[49m
+[0;32m    737[0m [38;5;28;01mif[39;00m compression:
+[0;32m    738[0m     [38;5;28;01mif[39;00m compression [38;5;241m!=[39m [38;5;124m"[39m[38;5;124mzstd[39m[38;5;124m"[39m:
+[0;32m    739[0m         [38;5;66;03m# compression libraries do not like an explicit text-mode[39;00m
+
+File [1;32m~\Anaconda3\envs\soarsbook\lib\site-packages\pandas\io\common.py:598[0m, in [0;36mcheck_parent_directory[1;34m(path)[0m
+[0;32m    596[0m parent [38;5;241m=[39m Path(path)[38;5;241m.[39mparent
+[0;32m    597[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m parent[38;5;241m.[39mis_dir():
+[1;32m--> 598[0m     [38;5;28;01mraise[39;00m [38;5;167;01mOSError[39;00m([38;5;124mrf[39m[38;5;124m"[39m[38;5;124mCannot save file into a non-existent directory: [39m[38;5;124m'[39m[38;5;132;01m{[39;00mparent[38;5;132;01m}[39;00m[38;5;124m'[39m[38;5;124m"[39m)
+
+[1;31mOSError[0m: Cannot save file into a non-existent directory: 'outputs'
+OSError: Cannot save file into a non-existent directory: 'outputs'
+
