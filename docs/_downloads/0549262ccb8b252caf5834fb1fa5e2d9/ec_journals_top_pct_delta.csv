@@ -1,21 +1,21 @@
-,Journal Mean Cites,Publication Year,Journal Title,EC Cites,EC Publiaation DOI,% diff mean cites
-74,17,2017,International Journal of Digital Earth,344,[10.1080/17538947.2016.1239771](https://doi.org/10.1080/17538947.2016.1239771),1923.5294117647059
-61,25,2017,Geophysical Research Letters,336,[10.1002/2017gl074954](https://doi.org/10.1002/2017gl074954),1244.0
-117,10,2018,Quaternary Research,120,[10.1017/qua.2017.105](https://doi.org/10.1017/qua.2017.105),1100.0
-18,1,2021,Computing in Science &amp; Engineering,10,[10.1109/mcse.2021.3059437](https://doi.org/10.1109/mcse.2021.3059437),900.0
-10,4,2019,Communications of the ACM,39,[10.1145/3192335](https://doi.org/10.1145/3192335),875.0
-19,1,2021,Computing in Science &amp; Engineering,8,[10.1109/mcse.2021.3059263](https://doi.org/10.1109/mcse.2021.3059263),700.0
-68,4,2021,GSA Bulletin,30,[10.1130/b35560.1](https://doi.org/10.1130/b35560.1),650.0
-75,8,2019,International Journal of Remote Sensing,49,[10.1080/01431161.2018.1516313](https://doi.org/10.1080/01431161.2018.1516313),512.5
-28,15,2016,Earth and Space Science,91,[10.1002/2015ea000136](https://doi.org/10.1002/2015ea000136),506.66666666666663
-85,13,2017,JAWRA Journal of the American Water Resources Association,72,[10.1111/1752-1688.12474](https://doi.org/10.1111/1752-1688.12474),453.8461538461538
-106,5,2017,Journal of Visualized Experiments,25,[10.3791/54660](https://doi.org/10.3791/54660),400.0
-25,8,2020,Data Intelligence,40,[10.1162/dint_a_00033](https://doi.org/10.1162/dint_a_00033),400.0
-1,3,2018,AI Magazine,13,[10.1609/aimag.v39i3.2816](https://doi.org/10.1609/aimag.v39i3.2816),333.3333333333333
-125,39,2017,Scientific Data,167,[10.1038/sdata.2017.88](https://doi.org/10.1038/sdata.2017.88),328.2051282051282
-5,19,2018,BioScience,77,[10.1093/biosci/biy068](https://doi.org/10.1093/biosci/biy068),305.2631578947368
-60,1,2021,Geophysical Journal International,4,[10.1093/gji/ggab238](https://doi.org/10.1093/gji/ggab238),300.0
-17,27,2017,"Computers, Environment and Urban Systems",108,[10.1016/j.compenvurbsys.2016.10.010](https://doi.org/10.1016/j.compenvurbsys.2016.10.010),300.0
-20,1,2021,Concurrency and Computation: Practice and Experience,4,[10.1002/cpe.6099](https://doi.org/10.1002/cpe.6099),300.0
-122,32,2017,Renewable Energy,127,[10.1016/j.renene.2017.02.052](https://doi.org/10.1016/j.renene.2017.02.052),296.875
-100,12,2019,Journal of Proteome Research,44,[10.1021/acs.jproteome.8b00761](https://doi.org/10.1021/acs.jproteome.8b00761),266.66666666666663
+,Journal Mean Cites,Publication Year,Journal Title,EC Cites,EC Publication DOI,% diff mean cites
+74,17,2017,International Journal of Digital Earth,344,10.1080/17538947.2016.1239771,1923.5294117647059
+61,25,2017,Geophysical Research Letters,336,10.1002/2017gl074954,1244.0
+117,10,2018,Quaternary Research,120,10.1017/qua.2017.105,1100.0
+18,1,2021,Computing in Science &amp; Engineering,10,10.1109/mcse.2021.3059437,900.0
+10,4,2019,Communications of the ACM,39,10.1145/3192335,875.0
+19,1,2021,Computing in Science &amp; Engineering,8,10.1109/mcse.2021.3059263,700.0
+68,4,2021,GSA Bulletin,30,10.1130/b35560.1,650.0
+75,8,2019,International Journal of Remote Sensing,49,10.1080/01431161.2018.1516313,512.5
+28,15,2016,Earth and Space Science,91,10.1002/2015ea000136,506.66666666666663
+85,13,2017,JAWRA Journal of the American Water Resources Association,72,10.1111/1752-1688.12474,453.8461538461538
+106,5,2017,Journal of Visualized Experiments,25,10.3791/54660,400.0
+25,8,2020,Data Intelligence,40,10.1162/dint_a_00033,400.0
+1,3,2018,AI Magazine,13,10.1609/aimag.v39i3.2816,333.3333333333333
+125,39,2017,Scientific Data,167,10.1038/sdata.2017.88,328.2051282051282
+5,19,2018,BioScience,77,10.1093/biosci/biy068,305.2631578947368
+60,1,2021,Geophysical Journal International,4,10.1093/gji/ggab238,300.0
+17,27,2017,"Computers, Environment and Urban Systems",108,10.1016/j.compenvurbsys.2016.10.010,300.0
+20,1,2021,Concurrency and Computation: Practice and Experience,4,10.1002/cpe.6099,300.0
+122,32,2017,Renewable Energy,127,10.1016/j.renene.2017.02.052,296.875
+100,12,2019,Journal of Proteome Research,44,10.1021/acs.jproteome.8b00761,266.66666666666663
