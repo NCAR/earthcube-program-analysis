@@ -1,6 +1,10 @@
 # EarthCube Bibliography
 
-**Full bibliography for this analysis built from [source data](/analysis/outputs/full_nsf_doi_project_summary.tsv) which was imported into Zotero with the notebook []() and exported as HTML from Zotero.**
+**Full bibliography for this analysis built from [source data](/analysis/outputs/full_nsf_doi_project_summary.tsv) which was imported into Zotero with [a notebook](../analysis/notebooks/00h_zotero_export.ipynb) and exported as HTML from Zotero.**
+
+```{admonition} Downloads
+This data can be downloaded as {download}`Word docx </bib/ec_program.docx>`, {download}`PDF </bib/ec_program.pdf>` or {download}`bibtex </bib/ec_zotero_export.bib>` 
+```
 
 <div class="csl-bib-body" style="line-height: 1.35; margin-left: 2em; text-indent:-2em;">
   <div class="csl-entry" style="margin-bottom: 1em;">Abduallah, Y., J. T. L. Wang, Y. Nie, C. Liu, and H. Wang, 2021: DeepSun: machine-learning-as-a-service for solar flare prediction. <i>Res. Astron. Astrophys.</i>, <b>21</b>, 160, <a href="https://doi.org/10.1088/1674-4527/21/7/160">https://doi.org/10.1088/1674-4527/21/7/160</a>.</div>
