@@ -26,8 +26,8 @@ Top 10 projects sorted by number of publications give insight into how project-l
 
 ### TOP 10 MOST CITED PAPERS
 
-* top 10 publications data files:   {download}`[csv (download)] </analysis/notebooks/outputs/top10_pubs_simple.csv>` |  {download}`[markdown (.md) (download)] </analysis/notebooks/outputs/top10_pubs_simple.md>`
-* all publications data files:  {download}`[csv (download)] </analysis/notebooks/outputs/all_pubs_simple.csv>` |  {download}`[markdown (.md) (download)] </analysis/notebooks/outputs/all_pubs_simple.md>`
+* top 10 publications data files:   {download}`[csv (download)] </analysis/outputs/top10_pubs_simple.csv>` |  {download}`[markdown (.md) (download)] </analysis/outputs/top10_pubs_simple.md>`
+* all publications data files:  {download}`[csv (download)] </analysis/outputs/all_pubs_simple.csv>` |  {download}`[markdown (.md) (download)] </analysis/outputs/all_pubs_simple.md>`
 
 |                                     |   cites | citation                                                                                                                                                                                                                                                        |
 |:------------------------------------|--------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -62,7 +62,7 @@ Many different projects were funded over the course of the EC program.  This cha
 
 * download [png (small)](/analysis/notebooks/outputs/stub), [png (large)](/analysis/notebooks/outputs/stub) -->
 
-![Publication counts by Project type]()
+<!-- ![Publication counts by Project type]() -->
 
 ## Interpretation
 
@@ -73,19 +73,19 @@ A weak pattern seems to have emerged in the highly cited papers: two types of pa
 ### Data papers
 **Data papers** that present details about new data sets are important community assets. A hypothesis for _further analysis_ is that these papers are becoming highly cited because the data they describe are getting significant use within their target communities. Three examples are given:
 
-* BedMachine v3: Complete Bed Topography and Ocean Bathymetry Mapping of Greenland From Multibeam Echo Sounding Combined With Mass Conservation - **336 citations**
-* A global multiproxy database for temperature reconstructions of the Common Era - **167 citations**
-The Neotoma Paleoecology Database, a multiproxy, international, community-curated data resource - **120 citations**
-* The Arctic System Reanalysis, Version 2 - **65 citations**
+* BedMachine v3: Complete Bed Topography and Ocean Bathymetry Mapping of Greenland From Multibeam Echo Sounding Combined With Mass Conservation - **364 citations**
+* A global multiproxy database for temperature reconstructions of the Common Era - **192 citations**
+* The Neotoma Paleoecology Database, a multiproxy, international, community-curated data resource - **143 citations**
+* The Arctic System Reanalysis, Version 2 - **74 citations**
 
 ### Programmatic papers
 **Programmatic papers** that discuss overarching sets of issues that are prominent for certain high-profile topics. These papers may summarize trends, present prominent challenges and research questions, and discuss programmatic opportunities for communities to pursue with respect to certain research areas.
 
 
-* Big Data and cloud computing: innovation opportunities and challenges - **344 citations**
-* Minimum Information about an Uncultivated Virus Genome (MIUViG) - **206 citations**
-* Toward the Geoscience Paper of the Future: Best practices for documenting and sharing research from data to software to provenance - **91 citations**
-* Situating Ecology as a Big-Data Science: Current Advances, Challenges, and Solutions - **71 citations**
+* Big Data and cloud computing: innovation opportunities and challenges - **388 citations**
+* Minimum Information about an Uncultivated Virus Genome (MIUViG) - **247 citations**
+* Situating Ecology as a Big-Data Science: Current Advances, Challenges, and Solutions - **102 citations**
+* Toward the Geoscience Paper of the Future: Best practices for documenting and sharing research from data to software to provenance - **98 citations**
 
 
 ## Analysis Notebooks

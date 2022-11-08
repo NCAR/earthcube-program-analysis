@@ -1,0 +1,1416 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>&lt;no title&gt; &#8212; EarthCube Program Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ec-logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">EarthCube Program Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    EarthCube Metrics Analysis Report
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Findings
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../findings.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../findings/publications.html">
+   Publications-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../findings/projects.html">
+   Project-Oriented Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../findings/altmetrics.html">
+   Altmetrics Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../findings/data.html">
+   DataCite Outcomes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../findings/journal.html">
+   Journal Outcomes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Methodology
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../methodology.html">
+   EC Program Metrics Methodology
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Full Publication List
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="ec_program.html">
+   EarthCube Bibliography
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zotero.html">
+   Zotero
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/NCAR/earthcube-program-analysis/issues/new?title=Issue%20on%20page%20%2Fbib/zotero_report.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/bib/zotero_report.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1><no title></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p>Abduallah, Y., J. T. L. Wang, Y. Nie, C. Liu, and H. Wang, 2021:
+DeepSun: machine-learning-as-a-service for solar flare prediction. <em>Res.
+Astron. Astrophys.</em>, <strong>21</strong>, 160,
+<a class="reference external" href="https://doi.org/10.1088/1674-4527/21/7/160">https://doi.org/10.1088/1674-4527/21/7/160</a>.<br />
+——, V. K. Jordanova, H. Liu, Q. Li, J. T. L. Wang, and H. Wang,
+2022: Predicting Solar Energetic Particles Using SDO/HMI Vector Magnetic
+Data Products and a Bidirectional LSTM Network. <em>ApJS</em>, <strong>260</strong>, 16,
+<a class="reference external" href="https://doi.org/10.3847/1538-4365/ac5f56">https://doi.org/10.3847/1538-4365/ac5f56</a>.<br />
+Aberger, C. R., A. Lamb, S. Tu, A. Nötzli, K. Olukotun, and C. Ré, 2017:
+EmptyHeaded. <em>ACM Trans. Database Syst.</em>, <strong>42</strong>, 1–44,
+<a class="reference external" href="https://doi.org/10.1145/3129246">https://doi.org/10.1145/3129246</a>.<br />
+Abernathey, R. P., and Coauthors, 2021: Cloud-Native Repositories for
+Big Scientific Data. <em>Comput. Sci. Eng.</em>, <strong>23</strong>, 26–35,
+<a class="reference external" href="https://doi.org/10.1109/mcse.2021.3059437">https://doi.org/10.1109/mcse.2021.3059437</a>.<br />
+Al-Saadi, A., I. Paraskevakos, B. C. Gonçalves, H. J. Lynch, S. Jha, and
+M. Turilli, 2021: Comparing workflow application designs for high
+resolution satellite image analysis. <em>Future Generation Computer
+Systems</em>, <strong>124</strong>, 315–329,
+<a class="reference external" href="https://doi.org/10.1016/j.future.2021.04.023">https://doi.org/10.1016/j.future.2021.04.023</a>.<br />
+Balasubramanian, V., and Coauthors, 2018: Harnessing the Power of Many:
+Extensible Toolkit for Scalable Ensemble Applications. <em>Harnessing the
+Power of Many: Extensible Toolkit for Scalable Ensemble Applications</em>,
+<a class="reference external" href="https://doi.org/10.1109/ipdps.2018.00063">https://doi.org/10.1109/ipdps.2018.00063</a>.<br />
+Bhatt, A., T. Valentic, A. Reimer, L. Lamarche, P. Reyes, and R.
+Cosgrove, 2020: Reproducible Software Environment: a tool enabling
+computational reproducibility in geospace sciences and facilitating
+collaboration. <em>J. Space Weather Space Clim.</em>, <strong>10</strong>, 12,
+<a class="reference external" href="https://doi.org/10.1051/swsc/2020011">https://doi.org/10.1051/swsc/2020011</a>.<br />
+Blumberg, K. L., A. J. Ponsero, M. Bomhoff, E. M. Wood-Charlson, E. F.
+DeLong, and B. L. Hurwitz, 2021: Ontology-Enriched Specifications
+Enabling Findable, Accessible, Interoperable, and Reusable Marine
+Metagenomic Datasets in Cyberinfrastructure Systems. <em>Front.
+Microbiol.</em>, <strong>12</strong>, <a class="reference external" href="https://doi.org/10.3389/fmicb.2021.765268">https://doi.org/10.3389/fmicb.2021.765268</a>.<br />
+Bolton, D. C., P. Shokouhi, B. Rouet‐Leduc, C. Hulbert, J. Rivière, C.
+Marone, and P. A. Johnson, 2019: Characterizing Acoustic Signals and
+Searching for Precursors during the Laboratory Seismic Cycle Using
+Unsupervised Machine Learning. <em>Characterizing Acoustic Signals and
+Searching for Precursors during the Laboratory Seismic Cycle Using
+Unsupervised Machine Learning</em>, <strong>90</strong>, 1088–1098,
+<a class="reference external" href="https://doi.org/10.1785/0220180367">https://doi.org/10.1785/0220180367</a>.<br />
+——, S. Shreedharan, J. Rivière, and C. Marone, 2020: Acoustic Energy
+Release During the Laboratory Seismic Cycle: Insights on Laboratory
+Earthquake Precursors and Prediction. <em>JGR Solid Earth</em>, <strong>125</strong>,
+<a class="reference external" href="https://doi.org/10.1029/2019jb018975">https://doi.org/10.1029/2019jb018975</a>.<br />
+Bolukbasi, B., and Coauthors, 2013: Open Data: Crediting a Culture of
+Cooperation. <em>Science</em>, <strong>342</strong>, 1041–4042,
+<a class="reference external" href="https://doi.org/10.1126/science.342.6162.1041-b">https://doi.org/10.1126/science.342.6162.1041-b</a>.<br />
+Brewer, T. E., and Coauthors, 2019: Ecological and Genomic Attributes of
+Novel Bacterial Taxa That Thrive in Subsurface Soil Horizons. <em>mBio</em>,
+<strong>10</strong>, <a class="reference external" href="https://doi.org/10.1128/mbio.01318-19">https://doi.org/10.1128/mbio.01318-19</a>.<br />
+van den Brink, L., and Coauthors, 2018: Best practices for publishing,
+retrieving, and using spatial data on the web. <em>SW</em>, <strong>10</strong>, 95–114,
+<a class="reference external" href="https://doi.org/10.3233/sw-180305">https://doi.org/10.3233/sw-180305</a>.<br />
+Bromwich, D. H., and Coauthors, 2018: The Arctic System Reanalysis,
+Version 2. <em>The Arctic System Reanalysis, Version 2</em>, <strong>99</strong>, 805–828,
+<a class="reference external" href="https://doi.org/10.1175/bams-d-16-0215.1">https://doi.org/10.1175/bams-d-16-0215.1</a>.<br />
+Calyam, P., and Coauthors, 2020: Measuring success for a future vision:
+Defining impact in science gateways/virtual research environments.
+<em>Concurrency Computat Pract Exper</em>, <strong>33</strong>,
+<a class="reference external" href="https://doi.org/10.1002/cpe.6099">https://doi.org/10.1002/cpe.6099</a>.<br />
+Cantrall, C., and T. Matsuo, 2021: Deriving column-integrated
+thermospheric temperature with the
+N&amp;lt;sub&amp;gt;2&amp;lt;/sub&amp;gt; Lyman–Birge–Hopfield (2,0)
+band. <em>Atmos. Meas. Tech.</em>, <strong>14</strong>, 6917–6928,
+<a class="reference external" href="https://doi.org/10.5194/amt-14-6917-2021">https://doi.org/10.5194/amt-14-6917-2021</a>.<br />
+Cash, B. A., and N. J. Burls, 2019: Predictable and Unpredictable
+Aspects of U.S. West Coast Rainfall and El Niño: Understanding the
+2015/16 Event. <em>Predictable and Unpredictable Aspects of U.S. West Coast
+Rainfall and El Niño: Understanding the 2015/16 Event</em>, <strong>32</strong>,
+2843–2868, <a class="reference external" href="https://doi.org/10.1175/jcli-d-18-0181.1">https://doi.org/10.1175/jcli-d-18-0181.1</a>.<br />
+Cervone, G., L. Clemente-Harding, S. Alessandrini, and L. Delle Monache,
+2017: Short-term photovoltaic power forecasting using Artificial Neural
+Networks and an Analog Ensemble. <em>Renewable Energy</em>, <strong>108</strong>, 274–286,
+<a class="reference external" href="https://doi.org/10.1016/j.renene.2017.02.052">https://doi.org/10.1016/j.renene.2017.02.052</a>.<br />
+Chan, M. A., S. E. Peters, and B. Tikoff, 2016: The Future of Field
+Geology, Open Data Sharing and CyberTechnology in Earth Science. <em>TSR</em>,
+<strong>14</strong>, 4–10, <a class="reference external" href="https://doi.org/10.2110/sedred.2016.1.4">https://doi.org/10.2110/sedred.2016.1.4</a>.<br />
+Chen, B., and Coauthors, 2020: Measurement of magnetic field and
+relativistic electrons along a solar flare current sheet. <em>Nat Astron</em>,
+<strong>4</strong>, 1140–1147, <a class="reference external" href="https://doi.org/10.1038/s41550-020-1147-7">https://doi.org/10.1038/s41550-020-1147-7</a>.<br />
+Choi, I., A. J. Ponsero, M. Bomhoff, K. Youens-Clark, J. H. Hartman, and
+B. L. Hurwitz, 2018: Libra: scalable*k-*mer–based tool for massive
+all-vs-all metagenome comparisons. <em>Libra: scalable</em>k-<em>mer–based tool
+for massive all-vs-all metagenome comparisons</em>, <strong>8</strong>,
+<a class="reference external" href="https://doi.org/10.1093/gigascience/giy165">https://doi.org/10.1093/gigascience/giy165</a>.<br />
+Choi, Y.-D., and Coauthors, 2021: Toward open and reproducible
+environmental modeling by integrating online data repositories,
+computational environments, and model Application Programming
+Interfaces. <em>Environmental Modelling &amp; Software</em>, <strong>135</strong>, 104888,
+<a class="reference external" href="https://doi.org/10.1016/j.envsoft.2020.104888">https://doi.org/10.1016/j.envsoft.2020.104888</a>.<br />
+Cholia, S., and Coauthors, 2020: Towards Interactive, Reproducible
+Analytics at Scale on HPC Systems. <em>Towards Interactive, Reproducible
+Analytics at Scale on HPC Systems</em>,
+<a class="reference external" href="https://doi.org/10.1109/urgenthpc51945.2020.00011">https://doi.org/10.1109/urgenthpc51945.2020.00011</a>.<br />
+Chuah, J., M. Deeds, T. Malik, Y. Choi, and J. L. Goodall, 2020:
+Documenting Computing Environments for Reproducible Experiments.
+<em>Documenting Computing Environments for Reproducible Experiments</em>,
+<a class="reference external" href="https://doi.org/10.3233/apc200106">https://doi.org/10.3233/apc200106</a>.<br />
+Cox, S., J. Klump, and K. Lehnert, 2018: Connecting Scientific Data and
+Real-World Samples. <em>Eos</em>, <strong>99</strong>,
+<a class="reference external" href="https://doi.org/10.1029/2018eo090337">https://doi.org/10.1029/2018eo090337</a>.<br />
+Crawford, O., D. Al-Attar, J. Tromp, J. X. Mitrovica, J. Austermann, and
+H. C. P. Lau, 2018: Quantifying the sensitivity of post-glacial sea
+level change to laterally varying viscosity. <em>Quantifying the
+sensitivity of post-glacial sea level change to laterally varying
+viscosity</em>, <strong>214</strong>, 1324–1363, <a class="reference external" href="https://doi.org/10.1093/gji/ggy184">https://doi.org/10.1093/gji/ggy184</a>.<br />
+David, C. H., Y. Gil, C. J. Duffy, S. D. Peckham, and S. K.
+Venayagamoorthy, 2016: An introduction to the special issue on
+Geoscience Papers of the Future. <em>Earth and Space Science</em>, <strong>3</strong>,
+441–444, <a class="reference external" href="https://doi.org/10.1002/2016ea000201">https://doi.org/10.1002/2016ea000201</a>.<br />
+Deng, J., W. Song, D. Liu, Q. Li, G. Lin, and H. Wang, 2021: Improving
+the Spatial Resolution of Solar Images Using Generative Adversarial
+Network and Self-attention Mechanism*. <em>ApJ</em>, <strong>923</strong>, 76,
+<a class="reference external" href="https://doi.org/10.3847/1538-4357/ac2aa2">https://doi.org/10.3847/1538-4357/ac2aa2</a>.<br />
+Dere, A., 2019: iSamples Sample Management Training Module for Soil
+Cores. <em>iSamples Sample Management Training Module for Soil Cores</em>,
+<a class="reference external" href="https://doi.org/10.1594/IEDA/100709">https://doi.org/10.1594/IEDA/100709</a>.<br />
+Di, L., Z. Sun, E. Yu, J. Song, D. Tong, H. Huang, X. Wu, and B.
+Domenico, 2016: Coupling of Earth science models and earth observations
+through OGC interoperability specifications. <em>Coupling of Earth science
+models and earth observations through OGC interoperability
+specifications</em>, <a class="reference external" href="https://doi.org/10.1109/igarss.2016.7729933">https://doi.org/10.1109/igarss.2016.7729933</a>.<br />
+Doan, K., A. O. Oloso, K.-S. Kuo, T. L. Clune, H. Yu, B. Nelson, and J.
+Zhang, 2016: Evaluating the impact of data placement to spark and SciDB
+with an Earth Science use case. <em>Evaluating the impact of data placement
+to spark and SciDB with an Earth Science use case</em>,
+<a class="reference external" href="https://doi.org/10.1109/bigdata.2016.7840621">https://doi.org/10.1109/bigdata.2016.7840621</a>.<br />
+Dove, N. C., and Coauthors, 2020: Continental-scale patterns of
+extracellular enzyme activity in the subsoil: an overlooked reservoir of
+microbial activity. <em>Environ. Res. Lett.</em>, <strong>15</strong>, 1040a1,
+<a class="reference external" href="https://doi.org/10.1088/1748-9326/abb0b3">https://doi.org/10.1088/1748-9326/abb0b3</a>.<br />
+Duncan, C. J., M. A. Chan, E. Hajek, D. Kamola, N. M. Roberts, B.
+Tikoff, and J. D. Walker, 2021: Bringing sedimentology and stratigraphy
+into the StraboSpot data management system. <em>Bringing sedimentology and
+stratigraphy into the StraboSpot data management system</em>, <strong>17</strong>,
+1914–1927, <a class="reference external" href="https://doi.org/10.1130/ges02364.1">https://doi.org/10.1130/ges02364.1</a>.<br />
+Dye, M., D. S. Stamps, M. Mason, and E. Saria, 2022: Toward Autonomous
+Detection of Anomalous GNSS Data Via Applied Unsupervised Artificial
+Intelligence. <em>Int. J. Semantic Computing</em>, <strong>16</strong>, 29–45,
+<a class="reference external" href="https://doi.org/10.1142/s1793351x22400025">https://doi.org/10.1142/s1793351x22400025</a>.<br />
+Elag, M. M., P. Kumar, L. Marini, J. D. Myers, M. Hedstrom, and B. A.
+Plale, 2017: Identification and characterization of information-networks
+in long-tail data collections. <em>Environmental Modelling &amp; Software</em>,
+<strong>94</strong>, 100–111, <a class="reference external" href="https://doi.org/10.1016/j.envsoft.2017.03.032">https://doi.org/10.1016/j.envsoft.2017.03.032</a>.<br />
+Emile-Geay, J., D. Khider, N. McKay, Y. Gil, D. Garijo, and V. Ratnakar,
+2018: LinkedEarth: supporting paleoclimate data standards and crowd
+curation. <em>PAGES Mag</em>, <strong>26</strong>, 62–63,
+<a class="reference external" href="https://doi.org/10.22498/pages.26.2.62">https://doi.org/10.22498/pages.26.2.62</a>.<br />
+Essawy, B. T., J. L. Goodall, H. Xu, and Y. Gil, 2017: Evaluation of the
+OntoSoft Ontology for describing metadata for legacy hydrologic modeling
+software. <em>Environmental Modelling &amp; Software</em>, <strong>92</strong>, 317–329,
+<a class="reference external" href="https://doi.org/10.1016/j.envsoft.2017.01.024">https://doi.org/10.1016/j.envsoft.2017.01.024</a>.<br />
+——, ——, W. Zell, D. Voce, M. M. Morsy, J. Sadler, Z. Yuan, and
+T. Malik, 2018: Integrating scientific cyberinfrastructures to improve
+reproducibility in computational hydrology: Example for HydroShare and
+GeoTrust. <em>Environmental Modelling &amp; Software</em>, <strong>105</strong>, 217–229,
+<a class="reference external" href="https://doi.org/10.1016/j.envsoft.2018.03.025">https://doi.org/10.1016/j.envsoft.2018.03.025</a>.<br />
+——, ——, D. Voce, M. M. Morsy, J. M. Sadler, Y. D. Choi, D. G.
+Tarboton, and T. Malik, 2020: A taxonomy for reproducible and replicable
+research in environmental modelling. <em>Environmental Modelling &amp;
+Software</em>, <strong>134</strong>, 104753,
+<a class="reference external" href="https://doi.org/10.1016/j.envsoft.2020.104753">https://doi.org/10.1016/j.envsoft.2020.104753</a>.<br />
+Fan, Y., and Coauthors, 2014: DigitalCrust - a 4D data system of
+material properties for transforming research on crustal fluid flow.
+<em>Geofluids</em>, <strong>15</strong>, 372–379, <a class="reference external" href="https://doi.org/10.1111/gfl.12114">https://doi.org/10.1111/gfl.12114</a>.<br />
+Farley, S. S., A. Dawson, S. J. Goring, and J. W. Williams, 2018:
+Situating Ecology as a Big-Data Science: Current Advances, Challenges,
+and Solutions. <em>Situating Ecology as a Big-Data Science: Current
+Advances, Challenges, and Solutions</em>, <strong>68</strong>, 563–576,
+<a class="reference external" href="https://doi.org/10.1093/biosci/biy068">https://doi.org/10.1093/biosci/biy068</a>.<br />
+Ferdowsi, B., J. D. Gartner, K. N. Johnson, A. Kasprak, K. L. Miller, W.
+Nardin, A. C. Ortiz, and A. Tejedor, 2021: Earthcasting: Geomorphic
+Forecasts for Society. <em>Earth’s Future</em>, <strong>9</strong>,
+<a class="reference external" href="https://doi.org/10.1029/2021ef002088">https://doi.org/10.1029/2021ef002088</a>.<br />
+Fleishman, G. D., G. M. Nita, N. Kuroda, S. Jia, K. Tong, R. R. Wen, and
+Z. Zhizhuo, 2018: Revealing the Evolution of Non-thermal Electrons in
+Solar Flares Using 3D Modeling. <em>ApJ</em>, <strong>859</strong>, 17,
+<a class="reference external" href="https://doi.org/10.3847/1538-4357/aabae9">https://doi.org/10.3847/1538-4357/aabae9</a>.<br />
+——, S. A. Anfinogentov, A. G. Stupishin, A. A. Kuznetsov, and G. M.
+Nita, 2021a: Coronal Heating Law Constrained by Microwave Gyroresonant
+Emission. <em>ApJ</em>, <strong>909</strong>, 89, <a class="reference external" href="https://doi.org/10.3847/1538-4357/abdab1">https://doi.org/10.3847/1538-4357/abdab1</a>.<br />
+——, L. Kleint, G. G. Motorina, G. M. Nita, and E. P. Kontar, 2021b:
+Energy Budget of Plasma Motions, Heating, and Electron Acceleration in a
+Three-loop Solar Flare. <em>ApJ</em>, <strong>913</strong>, 97,
+<a class="reference external" href="https://doi.org/10.3847/1538-4357/abf495">https://doi.org/10.3847/1538-4357/abf495</a>.<br />
+Fredericks, J., and M. Botts, 2018: Promoting the capture of sensor data
+provenance: a role-based approach to enable data quality assessment,
+sensor management and interoperability. <em>Open geospatial data, softw.
+stand.</em>, <strong>3</strong>, <a class="reference external" href="https://doi.org/10.1186/s40965-018-0048-5">https://doi.org/10.1186/s40965-018-0048-5</a>.<br />
+Fuka, D. R., A. S. Collick, P. J. A. Kleinman, D. A. Auerbach, R. D.
+Harmel, and Z. M. Easton, 2016: Improving the spatial representation of
+soil properties and hydrology using topographically derived
+initialization processes in the SWAT model. <em>Hydrol. Process.</em>, <strong>30</strong>,
+4633–4643, <a class="reference external" href="https://doi.org/10.1002/hyp.10899">https://doi.org/10.1002/hyp.10899</a>.<br />
+Gaigalas, ?, ? Di, and ? Sun, 2019: Advanced Cyberinfrastructure to
+Enable Search of Big Climate Datasets in THREDDS. <em>IJGI</em>, <strong>8</strong>, 494,
+<a class="reference external" href="https://doi.org/10.3390/ijgi8110494">https://doi.org/10.3390/ijgi8110494</a>.<br />
+Garijo, D., and Coauthors, 2014a: Workflow Reuse in Practice: A Study of
+Neuroimaging Pipeline Users. <em>Workflow Reuse in Practice: A Study of
+Neuroimaging Pipeline Users</em>, <a class="reference external" href="https://doi.org/10.1109/escience.2014.33">https://doi.org/10.1109/escience.2014.33</a>.<br />
+——, O. Corcho, Y. Gil, B. A. Gutman, I. D. Dinov, P. Thompson, and
+A. W. Toga, 2014b: FragFlow Automated Fragment Detection in Scientific
+Workflows. <em>FragFlow Automated Fragment Detection in Scientific
+Workflows</em>, <a class="reference external" href="https://doi.org/10.1109/escience.2014.32">https://doi.org/10.1109/escience.2014.32</a>.<br />
+——, Y. Gil, and O. Corcho, 2017: Abstract, link, publish, exploit:
+An end to end framework for workflow sharing. <em>Future Generation
+Computer Systems</em>, <strong>75</strong>, 271–283,
+<a class="reference external" href="https://doi.org/10.1016/j.future.2017.01.008">https://doi.org/10.1016/j.future.2017.01.008</a>.<br />
+——, M. Osorio, D. Khider, V. Ratnakar, and Y. Gil, 2019: OKG-Soft:
+An Open Knowledge Graph with Machine Readable Scientific Software
+Metadata. <em>OKG-Soft: An Open Knowledge Graph with Machine Readable
+Scientific Software Metadata</em>,
+<a class="reference external" href="https://doi.org/10.1109/escience.2019.00046">https://doi.org/10.1109/escience.2019.00046</a>.<br />
+Gil, Y., and V. Ratnakar, 2016: Dynamically Generated Metadata and
+Replanning by Interleaving Workflow Generation and Execution.
+<em>Dynamically Generated Metadata and Replanning by Interleaving Workflow
+Generation and Execution</em>, <a class="reference external" href="https://doi.org/10.1109/icsc.2016.89">https://doi.org/10.1109/icsc.2016.89</a>.<br />
+——, and D. Garijo, 2017: Towards Automating Data Narratives.
+<em>Towards Automating Data Narratives</em>,
+<a class="reference external" href="https://doi.org/10.1145/3025171.3025193">https://doi.org/10.1145/3025171.3025193</a>.<br />
+——, V. Ratnakar, and D. Garijo, 2015: OntoSoft. <em>OntoSoft</em>,
+<a class="reference external" href="https://doi.org/10.1145/2815833.2816955">https://doi.org/10.1145/2815833.2816955</a>.<br />
+——, and Coauthors, 2016a: Toward the Geoscience Paper of the Future:
+Best practices for documenting and sharing research from data to
+software to provenance. <em>Earth and Space Science</em>, <strong>3</strong>, 388–415,
+<a class="reference external" href="https://doi.org/10.1002/2015ea000136">https://doi.org/10.1002/2015ea000136</a>.<br />
+——, D. Garijo, S. Mishra, and V. Ratnakar, 2016b: OntoSoft: A
+distributed semantic registry for scientific software. <em>OntoSoft: A
+distributed semantic registry for scientific software</em>,
+<a class="reference external" href="https://doi.org/10.1109/escience.2016.7870916">https://doi.org/10.1109/escience.2016.7870916</a>.<br />
+——, ——, V. Ratnakar, D. Khider, J. Emile-Geay, and N. McKay,
+2017: A Controlled Crowdsourcing Approach for Practical Ontology
+Extensions and Metadata Annotations. <em>A Controlled Crowdsourcing
+Approach for Practical Ontology Extensions and Metadata Annotations</em>,
+231–246, <a class="reference external" href="https://doi.org/10.1007/978-3-319-68204-4_24">https://doi.org/10.1007/978-3-319-68204-4_24</a>.<br />
+——, and Coauthors, 2018: Intelligent systems for geosciences.
+<em>Commun. ACM</em>, <strong>62</strong>, 76–84, <a class="reference external" href="https://doi.org/10.1145/3192335">https://doi.org/10.1145/3192335</a>.<br />
+Glazner, A., and J. D. Walker, 2020: StraboTools: A Mobile App for
+Quantifying Fabric in Geology. <em>GSAT</em>,
+<a class="reference external" href="https://doi.org/10.1130/gsatg454a.1">https://doi.org/10.1130/gsatg454a.1</a>.<br />
+Goble, C., S. Cohen-Boulakia, S. Soiland-Reyes, D. Garijo, Y. Gil, M. R.
+Crusoe, K. Peters, and D. Schober, 2020: FAIR Computational Workflows.
+<em>Data Intellegence</em>, <strong>2</strong>, 108–121,
+<a class="reference external" href="https://doi.org/10.1162/dint_a_00033">https://doi.org/10.1162/dint_a_00033</a>.<br />
+Gonçalves, B. C., and H. J. Lynch, 2021: Fine-Scale Sea Ice Segmentation
+for High-Resolution Satellite Imagery with Weakly-Supervised CNNs.
+<em>Remote Sensing</em>, <strong>13</strong>, 3562, <a class="reference external" href="https://doi.org/10.3390/rs13183562">https://doi.org/10.3390/rs13183562</a>.<br />
+Gonçalves, B. C., B. Spitzbart, and H. J. Lynch, 2020: SealNet: A
+fully-automated pack-ice seal detection pipeline for sub-meter satellite
+imagery. <em>Remote Sensing of Environment</em>, <strong>239</strong>, 111617,
+<a class="reference external" href="https://doi.org/10.1016/j.rse.2019.111617">https://doi.org/10.1016/j.rse.2019.111617</a>.<br />
+Granger, B. E., and F. Perez, 2021: Jupyter: Thinking and Storytelling
+With Code and Data. <em>Comput. Sci. Eng.</em>, <strong>23</strong>, 7–14,
+<a class="reference external" href="https://doi.org/10.1109/mcse.2021.3059263">https://doi.org/10.1109/mcse.2021.3059263</a>.<br />
+Griffin, J. S., and Coauthors, 2017: Microbial diversity in an
+intensively managed landscape is structured by landscape connectivity.
+<em>Microbial diversity in an intensively managed landscape is structured
+by landscape connectivity</em>, <strong>93</strong>,
+<a class="reference external" href="https://doi.org/10.1093/femsec/fix120">https://doi.org/10.1093/femsec/fix120</a>.<br />
+Grimm, E. C., J. Blois, T. Giesecke, R. Graham, A. Smith, and J.
+Williams, 2018: Constituent databases and data stewards in the Neotoma
+Paleoecology Database: History, growth, and new directions. <em>PAGES Mag</em>,
+<strong>26</strong>, 64–65, <a class="reference external" href="https://doi.org/10.22498/pages.26.2.64">https://doi.org/10.22498/pages.26.2.64</a>.<br />
+Gui, Z., and Coauthors, 2016: Developing Subdomain Allocation Algorithms
+Based on Spatial and Communicational Constraints to Accelerate Dust
+Storm Simulation. <em>PLoS ONE</em>, <strong>11</strong>, e0152250,
+<a class="reference external" href="https://doi.org/10.1371/journal.pone.0152250">https://doi.org/10.1371/journal.pone.0152250</a>.<br />
+Gundersen, O. E., Y. Gil, and D. W. Aha, 2018: On Reproducible AI:
+Towards Reproducible Research, Open Science, and Digital Scholarship in
+AI Publications. <em>AIMag</em>, <strong>39</strong>, 56–68,
+<a class="reference external" href="https://doi.org/10.1609/aimag.v39i3.2816">https://doi.org/10.1609/aimag.v39i3.2816</a>.<br />
+Hallett, B., 2019: iSamples Sample Management Training Module for Rock
+Outcrop Samples. <em>iSamples Sample Management Training Module for Rock
+Outcrop Samples</em>, <a class="reference external" href="https://doi.org/10.1594/IEDA/100691">https://doi.org/10.1594/IEDA/100691</a>.<br />
+He, Y., Y. Zhou, T. Wen, S. Zhang, F. Huang, X. Zou, X. Ma, and Y. Zhu,
+2022: A review of machine learning in geochemistry and cosmochemistry:
+Method improvements and applications. <em>Applied Geochemistry</em>, <strong>140</strong>,
+105273, <a class="reference external" href="https://doi.org/10.1016/j.apgeochem.2022.105273">https://doi.org/10.1016/j.apgeochem.2022.105273</a>.<br />
+Held, N., J. Saunders, J. Futrelle, and M. Saito, 2018: Harnessing the
+Power of Scientific Python to Investigate Biogeochemistry and
+Metaproteomes of the Central Pacific Ocean. <em>Harnessing the Power of
+Scientific Python to Investigate Biogeochemistry and Metaproteomes of
+the Central Pacific Ocean</em>,
+<a class="reference external" href="https://doi.org/10.25080/majora-4af1f417-010">https://doi.org/10.25080/majora-4af1f417-010</a>.<br />
+Held, N. A., and Coauthors, 2020: Co-occurrence of Fe and P stress in
+natural populations of the marine diazotroph
+&amp;lt;i&amp;gt;Trichodesmium&amp;lt;/i&amp;gt; <em>Biogeosciences</em>,
+<strong>17</strong>, 2537–2551, <a class="reference external" href="https://doi.org/10.5194/bg-17-2537-2020">https://doi.org/10.5194/bg-17-2537-2020</a>.<br />
+Hoffman, L., M. R. Mazloff, S. T. Gille, D. Giglio, and A. Varadarajan,
+2022: Ocean Surface Salinity Response to Atmospheric River Precipitation
+in the California Current System. <em>Ocean Surface Salinity Response to
+Atmospheric River Precipitation in the California Current System</em>,
+<strong>52</strong>, 1867–1885, <a class="reference external" href="https://doi.org/10.1175/jpo-d-21-0272.1">https://doi.org/10.1175/jpo-d-21-0272.1</a>.<br />
+Hogan, A., P. Hitzler, and K. Janowicz, 2016: Linked Dataset description
+papers at the Semantic Web journal: A critical assessment. <em>SW</em>, <strong>7</strong>,
+105–116, <a class="reference external" href="https://doi.org/10.3233/sw-160216">https://doi.org/10.3233/sw-160216</a>.<br />
+Hsu, C. ‐T., T. Matsuo, A. Maute, R. Stoneback, and C. ‐P. Lien, 2021:
+Data‐Driven Ensemble Modeling of Equatorial Ionospheric Electrodynamics:
+A Case Study During a Minor Storm Period Under Solar Minimum Conditions.
+<em>JGR Space Physics</em>, <strong>126</strong>, <a class="reference external" href="https://doi.org/10.1029/2020ja028539">https://doi.org/10.1029/2020ja028539</a>.<br />
+Hsu, L., B. McElroy, R. L. Martin, and W. Kim, 2013: Building a Sediment
+Experimentalist Network (SEN): sharing best practices for experimental
+methods and data management. <em>TSR</em>, <strong>11</strong>, 9–12,
+<a class="reference external" href="https://doi.org/10.2110/sedred.2013.4.9">https://doi.org/10.2110/sedred.2013.4.9</a>.<br />
+——, R. L. Martin, B. McElroy, K. Litwin-Miller, and W. Kim, 2015:
+Data management, sharing, and reuse in experimental geomorphology:
+Challenges, strategies, and scientific opportunities. <em>Geomorphology</em>,
+<strong>244</strong>, 180–189, <a class="reference external" href="https://doi.org/10.1016/j.geomorph.2015.03.039">https://doi.org/10.1016/j.geomorph.2015.03.039</a>.<br />
+Hu, W., and G. Cervone, 2019: Dynamically Optimized Unstructured Grid
+(DOUG) for Analog Ensemble of numerical weather predictions using
+evolutionary algorithms. <em>Computers &amp; Geosciences</em>, <strong>133</strong>, 104299,
+<a class="reference external" href="https://doi.org/10.1016/j.cageo.2019.07.003">https://doi.org/10.1016/j.cageo.2019.07.003</a>.<br />
+——, D. Del Vento, and S. Su, 2017: Proceedings of the 2020 Improving
+Scientific Software Conference. <em>Proceedings of the 2020 Improving
+Scientific Software Conference</em>, <a class="reference external" href="https://doi.org/10.5065/P2JJ-9878">https://doi.org/10.5065/P2JJ-9878</a>.<br />
+——, G. Cervone, A. Merzky, M. Turilli, and S. Jha, 2022: A new
+hourly dataset for photovoltaic energy production for the continental
+USA. <em>Data in Brief</em>, <strong>40</strong>, 107824,
+<a class="reference external" href="https://doi.org/10.1016/j.dib.2022.107824">https://doi.org/10.1016/j.dib.2022.107824</a>.<br />
+Hulbert, C., B. Rouet-Leduc, P. A. Johnson, C. X. Ren, J. Rivière, D. C.
+Bolton, and C. Marone, 2018: Similarity of fast and slow earthquakes
+illuminated by machine learning. <em>Nature Geosci</em>, <strong>12</strong>, 69–74,
+<a class="reference external" href="https://doi.org/10.1038/s41561-018-0272-8">https://doi.org/10.1038/s41561-018-0272-8</a>.<br />
+Husson, J. M., and S. E. Peters, 2017: Atmospheric oxygenation driven by
+unsteady growth of the continental sedimentary reservoir. <em>Earth and
+Planetary Science Letters</em>, <strong>460</strong>, 68–75,
+<a class="reference external" href="https://doi.org/10.1016/j.epsl.2016.12.012">https://doi.org/10.1016/j.epsl.2016.12.012</a>.<br />
+Illarionov, E., A. Kosovichev, and A. Tlatov, 2020: Machine-learning
+Approach to Identification of Coronal Holes in Solar Disk Images and
+Synoptic Maps. <em>ApJ</em>, <strong>903</strong>, 115,
+<a class="reference external" href="https://doi.org/10.3847/1538-4357/abb94d">https://doi.org/10.3847/1538-4357/abb94d</a>.<br />
+Janowicz, K., and Coauthors, 2016: Moon Landing or Safari? A Study of
+Systematic Errors and Their Causes in Geographic Linked Data. <em>Moon
+Landing or Safari? A Study of Systematic Errors and Their Causes in
+Geographic Linked Data</em>, 275–290,
+<a class="reference external" href="https://doi.org/10.1007/978-3-319-45738-3_18">https://doi.org/10.1007/978-3-319-45738-3_18</a>.<br />
+Jenkins, C., 2018: Sediment Accumulation Rates For the Mississippi Delta
+Region: a Time-interval Synthesis. <em>Sediment Accumulation Rates For the
+Mississippi Delta Region: a Time-interval Synthesis</em>, <strong>88</strong>, 301–309,
+<a class="reference external" href="https://doi.org/10.2110/jsr.2018.15">https://doi.org/10.2110/jsr.2018.15</a>.<br />
+Jia, X., and Coauthors, 2021: Physics-Guided Machine Learning from
+Simulation Data: An Application in Modeling Lake and River Systems.
+<em>Physics-Guided Machine Learning from Simulation Data: An Application in
+Modeling Lake and River Systems</em>,
+<a class="reference external" href="https://doi.org/10.1109/icdm51629.2021.00037">https://doi.org/10.1109/icdm51629.2021.00037</a>.<br />
+Jiang, H., J. Wang, C. Liu, J. Jing, H. Liu, J. T. L. Wang, and H. Wang,
+2020: Identifying and Tracking Solar Magnetic Flux Elements with Deep
+Learning. <em>ApJS</em>, <strong>250</strong>, 5, <a class="reference external" href="https://doi.org/10.3847/1538-4365/aba4aa">https://doi.org/10.3847/1538-4365/aba4aa</a>.<br />
+Jiang, P., M. Elag, P. Kumar, S. D. Peckham, L. Marini, and L. Rui,
+2017: A service-oriented architecture for coupling web service models
+using the Basic Model Interface (BMI). <em>Environmental Modelling &amp;
+Software</em>, <strong>92</strong>, 107–118,
+<a class="reference external" href="https://doi.org/10.1016/j.envsoft.2017.01.021">https://doi.org/10.1016/j.envsoft.2017.01.021</a>.<br />
+Jiang, Y., and Coauthors, 2018: A Smart Web-Based Geospatial Data
+Discovery System with Oceanographic Data as an Example. <em>IJGI</em>, <strong>7</strong>,
+62, <a class="reference external" href="https://doi.org/10.3390/ijgi7020062">https://doi.org/10.3390/ijgi7020062</a>.<br />
+Kadlec, J., B. StClair, D. P. Ames, and R. A. Gill, 2015: WaterML R
+package for managing ecological experiment data on a CUAHSI HydroServer.
+<em>Ecological Informatics</em>, <strong>28</strong>, 19–28,
+<a class="reference external" href="https://doi.org/10.1016/j.ecoinf.2015.05.002">https://doi.org/10.1016/j.ecoinf.2015.05.002</a>.<br />
+——, A. W. Miller, and D. P. Ames, 2016: Extracting Snow Cover Time
+Series Data from Open Access Web Mapping Tile Services. <em>J Am Water
+Resour Assoc</em>, <strong>52</strong>, 916–932,
+<a class="reference external" href="https://doi.org/10.1111/1752-1688.12387">https://doi.org/10.1111/1752-1688.12387</a>.<br />
+Karnauskas, K. B., and D. Giglio, 2022: Argo Reveals the Scales and
+Provenance of Equatorial Island Upwelling Systems. <em>Geophysical Research
+Letters</em>, <strong>49</strong>, <a class="reference external" href="https://doi.org/10.1029/2022gl098744">https://doi.org/10.1029/2022gl098744</a>.<br />
+Kelbert, A., 2014: Science and Cyberinfrastructure: The Chicken and Egg
+Problem. <em>Eos Trans. AGU</em>, <strong>95</strong>, 458–459,
+<a class="reference external" href="https://doi.org/10.1002/2014eo490006">https://doi.org/10.1002/2014eo490006</a>.<br />
+Kenigsberg, A. R., J. Rivière, C. Marone, and D. M. Saffer, 2020:
+Evolution of Elastic and Mechanical Properties During Fault Shear: The
+Roles of Clay Content, Fabric Development, and Porosity. <em>J. Geophys.
+Res. Solid Earth</em>, <strong>125</strong>, <a class="reference external" href="https://doi.org/10.1029/2019jb018612">https://doi.org/10.1029/2019jb018612</a>.<br />
+Kerkez, B., and Coauthors, 2016: Cloud Hosted Real‐time Data Services
+for the Geosciences (CHORDS). <em>Geosci. Data J.</em>, <strong>3</strong>, 4–8,
+<a class="reference external" href="https://doi.org/10.1002/gdj3.36">https://doi.org/10.1002/gdj3.36</a>.<br />
+Khalsa, S. J. S., C. A. Mattmann, and R. Duerr, 2017: Deep web crawling
+for insights from polar data. <em>Deep web crawling for insights from polar
+data</em>, <a class="reference external" href="https://doi.org/10.1109/igarss.2017.8126974">https://doi.org/10.1109/igarss.2017.8126974</a>.<br />
+Khider, D., and Coauthors, 2019: PaCTS 1.0: A Crowdsourced Reporting
+Standard for Paleoclimate Data. <em>Paleoceanography and Paleoclimatology</em>,
+<strong>34</strong>, 1570–1596, <a class="reference external" href="https://doi.org/10.1029/2019pa003632">https://doi.org/10.1029/2019pa003632</a>.<br />
+Kosovichev, A., 2021: Intelligent Databases and Machine-Learning
+Analysis Tools for Heliophysics. <em>Intelligent Databases and
+Machine-Learning Analysis Tools for Heliophysics</em>,
+<a class="reference external" href="https://doi.org/10.6084/M9.FIGSHARE.14848713.V1">https://doi.org/10.6084/M9.FIGSHARE.14848713.V1</a>.<br />
+Krisnadhi, A., and Coauthors, 2015: The GeoLink Modular Oceanography
+Ontology. <em>The GeoLink Modular Oceanography Ontology</em>, 301–309,
+<a class="reference external" href="https://doi.org/10.1007/978-3-319-25010-6_19">https://doi.org/10.1007/978-3-319-25010-6_19</a>.<br />
+Kumar, P., 2015: Hydrocomplexity: Addressing water security and emergent
+environmental risks. <em>Water Resour. Res.</em>, <strong>51</strong>, 5827–5838,
+<a class="reference external" href="https://doi.org/10.1002/2015wr017342">https://doi.org/10.1002/2015wr017342</a>.<br />
+Kuo, K.-S., A. Oloso, K. Doan, T. L. Clune, and H. Yu, 2016:
+Implications of data placement strategy to Big Data technologies based
+on shared-nothing architecture for geosciences. <em>Implications of data
+placement strategy to Big Data technologies based on shared-nothing
+architecture for geosciences</em>,
+<a class="reference external" href="https://doi.org/10.1109/igarss.2016.7730983">https://doi.org/10.1109/igarss.2016.7730983</a>.<br />
+——, Y. Pan, F. Zhu, J. Wang, M. L. Rilee, and H. Yu, 2018: A Big
+Earth Data Platform Exploiting Transparent Multimodal Parallelization.
+<em>A Big Earth Data Platform Exploiting Transparent Multimodal
+Parallelization</em>, <a class="reference external" href="https://doi.org/10.1109/igarss.2018.8518304">https://doi.org/10.1109/igarss.2018.8518304</a>.<br />
+——, H. Yu, Y. Pan, and M. L. Rilee, 2019: Leveraging STARE for
+Co-aligned Data Locality with netCDF and Python MPI. <em>Leveraging STARE
+for Co-aligned Data Locality with netCDF and Python MPI</em>,
+<a class="reference external" href="https://doi.org/10.1109/igarss.2019.8900423">https://doi.org/10.1109/igarss.2019.8900423</a>.<br />
+Kuroda, N., G. D. Fleishman, D. E. Gary, G. M. Nita, B. Chen, and S. Yu,
+2020: Evolution of Flare-Accelerated Electrons Quantified by Spatially
+Resolved Analysis. <em>Front. Astron. Space Sci.</em>, <strong>7</strong>,
+<a class="reference external" href="https://doi.org/10.3389/fspas.2020.00022">https://doi.org/10.3389/fspas.2020.00022</a>.<br />
+Le, H., D. Samaras, and H. J. Lynch, 2021: A convolutional neural
+network architecture designed for the automated survey of seabird
+colonies. <em>Remote Sens Ecol Conserv</em>, <strong>8</strong>, 251–262,
+<a class="reference external" href="https://doi.org/10.1002/rse2.240">https://doi.org/10.1002/rse2.240</a>.<br />
+Lehnert, K., J. Klump, L. Wyborn, and S. Ramdeen, 2019: Persistent,
+Global, Unique: The three key requirements for a trusted identifier
+system for physical samples. <em>BISS</em>, <strong>3</strong>,
+<a class="reference external" href="https://doi.org/10.3897/biss.3.37334">https://doi.org/10.3897/biss.3.37334</a>.<br />
+Leonard, L., K. Madduri, and C. J. Duffy, 2016: Tuning Heterogeneous
+Computing Platforms for Large-Scale Hydrology Data Management. <em>IEEE
+Trans. Parallel Distrib. Syst.</em>, <strong>27</strong>, 2753–2765,
+<a class="reference external" href="https://doi.org/10.1109/tpds.2015.2499741">https://doi.org/10.1109/tpds.2015.2499741</a>.<br />
+Lepore, C., R. Abernathey, N. Henderson, J. T. Allen, and M. K. Tippett,
+2021: Future Global Convective Environments in CMIP6 Models. <em>Earth’s
+Future</em>, <strong>9</strong>, <a class="reference external" href="https://doi.org/10.1029/2021ef002277">https://doi.org/10.1029/2021ef002277</a>.<br />
+Li, J., T. Matsuo, and L. M. Kilcommons, 2022: Assimilative Mapping of
+Auroral Electron Energy Flux Using SSUSI Lyman‐Birge‐Hopfield (LBH)
+Emissions. <em>JGR Space Physics</em>, <strong>127</strong>,
+<a class="reference external" href="https://doi.org/10.1029/2021ja029739">https://doi.org/10.1029/2021ja029739</a>.<br />
+Li, Z., C. Yang, K. Liu, F. Hu, and B. Jin, 2016: Automatic Scaling
+Hadoop in the Cloud for Efficient Process of Big Geospatial Data.
+<em>IJGI</em>, <strong>5</strong>, 173, <a class="reference external" href="https://doi.org/10.3390/ijgi5100173">https://doi.org/10.3390/ijgi5100173</a>.<br />
+Liu, H., C. Liu, J. T. L. Wang, and H. Wang, 2020a: Predicting Coronal
+Mass Ejections Using <em>SDO</em>/HMI Vector Magnetic Data Products and
+Recurrent Neural Networks. <em>ApJ</em>, <strong>890</strong>, 12,
+<a class="reference external" href="https://doi.org/10.3847/1538-4357/ab6850">https://doi.org/10.3847/1538-4357/ab6850</a>.<br />
+——, Y. Xu, J. Wang, J. Jing, C. Liu, J. T. L. Wang, and H. Wang,
+2020b: Inferring Vector Magnetic Fields from Stokes Profiles of
+GST/NIRIS Using a Convolutional Neural Network. <em>ApJ</em>, <strong>894</strong>, 70,
+<a class="reference external" href="https://doi.org/10.3847/1538-4357/ab8818">https://doi.org/10.3847/1538-4357/ab8818</a>.<br />
+Liu, N., J. Jing, Y. Xu, and H. Wang, 2022: Multi-instrument Comparative
+Study of Temperature, Number Density, and Emission Measure during the
+Precursor Phase of a Solar Flare. <em>ApJ</em>, <strong>930</strong>, 154,
+<a class="reference external" href="https://doi.org/10.3847/1538-4357/ac6425">https://doi.org/10.3847/1538-4357/ac6425</a>.<br />
+Lopez, L. A., R. Duerr, and S. J. S. Khalsa, 2015: Optimizing apache
+nutch for domain specific crawling at large scale. <em>Optimizing apache
+nutch for domain specific crawling at large scale</em>,
+<a class="reference external" href="https://doi.org/10.1109/bigdata.2015.7363976">https://doi.org/10.1109/bigdata.2015.7363976</a>.<br />
+M. C. Carvalho, L. A., D. Garijo, C. Bauzer Medeiros, and Y. Gil, 2018:
+Semantic Software Metadata for Workflow Exploration and Evolution.
+<em>Semantic Software Metadata for Workflow Exploration and Evolution</em>,
+<a class="reference external" href="https://doi.org/10.1109/escience.2018.00132">https://doi.org/10.1109/escience.2018.00132</a>.<br />
+Ma, X., 2022: Knowledge graph construction and application in
+geosciences: A review. <em>Computers &amp; Geosciences</em>, <strong>161</strong>, 105082,
+<a class="reference external" href="https://doi.org/10.1016/j.cageo.2022.105082">https://doi.org/10.1016/j.cageo.2022.105082</a>.<br />
+Mahabal, A. A., D. Crichton, S. G. Djorgovski, E. Law, and J. S. Hughes,
+2016: From Sky to Earth: Data Science Methodology Transfer. <em>Proc. IAU</em>,
+<strong>12</strong>, 17–26, <a class="reference external" href="https://doi.org/10.1017/s1743921317000060">https://doi.org/10.1017/s1743921317000060</a>.<br />
+Maidment, D. R., 2016a: Open Water Data in Space and Time. <em>J Am Water
+Resour Assoc</em>, <strong>52</strong>, 816–824,
+<a class="reference external" href="https://doi.org/10.1111/1752-1688.12436">https://doi.org/10.1111/1752-1688.12436</a>.<br />
+——, 2016b: Conceptual Framework for the National Flood
+Interoperability Experiment. <em>J Am Water Resour Assoc</em>, <strong>53</strong>,
+245–257, <a class="reference external" href="https://doi.org/10.1111/1752-1688.12474">https://doi.org/10.1111/1752-1688.12474</a>.<br />
+Malik, T., 2020: Artifact Description/Artifact Evaluation. <em>Artifact
+Description/Artifact Evaluation</em>,
+<a class="reference external" href="https://doi.org/10.1145/3456287.3465479">https://doi.org/10.1145/3456287.3465479</a>.<br />
+Manne, N. N., S. Satpati, T. Malik, A. Bagchi, A. Gehani, and A.
+Chaudhary, 2022: CHEX. <em>Proc. VLDB Endow.</em>, <strong>15</strong>, 1297–1310,
+<a class="reference external" href="https://doi.org/10.14778/3514061.3514075">https://doi.org/10.14778/3514061.3514075</a>.<br />
+Marsicek, J., S. Goring, S. Marcott, S. Meyers, S. Peters, I. Ross, B.
+Singer, and J. Williams, 2018: Automated extraction of spatiotemporal
+geoscientific data from the literature using GeoDeepDive. <em>PAGES Mag</em>,
+<strong>26</strong>, 70–70, <a class="reference external" href="https://doi.org/10.22498/pages.26.2.70">https://doi.org/10.22498/pages.26.2.70</a>.<br />
+Matheny, A. M., P. Marchetto, J. Powell, A. Rechner, J. Chuah, E.
+McCormick, and S. A. Pierce, 2019: LEAF: Logger for ecological and
+atmospheric factors. <em>HardwareX</em>, <strong>6</strong>, e00079,
+<a class="reference external" href="https://doi.org/10.1016/j.ohx.2019.e00079">https://doi.org/10.1016/j.ohx.2019.e00079</a>.<br />
+Matsuo, T., 2019: Recent Progress on Inverse and Data Assimilation
+Procedure for High-Latitude Ionospheric Electrodynamics. <em>Recent
+Progress on Inverse and Data Assimilation Procedure for High-Latitude
+Ionospheric Electrodynamics</em>, 219–232,
+<a class="reference external" href="https://doi.org/10.1007/978-3-030-26732-2_10">https://doi.org/10.1007/978-3-030-26732-2_10</a>.<br />
+Mayernik, M. S., 2018: Scholarly resource linking: Building out a
+“relationship life cycle.” <em>Proc. Assoc. Info. Sci. Tech.</em>, <strong>55</strong>,
+337–346, <a class="reference external" href="https://doi.org/10.1002/pra2.2018.14505501037">https://doi.org/10.1002/pra2.2018.14505501037</a>.<br />
+——, 2021: Credibility via Coupling. <em>Engaging STS</em>, <strong>7</strong>, 10–32,
+<a class="reference external" href="https://doi.org/10.17351/ests2021.769">https://doi.org/10.17351/ests2021.769</a>.<br />
+——, and Coauthors, 2016: Building Geoscience Semantic Web
+Applications Using Established Ontologies. <em>Building Geoscience Semantic
+Web Applications Using Established Ontologies</em>, <strong>15</strong>,
+<a class="reference external" href="https://doi.org/10.5334/dsj-2016-011">https://doi.org/10.5334/dsj-2016-011</a>.<br />
+McGranaghan, R. M., A. Bhatt, T. Matsuo, A. J. Mannucci, J. L. Semeter,
+and S. Datta‐Barua, 2017: Ushering in a New Frontier in Geospace Through
+Data Science. <em>JGR Space Physics</em>, <strong>122</strong>,
+<a class="reference external" href="https://doi.org/10.1002/2017ja024835">https://doi.org/10.1002/2017ja024835</a>.<br />
+McNutt, M., K. Lehnert, B. Hanson, B. A. Nosek, A. M. Ellison, and J. L.
+King, 2016: Liberating field science samples and data. <em>Science</em>,
+<strong>351</strong>, 1024–1026, <a class="reference external" href="https://doi.org/10.1126/science.aad7048">https://doi.org/10.1126/science.aad7048</a>.<br />
+Miller, K. L., W. Kim, and B. McElroy, 2019: Laboratory Investigation on
+Effects of Flood Intermittency on Fan Delta Dynamics. <em>J. Geophys. Res.
+Earth Surf.</em>, <strong>124</strong>, 383–399, <a class="reference external" href="https://doi.org/10.1029/2017jf004576">https://doi.org/10.1029/2017jf004576</a>.<br />
+Modrak, R. T., D. Borisov, M. Lefebvre, and J. Tromp, 2018:
+SeisFlows—Flexible waveform inversion software. <em>Computers &amp;
+Geosciences</em>, <strong>115</strong>, 88–95,
+<a class="reference external" href="https://doi.org/10.1016/j.cageo.2018.02.004">https://doi.org/10.1016/j.cageo.2018.02.004</a>.<br />
+Moges, E., B. L. Ruddell, L. Zhang, J. M. Driscoll, and L. G. Larsen,
+2022: Strength and Memory of Precipitation’s Control Over Streamflow
+Across the Conterminous United States. <em>Water Resources Research</em>,
+<strong>58</strong>, <a class="reference external" href="https://doi.org/10.1029/2021wr030186">https://doi.org/10.1029/2021wr030186</a>.<br />
+Mookerjee, M., D. Vieira, M. A. Chan, Y. Gil, C. Goodwin, T. F. Shipley,
+and B. Tikoff, 2015a: We need to talk: Facilitating communication
+between field-based geoscience and cyberinfrastructure communities.
+<em>GSAT</em>, 34–35, <a class="reference external" href="https://doi.org/10.1130/gsatg248gw.1">https://doi.org/10.1130/gsatg248gw.1</a>.<br />
+——, ——, M. Chan, Y. Gil, T. Pavlis, F. Spear, and B. Tikoff,
+2015b: Field Data Management: Integrating Cyberscience and Geoscience.
+<em>Eos</em>, <strong>96</strong>, <a class="reference external" href="https://doi.org/10.1029/2015eo036703">https://doi.org/10.1029/2015eo036703</a>.<br />
+——, and Coauthors, 2023: Cyberinfrastructure for collecting and
+integrating geology field data: Community priorities and research
+agenda. <em>Cyberinfrastructure for collecting and integrating geology
+field data: Community priorities and research agenda</em>,
+<a class="reference external" href="https://doi.org/10.1130/2022.2558(01)">https://doi.org/10.1130/2022.2558(01)</a>.<br />
+Moon, T., M. Fisher, H. Simonoko, and T. Stafford, 2017: QGreenland.
+<em>QGreenland</em>, <a class="reference external" href="https://doi.org/10.5281/ZENODO.6369184">https://doi.org/10.5281/ZENODO.6369184</a>.<br />
+——, A. Ahlstrøm, H. Goelzer, W. Lipscomb, and S. Nowicki, 2018:
+Rising Oceans Guaranteed: Arctic Land Ice Loss and Sea Level Rise. <em>Curr
+Clim Change Rep</em>, <strong>4</strong>, 211–222,
+<a class="reference external" href="https://doi.org/10.1007/s40641-018-0107-0">https://doi.org/10.1007/s40641-018-0107-0</a>.<br />
+Morlighem, M., and Coauthors, 2017: BedMachine v3: Complete Bed
+Topography and Ocean Bathymetry Mapping of Greenland From Multibeam Echo
+Sounding Combined With Mass Conservation. <em>Geophysical Research
+Letters</em>, <strong>44</strong>, <a class="reference external" href="https://doi.org/10.1002/2017gl074954">https://doi.org/10.1002/2017gl074954</a>.<br />
+Mullendore, G. L., M. S. Mayernik, and D. C. Schuster, 2021: Open
+Science Expectations for Simulation-Based Research. <em>Front. Clim.</em>,
+<strong>3</strong>, <a class="reference external" href="https://doi.org/10.3389/fclim.2021.763420">https://doi.org/10.3389/fclim.2021.763420</a>.<br />
+Narock, T., and Coauthors, 2014: The OceanLink project. <em>The OceanLink
+project</em>, <a class="reference external" href="https://doi.org/10.1109/bigdata.2014.7004347">https://doi.org/10.1109/bigdata.2014.7004347</a>.<br />
+Nita, G. M., N. M. Viall, J. A. Klimchuk, M. A. Loukitcheva, D. E. Gary,
+A. A. Kuznetsov, and G. D. Fleishman, 2018: Dressing the Coronal
+Magnetic Extrapolations of Active Regions with a Parameterized Thermal
+Structure. <em>ApJ</em>, <strong>853</strong>, 66,
+<a class="reference external" href="https://doi.org/10.3847/1538-4357/aaa4bf">https://doi.org/10.3847/1538-4357/aaa4bf</a>.<br />
+Njinju, E. A., and Coauthors, 2019: Lithospheric Structure of the Malawi
+Rift: Implications for Magma‐Poor Rifting Processes. <em>Tectonics</em>,
+<strong>38</strong>, 3835–3853, <a class="reference external" href="https://doi.org/10.1029/2019tc005549">https://doi.org/10.1029/2019tc005549</a>.<br />
+——, D. S. Stamps, K. Neumiller, and J. Gallager, 2021: Lithospheric
+Control of Melt Generation Beneath the Rungwe Volcanic Province, East
+Africa: Implications for a Plume Source. <em>JGR Solid Earth</em>, <strong>126</strong>,
+<a class="reference external" href="https://doi.org/10.1029/2020jb020728">https://doi.org/10.1029/2020jb020728</a>.<br />
+Oloso, A., K.-S. Kuo, T. Clune, P. Brown, A. Poliakov, and H. Yu, 2016:
+Implementing connected component labeling as a user defined operator for
+SciDB. <em>Implementing connected component labeling as a user defined
+operator for SciDB</em>, <a class="reference external" href="https://doi.org/10.1109/bigdata.2016.7840945">https://doi.org/10.1109/bigdata.2016.7840945</a>.<br />
+PAGES2k Consortium, ?, 2017: A global multiproxy database for
+temperature reconstructions of the Common Era. <em>Sci Data</em>, <strong>4</strong>,
+<a class="reference external" href="https://doi.org/10.1038/sdata.2017.88">https://doi.org/10.1038/sdata.2017.88</a>.<br />
+Peckham, S. D., A. Kelbert, M. C. Hill, and E. W. H. Hutton, 2016:
+Towards uncertainty quantification and parameter estimation for Earth
+system models in a component-based modeling framework. <em>Computers &amp;
+Geosciences</em>, <strong>90</strong>, 152–161,
+<a class="reference external" href="https://doi.org/10.1016/j.cageo.2016.03.005">https://doi.org/10.1016/j.cageo.2016.03.005</a>.<br />
+——, M. Stoica, E. Jafarov, A. Endalamaw, and W. R. Bolton, 2017:
+Reproducible, component‐based modeling with TopoFlow, a spatial
+hydrologic modeling toolkit. <em>Earth and Space Science</em>, <strong>4</strong>, 377–394,
+<a class="reference external" href="https://doi.org/10.1002/2016ea000237">https://doi.org/10.1002/2016ea000237</a>.<br />
+Pennington, D., I. Ebert-Uphoff, N. Freed, J. Martin, and S. A. Pierce,
+2019: Bridging sustainability science, earth science, and data science
+through interdisciplinary education. <em>Sustain Sci</em>, <strong>15</strong>, 647–661,
+<a class="reference external" href="https://doi.org/10.1007/s11625-019-00735-3">https://doi.org/10.1007/s11625-019-00735-3</a>.<br />
+Peters, S., I. Ross, J. Czaplewski, A. Glassel, J. Husson, V. Syverson,
+A. Zaffos, and M. Livny, 2017a: A New Tool for Deep-Down Data Mining.
+<em>Eos</em>, <a class="reference external" href="https://doi.org/10.1029/2017eo082377">https://doi.org/10.1029/2017eo082377</a>.<br />
+Peters, S. E., and J. M. Husson, 2017: Sediment cycling on continental
+and oceanic crust. <em>Geology</em>, <strong>45</strong>, 323–326,
+<a class="reference external" href="https://doi.org/10.1130/g38861.1">https://doi.org/10.1130/g38861.1</a>.<br />
+——, C. Zhang, M. Livny, and C. Ré, 2014: A Machine Reading System
+for Assembling Synthetic Paleontological Databases. <em>PLoS ONE</em>, <strong>9</strong>,
+e113523, <a class="reference external" href="https://doi.org/10.1371/journal.pone.0113523">https://doi.org/10.1371/journal.pone.0113523</a>.<br />
+——, J. M. Husson, and J. Wilcots, 2017b: The rise and fall of
+stromatolites in shallow marine environments. <em>Geology</em>, <strong>45</strong>,
+487–490, <a class="reference external" href="https://doi.org/10.1130/g38931.1">https://doi.org/10.1130/g38931.1</a>.<br />
+Peucker-Ehrenbrink, B., 2020: Land2Sea database, Version 2.0. <em>Land2Sea
+database, Version 2.0</em>, <a class="reference external" href="https://doi.org/10.1594/PANGAEA.892680">https://doi.org/10.1594/PANGAEA.892680</a>.<br />
+——, and G. J. Fiske, 2019: A continental perspective of the seawater
+87Sr/86Sr record: A review. <em>Chemical Geology</em>, <strong>510</strong>, 140–165,
+<a class="reference external" href="https://doi.org/10.1016/j.chemgeo.2019.01.017">https://doi.org/10.1016/j.chemgeo.2019.01.017</a>.<br />
+Pham, Q., T. Malik, D. H. T. That, and A. Youngdahl, 2018: Improving
+Reproducibility of Distributed Computational Experiments. <em>Improving
+Reproducibility of Distributed Computational Experiments</em>,
+<a class="reference external" href="https://doi.org/10.1145/3214239.3214241">https://doi.org/10.1145/3214239.3214241</a>.<br />
+Ponsero, A. J., and B. L. Hurwitz, 2019: The Promises and Pitfalls of
+Machine Learning for Detecting Viruses in Aquatic Metagenomes. <em>Front.
+Microbiol.</em>, <strong>10</strong>, <a class="reference external" href="https://doi.org/10.3389/fmicb.2019.00806">https://doi.org/10.3389/fmicb.2019.00806</a>.<br />
+Ponsero, A. J., M. Bomhoff, K. Blumberg, K. Youens-Clark, N. M. Herz, E.
+M. Wood-Charlson, E. F. Delong, and B. L. Hurwitz, 2020: Planet Microbe:
+a platform for marine microbiology to discover and analyze
+interconnected ‘omics and environmental data. <em>Planet Microbe: a
+platform for marine microbiology to discover and analyze interconnected
+‘omics and environmental data</em>, <strong>49</strong>, D792–D802,
+<a class="reference external" href="https://doi.org/10.1093/nar/gkaa637">https://doi.org/10.1093/nar/gkaa637</a>.<br />
+Radcliffe, D. E., and Coauthors, 2015: Applicability of Models to
+Predict Phosphorus Losses in Drained Fields: A Review. <em>J. Environ.
+Qual.</em>, <strong>44</strong>, 614–628, <a class="reference external" href="https://doi.org/10.2134/jeq2014.05.0220">https://doi.org/10.2134/jeq2014.05.0220</a>.<br />
+Raheem, A., H. Cavus, G. C. Coban, A. C. Kinaci, H. Wang, and J. T. L.
+Wang, 2021: An investigation of the causal relationship between sunspot
+groups and coronal mass ejections by determining source active regions.
+<em>An investigation of the causal relationship between sunspot groups and
+coronal mass ejections by determining source active regions</em>, <strong>506</strong>,
+1916–1926, <a class="reference external" href="https://doi.org/10.1093/mnras/stab1816">https://doi.org/10.1093/mnras/stab1816</a>.<br />
+Regalia, B., G. McKenzie, S. Gao, and K. Janowicz, 2016: Crowdsensing
+smart ambient environments and services. <em>Trans. in GIS</em>, <strong>20</strong>,
+382–398, <a class="reference external" href="https://doi.org/10.1111/tgis.12233">https://doi.org/10.1111/tgis.12233</a>.<br />
+Reiss, M. A., and Coauthors, 2021: The Observational Uncertainty of
+Coronal Hole Boundaries in Automated Detection Schemes. <em>ApJ</em>, <strong>913</strong>,
+28, <a class="reference external" href="https://doi.org/10.3847/1538-4357/abf2c8">https://doi.org/10.3847/1538-4357/abf2c8</a>.<br />
+Richard, S. M., G. Pearthree, A. K. Aufdenkampe, J. Cutcher-Gershenfeld,
+M. Daniels, B. Gomez, D. Kinkade, and G. Percivall, 2014:
+Community-Developed Geoscience Cyberinfrastructure. <em>Eos Trans. AGU</em>,
+<strong>95</strong>, 165–166, <a class="reference external" href="https://doi.org/10.1002/2014eo200001">https://doi.org/10.1002/2014eo200001</a>.<br />
+Rilee, M. L., K.-S. Kuo, T. Clune, A. Oloso, P. G. Brown, and H. Yu,
+2016: Addressing the big-earth-data variety challenge with the
+hierarchical triangular mesh. <em>Addressing the big-earth-data variety
+challenge with the hierarchical triangular mesh</em>,
+<a class="reference external" href="https://doi.org/10.1109/bigdata.2016.7840700">https://doi.org/10.1109/bigdata.2016.7840700</a>.<br />
+Rosenberg, D. E., and Coauthors, 2020: The Next Frontier: Making
+Research More Reproducible. <em>J. Water Resour. Plann. Manage.</em>, <strong>146</strong>,
+<a class="reference external" href="https://doi.org/10.1061/(asce)wr.1943-5452.0001215">https://doi.org/10.1061/(asce)wr.1943-5452.0001215</a>.<br />
+Roux, S., and Coauthors, 2018: Minimum Information about an Uncultivated
+Virus Genome (MIUViG). <em>Nat Biotechnol</em>, <strong>37</strong>, 29–37,
+<a class="reference external" href="https://doi.org/10.1038/nbt.4306">https://doi.org/10.1038/nbt.4306</a>.<br />
+Sadler, J. M., D. P. Ames, and S. J. Livingston, 2015: Extending
+HydroShare to enable hydrologic time series data as social media.
+<em>Extending HydroShare to enable hydrologic time series data as social
+media</em>, <strong>18</strong>, 198–209, <a class="reference external" href="https://doi.org/10.2166/hydro.2015.331">https://doi.org/10.2166/hydro.2015.331</a>.<br />
+Sadykov, V. M., and A. G. Kosovichev, 2017: Relationships between
+Characteristics of the Line-of-sight Magnetic Field and Solar Flare
+Forecasts. <em>ApJ</em>, <strong>849</strong>, 148,
+<a class="reference external" href="https://doi.org/10.3847/1538-4357/aa9119">https://doi.org/10.3847/1538-4357/aa9119</a>.<br />
+Sadykov, V. M., A. G. Kosovichev, I. N. Kitiashvili, and A. Frolov,
+2019a: Statistical Properties of Soft X-Ray Emission of Solar Flares.
+<em>ApJ</em>, <strong>874</strong>, 19, <a class="reference external" href="https://doi.org/10.3847/1538-4357/ab06c3">https://doi.org/10.3847/1538-4357/ab06c3</a>.<br />
+——, ——, I. N. Sharykin, and G. S. Kerr, 2019b: Statistical Study
+of Chromospheric Evaporation in Impulsive Phase of Solar Flares. <em>ApJ</em>,
+<strong>871</strong>, 2, <a class="reference external" href="https://doi.org/10.3847/1538-4357/aaf6b0">https://doi.org/10.3847/1538-4357/aaf6b0</a>.<br />
+Saito, M. A., and Coauthors, 2019: Progress and Challenges in Ocean
+Metaproteomics and Proposed Best Practices for Data Sharing. <em>J.
+Proteome Res.</em>, <strong>18</strong>, 1461–1476,
+<a class="reference external" href="https://doi.org/10.1021/acs.jproteome.8b00761">https://doi.org/10.1021/acs.jproteome.8b00761</a>.<br />
+——, and Coauthors, 2020: Development of an Ocean Protein Portal for
+Interactive Discovery and Education. <em>J. Proteome Res.</em>, <strong>20</strong>,
+326–336, <a class="reference external" href="https://doi.org/10.1021/acs.jproteome.0c00382">https://doi.org/10.1021/acs.jproteome.0c00382</a>.<br />
+Saunders, J. K., D. A. Gaylord, N. A. Held, N. Symmonds, C. L. Dupont,
+A. Shepherd, D. B. Kinkade, and M. A. Saito, 2020: METATRYP v 2.0:
+Metaproteomic Least Common Ancestor Analysis for Taxonomic Inference
+Using Specialized Sequence Assemblies—Standalone Software and Web
+Servers for Marine Microorganisms and Coronaviruses. <em>J. Proteome Res.</em>,
+<strong>19</strong>, 4718–4729, <a class="reference external" href="https://doi.org/10.1021/acs.jproteome.0c00385">https://doi.org/10.1021/acs.jproteome.0c00385</a>.<br />
+——, and Coauthors, 2022: Microbial functional diversity across
+biogeochemical provinces in the central Pacific Ocean. <em>Proc. Natl.
+Acad. Sci. U.S.A.</em>, <strong>119</strong>, <a class="reference external" href="https://doi.org/10.1073/pnas.2200014119">https://doi.org/10.1073/pnas.2200014119</a>.<br />
+Schaen, A. J., and Coauthors, 2020: Interpreting and reporting 40Ar/39Ar
+geochronologic data. <em>Interpreting and reporting 40Ar/39Ar
+geochronologic data</em>, <strong>133</strong>, 461–487,
+<a class="reference external" href="https://doi.org/10.1130/b35560.1">https://doi.org/10.1130/b35560.1</a>.<br />
+Sermet, Y., and I. Demir, 2019: Towards an information centric flood
+ontology for information management and communication. <em>Earth Sci
+Inform</em>, <strong>12</strong>, 541–551, <a class="reference external" href="https://doi.org/10.1007/s12145-019-00398-9">https://doi.org/10.1007/s12145-019-00398-9</a>.<br />
+Sessa, J., S. Butts, T. Karim, G. Nelson, C. Norris, D. Serratos, and M.
+Uhen, 2018: The ePANDDA project: linking the Paleobiology Database,
+iDigBio, and iDigPaleo for biological and paleontological research,
+collections management, and outreach. <em>BISS</em>, <strong>2</strong>, e26644,
+<a class="reference external" href="https://doi.org/10.3897/biss.2.26644">https://doi.org/10.3897/biss.2.26644</a>.<br />
+Sessa, J. A., and Coauthors, 2017: THE EPANDDA PROJECT: LINKING THE
+PALEOBIOLOGY DATABASE, IDIGBIO, AND IDIGPALEO FOR BIOLOGICAL AND
+PALEONTOLOGICAL RESEARCH, COLLECTIONS MANAGEMENT, AND OUTREACH. <em>THE
+EPANDDA PROJECT: LINKING THE PALEOBIOLOGY DATABASE, IDIGBIO, AND
+IDIGPALEO FOR BIOLOGICAL AND PALEONTOLOGICAL RESEARCH, COLLECTIONS
+MANAGEMENT, AND OUTREACH</em>, <a class="reference external" href="https://doi.org/10.1130/abs/2017am-298208">https://doi.org/10.1130/abs/2017am-298208</a>.<br />
+Sethi, R. J., and Y. Gil, 2016: Reproducibility in computer vision:
+Towards open publication of image analysis experiments as semantic
+workflows. <em>Reproducibility in computer vision: Towards open publication
+of image analysis experiments as semantic workflows</em>,
+<a class="reference external" href="https://doi.org/10.1109/escience.2016.7870918">https://doi.org/10.1109/escience.2016.7870918</a>.<br />
+——, and ——, 2017: Scientific workflows in data analysis:
+Bridging expertise across multiple domains. <em>Future Generation Computer
+Systems</em>, <strong>75</strong>, 256–270,
+<a class="reference external" href="https://doi.org/10.1016/j.future.2017.01.001">https://doi.org/10.1016/j.future.2017.01.001</a>.<br />
+Shi, X., and Coauthors, 2018: Long‐Lasting Poloidal ULF Waves Observed
+by Multiple Satellites and High‐Latitude SuperDARN Radars. <em>JGR Space
+Physics</em>, <strong>123</strong>, 8422–8438, <a class="reference external" href="https://doi.org/10.1029/2018ja026003">https://doi.org/10.1029/2018ja026003</a>.<br />
+Shi, Y., D. M. Oliveira, D. J. Knipp, E. Zesta, T. Matsuo, and B.
+Anderson, 2019: Effects of Nearly Frontal and Highly Inclined
+Interplanetary Shocks on High‐Latitude Field‐Aligned Currents (FACs).
+<em>Space Weather</em>, <strong>17</strong>, 1659–1673,
+<a class="reference external" href="https://doi.org/10.1029/2019sw002367">https://doi.org/10.1029/2019sw002367</a>.<br />
+——, D. J. Knipp, T. Matsuo, L. Kilcommons, and B. Anderson, 2020a:
+Modes of (FACs) Variability and Their Hemispheric Asymmetry Revealed by
+Inverse and Assimilative Analysis of Iridium Magnetometer Data. <em>J.
+Geophys. Res. Space Physics</em>, <strong>125</strong>,
+<a class="reference external" href="https://doi.org/10.1029/2019ja027265">https://doi.org/10.1029/2019ja027265</a>.<br />
+——, ——, ——, ——, and ——, 2020b: Event Studies of
+High‐Latitude FACs With Inverse and Assimilative Analysis of AMPERE
+Magnetometer Data. <em>J. Geophys. Res. Space Physics</em>, <strong>125</strong>,
+<a class="reference external" href="https://doi.org/10.1029/2019ja027266">https://doi.org/10.1029/2019ja027266</a>.<br />
+Shimizu, C., P. Hitzler, and M. Horridge, 2017: Rendering OWL in
+Description Logic Syntax. <em>Rendering OWL in Description Logic Syntax</em>,
+109–113, <a class="reference external" href="https://doi.org/10.1007/978-3-319-70407-4_21">https://doi.org/10.1007/978-3-319-70407-4_21</a>.<br />
+Shreedharan, S., D. C. Bolton, J. Rivière, and C. Marone, 2020:
+Preseismic Fault Creep and Elastic Wave Amplitude Precursors Scale With
+Lab Earthquake Magnitude for the Continuum of Tectonic Failure Modes.
+<em>Geophys. Res. Lett.</em>, <strong>47</strong>, <a class="reference external" href="https://doi.org/10.1029/2020gl086986">https://doi.org/10.1029/2020gl086986</a>.<br />
+Song, J., and L. Di, 2017: Near-Real-Time OGC Catalogue Service for
+Geoscience Big Data. <em>IJGI</em>, <strong>6</strong>, 337,
+<a class="reference external" href="https://doi.org/10.3390/ijgi6110337">https://doi.org/10.3390/ijgi6110337</a>.<br />
+Sperhac, J. M., and Coauthors, 2020: <em>GHub</em>  : Building a glaciology
+gateway to unify a community. <em>Concurrency Computat Pract Exper</em>,
+<strong>33</strong>, <a class="reference external" href="https://doi.org/10.1002/cpe.6130">https://doi.org/10.1002/cpe.6130</a>.<br />
+Stafford, T., M. Fisher, and Twilamoon Science, 2017: nsidc/qgreenland:
+v1.0.1. <em>nsidc/qgreenland: v1.0.1</em>,
+<a class="reference external" href="https://doi.org/10.5281/ZENODO.4558266">https://doi.org/10.5281/ZENODO.4558266</a>.<br />
+Stern, C., R. Abernathey, J. Hamman, R. Wegener, C. Lepore, S. Harkins,
+and A. Merose, 2022: Pangeo Forge: Crowdsourcing Analysis-Ready, Cloud
+Optimized Data Production. <em>Front. Clim.</em>, <strong>3</strong>,
+<a class="reference external" href="https://doi.org/10.3389/fclim.2021.782909">https://doi.org/10.3389/fclim.2021.782909</a>.<br />
+Stocks, K., S. Diggs, C. Olson, A. Pham, R. Arko, A. Shepherd, and D.
+Kinkade, 2018: SeaView: Bringing Together an Ocean of Data. <em>Oceanog</em>,
+<strong>31</strong>, 71–71, <a class="reference external" href="https://doi.org/10.5670/oceanog.2018.111">https://doi.org/10.5670/oceanog.2018.111</a>.<br />
+Straneo, F., and Coauthors, 2019: The Case for a Sustained Greenland Ice
+Sheet-Ocean Observing System (GrIOOS). <em>Front. Mar. Sci.</em>, <strong>6</strong>,
+<a class="reference external" href="https://doi.org/10.3389/fmars.2019.00138">https://doi.org/10.3389/fmars.2019.00138</a>.<br />
+Sun, Z., H. Fang, M. Deng, A. Chen, P. Yue, and L. Di, 2015: Regular
+Shape Similarity Index: A Novel Index for Accurate Extraction of Regular
+Objects From Remote Sensing Images. <em>IEEE Trans. Geosci. Remote
+Sensing</em>, <strong>53</strong>, 3737–3748,
+<a class="reference external" href="https://doi.org/10.1109/tgrs.2014.2382566">https://doi.org/10.1109/tgrs.2014.2382566</a>.<br />
+——, L. Di, H. Fang, C. Zhang, E. Yu, L. Lin, X. Tan, and P. Yue,
+2016a: Embedding Pub/Sub mechanism into OGC web services to augment
+agricultural crop monitoring. <em>Embedding Pub/Sub mechanism into OGC web
+services to augment agricultural crop monitoring</em>,
+<a class="reference external" href="https://doi.org/10.1109/agro-geoinformatics.2016.7577653">https://doi.org/10.1109/agro-geoinformatics.2016.7577653</a>.<br />
+——, ——, C. Zhang, L. Lin, H. Fang, X. Tan, and P. Yue, 2016b:
+Combining OGC WCS with SOAP to faciliate the retrieval of remote sensing
+imagery about agricultural fields. <em>Combining OGC WCS with SOAP to
+faciliate the retrieval of remote sensing imagery about agricultural
+fields</em>, <a class="reference external" href="https://doi.org/10.1109/agro-geoinformatics.2016.7577652">https://doi.org/10.1109/agro-geoinformatics.2016.7577652</a>.<br />
+——, H. Fang, L. Di, P. Yue, X. Tan, and Y. Bai, 2016c: Developing a
+web-based system for supervised classification of remote sensing images.
+<em>Geoinformatica</em>, <strong>20</strong>, 629–649,
+<a class="reference external" href="https://doi.org/10.1007/s10707-016-0252-3">https://doi.org/10.1007/s10707-016-0252-3</a>.<br />
+——, and Coauthors, 2017a: GeoFairy: Towards a one-stop and location
+based Service for Geospatial Information Retrieval. <em>Computers,
+Environment and Urban Systems</em>, <strong>62</strong>, 156–167,
+<a class="reference external" href="https://doi.org/10.1016/j.compenvurbsys.2016.11.007">https://doi.org/10.1016/j.compenvurbsys.2016.11.007</a>.<br />
+——, and Coauthors, 2017b: Establish cyberinfrastructure to
+facilitate agricultural drought monitoring. <em>Establish
+cyberinfrastructure to facilitate agricultural drought monitoring</em>,
+<a class="reference external" href="https://doi.org/10.1109/agro-geoinformatics.2017.8047054">https://doi.org/10.1109/agro-geoinformatics.2017.8047054</a>.<br />
+——, and Coauthors, 2017c: CyberConnector: a service-oriented system
+for automatically tailoring multisource Earth observation data to feed
+Earth science models. <em>Earth Sci Inform</em>, <strong>11</strong>, 1–17,
+<a class="reference external" href="https://doi.org/10.1007/s12145-017-0308-4">https://doi.org/10.1007/s12145-017-0308-4</a>.<br />
+——, L. Di, and H. Fang, 2018: Using long short-term memory recurrent
+neural network in land cover classification on Landsat and Cropland data
+layer time series. <em>International Journal of Remote Sensing</em>, <strong>40</strong>,
+593–614, <a class="reference external" href="https://doi.org/10.1080/01431161.2018.1516313">https://doi.org/10.1080/01431161.2018.1516313</a>.<br />
+——, ——, and J. Gaigalas, 2019: SUIS: Simplify the use of
+geospatial web services in environmental modelling. <em>Environmental
+Modelling &amp; Software</em>, <strong>119</strong>, 228–241,
+<a class="reference external" href="https://doi.org/10.1016/j.envsoft.2019.06.005">https://doi.org/10.1016/j.envsoft.2019.06.005</a>.<br />
+——, ——, A. Burgess, J. A. Tullis, and A. B. Magill, 2020a:
+Geoweaver: Advanced Cyberinfrastructure for Managing Hybrid
+Geoscientific AI Workflows. <em>IJGI</em>, <strong>9</strong>, 119,
+<a class="reference external" href="https://doi.org/10.3390/ijgi9020119">https://doi.org/10.3390/ijgi9020119</a>.<br />
+——, ——, B. Cash, and J. Gaigalas, 2020b: Advanced
+cyberinfrastructure for intercomparison and validation of climate
+models. <em>Environmental Modelling &amp; Software</em>, <strong>123</strong>, 104559,
+<a class="reference external" href="https://doi.org/10.1016/j.envsoft.2019.104559">https://doi.org/10.1016/j.envsoft.2019.104559</a>.<br />
+——, ——, S. Cvetojevic, and Z. Yu, 2020c: GeoFairy2: A
+Cross-Institution Mobile Gateway to Location-Linked Data for In-Situ
+Decision Making. <em>IJGI</em>, <strong>10</strong>, 1,
+<a class="reference external" href="https://doi.org/10.3390/ijgi10010001">https://doi.org/10.3390/ijgi10010001</a>.<br />
+——, and Coauthors, 2022: A review of Earth Artificial Intelligence.
+<em>Computers &amp; Geosciences</em>, <strong>159</strong>, 105034,
+<a class="reference external" href="https://doi.org/10.1016/j.cageo.2022.105034">https://doi.org/10.1016/j.cageo.2022.105034</a>.<br />
+Tamma, V., M. Dragoni, R. Gonçalves, and A. Ławrynowicz, 2016: Ontology
+Engineering. <em>Ontology Engineering</em>,
+<a class="reference external" href="https://doi.org/10.1007/978-3-319-33245-1">https://doi.org/10.1007/978-3-319-33245-1</a>.<br />
+Tan, X., and Coauthors, 2015: Building an Elastic Parallel OGC Web
+Processing Service on a Cloud-Based Cluster: A Case Study of Remote
+Sensing Data Processing Service. <em>Sustainability</em>, <strong>7</strong>, 14245–14258,
+<a class="reference external" href="https://doi.org/10.3390/su71014245">https://doi.org/10.3390/su71014245</a>.<br />
+——, and Coauthors, 2017: Parallel Agent-as-a-Service (P-AaaS) Based
+Geospatial Service in the Cloud. <em>Remote Sensing</em>, <strong>9</strong>, 382,
+<a class="reference external" href="https://doi.org/10.3390/rs9040382">https://doi.org/10.3390/rs9040382</a>.<br />
+Theurich, G., and Coauthors, 2016: The Earth System Prediction Suite:
+Toward a Coordinated U.S. Modeling Capability. <em>The Earth System
+Prediction Suite: Toward a Coordinated U.S. Modeling Capability</em>,
+<strong>97</strong>, 1229–1247, <a class="reference external" href="https://doi.org/10.1175/bams-d-14-00164.1">https://doi.org/10.1175/bams-d-14-00164.1</a>.<br />
+Thomer, A., ??, ??, and ??, 2018: iSamples user stories: common themes
+and areas for future work. <em>iSamples user stories: common themes and
+areas for future work</em>, <a class="reference external" href="https://doi.org/10.6084/M9.FIGSHARE.4272164.V1">https://doi.org/10.6084/M9.FIGSHARE.4272164.V1</a>.<br />
+Tikoff, B., V. Chatzaras, J. Newman, and N. M. Roberts, 2019: Big data
+in microstructure analysis: Building a universal orientation system for
+thin sections. <em>Journal of Structural Geology</em>, <strong>125</strong>, 226–234,
+<a class="reference external" href="https://doi.org/10.1016/j.jsg.2018.09.019">https://doi.org/10.1016/j.jsg.2018.09.019</a>.<br />
+Ton That, D. H., G. Fils, Z. Yuan, and T. Malik, 2017: Sciunits:
+Reusable Research Objects. <em>Sciunits: Reusable Research Objects</em>,
+<a class="reference external" href="https://doi.org/10.1109/escience.2017.51">https://doi.org/10.1109/escience.2017.51</a>.<br />
+Tucker, G. E., and Coauthors, 2022: CSDMS: a community platform for
+numerical modeling of Earth surface processes. <em>Geosci. Model Dev.</em>,
+<strong>15</strong>, 1413–1439, <a class="reference external" href="https://doi.org/10.5194/gmd-15-1413-2022">https://doi.org/10.5194/gmd-15-1413-2022</a>.<br />
+Tucker, T., D. Giglio, M. Scanderbeg, and S. S. P. Shen, 2020: Argovis:
+A Web Application for Fast Delivery, Visualization, and Analysis of Argo
+Data. <em>Argovis: A Web Application for Fast Delivery, Visualization, and
+Analysis of Argo Data</em>, <strong>37</strong>, 401–416,
+<a class="reference external" href="https://doi.org/10.1175/jtech-d-19-0041.1">https://doi.org/10.1175/jtech-d-19-0041.1</a>.<br />
+Uhen, M. D., S. Goring, J. Jenkins, and J. Williams, 2018: EarthLife
+Consortium: Supporting digital paleobiology. <em>PAGES Mag</em>, <strong>26</strong>,
+78–79, <a class="reference external" href="https://doi.org/10.22498/pages.26.2.78">https://doi.org/10.22498/pages.26.2.78</a>.<br />
+Uhen, M. D., P. I. Buckland, S. J. Goring, J. P. Jenkins, and J. W.
+Williams, 2021: The EarthLife Consortium API: an extensible, open-source
+service for accessing fossil data and taxonomies from multiple community
+paleodata resources. <em>Frontiers of Biogeography</em>, <strong>13</strong>,
+<a class="reference external" href="https://doi.org/10.21425/f5fbg50711">https://doi.org/10.21425/f5fbg50711</a>.<br />
+University of Oregon, 2017: Estimating the Freshwater Flux from the
+Greenland Ice Sheet Workshop Report, American Geophysical Union, 2018.
+<em>Estimating the Freshwater Flux from the Greenland Ice Sheet Workshop
+Report, American Geophysical Union, 2018</em>,
+<a class="reference external" href="https://doi.org/10.18739/A24M9198B">https://doi.org/10.18739/A24M9198B</a>.<br />
+Valcke, S., A. Craig, R. Dunlap, and G. D. Riley, 2016: Sharing
+Experiences and Outlook on Coupling Technologies for Earth System
+Models. <em>Sharing Experiences and Outlook on Coupling Technologies for
+Earth System Models</em>, <strong>97</strong>, ES53–ES56,
+<a class="reference external" href="https://doi.org/10.1175/bams-d-15-00239.1">https://doi.org/10.1175/bams-d-15-00239.1</a>.<br />
+Valentine, D., I. Zaslavsky, S. Richard, O. Meier, G. Hudman, B.
+Peucker‐Ehrenbrink, and K. Stocks, 2020: EarthCube Data Discovery
+Studio: A gateway into geoscience data discovery and exploration with
+Jupyter notebooks. <em>Concurrency Computat Pract Exper</em>, <strong>33</strong>,
+<a class="reference external" href="https://doi.org/10.1002/cpe.6086">https://doi.org/10.1002/cpe.6086</a>.<br />
+Walker, J., 2021: Geology in an Online World. <em>GSAT</em>, <strong>31</strong>, 4–7,
+<a class="reference external" href="https://doi.org/10.1130/gsatprsadrs20.1">https://doi.org/10.1130/gsatprsadrs20.1</a>.<br />
+Walker, J. D., and Coauthors, 2019: StraboSpot data system for
+structural geology. <em>StraboSpot data system for structural geology</em>,
+<strong>15</strong>, 533–547, <a class="reference external" href="https://doi.org/10.1130/ges02039.1">https://doi.org/10.1130/ges02039.1</a>.<br />
+Werthmüller, D., R. Rochlitz, O. Castillo-Reyes, and L. Heagy, 2021:
+Towards an open-source landscape for 3-D CSEM modelling. <em>Towards an
+open-source landscape for 3-D CSEM modelling</em>, <strong>227</strong>, 644–659,
+<a class="reference external" href="https://doi.org/10.1093/gji/ggab238">https://doi.org/10.1093/gji/ggab238</a>.<br />
+Williams, J. W., and Coauthors, 2018a: The Neotoma Paleoecology
+Database, a multiproxy, international, community-curated data resource.
+<em>Quat. res.</em>, <strong>89</strong>, 156–177, <a class="reference external" href="https://doi.org/10.1017/qua.2017.105">https://doi.org/10.1017/qua.2017.105</a>.<br />
+Williams, J. W., D. Kaufman, A. Newton, and L. von Gunten, 2018b:
+Building open data: Data stewards and community-curated data resources.
+<em>PAGES Mag</em>, <strong>26</strong>, 50–51, <a class="reference external" href="https://doi.org/10.22498/pages.26.2.50">https://doi.org/10.22498/pages.26.2.50</a>.<br />
+——, ——, ——, and ——, 2018c: Building and harnessing open
+paleodata. <em>PAGES Mag</em>, <strong>26</strong>, 49–49,
+<a class="reference external" href="https://doi.org/10.22498/pages.26.2.49">https://doi.org/10.22498/pages.26.2.49</a>.<br />
+Woodbury, D. H., D. P. Ames, J. Kadlec, S. Duncan, and G. Gault, 2016: A
+New Open-Access HUC-8 Based Downscaled CMIP-5 Climate Model Forecast
+Dataset for the Conterminous United States. <em>J Am Water Resour Assoc</em>,
+<strong>52</strong>, 906–915, <a class="reference external" href="https://doi.org/10.1111/1752-1688.12437">https://doi.org/10.1111/1752-1688.12437</a>.<br />
+Wood-Charlson, E. M., and E. F. DeLong, 2021: EarthCube Oceanography and
+Geobiology Environmental ‘Omics Research Coordination Network Workshop 1
+Report. <em>EarthCube Oceanography and Geobiology Environmental ‘Omics
+Research Coordination Network Workshop 1 Report</em>,
+<a class="reference external" href="https://doi.org/10.13140/RG.2.1.4908.4561">https://doi.org/10.13140/RG.2.1.4908.4561</a>.<br />
+Wu, J., L. Yu, and H. Yu, 2015: Texture-based edge bundling: A web-based
+approach for interactively visualizing large graphs. <em>Texture-based edge
+bundling: A web-based approach for interactively visualizing large
+graphs</em>, <a class="reference external" href="https://doi.org/10.1109/bigdata.2015.7364046">https://doi.org/10.1109/bigdata.2015.7364046</a>.<br />
+Wyngaard, J., H. Lynch, J. Nabrzyski, A. Pope, and S. Jha, 2017: Hacking
+at the Divide Between Polar Science and HPC: Using Hackathons as
+Training Tools. <em>Hacking at the Divide Between Polar Science and HPC:
+Using Hackathons as Training Tools</em>,
+<a class="reference external" href="https://doi.org/10.1109/ipdpsw.2017.177">https://doi.org/10.1109/ipdpsw.2017.177</a>.<br />
+Xie, Y., E. He, X. Jia, H. Bao, X. Zhou, R. Ghosh, and P. Ravirathinam,
+2021a: A Statistically-Guided Deep Network Transformation and Moderation
+Framework for Data with Spatial Heterogeneity. <em>A Statistically-Guided
+Deep Network Transformation and Moderation Framework for Data with
+Spatial Heterogeneity</em>, <a class="reference external" href="https://doi.org/10.1109/icdm51629.2021.00088">https://doi.org/10.1109/icdm51629.2021.00088</a>.<br />
+——, X. Jia, H. Bao, X. Zhou, J. Yu, R. Ghosh, and P. Ravirathinam,
+2021b: Spatial-Net. <em>Spatial-Net</em>,
+<a class="reference external" href="https://doi.org/10.1145/3474717.3483970">https://doi.org/10.1145/3474717.3483970</a>.<br />
+——, ——, S. Shekhar, H. Bao, and X. Zhou, 2021c: Significant
+DBSCAN+: Statistically Robust Density-based Clustering. <em>ACM Trans.
+Intell. Syst. Technol.</em>, <strong>12</strong>, 1–26,
+<a class="reference external" href="https://doi.org/10.1145/3474842">https://doi.org/10.1145/3474842</a>.<br />
+——, S. Shekhar, and Y. Li, 2023: Statistically-Robust Clustering
+Techniques for Mapping Spatial Hotspots: A Survey. <em>ACM Comput. Surv.</em>,
+<strong>55</strong>, 1–38, <a class="reference external" href="https://doi.org/10.1145/3487893">https://doi.org/10.1145/3487893</a>.<br />
+Yang, C., Q. Huang, Z. Li, K. Liu, and F. Hu, 2016: Big Data and cloud
+computing: innovation opportunities and challenges. <em>International
+Journal of Digital Earth</em>, <strong>10</strong>, 13–53,
+<a class="reference external" href="https://doi.org/10.1080/17538947.2016.1239771">https://doi.org/10.1080/17538947.2016.1239771</a>.<br />
+——, M. Yu, F. Hu, Y. Jiang, and Y. Li, 2017: Utilizing Cloud
+Computing to address big geospatial data challenges. <em>Computers,
+Environment and Urban Systems</em>, <strong>61</strong>, 120–128,
+<a class="reference external" href="https://doi.org/10.1016/j.compenvurbsys.2016.10.010">https://doi.org/10.1016/j.compenvurbsys.2016.10.010</a>.<br />
+Youens-Clark, K., M. Bomhoff, A. J. Ponsero, E. M. Wood-Charlson, J.
+Lynch, I. Choi, J. H. Hartman, and B. L. Hurwitz, 2019: iMicrobe: Tools
+and data-driven discovery platform for the microbiome sciences.
+<em>iMicrobe: Tools and data-driven discovery platform for the microbiome
+sciences</em>, <strong>8</strong>, <a class="reference external" href="https://doi.org/10.1093/gigascience/giz083">https://doi.org/10.1093/gigascience/giz083</a>.<br />
+Youngdahl, A., D.-H. Ton-That, and T. Malik, 2019: SciInc: A Container
+Runtime for Incremental Recomputation. <em>SciInc: A Container Runtime for
+Incremental Recomputation</em>,
+<a class="reference external" href="https://doi.org/10.1109/escience.2019.00040">https://doi.org/10.1109/escience.2019.00040</a>.<br />
+Yu, L., and H. Yu, 2016: A study of scientific visualization on
+heterogeneous processors using Legion. <em>A study of scientific
+visualization on heterogeneous processors using Legion</em>,
+<a class="reference external" href="https://doi.org/10.1109/ldav.2016.7874341">https://doi.org/10.1109/ldav.2016.7874341</a>.<br />
+——, F. Zhu, H. Yu, J. Wang, and K.-S. Kuo, 2016a: Feature extraction
+and tracking for large-scale geospatial data. <em>Feature extraction and
+tracking for large-scale geospatial data</em>,
+<a class="reference external" href="https://doi.org/10.1109/igarss.2016.7729384">https://doi.org/10.1109/igarss.2016.7729384</a>.<br />
+——, M. L. Rilee, Y. Pan, F. Zhu, K.-S. Kuo, and H. Yu, 2017: Visual
+analytics with unparalleled variety scaling for big earth data. <em>Visual
+analytics with unparalleled variety scaling for big earth data</em>,
+<a class="reference external" href="https://doi.org/10.1109/bigdata.2017.8257966">https://doi.org/10.1109/bigdata.2017.8257966</a>.<br />
+Yu, S., B. Chen, K. K. Reeves, D. E. Gary, S. Musset, G. D. Fleishman,
+G. M. Nita, and L. Glesener, 2020: Magnetic Reconnection during the
+Post-impulsive Phase of a Long-duration Solar Flare: Bidirectional
+Outflows as a Cause of Microwave and X-Ray Bursts. <em>ApJ</em>, <strong>900</strong>, 17,
+<a class="reference external" href="https://doi.org/10.3847/1538-4357/aba8a6">https://doi.org/10.3847/1538-4357/aba8a6</a>.<br />
+Yu, X., C. Duffy, Y. Gil, L. Leonard, G. Bhatt, and E. Thomas, 2016b:
+Cyber-Innovated Watershed Research at the Shale Hills Critical Zone
+Observatory. <em>IEEE Systems Journal</em>, <strong>10</strong>, 1239–1250,
+<a class="reference external" href="https://doi.org/10.1109/jsyst.2015.2484219">https://doi.org/10.1109/jsyst.2015.2484219</a>.<br />
+Yuan, Z., D. Ton That, S. Kothari, G. Fils, and T. Malik, 2018:
+Utilizing Provenance in Reusable Research Objects. <em>Informatics</em>, <strong>5</strong>,
+14, <a class="reference external" href="https://doi.org/10.3390/informatics5010014">https://doi.org/10.3390/informatics5010014</a>.<br />
+Yurchyshyn, V., X. Yang, G. Nita, G. Fleishman, V. Abramenko, S. Inoue,
+E.-K. Lim, and W. Cao, 2022: Magnetic Field Re-configuration Associated
+With a Slow Rise Eruptive X1.2 Flare in NOAA Active Region 11944.
+<em>Front. Astron. Space Sci.</em>, <strong>9</strong>,
+<a class="reference external" href="https://doi.org/10.3389/fspas.2022.816523">https://doi.org/10.3389/fspas.2022.816523</a>.<br />
+Zhang, C., Z. Sun, G. Heo, L. Di, and L. Lin, 2016: A GeoPackage
+implementation of common map API on Google Maps and OpenLayers to
+manipulate agricultural data on mobile devices. <em>A GeoPackage
+implementation of common map API on Google Maps and OpenLayers to
+manipulate agricultural data on mobile devices</em>,
+<a class="reference external" href="https://doi.org/10.1109/agro-geoinformatics.2016.7577654">https://doi.org/10.1109/agro-geoinformatics.2016.7577654</a>.<br />
+——, L. Di, Z. Sun, E. G. Yu, L. Hu, L. Lin, J. Tang, and Md. S.
+Rahman, 2017a: Integrating OGC Web Processing Service with cloud
+computing environment for Earth Observation data. <em>Integrating OGC Web
+Processing Service with cloud computing environment for Earth
+Observation data</em>,
+<a class="reference external" href="https://doi.org/10.1109/agro-geoinformatics.2017.8047065">https://doi.org/10.1109/agro-geoinformatics.2017.8047065</a>.<br />
+Zhang, D., P. K. Dera, P. J. Eng, J. E. Stubbs, J. S. Zhang, V. B.
+Prakapenka, and M. L. Rivers, 2017b: High Pressure Single Crystal
+Diffraction at PX^2. <em>JoVE</em>, <a class="reference external" href="https://doi.org/10.3791/54660">https://doi.org/10.3791/54660</a>.<br />
+Zhang, L., E. Moges, J. W. Kirchner, E. Coda, T. Liu, A. S. Wymore, Z.
+Xu, and L. G. Larsen, 2021: &lt;scp&gt;CHOSEN&lt;/scp&gt;  : A synthesis of
+hydrometeorological data from intensively monitored catchments and
+comparative analysis of hydrologic extremes. <em>Hydrological Processes</em>,
+<strong>35</strong>, <a class="reference external" href="https://doi.org/10.1002/hyp.14429">https://doi.org/10.1002/hyp.14429</a>.<br />
+Zheng, C. L., V. Ratnakar, Y. Gil, and S. K. McWeeney, 2015: Use of
+semantic workflows to enhance transparency and reproducibility in
+clinical omics. <em>Genome Med</em>, <strong>7</strong>,
+<a class="reference external" href="https://doi.org/10.1186/s13073-015-0202-y">https://doi.org/10.1186/s13073-015-0202-y</a>.<br />
+Zheng, W., 2022: Glacier geometry and flow speed determine how Arctic
+marine-terminating glaciers respond to lubricated beds. <em>The
+Cryosphere</em>, <strong>16</strong>, 1431–1445,
+<a class="reference external" href="https://doi.org/10.5194/tc-16-1431-2022">https://doi.org/10.5194/tc-16-1431-2022</a>.<br />
+——, S. Grigsby, F. Sapienza, J. Taylor, T. Snow, F. Pérez, and M.
+Siegfried, 2021: Mapping ice flow velocity using an easy and interactive
+feature tracking workflow. <em>Mapping ice flow velocity using an easy and
+interactive feature tracking workflow</em>,
+<a class="reference external" href="https://doi.org/10.5281/ZENODO.5496306">https://doi.org/10.5281/ZENODO.5496306</a>.<br />
+Zhou, Y., J. Wu, L. Yu, H. Yu, and Z. Tang, 2016: A geohydrologie data
+visualization framework with an extendable user interface design. <em>A
+geohydrologie data visualization framework with an extendable user
+interface design</em>, <a class="reference external" href="https://doi.org/10.1109/bigdata.2016.7840865">https://doi.org/10.1109/bigdata.2016.7840865</a>.<br />
+Zhu, R., Y. Hu, K. Janowicz, and G. McKenzie, 2016: Spatial signatures
+for geographic feature types: examining gazetteer ontologies using
+spatial statistics. <em>Trans. in GIS</em>, <strong>20</strong>, 333–355,
+<a class="reference external" href="https://doi.org/10.1111/tgis.12232">https://doi.org/10.1111/tgis.12232</a>.</p>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./bib"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The NCAR Library; Keith Maull & Matt Mayernik<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -9,4 +9,4 @@ Downloads of full Zotero library:
 | Date | Download Link |
 |:----:|:-----:|
 | 11/07/2022 | download {download}`[Zotero export (bibtex)] <./ec_zotero_export.bib>` |
-| 11/07/2022 | download {download}`[Zotero report (pdf)] </bib/zotero_report.pdf>`
+| 11/07/2022 | download {download}`[Zotero report (pdf)] </bib/zotero_report.pdf>` |
